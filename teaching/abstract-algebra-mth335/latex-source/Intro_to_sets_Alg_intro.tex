@@ -1,0 +1,531 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,english]{book}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{units}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1cm,bmargin=1cm,lmargin=1.5cm,rmargin=1.5cm}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\theoremstyle{definition}
+\newtheorem{example}{\protect\examplename}
+\theoremstyle{definition}
+\newtheorem{defn}{\protect\definitionname}
+\theoremstyle{definition}
+\newtheorem{xca}{\protect\exercisename}
+\theoremstyle{remark}
+\newtheorem{rem}{\protect\remarkname}
+\theoremstyle{plain}
+\newtheorem{prop}{\protect\propositionname}
+\ifx\proof\undefined\
+  \newenvironment{proof}[1][\proofname]{\par
+    \normalfont\topsep6\p@\@plus6\p@\relax
+    \trivlist
+    \itemindent\parindent
+    \item[\hskip\labelsep
+          \scshape
+      #1]\ignorespaces
+  }{%
+    \endtrivlist\@endpefalse
+  }
+  \providecommand{\proofname}{Proof}
+\fi
+\theoremstyle{plain}
+\newtheorem{lem}{\protect\lemmaname}
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{xcolor} %adds additional color options
+\hypersetup{colorlinks=true, urlcolor=Blue}%Blue
+
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows,shapes,backgrounds,matrix,shapes.geometric,fit,trees,positioning}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+
+%%%%%commands
+\newcommand{\mb}[1]{$\mathbb{#1}$}
+\newcommand{\funct}[2]{$f\colon#1\rightarrow#2$}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\definitionname}{Definition}
+\providecommand{\examplename}{Example}
+\providecommand{\exercisename}{Exercise}
+\providecommand{\lemmaname}{Lemma}
+\providecommand{\propositionname}{Proposition}
+\providecommand{\remarkname}{Remark}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+
+\chapter{Introduction to Sets}
+
+Set theory is a foundation on which (almost) all of mathematics can
+be built. 
+\begin{itemize}
+\item A \emph{set }is a collection of distinct objects called \emph{elements}.
+\end{itemize}
+This is not really a definition (for a rigorous definition see this
+\href{http://en.wikipedia.org/wiki/Set_theory}{link}); to avoid some
+messiness we will use this ``intuitive'' (sometimes called ``naive'')
+understanding of set and element. Which has good enough for Cantor,
+so it should be good enough for us.\footnote{George Cantor founded set theory using the ``naive'' defintions
+in 1874 with a single paper. However by 1900 a number of contradictions
+were found. Most famously Russell's paradox: ``the set of all sets
+that are not members of themselves.'' This set must be a member of
+itself, and yet is not a member of itself!} 
+
+\section{Describing Sets}
+
+Lots of new notation will be introduced as we move through the material.
+The trade-off for learning all the new notation is certainly worth
+it. Think of trying to solve even a simple quadratic, $x^{2}+2x-10=0$,
+without the advantage of using $x$ as the unknown and Arabic numbers.
+\begin{itemize}
+\item Sets are usually denoted with capital letters, e.g., $A,B,C,\dots$
+etc; and elements in sets are usually denoted with lowercase letters
+$a,b,c,\dots$.
+\item If $a$ is an element in the set $A$, we write $a\in A$. If $a$
+is not in $A$ we write $a\notin A$ (slashes usually mean negation). 
+\end{itemize}
+Sets are described in a number of different ways:
+
+Described: 
+\begin{example}
+$a,b,c$ are elements of the set $A$; also written $a,b,c\in A$.
+\end{example}
+
+\begin{example}
+$\mathbb{R}$ is the set of all real numbers.
+\end{example}
+
+\emph{Tabular }form: 
+\begin{example}
+$A=\left\{ a,b,c\right\} $, means $a,b,c\in A$.
+
+\begin{itemize}
+\item []Dots are used when unlisted elements can be implied:
+\end{itemize}
+\end{example}
+
+\begin{example}
+$A=\left\{ a,b,c,\dots z\right\} $, it is implied that all the letters
+in alphabet are in $A$.
+\end{example}
+
+\begin{example}
+$\mathbb{Z}=\left\{ \dots,-1,0,1,2,\dots\right\} $
+\end{example}
+\emph{Set builder }form: 
+\begin{example}
+$\mathbb{Z}^{+}=\left\{ n\in\mathbb{Z}\colon\ensuremath{n>0}\right\} $,
+read ``$n$ is an integer \emph{such that }$n$ is greater than $0$.''
+\end{example}
+
+\begin{example}
+$2\mathbb{Z}=\left\{ n\in\mathbb{Z}\colon n=2m\mbox{ for some }m\in\mathbb{Z}\right\} $.
+This set is all the even numbers. So $4\in2\mathbb{Z}$ and $11\notin2\mathbb{Z}$.
+\end{example}
+
+\section{Some Basic Definitions}
+
+\emph{A farmer had a 100 feet of fence and wanted to enclose as large
+an area as possible. After a little thought, an engineer made a square
+resulting in an area of $25^{2}=625\mbox{ ft}^{2}$. A physicist (knowing
+he could do better) made a circle resulting in $\pi\left(\nicefrac{100}{2\pi}\right)^{2}\approx795.7\,\mbox{ft}^{2}$.
+Finally a mathematician steps forward, breaks off a small piece of
+fence, and says ``I define myself to be on the outside!'' (resulting
+in an area approximately equal to the area of the Earth). }
+
+How we define things is very important. When trying to prove something,
+read the definitions very carefully. For the following definitions,
+assume that $A$ and $B$ are both sets. 
+\begin{defn}
+$A$ is a \emph{subset of $B$ }if every element of $A$ is also an
+element of $B$, written $A\subseteq B$. 
+\end{defn}
+\begin{example}
+If $A=\{1,2,3\}$ and $B=\{0,1,2,3\}$then $A\subseteq B$ and $B\not\subseteq A$.
+Also note that $A\subseteq A$. 
+\end{example}
+\begin{itemize}
+\item $A\subseteq A$ for any set $A$. Every set is subset of itself. Since
+every element of a set $A$ will also be an element of $A$.
+\end{itemize}
+\begin{example}
+$\mathbb{N}\subseteq\mathbb{Z}\subseteq\mathbb{Q}\mathbb{\subseteq R\subseteq C}$:
+The natural, integers, rational, real, and complex numbers respectively.
+\end{example}
+\begin{defn}
+The set with no elements is called the \emph{empty set}, denoted $\emptyset$.
+\end{defn}
+\begin{itemize}
+\item $\emptyset=\{x\in A\colon x\notin A\mbox{ for any set }A\}$.
+\item Let $B$ be set of numbers that are both irrational and rational real
+numbers. $B=\emptyset$.
+\item $\emptyset\subseteq A$ for any set $A$, i.e., \emph{the empty set
+is a subset of every set}. 
+\end{itemize}
+\begin{defn}
+$A=B$ if and only if $A$ and $B$ have the same elements.
+\end{defn}
+\begin{itemize}
+\item It is often helpful to use the equivalent definition: $A=B$ is $A\subseteq B$
+\uline{and} $B\subseteq A$.
+\end{itemize}
+\begin{example}
+Let $A=\{a\colon a=2^{n}\mbox{ for any integer }n\}$ and $B=\{b\colon b=2^{n-2}$
+for any integer $n$\}. Show that $A=B$. (Show that $A\subseteq B$)
+Let $a\in A$. If $n$ is an integer then there is another integer
+$m$ such that $m=n-2$. So then $a=2^{n}=2^{m-2}\in B$. \\
+(Show that $B\subseteq A$) Let $b\in B$. If $n$ is an integer then
+there is another integer $m$ such that $n-2=m$. So then $b=2^{n-2}=2^{m}\in A$.
+
+\begin{itemize}
+\item Note that proving $B\subseteq A$ was nearly identical to proving
+$A\subseteq B$ (I literally copied,pasted, and switch a few letters).
+When one part of prove is so clearly similar to an already completed
+previous part, we will often just write ``similarly it can be shown
+that $B\subseteq A$''.
+\end{itemize}
+\end{example}
+\begin{defn}
+$A$ is a \emph{proper subset of $B$ }if every element of $A$ is
+also an element of $B$ \uline{and} $A\neq B$, written $A\subseteq B$.
+\end{defn}
+\begin{example}
+Let $A=\{a\in\mathbb{Z}\colon a=2^{n}\mbox{ for a positive integer \ensuremath{n}}\}$
+and $B=\{a\in\mathbb{Z}\colon a=2n\}$. Show that $A$ is a proper
+subset of $B$. 
+
+\begin{itemize}
+\item []We must show that $A\subseteq B$ but $A\neq B$. Let $a\in A$.
+by definition $a=2^{n}=2\cdot2^{n-1}$ for $n\geq0$. Since $2^{n-1}$
+is an integer, $a\in A$. (To show that $A\neq B$ we need only find
+1 element in $B$ that is not in $A$. There are many.) $6=2\cdot3\in B$
+but $6\notin A$ since $6\neq2^{n}$ for $n$ a positive integer. 
+\end{itemize}
+\end{example}
+\begin{itemize}
+\item Our use of$\subseteq$ and $\subset$ is analogous to $\leq$ and
+$<$.\footnote{Note that the meaning of set notation varies among authors. $\varsubsetneq$
+is often used to denote proper subset, and others use$\subset$ for
+subset. }
+\end{itemize}
+\begin{figure}
+\hfill%
+\begin{minipage}[t]{0.33\textwidth}%
+\begin{center}
+
+\begin{tikzpicture}     	\begin{scope}[scale=.5,shift={(3cm,-5cm)}, fill opacity=0.5,mytext/.style={text opacity=1,font=\large\bfseries}]         
+		\draw[fill=red, draw = black] (0,0) circle (2);         
+		\draw[fill=green, draw = black] (-0.75,0) circle (1);     
+		\node[mytext] at (0,1.5) (B) {\large\textbf{B}};     		
+		\node[mytext] at (-1,0) (A) {\large\textbf{A}};     	
+	\end{scope}
+\end{tikzpicture}
+\caption{}{$A\subseteq B$ and $A\subset B$}
+\par\end{center}%
+\end{minipage}\hfill%
+\begin{minipage}[t]{0.33\textwidth}%
+\begin{center}
+
+\begin{tikzpicture}     	\begin{scope}[scale=.5,shift={(3cm,-5cm)}, fill opacity=0.5,mytext/.style={text opacity=1,font=\large\bfseries}]         
+		\draw[fill=red, draw = black] (0,0) circle (2);         
+		\draw[fill=green, draw = black] (0.0,0) circle (2);     
+		\node[mytext] at (0,1.5) (B) {\large\textbf{B}};     		
+		\node[mytext] at (-1,0) (A) {\large\textbf{A}};     	
+	\end{scope}
+\end{tikzpicture}
+\caption{}{$A\subseteq B$ and $A\not\subset B$}
+\par\end{center}%
+\end{minipage}\hfill%
+\begin{minipage}[t]{0.33\textwidth}%
+\begin{center}
+
+\begin{tikzpicture}     	\begin{scope}[scale=.5,shift={(3cm,-5cm)}, fill opacity=0.5,mytext/.style={text opacity=1,font=\large\bfseries}]         
+		\draw[fill=red, draw = black] (0,0) circle (2);         
+		\draw[fill=green, draw = black] (-2.0,0) circle (1);     
+		\node[mytext] at (0,1.5) (A) {\large\textbf{B}};     		
+		\node[mytext] at (-2.5,0) (B) {\large\textbf{A}};     	
+	\end{scope}
+\end{tikzpicture}
+\caption{}{$A\not\subset B$}
+\par\end{center}%
+\end{minipage}\hfill
+
+\caption{Venn diagrams}
+\end{figure}
+
+\begin{defn}
+Let $A$ be any set. The set of all subsets of $A$ is called the
+\emph{power set }of $A$, denoted $\mathcal{P}(A)$. 
+\end{defn}
+\begin{xca}
+Let $A=\{0,1,2,3\}$. Find $\mathcal{P}(A)$ (don't forget $A$ and
+$\emptyset$).
+\end{xca}
+\begin{itemize}
+\item Note that: $A\in\mathcal{P}(A)$, $\emptyset\in\mathcal{P}(A)$, and
+$\mathcal{P}(\emptyset)=\emptyset$.
+\item \label{thm:order-of-power-set}Theorem \ref{thm:-power set order}:
+If $A$ be any set with $n$ elements then $\mathcal{P}(A)$ has $2^{n}$
+elements. 
+\end{itemize}
+\begin{rem}
+Some summary.
+
+\begin{enumerate}
+\item $A=B\iff A\subseteq B$ and $B\subseteq A$.\footnote{``$\iff$'' is equivalent to writing ``if and only if''. Often
+this is notated ``iff.''}
+\item $A\subseteq A$
+\item $\emptyset\subseteq A$
+\item $A\in\mathcal{P}(A)$ and $\emptyset\in\mathcal{P}(A)$
+\end{enumerate}
+\end{rem}
+
+\section{Set Operations}
+\begin{defn}
+The \emph{union }of sets $A$ and $B$ is defined by $A\cup B=\{x\colon x\in A\mbox{ or }x\in B\}$
+\end{defn}
+\begin{example}
+Let $A=\{1,2,3\}$ and $B=\{2,3,4\}$. $A\cup B=\{1,2,3,4\}$. 
+\end{example}
+\begin{xca}
+$A\cup B=B$ if and only if $A\subseteq B$.
+\end{xca}
+
+\begin{example}
+$\mathbb{R\cup\mathbb{Z}=\mathbb{R}}$. $\mathbb{Z}\subseteq\mathbb{R}$
+so this is true by the above result.
+\end{example}
+
+\begin{xca}
+$A\cup B=B\cup A$.
+\end{xca}
+\begin{defn}
+The intersection of sets $A$ and $B$ is defined by $A\cap B=\{x\colon x\in A\mbox{ and }x\in B\}$.
+\end{defn}
+\begin{example}
+Let $A=\{1,2,3\}$ and $B=\{2,3,4\}$. $A\cap B=\{2,3\}$.
+\end{example}
+
+\begin{example}
+Let $A=\{1,2,3\}$ and $B=\{4,5,6\}$. $A\cap B=\emptyset$.
+\end{example}
+
+\begin{xca}
+$A\cap B=B$ if and only if $B\subseteq A$.
+\end{xca}
+
+\begin{xca}
+$A\cap B=B\cap A$.
+\end{xca}
+\begin{figure}[h]
+\begin{centering}
+\def\firstcircle{(90:1.75cm) circle (2.5cm)} 
+\def\secondcircle{(210:1.75cm) circle (2.5cm)} 
+\def\thirdcircle{(330:1.75cm) circle (2.5cm)}
+
+\begin{tikzpicture}     
+\begin{scope}     
+	\fill[red]\firstcircle;       
+	\fill[green] \secondcircle;       
+	\fill[blue] \thirdcircle;     
+\end{scope}     
+\begin{scope}
+	\clip 
+	\secondcircle;       
+	\fill[yellow] 
+	\firstcircle;     
+\end{scope}     
+\begin{scope}       
+	\clip 
+	\secondcircle;       
+	\fill[cyan] 
+	\thirdcircle;     
+\end{scope}     
+\begin{scope}       
+	\clip 
+	\firstcircle;       
+	\fill[magenta] 
+	\thirdcircle;     
+\end{scope}     
+\begin{scope}       
+	\clip \firstcircle;       
+	\clip \secondcircle;       
+	\fill[white] \thirdcircle;     
+\end{scope}     
+\draw 
+	\firstcircle node[text=white,above] {$A$};     
+	\draw \secondcircle node [text=white,below left] {$B$};     
+	\draw \thirdcircle node [text=white,below right] {$C$};     
+\begin{scope}[font=\small]       
+	\node(0,0) {$A\cap B\cap C$};       
+	\draw(30:1.5cm) node {$A\cap C$};       
+	\draw(150:1.5cm) node {$A\cap B$};       
+\draw(270:1.5cm) node {$B\cap C$};     
+\end{scope}   
+\end{tikzpicture}\caption{A Venn diagram showing the intersections of three sets, $A$, $B$,
+and$C$. }
+\par\end{centering}
+\end{figure}
+
+\begin{defn}
+The \emph{difference of sets }$B$ and $A$ is the set of elements
+that are in $B$ and not in $A$; written $B-A$.\footnote{Also called the \emph{relative complement of }$A$ in $B$ usually
+
+denoted $B\setminus A$.}
+\end{defn}
+\begin{itemize}
+\item $B-A=\{x\colon x\in B\mbox{ but }x\notin A\}$ (set builder form).
+\end{itemize}
+\begin{example}
+$\mathbb{Z}-2\mathbb{Z}$ is the set of odd integers.
+\end{example}
+\begin{defn}
+The compliment of a set $A$ is the set of elements (under consideration)
+not in $A$; denoted $A^{c}$.\footnote{We are being a little sloppy here by ignoring some complications of
+
+the universal set in trade for an easier introduction to sets. }
+\end{defn}
+\begin{itemize}
+\item $A^{c}=\{x\colon x\notin A\}$.
+\end{itemize}
+\begin{example}
+When considering real numbers, $\mathbb{Z}^{c}=\{x\colon x\notin\mathbb{Z}\}$
+is the set of all numbers that are not integers. 
+\end{example}
+\begin{prop}
+$A-B=A\cap B^{c}$.
+
+\begin{proof}
+Let $x\in A-B$ so then $x\in A$ and $x\notin B$. By definition
+of compliments $x\in B^{c}$. So then $x\in A-B$ and $A-B\subseteq A\cap B^{c}$.
+
+Let $x\in A\cap B^{c}$ so then $x\in A$ and $x\notin B$. By definition
+of difference of sets, $x\in A-B$ thus $A\cap B^{c}\subseteq A-B$.
+
+$A-B\subseteq A\cap B^{c}$ and $A\cap B^{c}\subseteq A-B$ imply
+$A\cap B^{c}=A-B$.
+\end{proof}
+\end{prop}
+\begin{defn}
+The number of elements in a set $A$ is called the \emph{order of
+$A$}; denoted $|A|$.\footnote{Also called the \emph{cardinality of $A$.}}
+\end{defn}
+\begin{itemize}
+\item When we write $|A|=n$ it is assumed that $n$ is a non-negative integer.
+\end{itemize}
+\begin{example}
+Let $A=\{a,b,c\}$. $|A|=3$.
+\end{example}
+
+\begin{example}
+Let $A=\{a,b,c\}$ then $|\mathcal{P}(A)|=2^{3}=8$ by Theorem \ref{thm:order-of-power-set}.
+\end{example}
+
+\begin{example}
+$|\emptyset|=0$.
+\end{example}
+\begin{lem}
+\label{lem:lemma-for-power-setr-num}If $|A|=n$ and $|B|=n+1$ for
+sets $A$ and $B$ then $|\mathcal{P}(B)|=2|\mathcal{P}(A)|$.
+
+\begin{proof}
+We can without loss of generality\footnote{Often abbreviated WLOG, ``without loss of generality'' is used before
+an assumption in a proof to narrow the premise to some special case
+when the proof using the special case can obviously be adapted for
+all other cases.} assume that $B=A\cup\{b\}$. So that $A=B-\{a\}$. $B$ has two kinds
+of subsets; those containing $b$ and those that do not. Now let $S\in\mathcal{P}(B)$
+such that $b\notin S$. Then $S\in\mathcal{P}(A)$, and there are
+$n$ such sets. Now let $S'\in\mathcal{P}(B)$ such that $b\in S'$.
+Then $S'-\{b\}\subseteq A$, and there are $n$ such sets. As a subsets
+of $B$ either contains $b$ or it does not, $|\mathcal{P}(B)|=|\mathcal{P}(A)|+|\mathcal{P}(A)|=2|\mathcal{P}(A)|$.
+\end{proof}
+\end{lem}
+\begin{thm}
+\textup{\label{thm:-power set order}$|\mathcal{P}(A)|=2^{n}$ for
+any set $A$.}
+\end{thm}
+\begin{example}
+Prove theorem \ref{thm:order-of-power-set}. 
+\end{example}
+\begin{itemize}
+\item []Hint: Use lemma \ref{lem:lemma-for-power-setr-num} and induction.
+\end{itemize}
+
+\section{Exercises}
+\begin{enumerate}
+\item Write in tabular form: 
+
+\begin{enumerate}
+\item $A=\{x\colon x\mbox{ is a letter in "do not repeat"}\}$
+
+\begin{enumerate}
+\item $3\mathbb{Z}=\left\{ x\in\mathbb{Z}\colon x=3n\mbox{ for some \ensuremath{n\in\mathbb{Z}}}\right\} $
+\item $N=\left\{ x\colon x\mbox{ is odd and \ensuremath{x}is even}\right\} $
+(recall that $0$ is even)
+\end{enumerate}
+\item Write these sets in set-builder form:
+
+\begin{enumerate}
+\item Let $A=\{3,4,5,6,7,\dots\}$
+\item Let $B=\{3,5,7,9,\dots\}$
+\item Let $\mathbb{Q}$ be the set of rational numbers. 
+\end{enumerate}
+\end{enumerate}
+\item Find all sets of $A=\{1,2,3\}$.
+\item Prove that every nonempty subset has a proper subset. 
+\item Prove that if $A$ is a subset of $\emptyset$, then $A=\emptyset$.
+\item Prove that $A=\{2,3,4,5\}$ is not a subset of $B=\{x\mid x\mbox{ is even}\}$.
+\item Prove that $A$ and $B$ are subsets of $A\cup B$.
+\item Prove that $A=A\cup A$ and $A=A\cap A$.
+\item Prove that $A\cap B$ is a subset of $A$ and of $B$.
+\item Prove that $A\cup B=\emptyset$ implies that $A=\emptyset$ and $B=\emptyset$.
+\item Prove that $A\cup B=B$ if and only if $A\subseteq B$.
+\item Prove that $A\cap B=B$ if and only if $B\subseteq A$.
+\item Prove that $A\cup\left(A\cap B\right)=A$.
+\item Prove that $A\cap\left(A\cup B\right)=A$.
+\item Prove that $\mathcal{P}(A\cap B)=\mathcal{P}(A)\cap\mathcal{P}(B)$.
+\item Prove that $A-B$ is a subset of $A\cup B$.
+\item Prove that if $A$ a subset of $B$ then $A\cap B=A$.
+\item Let $A\cap B=\emptyset$. Prove that $B\cap A'=B$.
+\item Prove that if $A$ is a subset of $B$ then $A\cup B=B$.
+\item Prove that $A'-B'=B-A$.
+\item Prove that if $A$ is a subset of $B$ then $B'$ is a subset of $A'$.
+\item Prove that if $A\cap B=\emptyset$ then $A\cup B'=B'$.
+\item Prove that $\left(A\cap B\right)'=A'\cup B'$.
+\item Prove that $A\subset B$ implies that $A\cup\left(B-A\right)=B$.
+\item $\bigstar$ The \emph{product set }of sets $A$ and $B$ is the set
+of all ordered pairs $(a,b)$ where $a\in A$ and $b\in B$; it is
+denoted by $A\times B$. Prove that $A\times(B\cap C)=(A\times B)\cap(A\times C)$. 
+\end{enumerate}
+
+\end{document}

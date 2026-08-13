@@ -1,0 +1,350 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,english]{book}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1cm,bmargin=1cm,lmargin=1.5cm,rmargin=1.5cm}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\ifx\proof\undefined\
+  \newenvironment{proof}[1][\proofname]{\par
+    \normalfont\topsep6\p@\@plus6\p@\relax
+    \trivlist
+    \itemindent\parindent
+    \item[\hskip\labelsep
+          \scshape
+      #1]\ignorespaces
+  }{%
+    \endtrivlist\@endpefalse
+  }
+  \providecommand{\proofname}{Proof}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{xcolor} %adds additional color options
+\hypersetup{colorlinks=true, urlcolor=Blue}%Blue
+
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows,shapes,backgrounds,matrix,shapes.geometric,fit,trees,positioning}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+
+%%%%%commands
+\newcommand{\mb}[1]{$\mathbb{#1}$}
+\newcommand{\funct}[2]{$f\colon#1\rightarrow#2$}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\chapter{\label{chap:HW_solutions}Solutions to selected exercises}
+
+\section*{Chapter 1 }
+\begin{enumerate}
+\item Complete the following.
+
+\begin{enumerate}
+\item Write in tabular form: 
+
+\begin{enumerate}
+\item $A=\{x\colon x\mbox{ is a letter in "do not repeat"}\}$
+
+\begin{enumerate}
+\item []$A=\{d,o,n,t,r,e,p,a\}$
+\end{enumerate}
+\item $3\mathbb{Z}=\left\{ x\in\mathbb{Z}\colon x=3n\mbox{ for some \ensuremath{n\in\mathbb{Z}}}\right\} $
+
+\begin{enumerate}
+\item []$3\mathbb{Z}=\{\dots,-6,-3,0,3,6,\dots\}$
+\end{enumerate}
+\item $N=\left\{ x\colon x\mbox{ is odd and \ensuremath{x}is even}\right\} $
+(recall that $0$ is even)
+
+\begin{enumerate}
+\item []$N=\emptyset$
+\end{enumerate}
+\end{enumerate}
+\item Write these sets in set-builder form:
+
+\begin{enumerate}
+\item Let $A=\{3,4,5,6,7,\dots\}$
+
+\begin{enumerate}
+\item []$A=\{x\in\mathbb{Z}\colon x\geq3\}$
+\end{enumerate}
+\item Let $B=\{3,5,7,9,\dots\}$
+
+\begin{enumerate}
+\item []$B=\{x\colon x=2n+1\mbox{ where }n\in\mathbb{Z}\mbox{ and }n\geq1\}$ 
+\end{enumerate}
+\item Let $\mathbb{Q}$ be the set of rational numbers.
+
+\begin{enumerate}
+\item []$\mathbb{Q}=\{x\colon x=\frac{a}{b}\mbox{ where }a,b\in\mathbb{Z}\}$
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\item Find all subsets of $A=\{1,2,3\}$.
+
+\begin{enumerate}
+\item []$\{1,2,3\}$, $\{1,2\}$, $\{1,3\}$, $\{2,3\}$, $\{1\}$, $\{2\}$,
+$\{3\}$, $\emptyset$. There are $3$ elements in $A$ so there are
+$2^{3}=8$ subsets.
+\end{enumerate}
+\item Prove that every nonempty subset has a proper subset. 
+
+\begin{proof}
+Let $A$ be any non-empty subset. $\emptyset\subseteq A$ since $\emptyset$
+is a subset of every set, and $\emptyset\subset A$ (a proper subset)
+since $A\neq\emptyset$. 
+\end{proof}
+\item Prove that if $A$ is a subset of $\emptyset$, then $A=\emptyset$.
+
+\begin{proof}
+Let $A\subseteq\emptyset$. $\emptyset\subseteq A$ for any subset
+$A$. So then $A=\emptyset$.
+\end{proof}
+\item Prove that $A=\{2,3,4,5\}$ is not a subset of $B=\{x\mid x\mbox{ is even}\}$.
+
+\begin{proof}
+$5$ is not even since $5=2\cdot2+1$. So then $5\notin B$. Thus
+$A\nsubseteq B$.
+\end{proof}
+\item Prove that $A$ and $B$ are subsets of $A\cup B$.
+
+\begin{proof}
+Let $a\in A$. $a\in A$ so then $a\in A\cup B$ by definition of
+the union of sets. Thus $A\subseteq A\cup B$. Similarly we can show
+$B\subseteq A\cup B$. 
+\end{proof}
+\item Prove that $A=A\cup A$ and $A=A\cap A$.
+
+\begin{proof}
+$\left(A=A\cup A\right)$. By exercise 6, $A\subseteq A\cup A$. So
+we need only show that $A\cup A\subseteq A$. Let $a\in A\cup A$.
+Then $a\in A$ or $a\in A$, implying that $A\cup A\subseteq A$.
+Thus $A\cup A=A$
+
+$\left(A=A\cap A\right)$. Let $a\in A$. Then $a\in A$ and $a\in A$.
+Thus $A\subseteq A\cap A$. Let $a\in A\cap A$. Then $a\in A$ and
+$a\in A$ by definition, and this implies that $A\cap A\subseteq A$. 
+
+Thus $A=A\cap A$.
+\end{proof}
+\item Prove that $A\cap B$ is a subset of $A$ and of $B$.
+
+\begin{proof}
+Let $x\in A\cap B$. Then $x\in A$ and $x\in B$ by definition. So
+then $x\in A$ implying that $A\subseteq A\cap B$. Similarly we can
+show that $B\subseteq A\cap B$.
+\end{proof}
+\item Prove that $A\cup B=\emptyset$ implies that $A=\emptyset$ and $B=\emptyset$.
+
+\begin{proof}
+Suppose that $A\cup B=\emptyset$. $A\subseteq A\cup B=\emptyset$
+by exercise 6. Thus $A\subseteq\emptyset$, and this implies that
+$A=\emptyset$ by exercise 4.
+
+Similarly we can show that $B=\emptyset$.
+\end{proof}
+\item Prove that $A\cup B=B$ if and only if $A\subseteq B$.
+
+\begin{proof}
+$(\Rightarrow)$ Let $A\cup B=B$. $A\subseteq A\cup B=B$ (by exercise
+6) which implies that $A\subseteq B$.\\
+$(\Leftarrow)$ Let $A\subseteq B$. $B\subseteq A\cup B$ (again
+exercise 6) so we only need to show that $A\cup B\subseteq B$. Let
+$a\in A\cup B$ then $a\in A$ or $a\in B$. If $a\in B$ then $A\cup B\subseteq B$
+as required. If $a\in A$ then $A\subseteq B$ implies that $a\in B$.
+Thus $A\cup B\subseteq B$. Which implies that $A\cup B=B$.
+\end{proof}
+\begin{itemize}
+\item For ``if and only if/$\iff$'' statements, you need to show both
+directions, $\Rightarrow$ and $\Leftarrow$. 
+\item For $A=B$ statements, it is usually easiest to show that $A\subseteq B$
+and $B\subseteq A$ separately.
+\end{itemize}
+\item Prove that $A\cap B=B$ if and only if $B\subseteq A$.
+
+\begin{proof}
+$(\Rightarrow)$ Let $A\cap B=B$. $B=A\cap B\subseteq A$ by exercise
+8 so then $B\subseteq A$.\\
+$(\Leftarrow)$ Let $B\subseteq A$. We already know that $A\cap B\subseteq B$
+be ex.\,8. So we need only show that $B\subseteq A\cap B.$ Let $b\in B.$
+By assumption $B\subseteq A$ so then $b\in A$ which implies that
+$b$ is in $A$ and $B$, i.e., $b\in A\cap B$. 
+\end{proof}
+\item Prove that $A\cup\left(A\cap B\right)=A$.
+
+\begin{proof}
+$A\cup(A\cap B)=A$ if and only if $A\cap B\subseteq A$ by ex.\,10,
+and $A\cap B\subseteq A$ by ex.\,8.
+\end{proof}
+\item Prove that $A\cap\left(A\cup B\right)=A$.
+
+\begin{proof}
+$A\cap(A\cup B)=A$ if and only if $A\subseteq A\cup B$ by ex.\,11,
+and $A\subseteq A\cup B$ by ex.\,6.
+\end{proof}
+\item Prove that $\mathcal{P}(A\cap B)=\mathcal{P}(A)\cap\mathcal{P}(B)$.
+
+\begin{proof}
+Let $P\in\mathcal{P}(A\cap B)$. Then $P\subseteq A\cap B$ implying
+that $P\subseteq A$ and $P\subseteq B$ thus $P\in\mathcal{P}(A)\cap\mathcal{P}(B)$.
+\\
+Now let $P\in\mathcal{P}(A)\cap\mathcal{P}(B)$. Thus $P\subseteq A$
+and $P\subseteq B$ which means that $P\subseteq A\cap B$ and that
+$P\in\mathcal{P}(A\cap B$).
+\end{proof}
+\end{enumerate}
+
+\section*{Chapter 2}
+
+Prove or disprove the following.
+\begin{enumerate}
+\item A constant function is not one-to-one if the domain has more than
+one element.
+
+\begin{proof}
+[True.]Let $f\colon A\rightarrow B$ be a constant function and $|A|>1$.
+Since $|A|>1$ it has at least two elements, say $a_{1}$ and $a_{2}$.
+$f$ is constant so then $f(a_{1})=f(a_{2})=b$ for some $b\in B$.
+Thus $f$ is not one-to-one.
+
+Note that if the domain has only one element then this statement is
+false. Let $A=\{a\}$ and $f:A\rightarrow B$ and $f(a)=b$ for all
+$a\in A$. If $f(a_{1})=f(a_{2})$ then $a_{1}=a_{2}$ because $A$
+only has one element. So $f$ is constant and also one-to-one. \emph{In
+general constant functions are not 1-1, i.e., the statement ``constant
+functions are 1-1'' is false.}
+\end{proof}
+\begin{enumerate}
+\item The identity function is one-to-one.
+\end{enumerate}
+\begin{proof}
+[True.] Let $f:A\rightarrow A$ be the identity function. If $f(a_{1})=f(a_{2})$
+then $f(a_{1})=a_{1}=a_{2}=f(a_{2})$ because $f(a)=a$ for any $a\in A$.
+Thus $f$ is one-to-one. 
+\end{proof}
+\begin{enumerate}
+\item The identity function is onto.
+\end{enumerate}
+\begin{proof}
+[True.]Let $f:A\rightarrow A$ be the identity function and $a\in A$.
+$f(a)=a$ so then $f$ is onto.
+\end{proof}
+\end{enumerate}
+Let $g:A\rightarrow B$ and $f:B\rightarrow C$. Prove that if $f\circ g:A\rightarrow C$
+is one-to-one and $g$ is onto then $f$ is also one-to-one. 
+\begin{proof}
+Let $b_{1},b_{2}\in B$ such that $b_{1}\neq b_{2}$. Because $g$
+is onto there is a $a_{1},a_{2}\in A$ such that $g(a_{1})=b_{1}$
+and $g(a_{2})=b_{2}$. So then $f(b_{1})\neq f(b_{2})$ since $f(g(a_{1}))\neq f(g(a_{2}))$. 
+\end{proof}
+Suppose that $f:A\rightarrow B$ is a one-to-one function. Prove or
+disprove that if $f^{-1}:f(B)\rightarrow A$ is a function then $f^{-1}$
+is also one-to-one.
+\begin{proof}
+[True.] Recall: It is shown in the notes that for a function $g$,
+the inverse of $g$ is a function if and only if $g$ is $1-1$. Since
+$f^{-1}$ is a function and $(f^{-1})^{-1}=f$ is also a function,
+it follows that $f^{-1}$ is $1-1$. 
+
+Alternatively,
+\begin{proof}
+Suppose to the contrary that $f^{-1}$ is \emph{not }$1-1$. So then
+there is $b_{1},b_{2}\in B$ such that $b_{1}\neq b_{2}$ and $f^{-1}(b_{1})=f^{-1}(b_{2})=a$
+for some $a\in A$. Thus $f(f^{-1}(b_{1}))=b_{1}\neq b_{2}=f(f^{-1}(b_{2}))$
+which contradicts the assumption that $f$ is a fucntion. 
+\end{proof}
+\end{proof}
+Let $f:A\rightarrow B$ be a one-to-one function. Show that $\left|A\right|\leq\left|B\right|$.
+\begin{proof}
+Let $\left|A\right|$ be the number of items and $\left|B\right|$
+be the number of boxes. By the pigeon hole theorem, if $\left|A\right|>\left|B\right|$
+then $f$ would map (or place) at least $2$ items to the same box
+and thus not be $1-1$. Thus $f$ must be $1-1$.
+\end{proof}
+Let $f:A\rightarrow B$ and $g:B\rightarrow C$ be functions. Prove
+that $g\circ f:A\rightarrow C$ is a function. 
+\begin{proof}
+$f$ is a function implies that for any $a\in A$ there is a unique
+$b\in B$ such that $f(a)=b$. Also, $g$ is a function implies that
+for any $b\in B$ there is a unique $c\in C$ such that $g(b)=c$.
+Thus for any for any $a\in A$ there is a unique $c\in C$ such that
+$g(f(a))=g(b)=c$. So $g\circ f$ is a function.
+\end{proof}
+(This problem was dropped) Let $f:A\rightarrow A$, $g:A\rightarrow A$,
+and $h:A\rightarrow A$; prove that $\left(h\circ g\right)\circ f=h\circ\left(g\circ f\right)$.
+\begin{proof}
+Let $a_{0}\in A$. Since $f,g,h$ are functions there are $a_{1},a_{2},a_{3}\in A$
+such that, $f(a_{0})=a_{1}$, $g(a_{1})=a_{2}$, and $h(a_{2})=a_{3}$.
+$\left(\left(h\circ g\right)\circ f\right)(a_{0})=h(g(f(a_{0})))=h(g(a_{1}))=h(a_{2})=a_{3}$.
+Also, $\left(h\circ\left(g\circ f\right)\right)(a_{0})=h((g\circ f)(a_{0}))=h(g(f(a_{0})))=h(g(a_{1}))=h(a_{2})=a_{3}$.
+Thus $\left(h\circ g\right)\circ f=h\circ\left(g\circ f\right)$.
+\end{proof}
+\vfill
+Prove that if $f:A\rightarrow B$ is onto and $g:B\rightarrow C$
+is onto, then $\left(g\circ f\right):A\rightarrow C$ is onto. 
+\begin{proof}
+Let $c\in C$. $g$ is onto so then there exists a\textbf{ $b\in B$
+}such that $g(b)=c$. Since $f$ is onto there also exists an $a\in A$
+such that $f(a)=b$. So then $g(f(a))=g(b)=c$; thus $g\circ f$ is
+onto.
+\end{proof}
+Each of the following statements, $P(x,y)$, define a relation $R$
+in the natural numbers, $\mathbb{N}$, i.e., $R=(\mathbb{N},\mbox{\ensuremath{\mathbb{N}}},P(x,y))$.
+Show whether each of the following relations is reflexive. 
+\begin{enumerate}
+\item $P(x,y)=$``$x$ is less than or equal to $y$''
+
+\begin{proof}
+[Reflexive:] Let $x\in\mathbb{N}$. $x=x\Rightarrow$$x\leq x$ so
+then $R$ is reflexive.
+\end{proof}
+\begin{enumerate}
+\item $P(x,y)=$``$x$ divides $y$''
+\end{enumerate}
+\begin{proof}
+[Reflexive:] Let $x\in\mathbb{N}$. $x=1\cdot x$ so then $x|x$.
+Thus $R$ is reflexive.
+\end{proof}
+\begin{enumerate}
+\item $P(x,y)=$``$x+y=10$''
+\end{enumerate}
+\begin{proof}
+[Not Reflexive:] Consider the natural number $4$; $4+4\neq10$.
+Thus $R$ is not reflexive. 
+\end{proof}
+\begin{enumerate}
+\item $P(x,y)=$ ``$x$ and $y$ are relatively prime.''
+\end{enumerate}
+\begin{proof}
+[Not Reflexive:] Consider the natural number $8$; $\gcd(8,8)=8\neq1$
+since $8|8$. Thus $R$ is not reflexive.
+\end{proof}
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,93 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,english]{book}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1.5in,rmargin=1.5in}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\theoremstyle{definition}
+\newtheorem{defn}{\protect\definitionname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{xcolor} %adds additional color options
+\hypersetup{colorlinks=true, urlcolor=Blue}%Blue
+
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows,shapes,backgrounds}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+%\usepackage{subcaption}
+
+%\usepackage{amsthm}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\definitionname}{Definition}
+
+\begin{document}
+
+\chapter{Homework Hints}
+
+\section*{Chapter \ref{chap:Ideals}}
+\begin{itemize}
+\item There was a typo in problem 3.2: the problem should have read ``$\dots$but
+$x^{3}+x-4\notin C$'' \uline{not} ``$\dots$but $x^{3}+x-\notin C$''.
+\end{itemize}
+\begin{defn}
+\textbf{[]Exercise \ref{exc:constant_polys_are_ideals?} }Let $\mathbb{R}[x]$,
+the set of all polynomials with real coefficients. Let $C$ be the
+subset of $\mathbb{R}[x]$ with constant terms that are $0$. For
+example, $x^{3}+x\in C$ but $x^{3}+x-4\notin C$. Prove that $C$
+is or is not an ideal. 
+
+\begin{itemize}
+\item [Hint:]You should multiply a few polynomials and see what happens.
+If it is an ideal, it should pass the ideal test (theorem \ref{thm:Ideal-test.-A}).
+If it is not, a simple example will suffice. Theorem \ref{thm:Ideal-test.-A}
+is an ``if and only if'' statement. So if part 1 or 2 is not met,
+then the non-empty subset is not an ideal. Keep in mind that for part
+2, the $r\in R$ means any element in the ring. For this problem,
+that would include polynomial with non-zero constants like $x^{3}+x-4$,
+$x-2$, $3$, etc. 
+\end{itemize}
+\end{defn}
+
+\begin{defn}
+\textbf{[]Exercise \ref{exc:I=00003DR-if-I-has-an-inverse} }Let
+$R$ be a ring with unity $1_{R}$ and let $I$ be an ideal of $R$.
+If $I$ has an element $x$ and $x^{-1}$ such that $x\cdot x^{-1}=x^{-1}\cdot x=1_{R}$\footnote{Such an element $x$ is called and \emph{unit.}},
+prove that $I=R$.
+
+\begin{itemize}
+\item [Hint:]We already know that $I\subseteq R$ so we only need to show
+that $R\subseteq I$. Key here is that $1_{R}$ is in $I$, and that
+$r=1\cdot r$.
+\end{itemize}
+\end{defn}
+
+\end{document}

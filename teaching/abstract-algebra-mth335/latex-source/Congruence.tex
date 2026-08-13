@@ -1,0 +1,579 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,english]{book}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{units}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1cm,bmargin=1cm,lmargin=1.5cm,rmargin=1.5cm}
+\usepackage{wasysym}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\theoremstyle{definition}
+\newtheorem{defn}{\protect\definitionname}
+\theoremstyle{definition}
+\newtheorem{example}{\protect\examplename}
+\theoremstyle{definition}
+\newtheorem{xca}{\protect\exercisename}
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}
+\ifx\proof\undefined\
+  \newenvironment{proof}[1][\proofname]{\par
+    \normalfont\topsep6\p@\@plus6\p@\relax
+    \trivlist
+    \itemindent\parindent
+    \item[\hskip\labelsep
+          \scshape
+      #1]\ignorespaces
+  }{%
+    \endtrivlist\@endpefalse
+  }
+  \providecommand{\proofname}{Proof}
+\fi
+\theoremstyle{plain}
+\newtheorem{lem}{\protect\lemmaname}
+\theoremstyle{plain}
+\newtheorem{prop}{\protect\propositionname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{xcolor} %adds additional color options
+\hypersetup{colorlinks=true, urlcolor=Blue}%Blue
+
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows,shapes,backgrounds,matrix,shapes.geometric,fit,trees,positioning}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+
+%%%%%commands
+\newcommand{\mb}[1]{$\mathbb{#1}$}
+\newcommand{\funct}[2]{$f\colon#1\rightarrow#2$}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\definitionname}{Definition}
+\providecommand{\examplename}{Example}
+\providecommand{\exercisename}{Exercise}
+\providecommand{\lemmaname}{Lemma}
+\providecommand{\propositionname}{Proposition}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+
+\chapter{Integers and Congruence\label{chap:Congruence}}
+
+\section{Integers}
+
+Much of abstract algebra studies the set of integers, subsets of integers,
+or sets which are equivalent to subsets of integers. Thus to move
+forward, it will behoove us to step back and investigate the properties
+of integers. You have been using many of these properties all of your
+life. Taking a rigorous look at these properties will not only enrich
+your understanding, but will allow you to apply these fundamental
+properties to more general sets. 
+\begin{defn}
+\textbf{The Well Ordering Principle. }Every nonempty set of positive
+integers contains a smallest member. 
+\end{defn}
+We will treat the well ordering principle as an axiom.\footnote{Meaning we will just assume it to be true for the integers. The well
+ordering principle sometimes given as a theorem proved with an induction
+(see below). As it turns out, induction and the well ordering principle
+are logically equivalent, and we will instead show that induction
+follows from the well ordering principle.}
+\begin{defn}
+We say that a nonzero integer $d$ \emph{divides }an integer $m$
+(or say that $d$ is a \emph{divisor of $m$}) if $m$ can be written
+as, $m=dn$ for some integer $n$, denoted $d|m$.
+
+\begin{itemize}
+\item $d|m\Rightarrow m=dn$ for some integer $n$.
+\item $d\cancel{|}m\Rightarrow m\neq dn$ for any integer $n$.
+\end{itemize}
+\end{defn}
+\begin{example}
+$3|12$ since $12=3\cdot4$ (which also shows that $4|12$). $3\cancel{|}10$
+since there is no integer $n$ such that $3\cdot n=10$ (solving for
+$n$, $n=\nicefrac{10}{3}\notin\mathbb{Z}$).
+\end{example}
+\begin{xca}
+Prove that If $a|b$ and $b|c$ then $a|c$.
+\end{xca}
+
+\begin{xca}
+If $a|b$ and $a|c$ then $a|b\pm c$.
+\end{xca}
+\begin{defn}
+A prime $p$ is an integer greater that has no divisors other than
+$1$ and $p$.
+
+\begin{itemize}
+\item Equivalently, $p$ is prime if and only if $d|p\Rightarrow d=1\mbox{ or }d=p$.
+\end{itemize}
+\end{defn}
+\begin{example}
+$5$ is prime since $1<5$ and $2,3,4\cancel{|}5$.
+\end{example}
+\begin{xca}
+$\bigstar$ Prove that there are infinitely many prime numbers. 
+\end{xca}
+\begin{thm}
+\textbf{\textup{Division Algorithm. }}\textup{\emph{Let $a,b\in\mathbb{Z}$
+and $a,b>0$ then there exists a unique $q,r\in\mathbb{Z}$ such that
+$a=bq+r$ where $0\leq r<b$.}}\emph{}
+
+\begin{itemize}
+\item \emph{$r$ is called the remainder upon dividing $a$ by $b$}. 
+\end{itemize}
+\end{thm}
+\begin{example}
+If you were to divide $13$ by $3$, the division algorithm tells
+us that $13=3\cdot4+1$; where $a=13$, $b=3$, $q=4$, and $r=1$.
+Once we have chosen $a$ and $b$ (or $q$), the theorem tells us
+that $a$ can be written uniquely in this form. 
+\end{example}
+\begin{itemize}
+\item Note: we can write $13$ as $13=4\cdot2+5$, $13=4\cdot1+9$, or $13=4\cdot5-7$.
+However the remainders are $5,9>4$ in the former cases and, $-7<0$
+in the latter case. The assumption that $0\leq r<b$ is what guarantees
+uniqueness.
+\end{itemize}
+
+\begin{example}
+$57=12\cdot4+9$. 
+
+\begin{proof}
+There are two parts to prove, existence and uniqueness. First we show
+that you can write any integer $a$ as $bq+r$ where $0\leq r<b$.
+Let $S=\{a-bq\colon q\in\mathbb{Z}\mbox{ and }a-bq\geq0\}$. First
+note that $S$ is nonempty. If $a-b<0$ then let $k=-1$ so that $a-(-1)b>0$.
+If $a-b\geq0$ then let $k=1$. 
+
+If $0\in S$ then $a=bk$ which implies that $b|a$ and then we can
+let $q=\nicefrac{a}{b}$ (an integer since $b|a$) and $r=0$ so that
+$a=b(\nicefrac{a}{b})+0$. 
+
+If $0\notin S$ then we can apply the well ordering principle (since
+$S$ is nonempty) to choose the smallest number in $S$, say $r=a-bq$.
+Then $a=bq+r$; $r\geq0$ per our definition of $S$ so we need only
+show that $r<b$. If $r\geq b$ then $r-b\geq0\Rightarrow a-bq-b=a-b(q+1)$
+so that $a-b(a+1)\in S$. But then $a-bq>a-b(q+1)$ and we already
+assumed that $a-bq=r$ was the \emph{smallest }number in $S$ --a
+contradiction. So $r<b$.
+
+Now we show uniqueness. Let $a=bq+r$ and $a=bq'+r'$ such that $0\leq r<b$
+and $0\leq r'<b'$ for integers $q,q',r,r'$. Without loss of generality\footnote{often abbreviated to WLOG, WOLOG or w.l.o.g.; less commonly stated
+as without any loss of generality or with no loss of generality. WLOG
+means that although a premise of the proof is being narrowed to a
+special case, the proof of that special case can be easily applied
+to every other case.} we can assume that $r'\geq r$. $bq+r=bq'+r'$ and $bq'+r'-(bq+r)=0\Rightarrow b(q'-q)=r'-r$.
+Thus $b|(r'-r)$ and $0\leq r'-r\leq r'<b$. The only way $b$ can
+divide a number smaller than itself (and still be an integer) is if
+that number is $0$. So then $r'-r=0\Rightarrow r=r'$ which also
+shows that $q'=q$.
+\end{proof}
+\end{example}
+\begin{defn}
+The \emph{greatest common divisor }(or GCD) of integers $a$ and $b$
+is the largest integer that divides both $a$ and $b$; denoted $\gcd(a,b)$.
+When $\gcd(a,b)=1$ we say that $a$ and $b$ are \emph{relatively
+prime. }
+\end{defn}
+\begin{example}
+$\gcd(10,6)=2$ since $10=2\cdot5$ and $6=2\cdot3$.
+\end{example}
+
+\begin{example}
+$1100=2^{2}5^{2}11$ and $440=2^{3}5\cdot11$. So $\gcd(1100,440)=2^{2}5\cdot11=220$.
+\end{example}
+\begin{defn}
+The \emph{lowest common multiple }(or LCM) of integers $a$ and $b$
+is the smallest integer that is a multiple of both $a$ and $b$.
+\end{defn}
+\begin{example}
+$10=5\cdot2$ and $6=2\cdot3$ so $\mbox{lcm}(10,6)=5\cdot2\cdot3=60$.
+Similarly the $\mbox{lcm}(1100,440)=2^{3}5^{2}11=2200$.
+\end{example}
+\begin{xca}
+Determine the following:
+
+\begin{enumerate}
+\item $\gcd(2^{4}3^{2}5\cdot7^{2},2\cdot3^{3}7\cdot11)$
+\item The lowest common multiple: $\mbox{lcm}(2^{4}3^{2}5\cdot7^{2},2\cdot3^{3}7\cdot11)$.
+\end{enumerate}
+\end{xca}
+
+\begin{xca}
+$\bigstar$ Suppose that $a\neq0$, $b\neq0$, and $\mbox{lcm}(a,b)=m$.
+Prove that if $n$ is a common multiple of $a$ and $b$ then $m|n$. 
+\end{xca}
+
+\begin{xca}
+$\bigstar$ Let $a\neq0$, $b\neq0$, and $d=\gcd\left(a,b\right)$.
+Prove that if $d'$ is any common divisor of $a$ and $b$ then $d'|d$.
+\end{xca}
+The next theorem plays an important role in our study of algebra.
+The proof relies on both the well ordering principle and the division
+algorithm.
+\begin{thm}
+\textbf{\emph{\label{thm:GCD-is-a-linear-combo}GCD is a linear combination.
+}}For any nonzero integers $a$ and $b$, there exists integers $s$
+and $t$ such that $\gcd(a,b)=as+bt$. Furthermore, $\gcd(a,b)$ is
+the smallest positive integer that can be written in the form $as+bt$.
+\end{thm}
+\begin{itemize}
+\item In particular, $a$ and $b$ are relatively prime if and only if there
+exists integers $s$ and $t$ such that $1=as+bt$.
+
+\begin{proof}
+Let $a,b$ be two nonzero integers. Let $S=\{am+bn\colon m,n\in\mathbb{Z}\mbox{ and }am+bn>0\}$.
+Note that $S\neq\emptyset$ since if $am+bn\leq0$ then $a(-m)+b(-n)>0$.
+By the well ordering principle we can select the smallest number in
+$S$, say $d=as+bt$. We want to show that $d=\gcd(a,b)$. 
+
+Using the division algorithm, write $a=dq+r$ where $0\leq r<d$.
+If $r>0$ then $r=a-dq=a-(as+bt)q=a-asq-btq=a(1-sq)+b(-tq)\in S$.
+But this contradicts the assumption that $d$ is smallest number in
+$S$ since $a(1-sq)+b(-tq)<as+bt$. So then $r=0$ implying that $d|a$.
+Similarly we can show that $d|b$. This shows that $d$ is a common
+divisor of $a$ and $b$. 
+
+Now we show that $d$ is the largest common divisor. Suppose that
+$d'$ is another common divisor of $a$ and $b$. So then $a=d'x$
+and $b=d'y$ for integers $x$ and $y$. Now $d=as+bt=(d'x)s+('dy)t=d'(xs+yt)$
+which implies that $d'|d$. Therefore $d'<d$.
+\end{proof}
+\end{itemize}
+\begin{example}
+$\gcd(10,6)=2$ and $2=10(2)+6(-3)$. 
+\end{example}
+
+\begin{example}
+$\gcd(4,15)=1$. So $4$ and $15$ are relatively prime. $1=4(4)+15(-1)$. 
+\end{example}
+We will see that theorem \ref{thm:GCD-is-a-linear-combo} is a very
+useful theoretical tool. However it does not tell us how to actually
+find the linear combinations. Fortunately, we have the Euclidean Algorithm\footnote{From proposition 2 of book seven of the \emph{Elements }written approximately
+c.\,300 BC.}.
+\begin{example}
+\textbf{Euclidean Algorithm. }By repeatedly using the division algorithm
+the $\gcd(a,b)$ can always be found by producing a decreasing sequence
+of remainders. The algorithm is as follows:
+\[
+\begin{array}{rclcl}
+a & = & bq_{1}+r_{1} & \mbox{ \,\,\,} & 0<r_{1}<b\\
+b & = & r_{1}q_{2}+r_{2} &  & 0<r_{2}<r_{1}\\
+r_{1} & = & r_{2}q_{3}+r_{3} &  & 0<r_{3}<r_{2}\\
+ & \vdots\\
+r_{n-3} & = & r_{n-1}q_{n-1}+r_{n-1} &  & 0<r_{n-1}<r_{n-2}\\
+r_{n-2} & = & r_{n-1}q_{n}+r_{n} &  & 0<r_{n}<r_{n-1}\\
+r_{n-1} & = & r_{n}q_{n+1}+0
+\end{array}
+\]
+By the well ordering principle, this algorithm will eventually result
+in a remainder of $0$. Then the last nonzero remainder, $r_{n}$,
+is the greatest common divisor.
+
+For example, to find the $\gcd(2520,154)$: 
+\[
+\begin{array}{rcl}
+2520 & = & 154(16)+56\\
+154 & = & 56(2)+42\\
+56 & = & 42(1)+14\\
+42 & = & 14(3)+0
+\end{array}
+\]
+So $\gcd(2520,154)=14$. We can also use this algorithm to find a
+linear combination of $2520$ and $154$ that sums to $14$. Using
+the above results, we rewrite the remainders as follows: 
+\[
+\begin{array}{rclcrcl}
+56 & = & 42(1)+14 & \mbox{\ensuremath{\Rightarrow}} & 14 & = & 56-42(1)\\
+154 & = & 56(2)+42 & \Rightarrow & 14 & = & 56-[154-56(2)]\\
+ &  &  &  & 14 & = & (3)56-154\\
+2520 & = & 154(16)+56 & \Rightarrow & 14 & = & (3)[2520-154(16)]-154\\
+ &  &  &  & 14 & = & 2520(3)+154(-49)
+\end{array}
+\]
+\end{example}
+\begin{xca}
+Find integers $s$ and $t$ so that $1=7\cdot s+11\cdot t$. Show
+that $s$ and $t$ are not unique. 
+\end{xca}
+
+\begin{xca}
+Let $d=\gcd(a,b)$. If $a=da'$ and $b=db'$, show that $\gcd(a',b')=1$.
+\end{xca}
+
+\begin{xca}
+$\bigstar$ If $c^{2}=ab$ and $\gcd\left(a,b\right)=1$, prove that
+$a$ and $b$ are perfect squares (Hint: By the theorem above, $a$
+and $b$ can be written as the product of primes. They are perfect
+squares if and only if each prime in this prime factorization has
+an even power). 
+\end{xca}
+\begin{lem}
+\textbf{\emph{Euclid's Lemma. }}Let $p$ be a prime and $a$ and $b$
+be integers. If $p|ab$ then $p|a$ or $p|b$.\footnote{This lemma first appeared as proposition $30$ in book seven of Euclid's
+\emph{Elements}. }
+
+\begin{proof}
+Suppose that $p|ab$ but $p\cancel{|}a$. We want to show that $p|b$.
+Since $p\cancel{|}a$, $\gcd(p,a)=1$ and by theorem \ref{thm:GCD-is-a-linear-combo}
+we can write $1=sp+ta$. Multiplying both sides by $b$ we have $b=bsp+bta$.
+Since $p|a$, $a=pn$ for some integer $n$, and 
+\begin{eqnarray*}
+b & = & bsp+bta\\
+\Rightarrow b & = & bsp+btpn\\
+\Rightarrow b & = & p(bs+btn)
+\end{eqnarray*}
+so $p|b$ as needed. 
+\end{proof}
+\end{lem}
+\begin{itemize}
+\item Euclid's lemma is not necessarily true when applied to non-primes.
+For example, $10|25\cdot2$ but $10\cancel{|}25$ and $10\cancel{|}2$.
+\end{itemize}
+
+\section{\textit{\emph{Modular Arithmetic}}}
+
+Modular arithmetic is a system of arithmetic where numbers ``wrap
+around'' or ``reset'' after reaching a set value called the \emph{modulus}.
+You have probably been using modulus arithmetic all your life without
+giving it much thought. One common use is a 12-hour clock. 
+
+If the time is 5:00 then 11 hours later we do not say it is 16:00
+(unless you are in the military). Time ``wraps'' around every 12
+hours -modulus 12. Using the division algorithm, $16=12(1)+4$, and
+we have a remainder of $4$. $16$ ''wraps'' $4$ hours past $12$.
+We write this as 
+\[
+16\equiv4\bmod12
+\]
+read ``$16$ is congruent/equivalent to $4$ mod $12$''. Adding
+$12$ hours to $16$ will wrap around to the same number, $4$, as
+will adding $24$, $36$, $48$ etc. 
+\begin{eqnarray*}
+4 & \equiv & 4\bmod12\\
+16 & \equiv & 4\bmod12\\
+28 & \equiv & 4\bmod12\\
+40 & \equiv & 4\bmod12\\
+\vdots\\
+4+12(n) & \equiv & 4\bmod12
+\end{eqnarray*}
+So $4$, $16$, $28$, etc.\,are all members of an infinite set we
+call a \emph{class}, denoted $[4]$.
+\begin{defn}
+Let $a$ and $n$ be integers with $n>0$. The \emph{congruence class
+of a modulo n }(denoted $[a]$) is the set of integers that are congruent
+to $a$ modulo $n$, i.e., 
+\[
+[a]=\left\{ b|b\in\mathbb{Z}\mbox{ and }b=a\bmod n\right\} 
+\]
+\end{defn}
+\begin{example}
+The congruence class of $3$ modulo $5$ is $[3]=\left\{ \dots,-2,3,8,13,\dots\right\} $.
+\end{example}
+There are several useful ways to define $a\equiv b\bmod n$. However
+when first introduced to the subject it is often easiest to think
+of modular arithmetic in terms of the remainder. 
+\begin{itemize}
+\item If $a=qn+r$ where $q$ is the \emph{quotient }and $r$ is the \emph{remainder
+}upon dividing $a$ by the \emph{modulus }$n$, then $a\equiv r\bmod n$. 
+\end{itemize}
+\begin{example}
+If $20$ is divided by $3$ then the remainder is $2$. So $20\equiv2\bmod3$
+since $20=(6)3+2$. 
+\end{example}
+
+Of course if $20\equiv2\bmod3$ then one would think that $2\equiv20\bmod3$
+(as congruence/equivalence should be an equivalence relation), however
+dividing $3$ by $20$ is not permissible as any remainder must be
+greater than $0$ but less than $20$. For this reason we define $a\equiv b\bmod n$
+as follows:
+\begin{defn}
+$a\equiv b\bmod n$ if and only if $n|(a-b)$.
+\end{defn}
+\begin{example}
+Using the definition above, $20\equiv2\bmod3$ since $3|(20-2)$ and
+$3\equiv20\bmod3$ since $3|(2-20)$.
+\end{example}
+
+\begin{example}
+If If $a=qn+r$ then $r=a-qn\Rightarrow qn=a-r$. So then $n|a-r$
+and $a\equiv r\bmod n$.
+\end{example}
+
+\begin{example}
+Examples of modular arithmetic:
+\begin{eqnarray*}
+7 & \equiv & 7\bmod13\mbox{\,\,\,\ since }7=(0)13+7\\
+20 & \equiv & 7\bmod13\mbox{\,\,\,\ since \ensuremath{20=(1)13+7}}\\
+7 & \equiv & 20\bmod13\,\,\,\mbox{since }7=(-1)13+7\\
+48 & \equiv & 0\bmod12\,\,\,\mbox{ since }48=(4)12+0\\
+75 & \equiv & 25\bmod50\,\,\,\mbox{ since }75=(1)50+25
+\end{eqnarray*}
+\end{example}
+\begin{prop}
+If $a\equiv b\bmod n$ and $c\equiv d\bmod n$ for integers $a,b,c,d,n$\footnote{This assumption is only necessary for part 2. While part 1 is true
+for all real numbers part may fail for non-integers.} then 
+
+\begin{enumerate}
+\item $a+c\equiv(b+d)\bmod n$
+\item $ac\equiv bd\bmod n$
+\end{enumerate}
+\begin{proof}
+$a\equiv b\bmod n\Rightarrow n|(a-b)\Rightarrow a-b=k_{1}n$ and $c\equiv d\bmod n\Rightarrow n|(c-d)\Rightarrow k_{2}n$
+for some integers $k_{1}$ and $k_{2}$. 
+
+Part 1. $(a+c)-(b+d)=a+c-b-d=(a-b)+(c-d)=k_{1}n+k_{2}n=n(k_{1}+k_{2})$.
+Thus $n|[(a+c)-(b+d)]$ which implies that $a+c\equiv(b+d)\bmod n$.
+
+Part 2. $a-b=k_{1}n$ and $c-d=k_{2}n$ implies that $a=k_{1}n+b$
+and $c=k_{2}n+d$. 
+\begin{eqnarray*}
+ac & = & (k_{1}n+b)(k_{2}n+d)\\
+ac & = & k_{1}k_{2}n^{2}+k_{1}dn+k_{2}bn+bd\\
+ac & = & bd+n(k_{1}k_{2}n+k_{1}d+k_{2}b)\\
+ac-bd & = & n(k_{1}k_{2}n+k_{1}d+k_{2}b)
+\end{eqnarray*}
+So then $n|(ac-bd)$ and $ac\equiv bd\bmod n$.
+\end{proof}
+\end{prop}
+\begin{xca}
+Determine $51\mod 13$, $342\mod 85$, and $(82\cdot73)\mod 7$.
+\end{xca}
+
+\begin{xca}
+Let $n$ be a positive integer greater than $1$ and let $a$ and
+$b$ be positive integers. Prove that $a\mod n\equiv b\mod n$ if
+and only if $a\equiv b\mod n$. 
+\end{xca}
+
+\section{Mathematical Induction}
+\begin{example}
+Prove that ${\displaystyle \sum_{k=1}^{n}(2k+1)=n^{2}}$. That is,
+prove that $1+3+5+\cdots+(2n-1)=n^{2}$.
+
+\begin{proof}
+(step 1: base case) Suppose that $n=1$. Then $1=1^{2}=1$. So then
+the statement is true for $n=1$.
+
+(step 2: inductive step) Now \emph{assume that the statement is true
+for some $n\geq1$}. We want to show that it is then true for $n+1$.
+If it is true for some $n\geq1$ then\emph{ ${\displaystyle \sum_{k=1}^{n+1}}(2k+1)={\displaystyle \sum_{k=1}^{n}(2k+1)+2(n+1)-1}$
+}(note how we broke it down into a part we knew and the next step
+for $n+1$). 
+
+\emph{
+\begin{eqnarray*}
+{\displaystyle \sum_{k=1}^{n+1}}(2k+1) & = & {\displaystyle \sum_{k=1}^{n}(2k+1)+2(n+1)-1}=\underset{=n^{2}\mbox{ by the assumption}}{\underbrace{\sum_{k=1}^{n}(2k+1)}}+\underset{=2n+1}{\underbrace{2(n+1)-1}}\\
+ & = & n^{2}+2n+1\\
+ & = & (n+1)^{2}
+\end{eqnarray*}
+}so the statement is true by induction.
+\end{proof}
+\end{example}
+Once we have shown it is true for $n=1$ in step $1$ then we can
+use step $2$ to show that is true for $n=2$. Once we know it is
+true for $n=2$ we know it is true for $n=3$ by step $3$ again.
+Continuing like this we can show it is true for any $n$. This process
+is called mathematical induction or just proof by induction.
+\begin{thm}
+\textbf{\textup{The Principle of Mathematical Induction. }}\textup{\emph{Let
+$S(n)$ be a statement involving a variable $n$, and the following
+hold:}}\emph{}
+
+\begin{enumerate}
+\item $S(n_{0})$ is true.
+\item If $S(n)$ is true for some positive integer $n\geq n_{0}$ then $S(n+1)$
+is true.
+\end{enumerate}
+Then $S(n)$ is true for all positive integers $n$.
+\end{thm}
+\begin{proof}
+Suppose $S(b)$ is true, and $S(n+1)$ is true whenever $S(n)$ is
+true, but there is some $n$ for which $S(n)$ is not true. By the
+well ordering principle there is a least number , say $k$, such that
+$S(k)$ is not true. $k\neq b$ by assumption, but since $k$ is the
+smallest number for which $S$ is not true $S(k-1)$ is true. This
+is a contradiction since then $S(k)$ is true by assumption. 
+\end{proof}
+\begin{xca}
+Prove that ${\displaystyle \sum_{k=1}^{n}2k=n^{2}+n}$.
+\end{xca}
+
+\begin{xca}
+Prove that $23^{n}-1$ is divisible by $11$for all positive integers
+$n$.
+\end{xca}
+
+\begin{xca}
+$\bigstar$ The Fibonacci numbers are :$1,1,2,3,5,8,13,21,34,\dots$.
+In general, the Fibonacci numbers are defined by $f_{1}=1$, $f_{2}=1$,
+and $f_{n+2}=f_{n+1}+f_{n}$ for $n=1,2,3,\dots$. Prove that the
+$n^{\mbox{th}}$ Fibonacci number $f_{n}<2^{n}$.
+\end{xca}
+
+\section{Additional problems}
+\begin{xca}
+$\bigstar$ 
+
+Let $a\neq0$, $b\neq0$, and $d=\gcd\left(a,b\right)$. Prove that
+if $d'$ is any common divisor of $a$ and $b$ then $d'|d$.
+\end{xca}
+\begin{thm}
+\textbf{\emph{The Fundamental Theorem of Arithmetic. }}Every integer
+greater than 1 is either a prime or the unique product of primes. 
+\end{thm}
+
+\begin{xca}
+$\bigstar$ If $c^{2}=ab$ and $\gcd\left(a,b\right)=1$, prove that
+$a$ and $b$ are perfect squares (Hint: By the theorem above, $a$
+and $b$ can be written as the product of primes. They are perfect
+squares iff. each prime in this prime factorization has an even power). 
+
+\vspace{0cm}
+
+The set of all congruence classes modulo $n$ is denoted $\mathbb{Z}_{n}$
+(read ``$Z$ mod $n$''). 
+
+$\left|\mathbb{Z}_{n}\right|=n$. 
+\end{xca}
+
+\begin{xca}
+$\bigstar$ Suppose that $a\neq0$, $b\neq0$, and $\mbox{lcm}(a,b)=m$.
+Prove that if $n$ is a common multiple of $a$ and $b$ then $m|n$. 
+\end{xca}
+
+\begin{xca}
+[$\smiley$\textbf{.}]Two sets are said to be \emph{equal }if there
+exists a bijective function between them; we write $\left|A\right|=\left|B\right|$.
+$B$ is said to have \emph{strictly greater cardinality} than $B$
+if there is a one-to-one function from $A$ into $B$, but there does
+not exist a bijective function from $A$ into $B$; we write$\left|A\right|<\left|B\right|$.
+Prove that $\left|\mathbb{N}\right|<\left|\mathbb{R}\right|$.
+\end{xca}
+
+\end{document}

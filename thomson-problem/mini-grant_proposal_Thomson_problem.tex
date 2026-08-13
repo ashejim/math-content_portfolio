@@ -1,0 +1,202 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{xcolor} %adds additional color options
+\hypersetup{colorlinks=true, urlcolor=Blue, linkcolor=Blue, citecolor=Blue}
+\usepackage{url}
+
+\usepackage{xspace} %\xspace in \newcommand removes the need for {} to get proper spacing
+\usepackage{multicol}
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+\usepackage{hyphenat} % custom hyphenation ex. $\beta$\hyp{}galactosidase
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\newcommand{\me}{Dr.~Ashe\xspace}
+\newcommand{\meL}{Dr.~James Ashe\xspace}
+\newcommand{\guest}{Dr.~Stephenson\xspace}
+\newcommand{\guestL}{Dr.~Ken Stephenson\xspace}
+\usdate
+
+\begin{center}
+{\large\textbf{2013 HBCU-UP Mini Grants Program }}{\large\par}
+\par\end{center}
+
+\begin{center}
+{\large\textbf{Request for Proposals}}\\
+\par\end{center}
+
+\section{\label{sec:Purpose-and-specific}Purpose and specific hypotheses/research
+questions}
+
+Circle packings are configurations of circles with specified patterns
+of tangency. They naturally express a conformal geometry which has
+allowed the field of circle packing to be developed into a rich theory
+of discrete analytic functions, see \cite{Ste:MR2131318,Ste:}. The
+discretization of complex analysis via computable circles has application
+advantages. For example, the NSF has supported research for using
+circle packings in brain imaging, see \cite{hurdal2004cortical,hurdal1999quasi,hurdal2001case}. 
+
+Using circle packings \guestL has constructed discrete models of
+the Thomson problem. A longstanding problem in physics with applications
+in biology, the Thomson problem asks how to find the minimum energy
+distribution of a finite number on electrons on the surface of the
+sphere. By applying a Delaunay triangulation to any distribution,
+an approximate spherical circle packing model can be found, see figure
+\ref{fig:An-energy-distribution}. Furthermore, combinatorial manipulations
+can be used to minimize the total energy. It is hoped that exploring
+these manipulations will provide insights into the problem. 
+
+\begin{figure}
+\hfill\includegraphics[height=5cm]{Admin/images/Thomson_410_mesh_thermal.png}\hspace{1cm}\includegraphics[height=5cm]{Admin/images/cpShot-001.jpg}\hfill{}
+
+\caption{\label{fig:An-energy-distribution}An energy distribution modeled
+with circle packing.}
+\end{figure}
+
+
+\subsection{What will be done}
+
+We propose that Johnson C.\,Smith undergraduate students be tasked
+with exploring the Thomson problem via circle packings. Students should
+be able to construct discrete models and measure their approximation
+of the classical problem. Through combinatorial manipulation, they
+will experiment with distributions and seek to make conjectures about
+the problem. 
+
+\subsection{Estimated start-up and completion dates}
+
+It is expected that work can begin by \monthname[2] 2013 and continue
+until \monthname[5] 2013. Because of the variety of possible experiments,
+there is potential that this work may develop into a larger project. 
+
+\subsection{How}
+
+See Section \ref{sec:Procedures-for-evaluation} below. 
+
+\subsection{By Whom}
+
+The necessary code for implementing and manipulating the spherical
+packing models will be written by \guest and \me. Thus the student(s)
+would need little prerequisite programming or mathematical knowledge,
+only a willingness to learn and the patience to conduct the experiments. 
+
+JCSU student Daniel Villanueva and Merischia Griffin have been recommended
+for this project. It is an excellent opportunity to be introduced
+to programming and high level mathematics.
+
+\section{\label{sec:Procedures-for-evaluation}Procedures for evaluation}
+
+Circle packings can be manipulated by Java\texttrademark code or
+directly through ${\tt CirclePack}$. A configuration of circles (location
+an radii) can then be computed with ${\tt CirclePack}$. Energy points
+are identified with circle vertices, and energy is then easily calculated
+with software. Although there has been little study of the Thomson
+problem using circle packings, the problem has been thoroughly researched.
+Thus there is an abundance of available data for the derivation of
+discrete models. 
+
+The creation and analysis of these experiments are done strictly on
+computers. The following materials will be required:
+\begin{itemize}
+\item ${\tt CirclePack}$; creates and manipulates circle packings. This
+software is open source and freely available. 
+\item Eclipse; a multi-language software development environment. This software
+is open source and freely available. 
+\item Java\texttrademark; ${\tt CirclePack}$'s programming language. This
+software is freely available. 
+\item ${\tt MATLAB}$\textregistered; a numerical computing and analysis
+program.
+\item Suitable computer hardware for using the above software.
+\end{itemize}
+
+\section{Budget}
+
+The required software ${\tt CirclePack}$, Java\texttrademark, and
+Eclipse are freely available through public licenses. Student and
+faculty licenses for ${\tt MATLAB}$\textregistered\,should be available
+through existing JCSU resources. Thus costs will be limited mostly
+to compensation and travel expenses. An estimate is as follows:
+\begin{itemize}
+\item \$1000: Stipend for \me.
+\item \$1000: Stipends for two students (\$500 each).
+\item \$1482: Travel allowance for students and \me. 
+\item \$518: Hosting \guest at JCSU from \formatdate{10}{2}{2013} to \formatdate{12}{2}{2013}.
+
+\begin{itemize}
+\item \$238 (\$119 per night): Lodging at the Mosaic Village for \guest
+\item \$175.04 (233.8 miles at \$0.375 per mile): \guest's mileage cost
+from his home in Knoxville, TN to JCSU.
+\item \$105 (\$35 per day): per diem for \guest. 
+\end{itemize}
+\item \$300: Computer hardware (this cost may be reduced or eliminated with
+corporation with the IT department).
+
+\begin{itemize}
+\item An additional monitor.
+\item Graphics card capable of supporting dual monitors and handling 3D
+modeling.
+\end{itemize}
+\item \$100: Presentation materials.
+\end{itemize}
+Additional expenses to be paid for by HBCUP:
+\begin{itemize}
+\item \$1000: Stipend for visiting scientist \guest. This cost also pays
+\guest's honorarium for his visit on \formatdate{10}{2}{2013} to
+\formatdate{12}{2}{2013}. 
+\end{itemize}
+
+\section{Time required}
+
+There is a very large number of possible experiments, and anything
+discovered would be of value. Thus students will be compensated at
+the standard rate until their stipends are exhausted. 
+
+Due to the nature of programming and experimental mathematics, the
+time required by the faculty is difficult to estimate. In addition
+to programming, the faculty would need to advise students, create
+images, and attach mathematical rigor to the students' experimental
+results. An estimate of 40+ hours for the faculty advisors might be
+conservative. Thus the stipend compensation will most certainly cost
+less than that of a programmer/mathematician being paid at the standard
+rate. 
+
+\section{Ethical Issues}
+
+There are no known ethical issues particular to this project.
+
+\section{Benefits of Research}
+
+Benefits to the study of mathematics are outlined in section \ref{sec:Purpose-and-specific}.
+The students will simultaneously gain experience in programming, algorithms,
+optimization, and pure mathematics. Results might be publishable,
+garner note in a high level math publication, or be the cornerstone
+of a senior project. Additionally, the work would enhance a r\'{e}sum\'{e},
+graduate school application, or portfolio.
+
+\section{Plan to Share and Disseminate}
+
+This visual nature of circle packings are excellent for capturing
+the attention of mathematicians and lay people alike. Posters and
+the junior seminar would be appropriate formats to display and discuss
+early results. Further along, regional undergraduate math conferences
+and math journals would be the next step. \guest will visit JCSU,
+work with students, and speak at a STEM College lyceum on \formatdate{11}{2}{2013}. 
+
+\bibliographystyle{plain}
+\bibliography{/home/jim/JamesAshe/bib_jashe}
+
+\end{document}

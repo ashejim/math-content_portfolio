@@ -1,0 +1,392 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,english]{book}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1.5in,rmargin=1.5in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}
+\ifx\proof\undefined\
+  \newenvironment{proof}[1][\proofname]{\par
+    \normalfont\topsep6\p@\@plus6\p@\relax
+    \trivlist
+    \itemindent\parindent
+    \item[\hskip\labelsep
+          \scshape
+      #1]\ignorespaces
+  }{%
+    \endtrivlist\@endpefalse
+  }
+  \providecommand{\proofname}{Proof}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{xcolor} %adds additional color options
+\hypersetup{colorlinks=true, urlcolor=Blue}%Blue
+
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows,shapes,backgrounds}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+%\usepackage{subcaption}
+
+%\usepackage{amsthm}
+\usepackage[all]{xy}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+
+\chapter{Factor Rings}
+
+\section{Properties of Factor Rings}
+
+We saw in the previous chapter that $\mathbb{Z}/6\mathbb{Z}=\mathbb{Z}/\left\langle 6\right\rangle $
+is isomorphic to $\mathbb{Z}_{6}$. It follows that $\mathbb{Z}/\left\langle 6\right\rangle $
+is a ring. This is in general true for all factor rings, however we
+have yet to prove this. Once we show that they are rings, we can then
+explore their structure using isomorphisms and homomorphisms. First
+we need to define the ring operations of factor rings which requires
+the following theorem.
+
+\emph{Recall definition \ref{def-factor-ring}:} If $I$ is an ideal
+in the ring $R$, then the set of all cosets of $I$ is called the
+\emph{factor ring} $R$ modulo $I$ and is denoted $R/I$.
+\begin{itemize}
+\item $R/I=\{r+I\colon r\in R\}$
+\end{itemize}
+$R/I$ is called a factor ring because (no surprise) -it is a ring
+under addition and multiplication of modulo classes. Before we can
+show that it is a ring, or why $I$ needs to be an ideal; we define
+the operations and provide some examples. 
+\begin{itemize}
+\item The sum of $a+I$ and $b+I$ is $(a+b)+I$.
+
+\begin{itemize}
+\item []$a+I\oplus b+I=(a+b)+I$
+
+\begin{itemize}
+\item Don't forget that $x\in a+I\Rightarrow x=a+ri$ for some $i\in I$.
+The addition sign can be confusing here because, $a+I$ denotes a
+set -not an operation. Some texts write $a+I\oplus b+I$ as ``simply''$a+I+b+I$.
+\end{itemize}
+\end{itemize}
+\item The product of $a+I$ and $b+I$ is $ab+I$
+
+\begin{itemize}
+\item []$a+I\otimes b+I=ab+I$ or $(a+I)(b+I)=ab+I$
+\end{itemize}
+\end{itemize}
+The symbols $\oplus$ and $\otimes$ are used to distinguish the factor
+ring operation from the coset notation. Though often used it is by
+no means standard. So be careful when reading different texts! The
+theorem below is just theorem \ref{thm:cong-prop} restated for ideals.
+\begin{thm}
+\label{thm:cong-for-mod-I}Let $I$ be an ideal in a ring $R$. If
+$a+I=b+I$ and $c+I=d+I$ in $R/I$, then 
+
+\[
+(a+c)+I=(b+d)+I\mbox{ and }ac+I=bd+I
+\]
+\end{thm}
+
+\begin{thm}
+\label{thm:R/I-is-a-ring}Let $I$ be an ideal in a ring $R$ then,
+
+\begin{enumerate}
+\item $R/I$ is a ring with addition and multiplication as defined above.
+\item If $R$ is abelian then $R/I$ is also abelian.
+\item If $R$ has an identity then $R/I$ has an identity.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+$(1)$ First we need to show that $R/I$ is an abelian group under
+addition. Recall from exercise \ref{exc-R/R=00003D0 and R/0=00003DR}
+that $R/0=R$. $R$ is a ring so then $R/0$ is also a ring. We show
+that $R/I$ is a subring of $R/0$. $R/I=\{r+I\colon r\in R\}\neq\emptyset$
+since $I\neq\emptyset$ and $R\neq\emptyset$ as they are both rings.
+Now let $a+I,b+I\in R/I$. $R$ is a ring; so $-b\in R$, $a-b\in R$,
+and $ab\in R$. Thus $a+I\oplus-b+I=(a-b)+I\in R/I$, and $a+I\otimes b+I=ab+I\in R/I$
+. So $R/I$ is subring (and hence a ring) by the subring test. 
+
+Alternatively, we could show it is a ring directly as in example \ref{ex-Z/<5> is a ring}.
+
+$(2)$ Suppose that $R$ is abelian so that $ab=ba$ for all $a,b\in R$.
+This implies that $a+I\otimes b+I=ab+I=ba+I=b+I\otimes a+I$.
+
+$(3)$ Suppose that $R$ has an identity, say $1_{R}$. This implies
+that $a+I\otimes1_{R}+I=a1_{R}+I=a1_{R}+I=1_{R}+I\otimes a+I$. So
+the identity of $R/I$ is $1_{R}+I$. 
+\end{proof}
+\begin{itemize}
+\item Part 2 is a sufficient but necessary condition for $R/I$ to be commutative.
+For example $R$ may not be non-abelian, but $R/R=0_{R}$ is certainly
+abelian. 
+\end{itemize}
+\begin{thm}
+\label{thm:R/I is a ring iif I is an ideal}Let $R$ be a ring. $R/I$
+is a ring if and only if $I$ is an ideal of $R$. 
+\end{thm}
+\begin{proof}
+$\left(\Leftarrow\right)$ From theorem \ref{thm:R/I-is-a-ring} $I$
+is an ideal $\Rightarrow R/I$ is a ring.
+
+$\left(\Rightarrow\right)$ Let $R/I$ be a ring and $I$ a subring
+of $R$, but $I$ is not an ideal of $R$. Then there exists $a\in I$
+such that $ra\notin I$ or $ar\notin I$ for some $r\in R$. Assume
+that $ra\notin I$. Since $a\in I$, $a+I=0+I$ (cosets are equal
+or disjoint). Now consider $r+I$. $(r+I)(a+I)=ra+I$, but $(r+I)(a+I)=(r+I)(0+I)=0+I=I$.
+So then $ra+I=0+I$, a contradiction since $ra\notin I$. Similarly
+we get a contradiction if $ar\notin I$. So multiplication is not
+well defined and the set of cosets is not a ring.
+
+Thus any ideal $I$ in $R$ gives us a factor ring by theorem \ref{thm:R/I-is-a-ring},
+and any subring $A$ which is not an ideal gives us a non-ring $R/A$.
+\end{proof}
+
+\section{Prime and Maximal Ideals }
+
+\begin{thm}
+\label{thm:I is prime <=00003D> R/I is an integral domain}Let $R$
+be a commutative ring with identity. $R/I$ is an integral domain
+if and only if $I$ is a prime ideal.
+
+\begin{proof}
+$(\Rightarrow)$ Suppose that $R/I$ is an integral domain and $ab\in I$.
+Then $(a+I)(b+I)=ab+I=I=0+I$. So then $ab$ equals the zero element
+of $R$. $R$ is an integral domain so then $a=0$ or $b=0$. Thus
+$a\in I$ or $b\in I$ implying that $I$ is prime.
+
+$(\Leftarrow)$ Suppose that $I$ is a prime ideal. $R$ is commutative
+with identity, so we need only show that $R$ has no zero divisors
+(nonzero elements $a$ such that $a\cdot b=0_{R/I}$ for any nonzero
+$b$). Suppose that $(a+I)(b+I)=ab+I=0+I=I$. So then $ab\in I$ and
+thus $a\in I$ or $b\in I$ since $I$ is prime. So then $a+I$ OR
+$b+I$ is equal to $0+I$, and $R/I$ is an integral domain. 
+\end{proof}
+\end{thm}
+
+\begin{thm}
+\label{thm:I is max<=00003D>R/I  is field}Let $R$ be a commutative
+ring with identity. $R/I$ is a field if and only if $I$ is a maximal
+ideal.
+
+\begin{proof}
+$(\Rightarrow)$ Let $R/I$ be a field, and let $M$ be an ideal of
+$R$ such that $I\subset M$ (properly contains). We want to show
+that $M=R$. So there is a $m\in M$ such that $m\notin I$. So the
+$m+I\neq0+I$ and because $R/I$ is a field there exists an $x\in R$
+such that $(m+I)(x+I)=mx+I=1+I$. 
+
+Since $m\in M$ we have that $mx\in M$ ($M$ is an ideal), and so
+$mx=1\in M$. By a previous exercise this implies that $M=R$. So
+$I$ is maximal.
+
+$(\Leftarrow)$ Let $I$ be a maximal ideal. Let $m\in R$ but $m\notin I$.
+We want to show that $m+I$ must have a multiplicative inverse. Consider
+$M=\left\{ mr+i\colon r\in R\mbox{ and }i\in I\right\} $. It is easy
+to see that $M$ is an ideal in $R$, and $I\subset R$. $I$ is maximal
+so then $M=R$. Thus $1\in M$, say $1=mx+i'$ where $i'\in I$. Then
+\[
+1+I=(mx+i')+I=(mx+I)\oplus(i'+I)=(mx+I)\oplus(0+I)=mx+I
+\]
+So then $mx+I=\left(m+I\right)\otimes(x+I)$. Thus $m+I$ has an inverse
+and $R/I$ is a field. 
+\end{proof}
+\end{thm}
+\begin{itemize}
+\item A field is an integral domain, so theorem \ref{thm:I is max<=00003D>R/I  is field}
+tells us that a maximal ideal is always prime. Of course a prime ideal
+need not be maximal as the example below shows.
+\end{itemize}
+
+\section{Factor Rings and Homomorphisms}
+
+Factor rings arose as a generalization of congruence class arithmetic
+in the integers. Now we see that the concept of homomorphism and isomorphism
+that we studied in chapter \ref{chap:Homomorphisms-and-Isomorphisms}
+is closely related to factor rings and ideals. 
+\begin{itemize}
+\item Recall definition \ref{def: A-(ring)-homomorphism,}: a \emph{(ring)
+homomorphism} is an order preserving function between rings, i.e.,
+a homomorphism between rings $R$ and $S$ is a function, say $f$
+written $f\colon R\rightarrow S$, such that $f(ab)=f(a)f(b)$ and
+$f(a+b)=f(a)+f(b)$.
+\end{itemize}
+\begin{thm}
+\label{thm:kernel is an ideal}Let $f\colon R\rightarrow S$ be a
+ring homomorphism and let $\ker f=\left\{ r\in R\colon f(r)=0_{S}\right\} $.
+Then $\ker f$ is an ideal in $R$. 
+
+\begin{proof}
+$f$ is a homomorphism so $f(0_{R})=0_{S}$ by theorem \ref{thm:Properties-of-Ring},
+and we have that $\ker f\neq\emptyset$. Using the ideal test (theorem
+\ref{thm:Ideal-test.-A}), let $k,k'\in\ker f$. $R$ is homomorphism
+so $f(k-k')=f(k)-f(k')=0_{S}-0_{S}=0_{S}\Rightarrow r-r'\in\ker f$.
+Now for any$r\in R$ the homomorphic properties of $f$ implies that
+$f(rk)=f(r)f(k)=f(r)0_{S}=0_{S}\Rightarrow rk\in\ker f$. Similarly
+we can show that $kr$ is in $\ker f$. So $\ker f$ is an ideal in
+$R$.
+\end{proof}
+\end{thm}
+\begin{itemize}
+\item The ideal $\ker f$ from theorem \ref{thm:kernel is an ideal} is
+called the \emph{kernel of }$f$. It is simply the set of elements
+in $R$ that is mapped to $0$. 
+\end{itemize}
+
+If $\ker f=R$, meaning all elements are mapped to $0$, then $f$
+is the zero function, $f=0$. If $\ker f$ has more than one element
+then $f(a)=f(b)=0$ for some $a\neq b$ which is the definition of
+not being one-to-one (injective). So the kernel gives us a sense of
+how close a function is to being one-to-one which leads us to the
+following theorem.
+\begin{thm}
+\label{thm:kerf=00003D0 iff injective}Let $f\colon R\rightarrow S$
+be a ring homomorphism with kernel $\ker f$. Then $\ker f=\left\{ 0_{R}\right\} $
+if and only if $f$ is one-to-one. 
+
+\begin{proof}
+$(\Leftarrow)$ Suppose that $f$ is one-to-one so that $f(a)=f(b)\iff a=b$
+for any $a,b\in R$. Since $f$ is a homomorphism $f(0_{R})=0_{S}$
+by theorem \ref{thm:Properties-of-Ring}. Because $f$ is one-to-one,
+$0_{R},a\in\ker f\iff f(0_{R})=f(a)=0_{S}\iff0_{R}=a$. Thus $\ker f=\left\{ 0_{R}\right\} $.
+
+$(\Rightarrow)$ Suppose that $\ker f=\left\{ 0_{R}\right\} $ and
+$f(a)=f(b)$. We need to show that $a=b$. Because $f$ is a homomorphism,
+$f(a-b)=f(a)-f(b)=0_{S}\Rightarrow a-b\in\ker f$. By assumption $a-b=0_{R}\Rightarrow a=b$. 
+\end{proof}
+\end{thm}
+Theorem \ref{thm:kernel is an ideal} tells us that every kernel is
+an ideal. Conversely, every ideal is a kernel of some homomorphism.
+This is where we connect factor rings and homomorphisms. Recall that
+if $I$ is an ideal in $R$ then $R/I$ is also a ring. So we can
+define a function from the ring $R$ to the ring $R/I$.
+\begin{thm}
+\label{thm:natural homo}Let $I$ be an ideal in the ring $R$. Then
+the function $\pi\colon R\rightarrow R/I$ defined by $\pi(r)=r+I$
+is an onto homomorphism and $\ker\pi=I$. 
+
+\begin{proof}
+It is easy to see that $\pi$ is onto since for any coset $r+I\in R/I$,
+$\pi(r)=r+I$ by definition. The homomorphism part follows by the
+definition of multiplication and addition in cosets. For any $r,r'\in R$
+\[
+f(r+r')=(r+r')+I=\left(r+I\right)\oplus\left(r'+I\right)
+\]
+ and 
+\[
+f(r\cdot r')=\left(r\cdot r'\right)+I=\left(r+I\right)\otimes\left(r'+I\right).
+\]
+The $\ker\pi$ will b e all the elements in $r\in R$ such that $\pi(r)=r+I=0+I=I$,
+and $r+I=I$ if and only if $r\in I$. Thus $\ker\pi=I$.
+\end{proof}
+\end{thm}
+\begin{itemize}
+\item The function $\pi$ from theorem \ref{thm:natural homo} is called
+the \emph{natural homomorphism}. 
+\end{itemize}
+The natural homomorphism is a special case of when $f\colon R\rightarrow S$
+is an onto homomorphism. When this happens we say that $f$ is \emph{homomorphic
+image of $R$}. In the case that $f$ is also one-to-one it is an
+isomorphism, and we know that $R$ and $S$ have identical structures.
+Meaning that the algebraic properties in one ring will be identical
+to those in the other ring. The next theorem relates the kernel of
+a homomorphic image and the rings. 
+\begin{thm}
+\textbf{\emph{\label{thm:First-Isomorphism-Theorem.}First Isomorphism
+Theorem. }}Let $f\colon R\rightarrow S$ be a onto homomorphism of
+rings. Then the factor ring $R/\ker f$ is isomorphic to $S$.
+
+\begin{proof}
+Let $\phi\colon R/\ker f\rightarrow S$. We want to show that $\phi$
+is a isomorphism. To define $\phi$ we need to associate with each
+coset $r+\ker f\in R/\ker f$ an element of $S$. Let $\phi(r+\ker f)=f(r)$. 
+
+For $\phi$ to be well defined (i.e., a function) we need to show
+that if $r+\ker f=r'+\ker f$ then $f(r)=f(r')$.
+
+\begin{itemize}
+\item The problem is that a coset may possibly be represented by many different
+elements in $R$
+\end{itemize}
+If $r+\ker f=r'+\ker f$ then $r-r'\in\ker f$ by since $\ker f$
+is an ideal, and since $f$ is a homomorphism $f(r)-f(r')=f(r-r')=0_{S}$.
+This $f(r)-f(r')=0_{S}$ implies that $f(r)=f(r')$ as needed. Thus
+$\phi\colon R/\ker f\rightarrow S$ as defined by $\phi(r+\ker f)=f(r)$
+is a function.
+
+Now we need to show that $\phi$ is a isomorphism. If $s\in S$ then
+$s=f(r)$ for some $r\in R$ because $f$ is onto. Then $s=f(r)=\phi(r+\ker f)$,
+and $\phi$ is also onto. If $\phi(r+\ker f)=\phi(r'+\ker f)$ then
+$f(r)=f(r')\Rightarrow f(r)-f(r')=0_{S}\Rightarrow f(r-r')=0_{S}$.
+Hence $r-r'\in\ker f$ which implies that $r+\ker f=r'+\ker f$. Therefore
+$\phi$ is also one-to-one. 
+
+Using the definition of addition and multiplication of cosets along
+with the homomorphic properties of $f$ we show that $\phi$ is a
+homomorphism:
+\begin{eqnarray*}
+\phi\left[(r+\ker f)\oplus(r'+\ker f)\right] & = & \phi\left[(r+r')+\ker f\right]=f(r+r')=f(r)+f(r')\\
+ & = & \phi(r+\ker f)\oplus\phi(r'+\ker f)
+\end{eqnarray*}
+and 
+\begin{eqnarray*}
+\phi\left[(r+\ker f)\otimes(r'+\ker f)\right] & = & \phi\left[r\cdot r'+\ker f\right]=f(r\cdot r')=f(r)f(r')\\
+ & = & \phi(r+\ker f)\otimes\phi(r'+\ker f)
+\end{eqnarray*}
+Thus $\phi$ is an isomorphism.
+\end{proof}
+\end{thm}
+\begin{figure}[h]
+\begin{equation*}   
+	\xymatrix@C+1em@R+1em{    
+		R \ar[r]^-{f} \ar[d]_-{\pi} & S \\    
+		R/\ker f \ar@{-->}[ur]_-{\tilde{f}}   
+	}  
+\end{equation*}
+
+\caption{\label{fig:iso thm graph}A graph representing theorem \ref{thm:First-Isomorphism-Theorem.}.}
+
+\end{figure}
+
+This theorem states that every homomorphic image of a ring $R$ is
+an isomorphism to $R/\ker f$ for some ideal $\ker f$. If you know
+all the factor rings of $R$ then you also know all possible homomorphic
+images of $R$. The ideal $\ker f$ measures how much information
+is lost in the mapping from $R$ to $R/\ker f$. When $\ker f=\left\{ 0_{R}\right\} $,
+no information is lost -it is an isomorphism. 
+\begin{itemize}
+\item Theorem \ref{thm:First-Isomorphism-Theorem.} implies that all homomorphic
+images of $R$ can be determined using the factor rings of $R$.
+\end{itemize}
+The proof of theorem \ref{thm:First-Isomorphism-Theorem.} shows that
+$\tilde{f}\circ\pi=f$ , i.e., the graph in figure \ref{fig:iso thm graph}
+is commutative. 
+\end{document}

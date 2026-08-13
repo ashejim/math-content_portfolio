@@ -1,0 +1,331 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,english]{book}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1.5in,rmargin=1.5in}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\theoremstyle{definition}
+\newtheorem{example}{\protect\examplename}
+\theoremstyle{definition}
+\newtheorem{defn}{\protect\definitionname}
+\ifx\proof\undefined\
+  \newenvironment{proof}[1][\proofname]{\par
+    \normalfont\topsep6\p@\@plus6\p@\relax
+    \trivlist
+    \itemindent\parindent
+    \item[\hskip\labelsep
+          \scshape
+      #1]\ignorespaces
+  }{%
+    \endtrivlist\@endpefalse
+  }
+  \providecommand{\proofname}{Proof}
+\fi
+\theoremstyle{definition}
+\newtheorem{xca}{\protect\exercisename}
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{xcolor} %adds additional color options
+\hypersetup{colorlinks=true, urlcolor=Blue}%Blue
+
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows,shapes,backgrounds}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+%\usepackage{subcaption}
+
+%\usepackage{amsthm}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\definitionname}{Definition}
+\providecommand{\examplename}{Example}
+\providecommand{\exercisename}{Exercise}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+
+\chapter{Ideals\label{chap:Ideals}}
+
+\section{Ideals}
+\begin{example}
+\label{3Z is an ideal}Consider the set of integer multiples of $3$,
+$3\mathbb{Z}$. $3\mathbb{Z}$ is nonempty since $0\in3\mathbb{Z}$;
+$3a-3b=3(a-b)\in3\mathbb{Z}$ and $3a3b=9ab=3(3ab)\in3\mathbb{Z}$
+for any two integers $a$ and $b$. So $3\mathbb{Z}$ is a subring
+of $\mathbb{Z}$ and hence a ring (by the subring test, theorem \ref{thm: subring test}). 
+
+Now consider any integer $r$. $r(3a)=(3a)r=3ar\in3\mathbb{Z}$. So
+the subring $3\mathbb{Z}$ ``absorbs'' any element from its ring
+$\mathbb{Z}$.
+\end{example}
+
+\begin{example}
+\label{=00007B0,1=00007D is not an ideal}The set $T=\{0,1\}$ is
+a subring of $\mathbb{Z}$ (by the subring test), but $T$ does not
+share the ``absorbency'' property of the example above. As $5\cdot1=5\notin T$. 
+\end{example}
+
+As we move forward, the ``absorbency'' property which distinguishes
+these two subrings of $\mathbb{Z}$ will become more important. So
+we need to give it a name.
+\begin{defn}
+A subring $A$ of a ring $R$ is an (two-sided) \emph{ideal }of $R$
+if for every $r\in R$ and every $a\in A$ then $ra$ and $ar$ are
+in $A.$ 
+\end{defn}
+Example \ref{3Z is an ideal} is an ideal while example \ref{=00007B0,1=00007D is not an ideal}
+is not an ideal.
+
+Of course it will not be necessary to check the property ``$ra$
+and $ar$'' when the ring is commutative (we anyway in example \ref{3Z is an ideal}).
+However keep in mind that the subring of a non-commutative ring may
+still be commutative --in which case the property must be checked.
+\begin{example}
+$\mathbb{Z}$ is a subring of $\mathbb{Q}$, but $\mathbb{Z}$ is
+not an ideal since $3\cdot\frac{1}{2}=\frac{3}{2}\notin\mathbb{Z}$. 
+\end{example}
+
+\begin{example}
+\label{exa: 2Z-is-an-ideal}$2\mathbb{Z}$ is an ideal of $\mathbb{Z}$.
+
+\begin{proof}
+This proof is similar to example \ref{3Z is an ideal}. $2\mathbb{Z}$
+is a subring of $\mathbb{Z}$ by the subring test. Let $r\in\mathbb{R}$
+and $a\in2\mathbb{Z}$ so that $a=2n$ for some $n\in\mathbb{Z}$.
+$ra=r2n\in2\mathbb{Z}$.
+\end{proof}
+\end{example}
+\begin{itemize}
+\item An ideal is a subring that is closed under multiplication with any
+element from its ring. An ideal is a subring that ``absorbs'' elements
+from the rings.
+\end{itemize}
+\begin{xca}
+Prove that $0_{R}$ and $R$ are ideals of $R$ for any ring $R$.
+The ideal $0_{R}$ is called the \emph{zero ideal}. 
+\end{xca}
+
+\begin{xca}
+\label{exc:constant_polys_are_ideals?}Let $\mathbb{R}[x]$, the set
+of all polynomials with real coefficients. Let $C$ be the subset
+of $\mathbb{R}[x]$ with constant terms that are $0$. For example,
+$x^{3}+x\in C$ but $x^{3}+x-4\notin C$. Prove that $C$ is or is
+not an ideal.
+\end{xca}
+
+As being a subring is a prerequisite of being an ideal, it should
+not be a surprise that a generalization of the subring test (theorem
+\ref{thm: subring test}) will simplify the verification  of an ideal.
+\begin{thm}
+\textbf{\emph{\label{thm:Ideal-test.-A}Ideal test. }}A nonempty subset
+$I$ of a ring $R$ is an ideal if and only if:
+
+\begin{enumerate}
+\item If $a,b\in I$ then $a-b\in I$.
+\item If $r\in R$ and $a\in I$ then $ra\in I$ and $ar\in I$.
+\end{enumerate}
+\begin{proof}
+($\Leftarrow$) Let $I$ have properties $1$ and $2$. $I$ is a
+ring by the subring test since property 2 is true for all $r\in I\subseteq R$,
+and property 1 is identical to the property 1 of the subring test.
+Property 2 also implies the absorbing property of ideals.
+
+($\Rightarrow$) All ideals have property 1 since they are subrings,
+and property 2 by definition.
+\end{proof}
+\end{thm}
+\begin{xca}
+Prove that the set $I=\{a,0)\colon a\in\mathbb{Z}\}$ is an ideal
+of the ring $\mathbb{Z}\times\mathbb{Z}$. 
+\end{xca}
+
+\begin{xca}
+Let $A$ and $B$ be ideals of $R$. Prove that $A\cap B$ is also
+an ideal of $R$.
+\end{xca}
+
+\begin{xca}
+Let $A$ and $B$ be ideals of $R$. Prove that $A\cup B$ is not
+necessarily an ideal of $R$.
+\end{xca}
+
+\begin{xca}
+If $I$ is an ideal in the ring $R$ and $J$ is an ideal of the ring
+$S$, prove that $I\times J$ is an ideal of the ring $R\times S$.
+\end{xca}
+
+\begin{xca}
+Let $R$ be a ring with unity $1_{R}$ and let $I$ be an ideal of
+$R$. If $1_{R}\in I$ prove $I=R$.  
+\end{xca}
+
+\begin{xca}
+\label{exc:I=00003DR-if-I-has-an-inverse}Let $R$ be a ring with
+unity $1_{R}$ and let $I$ be an ideal of $R$. If $I$ has an element
+$x$ and $x^{-1}$ such that $x\cdot x^{-1}=x^{-1}\cdot x=1_{R}$\footnote{Such an element $x$ is called and \emph{unit.}},
+prove that $I=R$.
+\end{xca}
+
+\begin{xca}
+$\bigstar$Prove that the set $I_{R}=\left\{ \begin{bmatrix}\begin{array}{rr}
+x & y\\
+0 & 0
+\end{array}\end{bmatrix}\colon x,y\in\mathbb{R}\right\} $ is a subring of $M_{2\times2}(\mathbb{R})$ that absorbs products
+\uline{on the right} but is not an ideal. That is, $ar\in I$ for
+all $a\in I$ and $r\in M_{2\times2}(\mathbb{R})$, but it is possible
+that $ra\notin I$. Such a subring is called a \emph{right subring}. 
+\end{xca}
+Example \ref{3Z is an ideal} is an ideal that was formed by multiples
+of a single element, $3\in\mathbb{Z}$. Because the entire ideal can
+be expressed as a product of a finite number of elements, we call
+such ideals \emph{finitely generated ideals}. 
+\begin{thm}
+\label{thm:principal ideals are ideal}Let $R$ be a commutative ring
+with unity\footnote{``with unity'' is equivalent to ``with identity''.},
+$c\in R$, and $I$ the set of all multiples of $c$ in $R$ ($I=\{cr\colon r\in R\}$)
+Then $I$ is an ideal.
+\end{thm}
+\begin{xca}
+$\bigstar$ Prove theorem \ref{thm:principal ideals are ideal}. Why
+is the assumption that $R$ has unity necessary?
+\end{xca}
+\begin{defn}
+The ideal in \ref{thm:principal ideals are ideal} is called the \emph{principal
+ideal generated by $c$, denoted $\left\langle c\right\rangle $}\footnote{Also often denoted $(c)$}\emph{.}
+\end{defn}
+\begin{example}
+Examples \ref{3Z is an ideal} and \ref{exa: 2Z-is-an-ideal} are
+principal ideals (in $\mathbb{Z}$) generated by $3$ and $2$ respectively.
+\end{example}
+
+\begin{example}
+Recall that the ring of polynomials with integer coefficients is denoted
+$\mathbb{Z}[x]$. The set generated by multiplying polynomials in
+$\mathbb{Z}[x]$ with the polynomial $x$ is a principal ideal generated
+by $x$ (an example of an element in $\left\langle x\right\rangle $
+is $x(x^{2}+3x)=x^{3}+3x^{2}$).
+
+\begin{proof}
+$\mathbb{Z}[x]$ is a commutative ring with unity $1_{R}$. $x\in\mathbb{Z}[x]$
+and $\left\langle x\right\rangle =\{x\cdot f(x)\colon f(x)\in\mathbb{Z}[x]\}$
+so $\left\langle x\right\rangle $ is an ideal by theorem \ref{thm:principal ideals are ideal}.
+\end{proof}
+\end{example}
+
+\begin{xca}
+$\bigstar$ Prove that all ideals in $\mathbb{Z}$ are principal ideals.
+\end{xca}
+\begin{itemize}
+\item It follows that all ideals in $\mathbb{Z}_{n}$ are also principal.
+\end{itemize}
+\begin{defn}
+A \emph{prime ideal $P$ }of a commutative ring $R$ is a proper ideal\footnote{An ideal $I$ in $R$ is proper if $I\neq R$, i.e., $I$ is a proper
+subset of $R$.} of $R$ such that $a,b\in R$ and $ab\in P$ implies $a\in P$ \uline{or}
+$b\in P$.
+\end{defn}
+\begin{example}
+Let $3\mathbb{Z}$ (from example \ref{3Z is an ideal}) is a prime
+ideal in $\mathbb{Z}$. For example $27=3\cdot9\in3\mathbb{Z}$ and
+$3,9=3\mathbb{Z}$. 
+
+\begin{proof}
+We know from example \ref{3Z is an ideal} that $3\mathbb{Z}$ is
+a ring, and $3\mathbb{Z}\neq\mathbb{Z}$ ($7\notin3\mathbb{Z}$ for
+example); so $3\mathbb{Z}$ is a proper ideal in $\mathbb{Z}$.
+
+Let $a,b\in\mathbb{Z}$ and suppose that $ab\in3\mathbb{Z}$. So $ab=3n$
+for some $n\in\mathbb{Z}$ which implies that $3|ab$. Suppose that
+$b\notin3\mathbb{Z}$ so that $3\not{|}b$. It follows that $3|a$
+since $3$ is prime, and so $a\in3\mathbb{Z}$. 
+\end{proof}
+\end{example}
+
+\begin{xca}
+Show that $5\mathbb{Z}$ is a prime ideal. 
+\end{xca}
+
+\begin{xca}
+$\bigstar$ For an integer greater than 1, $n\mathbb{Z}$ is a prime
+ideal if and only if $n$ is prime.
+\end{xca}
+\begin{defn}
+A \emph{maximal ideal $M$ }of a commutative ring $R$ is a proper
+ideal such that whenever $I$ is an ideal of $R$ and $M\subseteq I\subseteq R$
+then $I=M$ or $I=R$.
+\end{defn}
+
+\section{Congruence and ideals}
+
+We are familiar with the idea of congruence. Ideals can be congruent
+as well. 
+\begin{example}
+$\mathbb{Z}_{4}$ has $4$ elements and so it has at most $4$ ideals
+since all of its ideals are principal. $\left\langle 1\right\rangle ,\left\langle 2\right\rangle ,\left\langle 3\right\rangle ,\left\langle 0\right\rangle $
+are all ideals of $\mathbb{Z}_{4}$ by theorem \ref{thm:principal ideals are ideal}.
+\begin{eqnarray*}
+\left\langle 1\right\rangle  & = & \left\{ 1,2,3,0\right\} =\mathbb{Z}_{4}\\
+\left\langle 2\right\rangle  & = & \left\{ 2,0\right\} \\
+\left\langle 3\right\rangle  & = & \left\{ 3,2,1,0\right\} \\
+\left\langle 0\right\rangle  & = & \left\{ 0\right\} 
+\end{eqnarray*}
+
+So $\left\langle 1\right\rangle =\left\langle 3\right\rangle $. These
+two ideals are equal. So $\mathbb{Z}_{4}$ has three distinct ideals,
+$\left\langle 1\right\rangle ,\left\langle 2\right\rangle $, and
+$\left\langle 0\right\rangle $. 
+\end{example}
+\begin{itemize}
+\item As these ideals were generated by multiples of elements of $\mathbb{Z}_{4}$,
+the distinct ideals will correspond to the divisors of $4$.
+\end{itemize}
+\begin{xca}
+Find the distinct ideals of $\mathbb{Z}_{12}$. 
+\end{xca}
+\begin{defn}
+Let $I$ be an ideal in a ring $R$ and let $a,b\in R$. Then $a\equiv b\bmod I$
+if $a-b\in I$. We say ``$a$ is congruent to $b$ modulo $I$.
+\end{defn}
+\begin{example}
+Recall that $a\equiv b\bmod n$ means that $n|(a-b)$. Let $I=\left\langle n\right\rangle $
+be an ideal in $\mathbb{Z}$. $I=\left\{ \dots,-2n,-n,0,n,2n,\dots\right\} $,
+the set of multiples of $n$. So we could characterize congruence
+modulus $n$ as $a\equiv b\bmod n$ to mean that $a-b\in I$. 
+
+\begin{itemize}
+\item Congruence modulo $n$ in $\mathbb{Z}$ is equivalent to congruence
+modulo the ideal $I=\left\langle n\right\rangle $.
+\end{itemize}
+\end{example}
+
+
+\end{document}

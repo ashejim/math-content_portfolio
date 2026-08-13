@@ -1,0 +1,126 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,english]{book}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{units}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1.5in,rmargin=1.5in}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\theoremstyle{definition}
+\ifx\thechapter\undefined
+  \newtheorem{defn}{\protect\definitionname}
+\else
+  \newtheorem{defn}{\protect\definitionname}[chapter]
+\fi
+\theoremstyle{definition}
+\ifx\thechapter\undefined
+  \newtheorem{example}{\protect\examplename}
+\else
+  \newtheorem{example}{\protect\examplename}[chapter]
+\fi
+\theoremstyle{plain}
+\ifx\thechapter\undefined
+  \newtheorem{prop}{\protect\propositionname}
+\else
+  \newtheorem{prop}{\protect\propositionname}[chapter]
+\fi
+\ifx\proof\undefined\
+  \newenvironment{proof}[1][\proofname]{\par
+    \normalfont\topsep6\p@\@plus6\p@\relax
+    \trivlist
+    \itemindent\parindent
+    \item[\hskip\labelsep
+          \scshape
+      #1]\ignorespaces
+  }{%
+    \endtrivlist\@endpefalse
+  }
+  \providecommand{\proofname}{Proof}
+\fi
+\theoremstyle{definition}
+\ifx\thechapter\undefined
+  \newtheorem{xca}{\protect\exercisename}
+\else
+  \newtheorem{xca}{\protect\exercisename}[chapter]
+\fi
+\theoremstyle{plain}
+\ifx\thechapter\undefined
+  \newtheorem{thm}{\protect\theoremname}
+\else
+  \newtheorem{thm}{\protect\theoremname}[chapter]
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{xcolor} %adds additional color options
+%\hypersetup{colorlinks=true, urlcolor=Blue}%Blue
+\hypersetup{colorlinks=true, urlcolor=Blue,linkcolor=[rgb]{0,0,.5}} %blue
+
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+
+\usetikzlibrary{calc,arrows,shapes,backgrounds,matrix,shapes.geometric,fit,trees,positioning}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+%\usepackage{subcaption}
+
+%\usepackage{amsthm}
+\usepackage[all]{xy} %%for isomorphism threom pic
+
+%%%%%commands
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\funct}[2]{$f\colon#1\rightarrow#2$}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\definitionname}{Definition}
+\providecommand{\examplename}{Example}
+\providecommand{\exercisename}{Exercise}
+\providecommand{\propositionname}{Proposition}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+\title{MTH 439: Abstract Algebra Notes}
+
+\maketitle
+\tableofcontents{}
+
+\include{Rings}
+
+\include{Homomorphisms_and_Isomorphisms}
+
+\include{ideals}
+
+\include{Factor_Rings}
+
+\include{HW_hints}
+\end{document}

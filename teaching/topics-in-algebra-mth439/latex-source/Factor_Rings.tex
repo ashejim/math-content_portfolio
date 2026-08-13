@@ -1,0 +1,719 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,english]{book}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{units}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1.5in,rmargin=1.5in}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}
+\theoremstyle{definition}
+\newtheorem{xca}{\protect\exercisename}
+\theoremstyle{definition}
+\newtheorem{example}{\protect\examplename}
+\ifx\proof\undefined\
+  \newenvironment{proof}[1][\proofname]{\par
+    \normalfont\topsep6\p@\@plus6\p@\relax
+    \trivlist
+    \itemindent\parindent
+    \item[\hskip\labelsep
+          \scshape
+      #1]\ignorespaces
+  }{%
+    \endtrivlist\@endpefalse
+  }
+  \providecommand{\proofname}{Proof}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{xcolor} %adds additional color options
+\hypersetup{colorlinks=true, urlcolor=Blue}%Blue
+
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows,shapes,backgrounds}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+%\usepackage{subcaption}
+
+%\usepackage{amsthm}
+\usepackage[all]{xy}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\examplename}{Example}
+\providecommand{\exercisename}{Exercise}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+
+\chapter{Factor Rings}
+
+\section{Properties of Factor Rings}
+
+We saw in the previous chapter that $\mathbb{Z}/6\mathbb{Z}=\mathbb{Z}/\left\langle 6\right\rangle $
+is isomorphic to $\mathbb{Z}_{6}$. It follows that $\mathbb{Z}/\left\langle 6\right\rangle $
+is a ring. This is in general true for all factor rings, however we
+have yet to prove this. Once we show that they are rings, we can then
+explore their structure using isomorphisms and homomorphisms. First
+we need to define the ring operations of factor rings which requires
+the following theorem.
+
+\emph{Recall definition \ref{def-factor-ring}:} If $I$ is an ideal
+in the ring $R$, then the set of all cosets of $I$ is called the
+\emph{factor ring} $R$ modulo $I$ and is denoted $R/I$.
+\begin{itemize}
+\item $R/I=\{r+I\colon r\in R\}$
+\end{itemize}
+$R/I$ is called a factor ring because (no surprise) -it is a ring
+under addition and multiplication of modulo classes. Before we can
+show that it is a ring, or why $I$ needs to be an ideal; we define
+the operations and provide some examples. 
+\begin{itemize}
+\item The sum of $a+I$ and $b+I$ is $(a+b)+I$.
+
+\begin{itemize}
+\item []$a+I\oplus b+I=(a+b)+I$
+
+\begin{itemize}
+\item Don't forget that $x\in a+I\Rightarrow x=a+ri$ for some $i\in I$.
+The addition sign can be confusing here because, $a+I$ denotes a
+set -not an operation. Some texts write $a+I\oplus b+I$ as ``simply''$a+I+b+I$.
+\end{itemize}
+\end{itemize}
+\item The product of $a+I$ and $b+I$ is $ab+I$
+
+\begin{itemize}
+\item []$a+I\otimes b+I=ab+I$ or $(a+I)(b+I)=ab+I$
+\end{itemize}
+\end{itemize}
+The symbols $\oplus$ and $\otimes$ are used to distinguish the factor
+ring operation from the coset notation. Though often used it is by
+no means standard. So be careful when reading different texts! The
+theorem below is just theorem \ref{thm:cong-prop} restated for ideals.
+\begin{thm}
+\label{thm:cong-for-mod-I}Let $I$ be an ideal in a ring $R$. If
+$a+I=b+I$ and $c+I=d+I$ in $R/I$, then 
+
+\[
+(a+c)+I=(b+d)+I\mbox{ and }ac+I=bd+I
+\]
+
+\end{thm}
+\begin{xca}
+$\bigstar$ Prove the theorem above.
+\end{xca}
+\begin{example}
+\label{ex-Z/<5> is a ring}$\left\langle 5\right\rangle $ is a principal
+ideal in $\mathbb{Z}$. Addition and multiplication of cosets is just
+the same as addition and multiplication of congruence classes $\mathbb{Z}$
+modulo. 
+
+$\mathbb{Z}/\left\langle 5\right\rangle =\left\{ 0+5\mathbb{Z},1+5\mathbb{Z},2+5\mathbb{Z},3+5\mathbb{Z},4+5\mathbb{Z}\right\} $.
+We can add and multiply as follows: 
+\[
+\left(2+5\mathbb{Z}\right)\oplus\left(1+5\mathbb{Z}\right)=3+5\mathbb{Z}
+\]
+and 
+\[
+\left(3+5\mathbb{Z}\right)\otimes\left(2+5\mathbb{Z}\right)=6+5\mathbb{Z}=(5)+\left(1+5\mathbb{Z}\right)=\left(0+5\mathbb{Z}\right)\oplus\left(1+5\mathbb{Z}\right)=1+5\mathbb{Z}
+\]
+
+\begin{itemize}
+\item []%
+\begin{tabular}{rl}
+$a+I\oplus b+I=(a+b)+I$ & closed under addition\tabularnewline
+$a+I\oplus(b+I\oplus c+I)=(a+b+c)+I$ & additively associative\tabularnewline
+$a+I\oplus0+I=a+I$ & additive identity\tabularnewline
+$a+I\oplus-a+I=0+I$ & additive inverse\tabularnewline
+\end{tabular}
+\item []%
+\begin{tabular}{rl}
+$a+I\otimes b+I=ab+I$ & closed under multiplication\tabularnewline
+$a+I\otimes(b+I\otimes c+I)=abc+I$ & multiplicatively associative\tabularnewline
+$a+I\otimes(b+I\oplus c+I)=a+I\otimes((b+c)+I)$ & distribution\tabularnewline
+$=\left(a(b+c)\right)+I=(ab+ac)+I$ & \tabularnewline
+\end{tabular}So $R/I$ is a ring.
+\end{itemize}
+Thus $\mathbb{Z}/\left\langle 5\right\rangle =\mathbb{Z}/5\mathbb{Z}$
+is a ring. To see that these are the distinct cosets, consider $a+5\mathbb{Z}$
+for some integer $a>5$. $a=5q+r$ by the division algorithm so $a\equiv r\bmod5$
+for some integer $0\leq r<5$. Thus $a$ is an element in one of the
+above cosets, and it follows that $a+5\mathbb{Z}=r+5\mathbb{Z}$.
+As the operations $\mathbb{Z}/\left\langle 5\right\rangle $ are just
+modulo $5$ arithmetic, we can also see that $\mathbb{Z}/\left\langle 5\right\rangle =\mathbb{Z}_{5}$. 
+\end{example}
+\begin{xca}
+Give two examples of elements in $\mbox{\ensuremath{\mathbb{Z}}}/4\mathbb{Z}=\mathbb{Z}/\left\langle 4\right\rangle $,
+and add and multiply them.
+\end{xca}
+
+\begin{xca}
+Find all the distinct cosets of $\mbox{\ensuremath{\mathbb{Z}}}/4\mathbb{Z}$.
+\end{xca}
+\begin{example}
+$3\mathbb{Z}/9\mathbb{Z}=\left\{ 0+9\mathbb{Z},3+9\mathbb{Z},6+9\mathbb{Z}\right\} $.
+For example $300=33\cdot9+3$ so $300\equiv3\bmod9$ and $300\in0+9\mathbb{Z}$. 
+
+\label{ex-F=00005Bx=00005D/<p(x)> is a ring}If $F$ is a field and
+$p(x)$ is a polynomial in $F[x]$, and $I$ is the principal ideal
+$\left\langle p(x)\right\rangle $, then the cosets of $I$ are the
+congruence classes modulo $p(x)$. Thus addition and multiplication
+of cosets is done exactly as in chapter \ref{chap:Ideals}, and we
+have that $F[x]/I$ is the congruence class ring $F[x]/\left\langle p(x)\right\rangle $.
+\end{example}
+
+\begin{example}
+\label{ex-D/E is a ring}Let $D$ be the ring of rational numbers
+(in reduced terms) with odd denominators, and let $E$ be the set
+of elements in $D$ with even numerators. As we saw in exercise \ref{exc-D/R-factor-ring-of-even-denom},
+$D/E$ has exactly two distinct ideals. $0+E$ and $x+E$ where $x$
+is a rational number with an odd denominator and odd numerator. Since
+$x-1=\frac{2n+1}{2m+1}-\frac{2m+1}{2m+1}=\frac{2(n-m)}{2m+1}\in I$.
+So then $x+I=1+I$. So the two distinct cosets are $0+E$ and $1+E$.
+By the theorem \ref{thm:cong-for-mod-I},\\
+\begin{tabular}{c|cc}
+$\oplus$ & $0+E$ & $1+E$\tabularnewline
+\hline 
+$0+E$ & $0+E$ & $1+E$\tabularnewline
+$1+E$ & $1+E$ & $0+E$\tabularnewline
+\end{tabular} and %
+\begin{tabular}{c|cc}
+$\otimes$ & $0+E$ & $1+E$\tabularnewline
+\hline 
+$0+E$ & $0+E$ & $0+E$\tabularnewline
+$1+E$ & $0+E$ & $1+E$\tabularnewline
+\end{tabular} so we can see that $D/E$ is also a ring.
+\end{example}
+\begin{thm}
+\label{thm:R/I-is-a-ring}Let $I$ be an ideal in a ring $R$ then,
+
+\begin{enumerate}
+\item $R/I$ is a ring with addition and multiplication as defined above.
+\item If $R$ is abelian then $R/I$ is also abelian.
+\item If $R$ has an identity then $R/I$ has an identity.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+$(1)$ First we need to show that $R/I$ is an abelian group under
+addition. Recall from exercise \ref{exc-R/R=00003D0 and R/0=00003DR}
+that $R/0=R$. $R$ is a ring so then $R/0$ is also a ring. We show
+that $R/I$ is a subring of $R/0$. $R/I=\{r+I\colon r\in R\}\neq\emptyset$
+since $I\neq\emptyset$ and $R\neq\emptyset$ as they are both rings.
+Now let $a+I,b+I\in R/I$. $R$ is a ring; so $-b\in R$, $a-b\in R$,
+and $ab\in R$. Thus $a+I\oplus-b+I=(a-b)+I\in R/I$, and $a+I\otimes b+I=ab+I\in R/I$
+. So $R/I$ is subring (and hence a ring) by the subring test. 
+
+Alternatively, we could show it is a ring directly as in example \ref{ex-Z/<5> is a ring}.
+
+$(2)$ Suppose that $R$ is abelian so that $ab=ba$ for all $a,b\in R$.
+This implies that $a+I\otimes b+I=ab+I=ba+I=b+I\otimes a+I$.
+
+$(3)$ Suppose that $R$ has an identity, say $1_{R}$. This implies
+that $a+I\otimes1_{R}+I=a1_{R}+I=a1_{R}+I=1_{R}+I\otimes a+I$. So
+the identity of $R/I$ is $1_{R}+I$. 
+\end{proof}
+\begin{itemize}
+\item Part 2 is a sufficient but necessary condition for $R/I$ to be commutative.
+For example $R$ may not be non-abelian, but $R/R=0_{R}$ is certainly
+abelian. 
+\end{itemize}
+\begin{thm}
+\label{thm:R/I is a ring iif I is an ideal}Let $R$ be a ring. $R/I$
+is a ring if and only if $I$ is an ideal of $R$. 
+\end{thm}
+\begin{proof}
+$\left(\Leftarrow\right)$ From theorem \ref{thm:R/I-is-a-ring} $I$
+is an ideal $\Rightarrow R/I$ is a ring.
+
+$\left(\Rightarrow\right)$ Let $R/I$ be a ring and $I$ a subring
+of $R$, but $I$ is not an ideal of $R$. Then there exists $a\in I$
+such that $ra\notin I$ or $ar\notin I$ for some $r\in R$. Assume
+that $ra\notin I$. Since $a\in I$, $a+I=0+I$ (cosets are equal
+or disjoint). Now consider $r+I$. $(r+I)(a+I)=ra+I$, but $(r+I)(a+I)=(r+I)(0+I)=0+I=I$.
+So then $ra+I=0+I$, a contradiction since $ra\notin I$. Similarly
+we get a contradiction if $ar\notin I$. So multiplication is not
+well defined and the set of cosets is not a ring.
+
+Thus any ideal $I$ in $R$ gives us a factor ring by theorem \ref{thm:R/I-is-a-ring},
+and any subring $A$ which is not an ideal gives us a non-ring $R/A$.
+\end{proof}
+\begin{xca}
+Let $S=\left\{ a+bi\colon b\in2\mathbb{Z}\right\} $ ($b$ is even
+and $i=\sqrt{-i}$). Prove that $S$ is a subring of $\mathbb{Z}[i]$
+(see exercise \ref{ex-gaussian int factor ring }) but that $S$ is
+not an ideal of $\mathbb{Z}[i]$. 
+\end{xca}
+
+\begin{xca}
+Let $S=\left\{ a+bi\colon b\in2\mathbb{Z}\right\} $ ($b$ is even
+and $i=\sqrt{-i}$). Prove that $\mathbb{Z}[i]/S$ is not a ring.
+\end{xca}
+
+\begin{xca}
+Prove that $\mathbb{R}[x]/\left\langle x^{2}+1\right\rangle $ is
+a ring. (We know that the ring of polynomials with integer coefficients,
+$\mathbb{R}[x]$, is a ring). 
+\end{xca}
+\begin{example}
+\label{ex-gaussian int factor ring }Let $\left\langle 4-i\right\rangle \in\mathbb{Z}[i]$.
+$\mathbb{Z}[i]=\left\{ x+yi\colon x,y\in\mathbb{Z}\right\} $ is called
+the \emph{Gaussian integers}, and\emph{. $\left\langle 4-i\right\rangle =\left\{ (4-i)\cdot z\colon z\in\mathbb{Z}[i]\right\} $.
+}For any two Gaussian integers\emph{ }$z$\emph{ }and $z'$ we have
+\emph{$(4-1i)z-(4-i)z'=(4-i)(z-z')\in\left\langle 4-i\right\rangle $},
+and $z_{1}\left(z_{2}(4-i)\right)=\left(z_{2}\left(4-i\right)\right)z_{1}=z_{1}z_{2}\left(4-i\right)\in\left\langle 4-i\right\rangle $.
+So $\left\langle 4-i\right\rangle $ is an ideal of $\mathbb{Z}[i]$. 
+
+By theorem\ref{thm:R/I is a ring iif I is an ideal}, $\mathbb{Z}[i]/\left\langle 4-i\right\rangle $
+is a ring with elements (cosets) of the form $x+yi+\left\langle 4-i\right\rangle $
+for $x,y\in\mathbb{Z}$. When dealing with cosets in $\mathbb{Z}[x]/\left\langle 4-i\right\rangle $
+we can treat $4-i$ as $0$ since $4-i+\left\langle 4-i\right\rangle =0+\left\langle 4-i\right\rangle $.
+This allows us to simplify the set of \emph{distinct }cosets. For
+example, since $4-i\equiv0$ we also know that $4\equiv i$ since
+$4-i+i=4$. So then 
+\[
+6+3i+\left\langle 4-i\right\rangle =6+12+\left\langle 4-i\right\rangle =18+\left\langle 4-i\right\rangle 
+\]
+
+$4\equiv i\Rightarrow16\equiv-1$ and $17\equiv0$. We can now further
+reduce the above coset to
+\[
+18+\left\langle 4-i\right\rangle =17+1+\left\langle 4-i\right\rangle =1+\left\langle 4-i\right\rangle 
+\]
+As it turns out, there are $17$ distinct cosets. 
+\[
+\mathbb{Z}[i]/\left\langle 4-i\right\rangle =\left\{ 0+\left\langle 4-i\right\rangle ,1+\left\langle 4-i\right\rangle ,\dots,17+\left\langle 4-i\right\rangle \right\} 
+\]
+To see that this is the case, note that any other coset will be some
+integer multiple of $1+\left\langle 4-i\right\rangle $. Since $17\left(1+\left\langle 4-i\right\rangle \right)=0+\left\langle 4-i\right\rangle $,
+$17\left(1+\left\langle 4-i\right\rangle \right)$ has order $1$
+or $17$. If it is $1$, then $1+\left\langle 4-i\right\rangle =0+\left\langle 4-i\right\rangle $
+and $1\in\left\langle 4-i\right\rangle $ so $1=\left(x+yi\right)\left(4-i\right)=4x-ix+4yi+y=4x+y+i(-x+4y)$
+for integers $x$ and $y$. Since $1\in\mathbb{R}$ this implies that
+$1=4x+y$ and $0=-x+4y$. Solving this system gives $y=\nicefrac{1}{17}\notin\mathbb{Z}$,
+a contradiction. So the order of $\mathbb{Z}[x]/\left\langle 4-i\right\rangle $
+is $17$. From the operations we can also see that this ring is essentially
+the same as $\mathbb{Z}_{17}$, a field. 
+\end{example}
+\begin{xca}
+Give two examples of elements in $\mbox{\ensuremath{\mathbb{Z}}}[i]/\left\langle 2-i\right\rangle $,
+and add and multiply them.
+\end{xca}
+
+\begin{xca}
+Find all the distinct cosets of $\mbox{\ensuremath{\mathbb{Z}}}[i]/\left\langle 2-i\right\rangle $.
+\end{xca}
+
+
+\section{Prime and Maximal Ideals }
+\begin{xca}
+Let $R$ be a commutative ring with unity and let $a_{1},a_{2},\dots,a_{n}\in R$.
+Prove that 
+\[
+I=\left\langle a_{1},a_{2},\dots,a_{n}\right\rangle =\left\{ r_{1}a_{1},r_{2}a_{2},\dots,r_{n}a_{n}\colon r_{i}\in R\right\} 
+\]
+ is an ideal in $R$. $I$ is called the \emph{ideal generated by
+}$a_{1},a_{2},\dots,a_{n}$. 
+\end{xca}
+
+\begin{xca}
+If $n$ is not prime prove that $\left\langle n\right\rangle $ is
+not a prime ideal in $\mathbb{Z}$
+\end{xca}
+
+\begin{xca}
+Prove that the intersection of two prime ideals need not be prime.\\
+\end{xca}
+
+\begin{xca}
+Prove that a nonzero integer $p$ is prime if and only if the ideal
+$\left\langle p\right\rangle $ is maximal in $\mathbb{Z}$.
+\end{xca}
+
+\begin{xca}
+Let $F$ be a field and $p(x)\in F[x]$. Prove that $p(x)$ is irreducible
+if and only if the ideal $\left\langle p(x)\right\rangle $ is maximal
+in $F[x]$.
+\end{xca}
+\begin{itemize}
+\item All ideals of $\mathbb{Z}_{n}$ are principal. 
+\item The ideals of $\mathbb{Z}_{n}$ are the divisors of $n$. To see this
+let $\left\langle m\right\rangle $ be an ideal in $\mathbb{Z}_{n}$.
+$0_{R}\in\left\langle m\right\rangle $ so then there is a $r\in R$
+such that $rm=n\equiv0\bmod n$. 
+\item The distinct divisors of $n$ give distinct ideals of $\mathbb{Z}_{n}$.
+To see this let $0<m<q$ be two distinct divisors of $n$. If $m|q$
+then $\left\langle q\right\rangle \subset\left\langle m\right\rangle $.
+Otherwise $m\notin\left\langle q\right\rangle $.
+\end{itemize}
+\begin{example}
+Consider $\mathbb{Z}_{36}$. The distinct ideals are $\left\langle 0\right\rangle $,
+$\left\langle 12\right\rangle $, $\left\langle 18\right\rangle $,
+$\left\langle 4\right\rangle $, $\left\langle 6\right\rangle $,
+\textbf{$\left\langle 9\right\rangle $}, $\left\langle 2\right\rangle $,
+$\left\langle 3\right\rangle $, and $\left\langle 1\right\rangle =\mathbb{Z}_{36}$.
+
+\begin{itemize}
+\item $\left\langle 0\right\rangle \subset\left\langle 18\right\rangle \subset\left\langle 9\right\rangle \subset\left\langle 3\right\rangle \subset\left\langle 1\right\rangle $
+\item $\left\langle 0\right\rangle \subset\left\langle 18\right\rangle \subset\left\langle 6\right\rangle \subset\left\langle 3\right\rangle \subset\left\langle 1\right\rangle $
+\item $\left\langle 0\right\rangle \subset\left\langle 18\right\rangle \subset\left\langle 6\right\rangle \subset\left\langle 2\right\rangle \subset\left\langle 1\right\rangle $
+\end{itemize}
+Continuing like this we can construct a lattice showing all the ideals
+and clearly see that $\left\langle 2\right\rangle $ and $\left\langle 3\right\rangle $
+are the maximal ideals. 
+\end{example}
+\begin{xca}
+Find all maximal ideals in $\mathbb{Z}_{10}$ and $\mathbb{Z}_{12}$.
+\end{xca}
+\begin{thm}
+\label{thm:I is prime <=00003D> R/I is an integral domain}Let $R$
+be a commutative ring with identity. $R/I$ is an integral domain
+if and only if $I$ is a prime ideal.
+
+\begin{proof}
+$(\Rightarrow)$ Suppose that $R/I$ is an integral domain and $ab\in I$.
+Then $(a+I)(b+I)=ab+I=I=0+I$. So then $ab$ equals the zero element
+of $R$. $R$ is an integral domain so then $a=0$ or $b=0$. Thus
+$a\in I$ or $b\in I$ implying that $I$ is prime.
+
+$(\Leftarrow)$ Suppose that $I$ is a prime ideal. $R$ is commutative
+with identity, so we need only show that $R$ has no zero divisors
+(nonzero elements $a$ such that $a\cdot b=0_{R/I}$ for any nonzero
+$b$). Suppose that $(a+I)(b+I)=ab+I=0+I=I$. So then $ab\in I$ and
+thus $a\in I$ or $b\in I$ since $I$ is prime. So then $a+I$ OR
+$b+I$ is equal to $0+I$, and $R/I$ is an integral domain. 
+\end{proof}
+\end{thm}
+
+\begin{thm}
+\label{thm:I is max<=00003D>R/I  is field}Let $R$ be a commutative
+ring with identity. $R/I$ is a field if and only if $I$ is a maximal
+ideal.
+
+\begin{proof}
+$(\Rightarrow)$ Let $R/I$ be a field, and let $M$ be an ideal of
+$R$ such that $I\subset M$ (properly contains). We want to show
+that $M=R$. So there is a $m\in M$ such that $m\notin I$. So the
+$m+I\neq0+I$ and because $R/I$ is a field there exists an $x\in R$
+such that $(m+I)(x+I)=mx+I=1+I$. 
+
+Since $m\in M$ we have that $mx\in M$ ($M$ is an ideal), and so
+$mx=1\in M$. By a previous exercise this implies that $M=R$. So
+$I$ is maximal.
+
+$(\Leftarrow)$ Let $I$ be a maximal ideal. Let $m\in R$ but $m\notin I$.
+We want to show that $m+I$ must have a multiplicative inverse. Consider
+$M=\left\{ mr+i\colon r\in R\mbox{ and }i\in I\right\} $. It is easy
+to see that $M$ is an ideal in $R$, and $I\subset R$. $I$ is maximal
+so then $M=R$. Thus $1\in M$, say $1=mx+i'$ where $i'\in I$. Then
+\[
+1+I=(mx+i')+I=(mx+I)\oplus(i'+I)=(mx+I)\oplus(0+I)=mx+I
+\]
+So then $mx+I=\left(m+I\right)\otimes(x+I)$. Thus $m+I$ has an inverse
+and $R/I$ is a field. 
+\end{proof}
+\end{thm}
+\begin{itemize}
+\item A field is an integral domain, so theorem \ref{thm:I is max<=00003D>R/I  is field}
+tells us that a maximal ideal is always prime. Of course a prime ideal
+need not be maximal as the example below shows.
+\end{itemize}
+\begin{example}
+$\left\langle x\right\rangle $ is a prime ideal in $\mathbb{Z}[x]$.
+$\left\langle x\right\rangle =\left\{ f(x)\in\mathbb{Z}[x]\colon f(0)=0\right\} $,
+zero constants. Thus if $g(x)h(x)\in\left\langle x\right\rangle $
+then $g(0)h(0)=0$ and either $g(0)=0$ or $h(0)=0$. 
+
+But $\left\langle x\right\rangle $ is not maximal since $\left\langle x\right\rangle \subset\left\langle x,2\right\rangle \subset\mathbb{Z}[x]$.
+It follows that $\mathbb{Z}[x]/\left\langle x\right\rangle $ is an
+integral domain but not a field. 
+\end{example}
+
+\section{Factor Rings and Homomorphisms}
+
+Factor rings arose as a generalization of congruence class arithmetic
+in the integers. Now we see that the concept of homomorphism and isomorphism
+that we studied in chapter \ref{chap:Homomorphisms-and-Isomorphisms}
+is closely related to factor rings and ideals. 
+\begin{itemize}
+\item Recall definition \ref{def: A-(ring)-homomorphism,}: a \emph{(ring)
+homomorphism} is an order preserving function between rings, i.e.,
+a homomorphism between rings $R$ and $S$ is a function, say $f$
+written $f\colon R\rightarrow S$, such that $f(ab)=f(a)f(b)$ and
+$f(a+b)=f(a)+f(b)$.
+\end{itemize}
+\begin{thm}
+\label{thm:kernel is an ideal}Let $f\colon R\rightarrow S$ be a
+ring homomorphism and let $\ker f=\left\{ r\in R\colon f(r)=0_{S}\right\} $.
+Then $\ker f$ is an ideal in $R$. 
+
+\begin{proof}
+$f$ is a homomorphism so $f(0_{R})=0_{S}$ by theorem \ref{thm:Properties-of-Ring},
+and we have that $\ker f\neq\emptyset$. Using the ideal test (theorem
+\ref{thm:Ideal-test.-A}), let $k,k'\in\ker f$. $R$ is homomorphism
+so $f(k-k')=f(k)-f(k')=0_{S}-0_{S}=0_{S}\Rightarrow r-r'\in\ker f$.
+Now for any$r\in R$ the homomorphic properties of $f$ implies that
+$f(rk)=f(r)f(k)=f(r)0_{S}=0_{S}\Rightarrow rk\in\ker f$. Similarly
+we can show that $kr$ is in $\ker f$. So $\ker f$ is an ideal in
+$R$.
+\end{proof}
+\end{thm}
+\begin{itemize}
+\item The ideal $\ker f$ from theorem \ref{thm:kernel is an ideal} is
+called the \emph{kernel of }$f$. It is simply the set of elements
+in $R$ that is mapped to $0$. 
+\end{itemize}
+\begin{example}
+Recall that the floor function (see example \ref{ex-floor-funct})
+$f\colon\mathbb{R\rightarrow\mathbb{Z}}$ is a homomorphism. $\ker f=\left\{ x\in\mathbb{Z}\colon0\leq x<1\right\} $. 
+\end{example}
+\begin{xca}
+\label{exc: constant term of poly map}Show that $\sigma\colon\mathbb{Z}[x]\rightarrow\mathbb{Z}$
+defined by $\sigma(a_{n}x^{n}+a_{n-1}x^{n-1}\dots+a_{1}x+a_{0})=a_{0}$
+is a homomorphism and find $\ker f$.
+\end{xca}
+
+\begin{xca}
+\label{exc: ker or Z->Zn}In exercise \ref{exc-z->zn is a homo} we
+showed that $f\colon\mathbb{Z}\rightarrow\mathbb{Z}_{n}$ given by
+$k\rightarrow k\mod n$ is a ring homomorphism. Find $\ker f$.
+\end{xca}
+
+\begin{xca}
+$\bigstar$ Show that the $f\colon\mathbb{Z}_{12}\rightarrow\mathbb{Z}_{4}$
+defined by $f(x)=x\bmod4$ is a onto homomorphism, and find $\ker f$.
+\end{xca}
+
+\begin{xca}
+\label{exc: ker exc with matrix to a-b}Let $R=\left\{ \begin{bmatrix}\begin{array}{rr}
+a & b\\
+c & d
+\end{array}\end{bmatrix}\colon a,b\in\mathbb{Z}\right\} $, and let $\phi\colon R\rightarrow\mathbb{Z}$ be defined by $\phi\left(\begin{bmatrix}\begin{array}{rr}
+a & b\\
+c & d
+\end{array}\end{bmatrix}\right)=a-b$. Show that $\phi$ is a homomorphism.
+\end{xca}
+
+\begin{xca}
+Let $\phi$ be the function defined above in exercise \ref{exc: ker exc with matrix to a-b}.
+Find $\ker\phi$. 
+\end{xca}
+
+If $\ker f=R$, meaning all elements are mapped to $0$, then $f$
+is the zero function, $f=0$. If $\ker f$ has more than one element
+then $f(a)=f(b)=0$ for some $a\neq b$ which is the definition of
+not being one-to-one (injective). So the kernel gives us a sense of
+how close a function is to being one-to-one which leads us to the
+following theorem.
+\begin{thm}
+\label{thm:kerf=00003D0 iff injective}Let $f\colon R\rightarrow S$
+be a ring homomorphism with kernel $\ker f$. Then $\ker f=\left\{ 0_{R}\right\} $
+if and only if $f$ is one-to-one. 
+
+\begin{proof}
+$(\Leftarrow)$ Suppose that $f$ is one-to-one so that $f(a)=f(b)\iff a=b$
+for any $a,b\in R$. Since $f$ is a homomorphism $f(0_{R})=0_{S}$
+by theorem \ref{thm:Properties-of-Ring}. Because $f$ is one-to-one,
+$0_{R},a\in\ker f\iff f(0_{R})=f(a)=0_{S}\iff0_{R}=a$. Thus $\ker f=\left\{ 0_{R}\right\} $.
+
+$(\Rightarrow)$ Suppose that $\ker f=\left\{ 0_{R}\right\} $ and
+$f(a)=f(b)$. We need to show that $a=b$. Because $f$ is a homomorphism,
+$f(a-b)=f(a)-f(b)=0_{S}\Rightarrow a-b\in\ker f$. By assumption $a-b=0_{R}\Rightarrow a=b$. 
+\end{proof}
+\end{thm}
+\begin{xca}
+Use theorem \ref{thm:kerf=00003D0 iff injective} to determine whether
+the functions from exercise \ref{exc: ker or Z->Zn} and \ref{exc: ker exc with matrix to a-b}
+are one-to-one.
+\end{xca}
+Theorem \ref{thm:kernel is an ideal} tells us that every kernel is
+an ideal. Conversely, every ideal is a kernel of some homomorphism.
+This is where we connect factor rings and homomorphisms. Recall that
+if $I$ is an ideal in $R$ then $R/I$ is also a ring. So we can
+define a function from the ring $R$ to the ring $R/I$.
+\begin{thm}
+\label{thm:natural homo}Let $I$ be an ideal in the ring $R$. Then
+the function $\pi\colon R\rightarrow R/I$ defined by $\pi(r)=r+I$
+is an onto homomorphism and $\ker\pi=I$. 
+
+\begin{proof}
+It is easy to see that $\pi$ is onto since for any coset $r+I\in R/I$,
+$\pi(r)=r+I$ by definition. The homomorphism part follows by the
+definition of multiplication and addition in cosets. For any $r,r'\in R$
+\[
+f(r+r')=(r+r')+I=\left(r+I\right)\oplus\left(r'+I\right)
+\]
+ and 
+\[
+f(r\cdot r')=\left(r\cdot r'\right)+I=\left(r+I\right)\otimes\left(r'+I\right).
+\]
+The $\ker\pi$ will b e all the elements in $r\in R$ such that $\pi(r)=r+I=0+I=I$,
+and $r+I=I$ if and only if $r\in I$. Thus $\ker\pi=I$.
+\end{proof}
+\end{thm}
+\begin{itemize}
+\item The function $\pi$ from theorem \ref{thm:natural homo} is called
+the \emph{natural homomorphism}. 
+\end{itemize}
+\begin{xca}
+Let $R$ and $S$ be rings. Show that $\pi\colon R\times S\rightarrow R$
+defined by $\pi(r,s)=r$ is a onto homomorphism with $\ker f$ isomorphic
+to $S$. 
+\end{xca}
+The natural homomorphism is a special case of when $f\colon R\rightarrow S$
+is an onto homomorphism. When this happens we say that $f$ is \emph{homomorphic
+image of $R$}. In the case that $f$ is also one-to-one it is an
+isomorphism, and we know that $R$ and $S$ have identical structures.
+Meaning that the algebraic properties in one ring will be identical
+to those in the other ring. The next theorem relates the kernel of
+a homomorphic image and the rings. 
+\begin{thm}
+\textbf{\emph{\label{thm:First-Isomorphism-Theorem.}First Isomorphism
+Theorem. }}Let $f\colon R\rightarrow S$ be a onto homomorphism of
+rings. Then the factor ring $R/\ker f$ is isomorphic to $S$.
+
+\begin{proof}
+Let $\phi\colon R/\ker f\rightarrow S$. We want to show that $\phi$
+is a isomorphism. To define $\phi$ we need to associate with each
+coset $r+\ker f\in R/\ker f$ an element of $S$. Let $\phi(r+\ker f)=f(r)$. 
+
+For $\phi$ to be well defined (i.e., a function) we need to show
+that if $r+\ker f=r'+\ker f$ then $f(r)=f(r')$.
+
+\begin{itemize}
+\item The problem is that a coset may possibly be represented by many different
+elements in $R$
+\end{itemize}
+If $r+\ker f=r'+\ker f$ then $r-r'\in\ker f$ by since $\ker f$
+is an ideal, and since $f$ is a homomorphism $f(r)-f(r')=f(r-r')=0_{S}$.
+This $f(r)-f(r')=0_{S}$ implies that $f(r)=f(r')$ as needed. Thus
+$\phi\colon R/\ker f\rightarrow S$ as defined by $\phi(r+\ker f)=f(r)$
+is a function.
+
+Now we need to show that $\phi$ is a isomorphism. If $s\in S$ then
+$s=f(r)$ for some $r\in R$ because $f$ is onto. Then $s=f(r)=\phi(r+\ker f)$,
+and $\phi$ is also onto. If $\phi(r+\ker f)=\phi(r'+\ker f)$ then
+$f(r)=f(r')\Rightarrow f(r)-f(r')=0_{S}\Rightarrow f(r-r')=0_{S}$.
+Hence $r-r'\in\ker f$ which implies that $r+\ker f=r'+\ker f$. Therefore
+$\phi$ is also one-to-one. 
+
+Using the definition of addition and multiplication of cosets along
+with the homomorphic properties of $f$ we show that $\phi$ is a
+homomorphism:
+\begin{eqnarray*}
+\phi\left[(r+\ker f)\oplus(r'+\ker f)\right] & = & \phi\left[(r+r')+\ker f\right]=f(r+r')=f(r)+f(r')\\
+ & = & \phi(r+\ker f)\oplus\phi(r'+\ker f)
+\end{eqnarray*}
+and 
+\begin{eqnarray*}
+\phi\left[(r+\ker f)\otimes(r'+\ker f)\right] & = & \phi\left[r\cdot r'+\ker f\right]=f(r\cdot r')=f(r)f(r')\\
+ & = & \phi(r+\ker f)\otimes\phi(r'+\ker f)
+\end{eqnarray*}
+Thus $\phi$ is an isomorphism.
+\end{proof}
+\end{thm}
+\begin{figure}[h]
+\begin{equation*}   
+	\xymatrix@C+1em@R+1em{    
+		R \ar[r]^-{f} \ar[d]_-{\pi} & S \\    
+		R/\ker f \ar@{-->}[ur]_-{\tilde{f}}   
+	}  
+\end{equation*}
+
+\caption{\label{fig:iso thm graph}A graph representing theorem \ref{thm:First-Isomorphism-Theorem.}.}
+
+\end{figure}
+
+This theorem states that every homomorphic image of a ring $R$ is
+an isomorphism to $R/\ker f$ for some ideal $\ker f$. If you know
+all the factor rings of $R$ then you also know all possible homomorphic
+images of $R$. The ideal $\ker f$ measures how much information
+is lost in the mapping from $R$ to $R/\ker f$. When $\ker f=\left\{ 0_{R}\right\} $,
+no information is lost -it is an isomorphism. 
+\begin{itemize}
+\item Theorem \ref{thm:First-Isomorphism-Theorem.} implies that all homomorphic
+images of $R$ can be determined using the factor rings of $R$.
+\end{itemize}
+The proof of theorem \ref{thm:First-Isomorphism-Theorem.} shows that
+$\tilde{f}\circ\pi=f$ , i.e., the graph in figure \ref{fig:iso thm graph}
+is commutative. 
+\begin{example}
+Recall that the principal ideal $\left\langle x\right\rangle $ in
+the ring $\mathbb{Z}[x]$ consists of all polynomials with constant
+term $0$ (polynomial multiples of $x$). To understand $\mathbb{Z}[x]/\left\langle x\right\rangle $
+we can look at the function $\sigma\colon\mathbb{Z}[x]\rightarrow\mathbb{Z}$
+defined as in example \ref{exc: constant term of poly map} (it gives
+the constant term of a polynomial). $\sigma$ is onto as for any integer
+$a\in\mathbb{Z}$, $a$ is also a polynomial with integer coefficients
+so then $\sigma(a)=a$. In exercise \ref{exc: constant term of poly map}
+it was shown that $\sigma$ is also a homomorphism. The kernel consists
+of all the elements in $\mathbb{Z}[x]$ mapped to $0$. This is all
+polynomials without a constant term; which is just $\left\langle x\right\rangle $.
+So then $\ker\sigma=\left\langle x\right\rangle $. Thus by the first
+isomorphism theorem, $\mathbb{Z}[x]/\ker\sigma\cong\mathbb{Z}$\footnote{Recall that ``$\cong$'' notates ``isomorphic to''.}.
+\end{example}
+
+\begin{example}
+Let $S$ be a homomorphic image of $\mathbb{Z}$. We want to classify
+all possible such images. If $S$ is a homomorphic image of $\mathbb{Z}$
+then there is a homomorphic onto function $f\colon\mathbb{Z}\rightarrow S$.
+If $f$ is a homomorphism then the structure of $S$ is exactly like
+that of the integers. 
+
+Now suppose that $S$ is not isomorphic to $\mathbb{Z}$. Then the
+kernel of $f$ is a nonzero ideal, i.e., $\ker f\neq\left\langle 0\right\rangle $.
+Because $\ker f$ is an ideal in $\mathbb{Z}$ it must be a principal
+ideal (a previous example). So then $\ker f=\left\langle n\right\rangle $
+for some integer $n$. So then by theorem \ref{thm:First-Isomorphism-Theorem.}
+$S\cong\mathbb{Z}/\left\langle n\right\rangle $ which we know is
+the same as $\mathbb{Z}_{n}$. So any homomorphic image of the integers
+is either $\mathbb{Z}$ or $\mathbb{Z}_{n}$ for some $n\in\mathbb{Z}$.
+\end{example}
+\begin{xca}
+Use theorem \ref{thm:First-Isomorphism-Theorem.} to show that $R/\left\langle 0_{R}\right\rangle \cong R$.
+\end{xca}
+
+\begin{xca}
+Use theorem \ref{thm:First-Isomorphism-Theorem.} to show that $\mathbb{Z}_{20}/\left\langle 5\right\rangle \cong\mathbb{Z}_{5}$.
+\end{xca}
+
+\begin{xca}
+Show that $R/\ker f\cong\mathbb{Z}$ where $R$ and $f$ are defined
+in exercise \ref{exc: ker exc with matrix to a-b}.
+\end{xca}
+
+\begin{xca}
+Is the kernel $\ker f$ from \ref{exc: ker exc with matrix to a-b}
+a prime ideal? Is it a maximal ideal?
+\end{xca}
+
+\end{document}

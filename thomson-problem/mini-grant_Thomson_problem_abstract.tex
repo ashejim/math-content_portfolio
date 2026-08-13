@@ -1,0 +1,219 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,english]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\usepackage[authoryear]{natbib}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{xcolor} %adds additional color options
+\hypersetup{colorlinks=true, urlcolor=Blue, linkcolor=Blue, citecolor=Blue}
+\usepackage{url}
+
+\usepackage{xspace} %\xspace in \newcommand removes the need for {} to get proper spacing
+\usepackage{multicol}
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+\usepackage{hyphenat} % custom hyphenation ex. $\beta$\hyp{}galactosidase
+
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{pgfplots,pgfplotstable}
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+\pgfplotsset{compat=newest}
+\usepackage{filecontents}
+
+
+%%%biblatex%%%%%%%%%%
+\usepackage[style=numeric,natbib=true]{biblatex}
+%\usepackage[style=numeric]{biblatex}
+\addbibresource{/home/jim/JamesAshe/biblatex_jashe,bib}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\newcommand{\me}{Dr.~Ashe\xspace}
+\newcommand{\meL}{Dr.~James Ashe\xspace}
+\newcommand{\guest}{Dr.~Stephenson\xspace}
+\newcommand{\guestL}{Dr.~Ken Stephenson\xspace}
+\usdate
+\title{Modeling the Thomson Problem with Circle Packings}
+\author{Merischia Griffin}
+\author{Daniel Villanueva}
+\author{James Ashe}
+\thanks{Thanks to HBCU-UP of Johnson C.\,Smith for funding this project.}
+\thanks{Thanks to Ken Stephenson for serving as an advisor on this project.}
+\begin{abstract}
+The Thomson problem is longstanding conjecture with applications in
+physics and biology. Number 7 on Smale's list of conjectures, the
+Thomson problem asks how to find the minimum energy distribution of
+$N$ electrons on the surface of the sphere. In general, finding this
+minimum is an NP hard problem. Thus progress on this problem must
+rely on computational methods. In this project, we use circle packings
+to construct a discrete model of the Thomson problem. Circle packings
+of minimum configurations are experimentally found to be good approximations
+and appear to converge to the actual energy. Furthermore, we demonstrate
+how these models can be combinatorial manipulated, and conjecture
+how this might be used to compute energy minimums. 
+\end{abstract}
+
+\maketitle
+
+\section*{The Thomson Problem}
+
+The Thomson problem asks how to find the minimum energy distribution
+of $N$ electrons on the surface of the sphere. The \emph{energy}
+of $N$ points, $p_{1},p_{2},\dots,p_{N}$, on the sphere is defined
+as \citet{wiki:Thomson}
+\[
+E={\displaystyle \sum_{i<j}\frac{1}{\left|p_{i}-p_{j}\right|}}\mbox{.}
+\]
+Number 7 on Smale's list of conjectures, this problem remains one
+of the most important unsolved packing problems. Not just important
+in mathematics, the Thomson problem is related or equivalent to many
+other problems in biology, physics, computer science, chemistry, etc
+\citet{wiki:Thomson}. 
+
+Known solutions have been rigorously proven for only a small number
+of special cases. In general, finding a solution is an NP hard problem
+{[}need reference{]}, and progress has relied on computational methods.
+Using such methods, smallest known energy distributions for most points
+sets less than 1000 have been found\citet{wales2006structure}. 
+
+\section*{Circle Packing}
+
+Circle packings are configurations of circles with specified patterns
+of tangency. The following theorem provides rigidity and existence
+of circle packings on the sphere.
+
+\newtheoremstyle{named}{}{}{\itshape}{}{\bfseries}{.}{.5em}{\thmnote{#3 }#1} 
+\theoremstyle{named} 
+\newtheorem*{namedtheorem}{Theorem} 
+
+\begin{namedtheorem}[Koebe-Andreev-Thurston]
+
+There exists a circle packing on the sphere for any finite triangulation
+of the sphere. Furthermore, this circle packing is unique up to M\"{o}bius
+transformations.
+
+\end{namedtheorem}
+
+\begin{figure}
+\includegraphics[width=6cm]{Thomson_problem_HBCUP_grant_project/images/complex_to_sphere.svg}
+
+\caption{A tangency pattern and its corresponding circle packing.}
+\end{figure}
+
+The actual radii for the circle packing guaranteed by the theorem
+above can always be found using the \emph{Circle Packing Algorithm}\citet{Col:Ste:MR1975216}.
+Moreover we have a feature rich software package, \href{http://www.math.utk.edu/~kens/CirclePack/}{$\tt{CirclePack}$}\footnote{\href{http://www.math.utk.edu/~kens/CirclePack/}{www.math.utk.edu/~kens/CirclePack};
+special thanks to Ken Stephenson for developing and maintaining this
+freely available software }, for computing and visualizing the lovely results.
+
+Circle packings naturally express a conformal geometry which has allowed
+the field of circle packing to be developed into a rich theory of
+discrete analytic functions. Many classical complex functions can
+be approximated using circles packings, most famously the Riemann
+mapping theorem:
+
+\begin{namedtheorem}[Thurston's Circle Packing Conjecture]
+
+The conformal mapping of a bounded simply connected domain onto the
+unit disc can be approximated with a circle packing.
+
+\end{namedtheorem}
+
+In summary, we have the following
+\begin{enumerate}
+\item An essentially unique circle packing for a spherical triangulation
+exists.
+\item The circle packing can be computationally realized using \href{http://www.math.utk.edu/~kens/CirclePack/}{$\tt{CirclePack}$}.
+\item As the number of circles increase, a circle packing analogue will
+converge towards its continuous counterpart\citet{Ste:MR2131318}. 
+\end{enumerate}
+
+\section*{Our goal}
+
+Repelling points on a flat surface naturally adopt a hexagonal pattern.
+However the topology of the sphere precludes a triangulation where
+every vertex has 6 neighbors. Try wrapping a sheet of paper around
+a basketball --imperfections in your wrapping job are unavoidable.
+
+The Euler characteristic states that there will be 12 such ``imperfections''
+where a vertex has 5 neighbors. The truncated icosahedron, a soccer
+ball, is a classic example. Thus a combinatorial perspective may shed
+new light on this problem. 
+
+We first experimentally demonstrated that circle packings are a good
+model of the Thomson problem. Then we demonstrate how manipulating
+the combinatorics of circle packings might be used to energy. 
+
+\section*{A discrete Model of the Thomson Problem}
+
+The Thomson problem is well studied, and there is a large catalog
+of current minimal energy distributions\citet{Wales:2006:Online}.
+These point sets are stored in the interactive web applet, \href{http://thomson.phy.syr.edu/}{\tt{thomsonapplet}}\footnote{\href{http://thomson.phy.syr.edu/}{http://thomson.phy.syr.edu}, \href{mailto:ccecka@seas.harvard.edu}{Cris Cecka},
+Primary Author. }, which can also generate random point sets, measure the energy, and
+implement a wide array of algorithms. 
+
+To construct a circle packing model for $N$ energy points on the
+sphere we did the following: 
+\begin{enumerate}
+\item Find the Delaunay triangulations for $N$ points using data from \href{http://thomson.phy.syr.edu/}{\tt{thomsonapplet}}. 
+\item Compute the circle packing for this triangulation using \href{http://www.math.utk.edu/~kens/CirclePack/}{$\tt{CirclePack}$}.
+\item Normalize the packing by applying a M\"{o}bius map such that the
+centroid of the circle centers in $\mathbb{R}^{3}$ is at the origin. 
+\end{enumerate}
+Measure the \emph{error }of this model as, 
+\[
+error=\frac{\mbox{energy from circle packing-energy}}{\mbox{energy}}
+\]
+ Figure (XX) shows the error for minimal known distribution for $N$
+point. The error from our experiments never exceeded $0.0062$. As
+expected the error tended toward $0$ for large values of $N$. It
+appears that the error introduced by the discreteness of circle packings
+is limited for even small $N$ and inconsequential for larger $N$.
+
+\begin{figure}
+\includegraphics{Thomson_problem_HBCUP_grant_project/images/graph_minimal.pdf}
+
+\caption{Error}
+
+\end{figure}
+
+
+\section*{Combinatorial Manipulaitons}
+
+A Whitehead move, or ``flip'', replaces one interior edge with another
+in the union of two edge-sharing faces (see figure XXX). Such a modification
+does not change the number of points -only the combinatorics locally.
+However these local changes result in a new circle packing and thus
+invoke a global geometric change. A common issue with optimization
+algorithms is settling into a local but not a global minimum. In the
+figure below (figure YYY), a two defects are separated be an area
+of degree six vertices. Following a sequence of flips, the defects
+are then combined and neutralized.
+
+\begin{figure}
+\hfill\includegraphics[height=5cm]{Admin/images/Thomson_410_mesh_thermal.png}\hspace{1cm}\includegraphics[height=5cm]{Admin/images/cpShot-001.jpg}\hfill{}
+
+\caption{\label{fig:An-energy-distribution}An energy distribution modeled
+with circle packing.}
+\end{figure}
+
+\printbibliography 
+\end{document}

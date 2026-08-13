@@ -1,0 +1,403 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[10pt,english]{beamer}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% A simple dot to overcome graphicx limitations
+\newcommand{\lyxdot}{.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% this default might be overridden by plain title style
+\newcommand\makebeamertitle{\frame{\maketitle}}%
+% (ERT) argument for the TOC
+\AtBeginDocument{%
+  \let\origtableofcontents=\tableofcontents
+  \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+  \def\gobbletableofcontents#1{\origtableofcontents}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usetheme{Warsaw}
+% or ...
+
+\usepackage{pgfpages,pgfnodes,pgfarrows,pgfheaps}
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+\setbeamercovered{invisible} %makes overlays invisible
+
+
+%gets rid of navigation symbols
+\setbeamertemplate{navigation symbols}{}
+\usepackage{hyperref}
+
+%%%setshandout pages per page and adds frames
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{4 on 1}[a4paper, landscape, border shrink=7mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{3}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{4}{border code=\pgfusepath{stroke}}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+%sets caption options. Requires \usepackage{caption} in preamble.
+%\captionsetup[figure]{labelformat=empty, labelsep=none}
+%the default beamer dimensions are 12.8 x 9.6cm.
+\title{Generalized Branching in Circle Packing}
+\subtitle{A Discrete Ahflors Function}
+\author{Edward Crane, Ken Stephenson, and James Ashe}
+\titlegraphic{\includegraphics[height=1.5cm]{D:/home/jim/JamesAshe/JCSU/images/jcsu_bull.pdf}}
+\institute{Johnson C. Smith University}
+\date{{}}
+
+\makebeamertitle
+
+\beamerdefaultoverlayspecification{<+->}
+\begin{frame}{\textbf{What is a Circle Packing?}}
+
+\uncover<2->{\textbf{Geometry + Complex = Circle Packing}}
+\begin{columns}
+
+
+\column{6.75cm }
+
+\includegraphics[width=6.75cm]{../Thesis_defense/pictures/owl_1}<1|handout:0>\includegraphics[width=6.75cm]{pics/AMS_Knoxville_2014_pics/owl_4_colord_border_circles}<2|handout:0>\includegraphics[width=6.75cm]{pics/AMS_Knoxville_2014_pics/owl_max_colord_border_circles}<3|handout:0>\includegraphics[width=6.75cm]{pics/AMS_Knoxville_2014_pics/owl_4_sphere}<4|handout:0>
+\end{columns}
+\end{frame}
+
+\begin{frame}{Conformal Mapping}
+
+\begin{center}
+\includegraphics[width=10cm]{D:/home/jim/JamesAshe/pictures/Riemann_Map.jpg}
+\par\end{center}
+
+\uncover<1->{When simply connected.. everything works beautifully.}
+
+\uncover<2->{When not simply connected the current theory does not
+suffice} 
+\end{frame}
+
+\begin{frame}{Local coherence and branching}
+
+\begin{columns}
+
+
+\column{6cm}
+\begin{exampleblock}<1->{Flowers with angle sums of}
+
+\begin{itemize}
+\item <2-8>$2\pi$, a (trivially) branched flower.
+\item <9-15>$4\pi$, a branched flower.
+\item <16->$2.75\pi$, an incoherent flower
+\end{itemize}
+\end{exampleblock}
+
+\column{5cm}
+
+\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot-046}<2|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot-047}<3|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot-048}<4|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot-049}<5|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot-050}<6|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot-051}<7|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot-052}<8|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot4pi-053}<9|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot4pi-054}<10|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot4pi-055}<11|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot4pi-056}<12|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot4pi-057}<13|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot4pi-058}<14|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot4pi-059}<15|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot2-75pi-067}<16|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot2-75pi-068}<17|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot2-75pi-069}<18|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot2-75pi-070}<19|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot2-75pi-071}<20|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot2-75pi-072}<21|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot2-75pi-073}<22|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot2-75pi-074}<23|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot2-75pi-075}<24->
+\end{columns}
+\end{frame}
+
+\begin{frame}{Local coherence $\nRightarrow$ coherence}
+
+\begin{columns}
+
+
+\column{6.5cm}
+
+\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_5587/cpShot2-75pi-080}<1|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_5587/cpShot2-75pi-081}<2|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_5587/cpShot2-75pi-082}<3|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_5587/cpShot2-75pi-083}<4|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_5587/cpShot2-75pi-084}<5|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_5587/cpShot2-75pi-085}<6|handout:0>
+
+\column{4.5cm}
+\begin{exampleblock}<1-2>{Example}
+
+A circle packing.
+\end{exampleblock}
+{}
+\begin{exampleblock}<3-6>{Example}
+
+Not a circle packing.
+\end{exampleblock}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Discretization issues}
+
+\begin{block}<only@1-20|visible@1->{\textbf{Ahlfors function:} maximal packing of an annulus.}
+
+\begin{itemize}
+\item <1>What we want.
+\item <2-20>What we get after symmetry is lost.
+\end{itemize}
+\end{block}
+\begin{columns}
+
+
+\column{8.5cm}
+\begin{center}
+\includegraphics[width=9.5cm]{../Thesis_defense/pictures/cp_19687/cpShot-001}<1|handout:0>\includegraphics[width=9.5cm]{../Thesis_defense/pictures/cp_19687/cpShot-002}<2|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_3925/cpShot-001}<3|handout:1>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_3925/cpShot-025}<4|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_3925/cpShot-026}<5|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_3925/cpShot-027}<6|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_3925/cpShot-028}<7|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_3925/cpShot-029}<8|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_3925/cpShot-030}<9|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_3925/cpShot-031}<10|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_3925/cpShot-032}<11|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_3925/cpShot-033}<12|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_3925/cpShot-034}<13|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_3925/cpShot-035}<14|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_3925/cpShot-036}<15|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_3925/cpShot-039}<16|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_3925/cpShot-040}<17|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_3925/cpShot-041}<18|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_3925/cpShot-042}<19|handout:0>\includegraphics[height=6cm]{../Thesis_defense/pictures/cp_3925/cpShot-043}<20|handout:2>
+\par\end{center}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}{Generalized branching}
+
+\begin{block}<only@1-6|visible@1->{Definition}
+
+A simply connected subcomplex of $K$ (with decorations) is a \emph{generalized
+branch point} for a label $R$ if its border chain has trivial holonomy.
+\end{block}
+\begin{columns}
+
+
+\column{5cm}
+\begin{itemize}
+\item <2->The idea is to allow areas of ambiguity so that flexibility can
+be introduced.
+\item <3->The ambiguity is contained within the subcomplex.
+\end{itemize}
+
+\column{5cm}
+
+\includegraphics[width=5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/gen_branch_blank.svg}<1>\includegraphics[width=5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/ambiguity.svg}<2>\includegraphics[width=5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/exterior_face_with_branching_c.svg}<3>\includegraphics[width=5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/exterior_face_with_branching_d.svg}<4->
+\end{columns}
+\end{frame}
+
+\begin{frame}{Generalized branching}
+
+\begin{columns}
+
+
+\column{6.0cm}
+\begin{block}{A decorated complex $K(I,A)$}
+
+\begin{description}
+\item [{Complex~$K$:}] <1->an abstract simplicial $2$-complex which
+triangulates an oriented topological surface.
+\item [{Angle~Assignment~$A$:}] <2->a collection of angle values paired
+with each interior vertex of $K$.
+\item [{Edge~Assignment~$I$:}] <3->a collection of Möbius invariant
+inversive distances paired with each edge in $K$.
+\end{description}
+\end{block}
+
+\column{5.0cm}
+\begin{overlayarea}{}{}
+{5.0cm}{6.5cm}
+
+\only<1>{
+\begin{figure}
+\begin{centering}
+\includegraphics[width=5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/basic_K_1.svg}
+\par\end{centering}
+\caption{$K$ tells of us which circles are neighbors.}
+\end{figure}
+}
+
+\only<2>{
+\begin{figure}
+\begin{centering}
+\includegraphics[width=5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/basic_A_3.svg}
+\par\end{centering}
+\caption{$A$ tells us what the resulting angles should be.}
+\end{figure}
+}
+
+\only<3>{
+\begin{figure}
+\begin{centering}
+\includegraphics[width=5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/basic_I_2.svg}
+\par\end{centering}
+\caption{$I$ tells of us how far apart circles are supposed to be placed.}
+\end{figure}
+}
+\end{overlayarea}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}{Singular Branching (interstice of face)}
+
+\begin{columns}
+
+
+\column{6.5cm}
+
+\includegraphics[width=6.5cm]{\string"pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing 1\string".eps}<1|handout:0>\includegraphics[width=6.5cm]{\string"pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing 2\string".eps}<2|handout:0>\includegraphics[width=6.5cm]{\string"pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing 3\string".eps}<3|handout:0>\includegraphics[width=6.5cm]{\string"pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing 4\string".eps}<4|handout:0>\includegraphics[width=6.5cm]{\string"pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing 5\string".eps}<5|handout:0>\includegraphics[width=6.5cm]{\string"pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing 6\string".eps}<6|handout:0>\includegraphics[width=6.5cm]{\string"pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing 7\string".eps}<7|handout:0>\includegraphics[width=6.5cm]{\string"pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing 8\string".eps}<8|handout:0>\includegraphics[width=6.5cm]{\string"pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing 9\string".eps}<9|handout:0>\includegraphics[width=6.5cm]{\string"pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing 10\string".eps}<10|handout:0>\includegraphics[width=6.5cm]{\string"pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing 11\string".eps}<11|handout:0>\includegraphics[width=6.5cm]{\string"pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing 12\string".eps}<12|handout:0>\includegraphics[width=6.5cm]{\string"pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing 13\string".eps}<13|handout:0>\includegraphics[width=6.5cm]{\string"pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing 14\string".eps}<14|handout:0>\includegraphics[width=6.5cm]{\string"pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing 15\string".eps}<15|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing16}<16|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing17}<17|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing18}<18|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing19}<19|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing20}<20|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing21}<21|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing22}<22|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing23}<23|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing24}<24|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing25}<25|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing26}<26|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing27}<27|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing28}<28|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/singular_example_center-interstice/sing30}<29|handout:0>
+
+\column{4.5cm}
+\begin{block}{}
+
+\begin{itemize}
+\item <1->Auxiliary circles are added, including one at the ``branch point''. 
+\item <1->''branch circle'' radius is forced to $0$.
+\item <1->Resulting overlaps provide our parameters. 
+\end{itemize}
+\end{block}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Chaperone Branching (in a circle)}
+
+\begin{columns}
+
+
+\column{6.5cm}
+
+\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/Chaperone_labeled_just_hex}<1|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/Chaperone_labeled}<2|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_unbranched_movie/cpShot-154}<3|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_unbranched_movie/cpShot-156}<4|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_unbranched_movie/cpShot-157}<5|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_unbranched_movie/cpShot-158}<6|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_unbranched_movie/cpShot-159}<7|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_unbranched_movie/cpShot-160}<8|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_unbranched_movie/cpShot-161}<9|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_unbranched_movie/cpShot-162}<10|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_unbranched_movie/cpShot-163}<11|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_unbranched_movie/cpShot-164}<12|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_unbranched_movie/cpShot-165}<13|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_unbranched_movie/cpShot-167}<14|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_unbranched_movie/cpShot-168}<15|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_unbranched_movie/cpShot-169}<16|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_unbranched_movie/cpShot-170}<17|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_unbranched_movie/cpShot-171}<18|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_unbranched_movie/cpShot-172}<19|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_unbranched_movie/cpShot-173}<20|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_unbranched_movie/cpShot-174}<21|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_unbranched_movie/cpShot-175}<22|handout:0>
+
+\column{4.5cm}
+\begin{block}{}
+
+\begin{itemize}
+\item <1->Auxiliary circles are introduced, one at the ``branch point''. 
+\item <1->Overlap of $2\pi$ is distributed on each Chaperone circle.
+\end{itemize}
+\end{block}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Chaperone Branching}
+
+\begin{columns}
+
+
+\column{6.5cm}
+
+\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-220}<1|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-221}<2|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-222}<3|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-223}<4|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-224}<5|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-225}<6|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-226}<7|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-227}<8|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-228}<9|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-229}<10|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-231}<11|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-232}<12|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-233}<13|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-234}<14|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-235}<15|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-236}<16|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-237}<17|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-238}<18|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-239}<19|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-240}<20|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-241}<21|handout:0>\includegraphics[width=6.5cm]{pics/AMS_Knoxville_2014_pics/chap_branched_movie/cpShot-244}<22|handout:0>
+
+\column{4.5cm}
+\begin{block}{}
+
+\begin{itemize}
+\item <1->Auxiliary circles are introduced, one at the ``branch point''. 
+\item <1->Overlap of $2\pi$ is distributed on each Chaperone circle.
+\end{itemize}
+\end{block}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Triangles with deep overlaps}
+
+\begin{columns}
+
+
+\column{5.5cm}
+\begin{block}{Monotonicity Lemma}
+If the edge assignments of a face are 
+
+\begin{itemize}
+\item []in $[0,\nicefrac{\pi}{2}]$
+\item []OR sum to $\leq\pi$,
+\end{itemize}
+then for any three radii in $\mathbb{C}$ or $\mathbb{D}$:
+\begin{enumerate}
+\item <2->[1.]A triangle with these overlaps exists.
+\item <3->[2.]The triangle is monotone.
+\end{enumerate}
+\end{block}
+\begin{theorem}
+9->{}The radii for a CP with singular/chaperone branching exist
+(under some restrictions) and are unique.
+\end{theorem}
+
+
+\column{6.0cm}
+
+\noindent\begin{minipage}[t][7cm]{1\columnwidth}%
+\begin{center}
+\includegraphics[height=4.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_8207/cpShot-009.jpg}<1-3>\includegraphics[height=4.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_8207/cpShot-009.jpg}<4>\includegraphics[height=4.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_8207/cpShot-010.jpg}<5>\includegraphics[height=4.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_8207/cpShot-011.jpg}<6>\includegraphics[height=4.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_8207/cpShot-012.jpg}<7>\includegraphics[height=4.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_8207/cpShot-013.jpg}<8-9>
+\par\end{center}%
+\end{minipage}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Continuously moving a branch point}
+
+\uncover<1>{Traditional branching at vertex}
+
+\uncover<22>{Traditional branching at vertex}
+\begin{columns}
+
+
+\column{5.5cm}
+
+\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-082}<1|handout:0>\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-085}<2|handout:0>\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-086}<3|handout:0>\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-087}<4|handout:0>\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-088}<5|handout:0>\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-090}<6|handout:0>\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-091}<7|handout:0>\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-092}<8|handout:0>\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-093}<9|handout:0>\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-094}<10|handout:0>\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-095}<11|handout:0>\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-096}<12|handout:0>\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-098}<13|handout:0>\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-099}<14|handout:0>\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-100}<15|handout:0>\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-101}<16|handout:0>\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-102}<17|handout:0>\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-103}<18|handout:0>\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-104}<19|handout:0>\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-105}<20|handout:0>\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-106}<21|handout:0>\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/cpShot-107}<22|handout:0>
+
+\column{5.5cm}
+
+\includegraphics[width=5.5cm]{pics/AMS_Knoxville_2014_pics/gen_branch_movie/domain_path\lyxdot jpg}
+\end{columns}
+\end{frame}
+
+\begin{frame}{A Discrete Ahlfors Function}
+
+\begin{columns}
+
+
+\column{5cm}
+\begin{exampleblock}<1-14>{Example}
+
+An annulus with no translational symmetry.
+\end{exampleblock}
+{}
+\begin{exampleblock}<15-25>{Example}
+
+A non-symmetric annulus.
+\end{exampleblock}
+
+\column{7cm}
+
+\noindent\begin{minipage}[c][6.5cm]{1\columnwidth}%
+\begin{flushleft}
+\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28133/cpShot-000.jpg}<1>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28133/cpShot-001.jpg}<2>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28133/cpShot-002.jpg}<3>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28133/cpShot-003.jpg}<4-5>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28133/cpShot-006.jpg}<6>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28133/cpShot-007.jpg}<7>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28133/cpShot-008.jpg}<8>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28133/cpShot-009.jpg}<9>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28133/cpShot-010.jpg}<10>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28133/cpShot-011.jpg}<11>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28133/cpShot-012.jpg}<12>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28133/cpShot-013.jpg}<13>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28133/cpShot-014.jpg}<14>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28134/cpShot-015.jpg}<15>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28134/cpShot-016.jpg}<16>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28134/cpShot-019.jpg}<17>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28134/cpShot-020.jpg}<18>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28134/cpShot-021.jpg}<19>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28134/cpShot-022.jpg}<20>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28134/cpShot-023.jpg}<21>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28134/cpShot-024.jpg}<22>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28134/cpShot-025.jpg}<23>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28134/cpShot-026.jpg}<24>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28134/cpShot-029.jpg}<25>
+\par\end{flushleft}%
+\end{minipage}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Another Application}
+
+\begin{columns}
+
+
+\column{5cm}
+\begin{exampleblock}<1-15>{Example}
+
+A quadratic polynomial.
+\end{exampleblock}
+
+\column{7cm}
+
+\noindent\begin{minipage}[c][6.5cm]{1\columnwidth}%
+\begin{flushleft}
+\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28501/cpShot-000.jpg}<1-2>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28501/cpShot-001.jpg}<3>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28501/cpShot-002.jpg}<4>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28501/cpShot-003.jpg}<5>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28501/cpShot-004.jpg}<6>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28501/cpShot-005.jpg}<7>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28501/cpShot-006.jpg}<8>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28501/cpShot-007.jpg}<9>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28501/cpShot-008.jpg}<10>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28501/cpShot-009.jpg}<11>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28501/cpShot-010.jpg}<12>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28501/cpShot-011.jpg}<13>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28501/cpShot-012.jpg}<14>\includegraphics[width=5.5cm]{D:/home/jim/JamesAshe/talks/AMS_sectional_Knoxville_2014/thesis_pictures/cp_28501/cpShot-014.jpg}<15>
+\par\end{flushleft}%
+\end{minipage}
+\end{columns}
+\end{frame}
+
+\begin{frame}{}
+
+All images created with ${\tt CirclePack}$
+
+\href{http://www.math.utk.edu/~kens/CirclePack/}{\textcolor{blue}{http://www.math.utk.edu/$\sim$kens/CirclePack/}}
+
+\begin{center}
+\includegraphics[height=6.5cm]{pics/AMS_Knoxville_2014_pics/CP_screenshot_3_09}
+\par\end{center}
+\end{frame}
+
+\end{document}

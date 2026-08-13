@@ -1,0 +1,12 @@
+# Portfolio is mostly PDFs; don't renormalize line endings (keeps commits fast
+# and content byte-stable). Mark common binaries explicitly.
+* -text
+
+*.pdf   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ods   binary
+*.xls   binary
+*.xlsx  binary

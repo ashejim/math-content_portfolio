@@ -1,0 +1,594 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,english]{book}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{units}
+\usepackage{amstext}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1cm,bmargin=1cm,lmargin=1.5cm,rmargin=1.5cm}
+\usepackage{wasysym}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\theoremstyle{definition}
+\newtheorem{example}{\protect\examplename}
+\theoremstyle{definition}
+\newtheorem{defn}{\protect\definitionname}
+\ifx\proof\undefined\
+  \newenvironment{proof}[1][\proofname]{\par
+    \normalfont\topsep6\p@\@plus6\p@\relax
+    \trivlist
+    \itemindent\parindent
+    \item[\hskip\labelsep
+          \scshape
+      #1]\ignorespaces
+  }{%
+    \endtrivlist\@endpefalse
+  }
+  \providecommand{\proofname}{Proof}
+\fi
+\theoremstyle{definition}
+\newtheorem{xca}{\protect\exercisename}
+\theoremstyle{plain}
+\newtheorem{prop}{\protect\propositionname}
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{xcolor} %adds additional color options
+\hypersetup{colorlinks=true, urlcolor=Blue}%Blue
+
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows,shapes,backgrounds,matrix,shapes.geometric,fit,trees,positioning}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+
+%%%%%commands
+\newcommand{\mb}[1]{$\mathbb{#1}$}
+\newcommand{\funct}[2]{$f\colon#1\rightarrow#2$}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\definitionname}{Definition}
+\providecommand{\examplename}{Example}
+\providecommand{\exercisename}{Exercise}
+\providecommand{\propositionname}{Proposition}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+
+\chapter{Functions and Relations}
+
+\section{Functions}
+
+The previous chapter covered sets and their basic operations. Now
+we introduce the notion of a function between sets. Just as in calculus,
+a function will assign a unique output for every input. Familiar notations
+such as, $f$ and $f(x)$ will be used. The same concepts will be
+used; only the inputs and outputs will include things other than numbers.
+A \emph{function }(or \emph{mapping) }from sets $A$ to $B$\emph{,
+$f\colon A\rightarrow B$,} is a rule that assigns each element in
+$A$ to exactly one element in $B$.
+\begin{itemize}
+\item $A$ is called the \emph{domain }of $f$. 
+
+\begin{itemize}
+\item $B$ is called the \emph{range }of $f$.\footnote{Also called the \emph{co-domain.}}
+\item If $f(a)=b$ for some $a\in A$, then $b$ is called the\emph{ image
+of $a$ under $f$.}
+\item $\{b\colon b\in B\mbox{ and }f(a)=b\mbox{ for some }a\in A\}$ is
+called the \emph{image of} $A$ \emph{under $f$}.
+\end{itemize}
+\item Functions are well defined. Meaning that an input is assigned to one
+and only output. 
+\end{itemize}
+\begin{example}
+Let $f\colon\mathbb{R}\rightarrow\mathbb{R}$. Then $f(x)=x^{2}+1$
+is a function. it is clear from the equation that $f$ is well defined.
+\end{example}
+
+\begin{example}
+Let $f\colon\mathbb{R}\rightarrow\mathbb{R}$. Then $f(x)=\pm\sqrt{x}$
+is \uline{not} a function. Since $f(1)=+1$ and $-1$.
+\end{example}
+
+\begin{example}
+\label{ex-floor-funct}Consider $f\colon\mathbb{R}\rightarrow\mathbb{Z}$
+given by the \emph{floor function $f(x)=\left\lfloor x\right\rfloor $
+}where $\left\lfloor x\right\rfloor $ is the largest integer less
+than or equal to $x$, e.g., $\left\lfloor \pi\right\rfloor =3$.
+Note that the floor function is also a function from $\mathbb{R}$
+to $\mathbb{R}$, $f\colon\mathbb{R}\rightarrow\mathbb{Z}$.
+\end{example}
+
+\begin{example}
+Let $f\colon\mathbb{Z}\times\mathbb{Z}\rightarrow\mathbb{Z}$ given
+by $f(x,y)\rightarrow xy$. Then $f$ is a function. 
+\end{example}
+
+\begin{example}
+Let $A=\{a,b,c,\dots,z\}$ and $f\colon A\rightarrow\mathbb{Z}$ be
+function defined by assigning the $n^{\mbox{th}}$letter to $n$,
+e.g., $f(3)=c$.
+\end{example}
+\begin{defn}
+Let $f\colon B\rightarrow C$ and $g\colon A\rightarrow B$ be functions,
+then the \emph{composition }of $f$ and $g$ is $f\circ g\colon A\rightarrow C$
+defined as $f(g(a))=c$ where $g(a)=b$ and $f(b)=c$ for elements
+$a\in A$, $b\in B$, and $c\in C$.
+\end{defn}
+\begin{figure}
+\begin{centering}
+\begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]   
+	\matrix (m)[matrix of math nodes,     
+	row sep=3em,column sep=2.5em,     
+	text height=1.5ex, text depth=0.25ex,     	nodes={ellipse,draw,minimum width=2cm},   	]
+	{
+		A && B \\     
+		& C & 
+		\\   };   
+	\path[->,font=\scriptsize]   (m-1-1) edge node[auto] {$ f $} (m-1-3)   edge node[description] {$ g \circ f $} (m-2-2)   (m-1-3) edge node[auto] {$ g $} (m-2-2); \end{tikzpicture}
+\par\end{centering}
+\caption{Composition of functions $f$ and $g$.}
+\end{figure}
+
+\begin{itemize}
+\item In general the composition of function is not commutative, i.e., $f\circ g\neq g\circ f$.
+\end{itemize}
+\begin{example}
+Let $f,g:\mathbb{R}\rightarrow\mathbb{R}$ and $f(x)=2x+1$ and $g(x)=x^{2}$.
+Then $f\circ g(x)=f(g(x))=2(x^{2})+1=2x^{2}+1$.
+\end{example}
+
+\begin{defn}
+A function, \funct{A}{B}, is called \emph{one-to-one}\footnote{Also called an \emph{injective function}}
+if $f(a_{1})=f(a_{2})$ implies that $a_{1}=a_{2}$.
+\end{defn}
+\begin{example}
+$f:\mathbb{Z}\rightarrow\mathbb{Z}$ where $f(x)=x^{3}$ is one-to-one.
+\end{example}
+\begin{proof}
+Suppose that $f(x_{1})=f(x_{2})$ for some $x_{1},x_{2}\in\mathbb{Z}$.
+So $(x_{1})^{3}=(x_{2})^{3}\Rightarrow\left((x_{1})^{3}\right)^{\nicefrac{1}{3}}=\left((x_{2})^{3}\right)^{\nicefrac{1}{3}}\Rightarrow x_{1}=x_{2}$
+\end{proof}
+
+\begin{xca}
+Show that any linear function $f:\mathbb{R}\rightarrow\mathbb{R}$
+with a non-zero defined slope is one-to-one. 
+\end{xca}
+\begin{example}
+$f:\mathbb{R}\rightarrow\mathbb{R}$ where $f(x)=|x|$ is not one-to-one.
+\end{example}
+\begin{itemize}
+\item []$|-1|=1=|1|$ but $-1\neq1$ so $f$ is not one-to-one.
+\end{itemize}
+\begin{prop}
+\label{prop:f is 1-1 then f^-1 is fuct}If $f\colon A\rightarrow B$
+then $f^{-1}=\{x\colon x\in A\mbox{, }f(x)=b\}$ is a function if
+and only if $f$ is one-to-one.
+\end{prop}
+\begin{xca}
+Prove proposition \ref{prop:f is 1-1 then f^-1 is fuct}.
+\end{xca}
+\begin{defn}
+Let $f\colon A\rightarrow B$ be a one-to-one function. We call the
+function guarteed to exist by proposition \ref{prop:f is 1-1 then f^-1 is fuct},
+$f^{-1}\colon B\rightarrow A$, the \emph{inverse} of $f$.
+\end{defn}
+
+\begin{defn}
+A function \funct{A}{B} is \emph{onto }if for every $b\in B$ there
+is an $a\in A$ such that $f(a)=b$.
+\end{defn}
+\begin{example}
+$f\colon\mathbb{R}\rightarrow\mathbb{R}$ where $f(x)=x^{2}$ is onto.
+\end{example}
+\begin{proof}
+If $b\in\mathbb{R}$ then $\sqrt{b}\in\mathbb{R}$, and $f(\sqrt{b})=\left(\sqrt{b}\right)^{2}=b$.
+\end{proof}
+
+\begin{example}
+$f\colon\mathbb{Z}\rightarrow\mathbb{R}$ where $f(x)=x^{2}$ is not
+onto.
+\end{example}
+\begin{proof}
+$2\in\mathbb{R}$ but $\sqrt{2}\notin\mathbb{Z}$.
+\end{proof}
+\begin{xca}
+Prove that the floor function (see example \ref{ex-floor-funct})
+is onto but not one-to-one. 
+\end{xca}
+\begin{figure}[h]
+\hfill%
+\begin{minipage}[t]{0.33\textwidth}%
+ \begin{tikzpicture}[scale=.6,ele/.style={fill=black,circle,minimum width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner sep=-2pt}]   
+	\node[label=center:$\textbf{A}$] (a0) at (0,5) {};
+	\node[ele,label=left:$a$] (a1) at (0,4) {};
+	\node[ele,label=left:$a$] (a1) at (0,4) {};       
+	\node[ele,label=left:$b$] (a2) at (0,3) {};       
+	\node[ele,label=left:$c$] (a3) at (0,2) {};   
+	\node[ele,label=left:$d$] (a4) at (0,1) {};
+	\node[label=center:$\textbf{B}$] (b0) at (4,5) {};	
+	\node[ele,,label=right:$1$] (b1) at (4,4) {};   
+	\node[ele,,label=right:$2$] (b2) at (4,3) {};   
+	\node[ele,,label=right:$3$] (b3) at (4,2) {};   
+	\node[ele,,label=right:$4$] (b4) at (4,1) {};
+	\node[draw,fit= (a1) (a2) (a3) (a4),minimum width=2cm] {};
+	\node[label=center:$f$] 
+(f1) at (2,4) {};
+	 
+	\node[draw,fit= (b1) (b2) (b3) (b4),minimum width=2cm] {};     
+	
+	\draw[->,thick,shorten <=2pt,shorten >=2pt] (a1) -- (b2);   
+	\draw[->,thick,shorten <=2pt,shorten >=2] (a2) -- (b1);   
+	\draw[->,thick,shorten <=2pt,shorten >=2] (a3) -- (b3);   
+	\draw[->,thick,shorten <=2pt,shorten >=2] (a4) -- (b4);  
+\end{tikzpicture}\caption{}{\funct{A}{B} is  one-to-one and onto.}%
+\end{minipage}\hfill%
+\begin{minipage}[t]{0.33\textwidth}%
+\begin{center}
+ \begin{tikzpicture}[scale=.6,ele/.style={fill=black,circle,minimum width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner sep=-2pt}]   
+	\node[label=center:$\textbf{A}$] (a0) at (0,5) {};
+	\node[ele,label=left:$a$] (a1) at (0,4) {};
+	\node[ele,label=left:$a$] (a1) at (0,4) {};       
+	\node[ele,label=left:$b$] (a2) at (0,3) {};       
+	\node[ele,label=left:$c$] (a3) at (0,2) {};   
+	\node[ele,label=left:$d$] (a4) at (0,1) {};
+	\node[label=center:$\textbf{B}$] (b0) at (4,5) {};	
+	\node[ele,,label=right:$1$] (b1) at (4,4) {};   
+	\node[ele,,label=right:$2$] (b2) at (4,3) {};   
+	\node[ele,,label=right:$3$] (b3) at (4,2) {};   
+	\node[ele,,label=right:$4$] (b4) at (4,1) {};
+	\node[draw,fit= (a1) (a2) (a3) (a4),minimum width=2cm] {};
+	\node[label=center:$f$] 
+(f1) at (2,4) {};
+	 
+	\node[draw,fit= (b1) (b2) (b3) (b4),minimum width=2cm] {};     
+	
+	\draw[->,thick,shorten <=2pt,shorten >=2pt] (a1) -- (b2);   
+	\draw[->,thick,shorten <=2pt,shorten >=2] (a2) -- (b2);   
+	\draw[->,thick,shorten <=2pt,shorten >=2] (a3) -- (b4);   
+	\draw[->,thick,shorten <=2pt,shorten >=2] (a4) -- (b3);  
+\end{tikzpicture}\caption{}{\funct{A}{B} is not one-to-one and is not onto.}
+\par\end{center}%
+\end{minipage}\hfill%
+\begin{minipage}[t]{0.33\textwidth}%
+\begin{center}
+ \begin{tikzpicture}[scale=.6,ele/.style={fill=black,circle,minimum width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner sep=-2pt}]   
+	\node[label=center:$\textbf{A}$] (a0) at (0,5) {};
+	\node[ele,label=left:$a$] (a1) at (0,4) {};
+	\node[ele,label=left:$a$] (a1) at (0,4) {};       
+	\node[ele,label=left:$b$] (a2) at (0,3) {};       
+	\node[ele,label=left:$c$] (a3) at (0,2) {};   
+	\node[ele,label=left:$d$] (a4) at (0,1) {};
+	\node[label=center:$\textbf{B}$] (b0) at (4,5) {};	
+	%\node[ele,,label=right:$1$] (b1) at (4,4) {};   
+	\node[ele,,label=right:$2$] (b2) at (4,3) {};   
+	\node[ele,,label=right:$3$] (b3) at (4,2) {};   
+	\node[ele,,label=right:$4$] (b4) at (4,1) {};
+	\node[draw,fit= (a1) (a2) (a3) (a4),minimum width=2cm] {};
+	\node[label=center:$f$] 
+(f1) at (2,4) {};
+	 
+	\node[draw,fit= (b1) (b2) (b3) (b4),minimum width=2cm] {};     
+	
+	\draw[->,thick,shorten <=2pt,shorten >=2pt] (a1) -- (b2);   
+	\draw[->,thick,shorten <=2pt,shorten >=2] (a2) -- (b2);   
+	\draw[->,thick,shorten <=2pt,shorten >=2] (a3) -- (b4);   
+	\draw[->,thick,shorten <=2pt,shorten >=2] (a4) -- (b3);  
+\end{tikzpicture}\caption{}{\funct{A}{B} is onto but not one-to-one.}
+\par\end{center}%
+\end{minipage}\hfill
+\end{figure}
+
+\begin{defn}
+A function that is both one-to-one and onto is called a \emph{bijection.}
+\end{defn}
+\begin{example}
+The function \funct{\mathbb{Z}}{\mathbb{Z}} defined by $f(x)=x+1$
+is a bijection.
+
+\begin{proof}
+Let $b\in\mathbb{Z}$ then $f(b-1)=b-1+1=b$ so $f$ is onto. Now
+suppose that $f(a_{1})=f(a_{2})$. $f(a_{1})=a_{1}+1=a_{2}+1=f(a_{2})$
+implies that $a_{1}=a_{2}$. So then $f$ is one-to-one. 
+\end{proof}
+\end{example}
+\begin{thm}
+\textbf{\textup{Pigeonhole Principle.}}\textbf{\textup{\emph{ }}}\textup{\emph{If
+$n>m$ and $n$ items are placed in $m$ boxes then at least one box
+will have two items.}}
+
+Equivalently: If $f\colon A\rightarrow B$ and $|A|>|B|$ then $f$
+is not one-to-one.
+\end{thm}
+\begin{itemize}
+\item The pigeonhole principle says that there is at least one element $b\in B$
+such that $f(a)=f(a')=b$ for some $a,a'\in A$.
+
+\begin{proof}
+Suppose to the contrary that $|A|=n>m=|B|$ and there is a a one-to-one
+function $f$ from $A$ to $B$. If $A=\{a_{1},a_{2},\dots,a_{n}\}$
+then $f(A)=\{f(a_{1}),f(a_{2}),\dots,f(a_{n})\}$ lists $n$ distinct
+elements since by definition $f(a_{j})\neq f(a_{k})$. Then $\{f(a_{1}),f(a_{2}),\dots,f(a_{n})\}=\{b_{1},b_{2},\dots,b_{n}\}$
+lists $n$ distinct elements in $B$, but this would mean $n\leq m$
+which is a contradiction.
+\end{proof}
+\end{itemize}
+\begin{thm}
+\label{thm:order and 1-1 and onto}Let $f$ be a function from $A$
+to $B$. The the following hold:
+
+\begin{enumerate}
+\item If $f$ is one-to-one then $|B|\geq|A|$.
+\item If $f$ is onto then $|A|\geq|B|$.
+\item If $f$ is a bijection then $|A|=|B|$.
+\end{enumerate}
+\end{thm}
+Part 1 is true by the pigeonhole principle. Part 2 and 3 are left
+as exercises.
+\begin{example}
+Prove parts 2 and 3 of theorem \ref{thm:order and 1-1 and onto}.
+\end{example}
+\begin{xca}
+Let $f\colon A\rightarrow B$. Prove that if $f$ is onto then $|A|\geq|B|$.
+\end{xca}
+
+\begin{xca}
+Let $f\colon A\rightarrow B$. Prove that if $f$ is onto then $|A|\geq|B|$.
+\end{xca}
+
+\begin{xca}
+$\bigstar$ Let the function $f:A\rightarrow B$ be 1-1 and onto,
+i.e., $f^{-1}$ exists and $\left|A\right|=\left|B\right|$. Prove
+that $\left(f^{-1}\circ f\right):A\rightarrow A$ is the identity
+function on $A$ and that $\left(f\circ f^{-1}\right):B\rightarrow B$
+is the identity function on $B$.
+\end{xca}
+
+\begin{xca}
+$\bigstar$ Let $f:A\rightarrow B$ be 1-1 and onto. Prove that $g=f^{-1}$,
+if $\left(g\circ f\right):A\rightarrow A$ is the identity function
+on $A$ and $\left(f\circ g\right):B\rightarrow B$ is the identity
+function on $B$. 
+\end{xca}
+
+\begin{xca}
+[$\smiley$\textbf{.}]Two sets are said to be \emph{equal }if there
+exists a bijective function between them; we write $\left|A\right|=\left|B\right|$.
+$B$ is said to have \emph{strictly greater cardinality} than $B$
+if there is a one-to-one function from $A$ into $B$, but there does
+not exist a bijective function from $A$ into $B$; we write$\left|A\right|<\left|B\right|$.
+Prove that $\left|\mathbb{N}\right|<\left|\mathbb{R}\right|$.
+\end{xca}
+
+\section{Relations}
+
+In a relation, things are either related or they are not. For example,
+the statement ``the woman $x$ is taller than the man $y$'' is
+either true or false for any $x$ from the set of woman and $y$ for
+the set of men. This statement is either true or false. Relations
+are a generalization of the arithmetic relations such as $=$, $>$,
+$\leq$, etc.
+
+It is different than the concept of function as it does not determine
+particular parings of elements. In the example there may be many woman
+taller than any given man. We will investigate binary relations, meaning
+we will apply statements to two elements at a time. 
+\begin{defn}
+Let $A$ and $B$ be sets and $P(a,b)$ be true or false for any $a\in A$
+and $b\in B$. Then $\mathcal{R}(A,B,P(a,b))$ is called a \emph{relation.
+$P(a,b)$ }is called a \emph{statement}. 
+\end{defn}
+\begin{itemize}
+\item If $P(a,b)$ is true we write $a\mathcal{R}b$ and say that \emph{a
+is related to b}.
+\item If $P(a,b)$ is false we write $a\cancel{\mathcal{R}}b$ and say that
+\emph{a is not related to b.}
+\item When $A$, $B$, and $P(a,b)$ are understood, we will write just
+$\mathcal{R}$.
+\end{itemize}
+\begin{example}
+Let $A$ be the set of men, $B$ be the set of women, and $P(a,b)$
+be the statement ``$x$ is $y$'s husband''
+
+\begin{itemize}
+\item []Then Mr.\,Obama$\mathcal{R}$Mrs.\,Obama
+\item []Then Mr.\,Obama$\not\mathcal{R}$Mr.\,Rommney
+\end{itemize}
+\end{example}
+
+\begin{example}
+Let $V=\{1,2,3,4\}$ and $U=\{a,b,c\}$ and $\mathcal{R}=\{(1,a),(1,b),(4,c)\}$.
+
+\begin{itemize}
+\item []$1\mathcal{R}a$, $1\mathcal{R}b$, and $4\mathcal{R}c$
+\item []$1\cancel{\mathcal{R}}c$, $2\cancel{\mathcal{R}}a$, and $3\cancel{\mathcal{R}}c$
+(among many)
+\end{itemize}
+\end{example}
+In the above example we did not even need to know the statement; $\mathcal{R}$
+told us the relations. We can think of $\mathcal{R}$ as a set of
+pairs, but note that it is not a function from $V$ to $U$. Since
+then it would map $1\rightarrow a$ and $1\rightarrow b$ -it is not
+well defined. 
+\begin{xca}
+Let $A=\{1,2,3,4\}$, $B=\{5,6\}$, and define $P(a,b)=\mbox{''\emph{a }divides }b\mbox{"}$
+for $a\in A$ and $b\in B$. Find $\mathcal{R}(A,B,P)$.
+\end{xca}
+
+\begin{example}
+Let $A=\{1,2,3\}$ and define $P(a,b)=\mbox{''}a<b\mbox{"}$. Then
+$\mathcal{R}=\{(1,2),(1,3),(2,3)\}$ since $1<2$, $1<3$, and $2<3$
+are all true.
+\end{example}
+\begin{itemize}
+\item If the two sets in binary relation $\mathcal{R}$ are the same, $\mathcal{R}(A,A,P)$,
+then we say that $\mathcal{R}$ \emph{is a relation over $A$.}\footnote{A binary relation over a single set is also called an \emph{endorelation}.}
+\end{itemize}
+\begin{defn}
+Let $\mathcal{R}$ be a relation over a set $A$ then:
+
+\begin{enumerate}
+\item If $a\mathcal{R}a$ for all $a\in A$ then $\mathcal{R}$ is \emph{reflexive}.
+
+\begin{enumerate}
+\item []equivalently: $(a,a)\in\mathcal{R}$ for all $a\in\mathcal{R}\Rightarrow$$\mathcal{R}$
+is \emph{reflexive}.
+\end{enumerate}
+\item If $a\mathcal{R}b$ implies that $b\mathcal{R}a$ for all $a,b\in A$
+then $\mathcal{R}$ is \emph{symmetric}.
+
+\begin{enumerate}
+\item []equivalently: $(a,b)\in\mathcal{R}$$\Rightarrow(b,a)\in\mathcal{R}$
+for all $a,b\in\mathcal{R}\Rightarrow$$\mathcal{R}$ is \emph{symmetric}.
+\end{enumerate}
+\item If $a\mathcal{R}c$ whenever $a\mathcal{R}b$ and $b\mathcal{R}c$
+for all $a,b,c\in A$ then $\mathcal{R}$ is \emph{transitive}.
+
+\begin{enumerate}
+\item []equivalently: $(a,c)\in\mathcal{R}$ whenever $(a,b)\in\mathcal{R}$
+and $(b,c)\in\mathcal{R}$ or all $a,b,c\in\mathcal{R}\Rightarrow$$\mathcal{R}$
+is \emph{transitive}.
+\end{enumerate}
+\end{enumerate}
+\end{defn}
+\begin{example}
+Let $\mathcal{R}="|"$ over $\mathbb{Z}$; that is, let $\mathcal{R}$
+be defined by the statement ``$x$ divides $y$'' where $x,y\in\mathbb{Z}$.
+
+\begin{enumerate}
+\item Is $\mathcal{R}$ reflexive ? Yes. Let $a\in\mathbb{Z}$ if $a|a$
+then $a|a$.
+\item Is $\mathcal{R}$ symmetric? No. $2|4$ but $4\cancel{|}2$. 
+\item Is $\mathcal{R}$ transitive? Yes. Let $a,b,c\in\mathbb{Z}$ such
+that if $a|b$ and $b|c$. We can then write $c=bn$ and $b=am$ for
+some $m,n\in\mathbb{Z}$. If $b=am$ then $c=(am)n$ which implies
+that $a|c$.
+\end{enumerate}
+\end{example}
+
+\begin{defn}
+An \emph{equivalence relation} is a relation which is reflexive, symmetric,
+and transitive.
+\end{defn}
+\begin{example}
+Let $\mathcal{R}$ be ``equals'' over $\mathbb{R}$. That is $(a,b)\in\mathcal{R}$
+if $a=b$. $\mathcal{R}$ is an equivalence relation. 
+
+\begin{itemize}
+\item []Reflexive: $a=a\Rightarrow a=a$.
+\item []Symmetric: $a=b\Rightarrow b=a$.
+\item []Transitive: suppose that $a=b$ and $b=c$ then $a=b=c\Rightarrow a=c$.
+\end{itemize}
+\end{example}
+\begin{xca}
+Each of the following statements, $P(x,y)$, define a relation $R$
+in the natural numbers, $\mathbb{N}$, i.e., $\mathcal{R}=(\mathbb{N},\mbox{\ensuremath{\mathbb{N}}},P(x,y))$.
+Show whether each of the following relations is reflexive. 
+
+\begin{enumerate}
+\item $P(x,y)=$$x$ is less than or equal to $y$
+\item $P(x,y)=$$x$ divides $y$
+\item $x+y=10$
+\item $x$ and $y$ are relatively prime.
+\end{enumerate}
+\end{xca}
+
+\begin{table}
+\noindent Use the following to answer the next two problems. Let $E=\{1,2,3\}$.
+Consider the following relations in $E$.
+
+\noindent{}%
+\begin{tabular}{ll}
+$\mathcal{R}_{1}=\left\{ \left(1,1\right),\left(2,1\right),\left(2,2\right),\left(3,2\right),\left(2,3)\right)\right\} $ & $\mathcal{R}_{4}=\left\{ \left(1,1\right),\left(3,2\right),\left(2,3\right)\right\} $\tabularnewline
+$\mathcal{R}_{2}=\left\{ \left(1,1\right)\right\} $ & $\mathcal{R}_{5}=E\times E$\tabularnewline
+$\mathcal{R}_{3}=\left\{ \left(1,2\right)\right\} $ & \tabularnewline
+\end{tabular}
+
+\caption{Use the above relations to complete}
+\end{table}
+
+\begin{xca}
+Let $E=\{1,2,3\}$. Consider the following relations over $E$.\\
+\begin{tabular}{ll}
+$\mathcal{R}_{1}=\left\{ \left(1,1\right),\left(2,1\right),\left(2,2\right),\left(3,2\right),\left(2,3)\right)\right\} $ & $\mathcal{R}_{4}=\left\{ \left(1,1\right),\left(3,2\right),\left(2,3\right)\right\} $\tabularnewline
+$\mathcal{R}_{2}=\left\{ \left(1,1\right)\right\} $ & $\mathcal{R}_{5}=E\times E$\tabularnewline
+$\mathcal{R}_{3}=\left\{ \left(1,2\right)\right\} $ & \tabularnewline
+\end{tabular} \\
+Determine whether relation $\mathcal{R}_{1},\mathcal{R}_{2},\mathcal{R}_{3},\mathcal{R}_{4},\mathcal{R}_{5}$
+is symmetric.
+\end{xca}
+
+\begin{xca}
+Let $E=\{1,2,3\}$. Consider the following relations in $E$. Consider
+the following relations over $E$.\\
+\begin{tabular}{ll}
+$\mathcal{R}_{6}=\left\{ \left(1,2\right),\left(2,2\right)\right\} $ & $\mathcal{R}_{9}=\left\{ \left(1,1\right)\right\} $\tabularnewline
+$\mathcal{R}_{7}=\left\{ \left(1,2\right),\left(2,3\right),\left(1,3\right),\left(2,1\right),\left(1,1\right)\right\} $ & $\mathcal{R}_{10}=E\times E$\tabularnewline
+$\mathcal{R}_{8}=\left\{ \left(1,2\right)\right\} $ & \tabularnewline
+\end{tabular}\\
+Determine whether each relation $\mathcal{R}_{6},\mathcal{R}_{7},\mathcal{R}_{8},\mathcal{R}_{9},\mathcal{R}_{10}$
+is transitive. 
+\end{xca}
+
+\begin{xca}
+Define the following relation on the real numbers, $\mathcal{R}:x\mathcal{R}y\iff xy\geq0$.
+Prove that $\mathcal{R}$ is reflexive and symmetric, but that $\mathcal{R}$
+is not an equivalence relation.
+\end{xca}
+
+\begin{xca}
+Define the following equivalence relation on the set of subsets of
+$X$ as follows: $A\mathcal{R}B\iff A\cap B\neq\emptyset$ for $A,B\subseteq X$
+Prove or disprove that $\mathcal{R}$ is an equivalence relation. 
+\end{xca}
+
+Let $\mathcal{R}$ and $\mathcal{R}'$ be symmetric relations in a
+set A. Prove that $\mathcal{R}\cap\mathcal{R}'$ is a symmetric relation
+in A. (note that $\mathcal{R}$ and $\mathcal{R}'$ are subsets of
+$A\times A$).
+
+\begin{xca}
+$\bigstar$ Prove: Let $R$ and $R'$ be symmetric relations in a
+set $A$; then $R\cap R'$ is a symmetric relation in $A$.
+\end{xca}
+
+\begin{xca}
+$\bigstar$ Define $a\mathcal{R}b$ as $a=b\bmod n$ for $a,b\in\mathbb{Z}$
+and $n\in\mathbb{Z}^{+}$.\footnote{$a=b\bmod n$ if $n|a-b$ for integers $n,a,b$. For example, $5=1\bmod4$
+and $3=3\bmod4$. There is an infinite class of integers which meeting
+this criteria; this set is notated $[a]=\{a+kn\colon k\in\mathbb{Z}\}$.
+Modular arithemetic is covered in chapter \ref{chap:Congruence}.} $a=b\bmod n$ is an equivalence relation.
+\end{xca}
+
+\end{document}

@@ -1,0 +1,518 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[10pt,english]{beamer}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% this default might be overridden by plain title style
+\newcommand\makebeamertitle{\frame{\maketitle}}%
+% (ERT) argument for the TOC
+\AtBeginDocument{%
+  \let\origtableofcontents=\tableofcontents
+  \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+  \def\gobbletableofcontents#1{\origtableofcontents}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usetheme{Warsaw}
+% or ...
+
+\usepackage{pgfpages,pgfnodes,pgfarrows,pgfheaps}
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+\setbeamercovered{invisible} %makes overlays invisible
+
+
+%gets rid of navigation symbols
+\setbeamertemplate{navigation symbols}{}
+\usepackage{hyperref}
+
+%%%setshandout pages per page and adds frames
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{4 on 1}[a4paper, landscape, border shrink=7mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{3}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{4}{border code=\pgfusepath{stroke}}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+%sets caption options. Requires \usepackage{caption} in preamble.
+%\captionsetup[figure]{labelformat=empty, labelsep=none}
+%the default beamer dimensions are 12.8 x 9.6cm.
+\title{Circle Packing}
+\subtitle{A Visual Introduction}
+\author{James Ashe}
+\titlegraphic{\includegraphics[height=3cm]{mhu_seal}}
+\institute{Mars Hill University}
+\date{}
+
+\makebeamertitle
+
+\beamerdefaultoverlayspecification{<+->}
+\begin{frame}{What is a Circle Packing?}
+
+\begin{columns}
+
+
+\column{6.75cm}
+
+\includegraphics[width=6.75cm]{unca_pics/0_owl1}<1|handout:0>\includegraphics[width=6.75cm]{unca_pics/0_owl2}<2|handout:0>\includegraphics[width=6.75cm]{unca_pics/0_owl3}<3|handout:0>\includegraphics[width=6.75cm]{unca_pics/0_owl4}<4>
+
+\column{5.0cm}
+\begin{block}{A collection of circles with a pattern such that}
+
+\begin{enumerate}
+\item [1.]<2->The circles have one and only one circle, $C_{i}$, associated
+with each vertex $v_{i}$ in the pattern.
+\item [2.]<3->Any two neighbors in the circle collection are \emph{tangent.}
+\item [3.]<4->$\{C_{i},C_{j},C_{k}\}$ form a positively oriented triple
+whenever $\{v_{i},v_{j},v_{k}\}$ form a positively oriented face
+in the pattern.
+\end{enumerate}
+\end{block}
+\end{columns}
+\end{frame}
+
+\begin{frame}{\textbf{What is a Circle Packing?}}
+
+\uncover<3-5>{\textbf{Complex + Circles $=$ Geometry}}
+\begin{columns}
+
+
+\column{6.75cm }
+
+\includegraphics[width=6.75cm]{unca_pics/owl1}<1|handout:0>\includegraphics[width=6.75cm]{unca_pics/owl2}<2|handout:0>\includegraphics[width=6.75cm]{unca_pics/owl3}<3|handout:0>\includegraphics[width=6.75cm]{unca_pics/owl4}<4|handout:0>\includegraphics[width=6.75cm]{unca_pics/owl5}<5|handout:0>
+\end{columns}
+\begin{itemize}
+\item <5>Border conditions introduce flexibility.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\textbf{Where do circle packings live}}
+
+\begin{columns}
+
+
+\column{3.5cm}
+\begin{itemize}
+\item <2->The plane, $\mathbb{C}$.
+\item <3->The disc, $\mathbb{D}$.
+\item <7->The sphere, $\mathbb{P}$.
+\end{itemize}
+
+\column{6.75cm }
+
+\includegraphics[width=6.75cm]{unca_pics/owl_live0}<1|handout:0>\includegraphics[width=6.75cm]{unca_pics/owl_live1}<2|handout:0>\includegraphics[width=6.75cm]{unca_pics/owl_live2}<3|handout:0>\includegraphics[width=6.75cm]{unca_pics/owl_live3}<4|handout:0>\includegraphics[width=6.75cm]{unca_pics/owl_live4}<5|handout:0>\includegraphics[width=6.75cm]{unca_pics/owl_live5}<6|handout:0>\includegraphics[width=6.75cm]{unca_pics/owl_live6}<7|handout:0>\includegraphics[width=6.75cm]{unca_pics/owl_live7}<8|handout:0>
+\end{columns}
+\end{frame}
+
+\begin{frame}{Moving between Geometries}
+
+Via Stereographic Projections of the Riemann sphere.
+\begin{itemize}
+\item A Möbius transformation
+\end{itemize}
+\begin{columns}
+
+
+\column{6cm}
+
+\includegraphics[width=6cm]{unca_pics/owl_live5}<1|handout:0>\includegraphics[width=6cm]{unca_pics/3_owl1}<2|handout:0>\includegraphics[width=6cm]{unca_pics/3_owl2}<3|handout:0>
+
+\column{6cm}
+
+\includegraphics[width=6cm]{unca_pics/3_projection1}<1-2>\includegraphics[width=6cm]{unca_pics/3_projection2}<3->
+\end{columns}
+\end{frame}
+
+\begin{frame}{KAT}
+
+\begin{columns}
+
+
+\column{12cm}
+\begin{block}<2->{Koebe-Andreev-Thurston Theorem (KAT)}
+ \emph{There exists a CP on the sphere for any finite triangulation
+of the sphere. Furthermore, this CP is unique up to Möbius transformations.} 
+\end{block}
+\end{columns}
+\begin{itemize}
+\item [] \begin{center}When does a circle packing on $\mathbb{P}$ exist?
+
+\includegraphics[height=4cm]{unca_pics/4_complex_to_sphere}<1-2|handout:0>\includegraphics[height=4cm]{unca_pics/3_owl1}<3|handout:0>\includegraphics[height=4cm]{unca_pics/3_owl2}<4-|handout:0>\end{center}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Preliminaries for KAT Proof}
+
+Hierarchy of a circle packing
+\begin{columns}
+
+
+\column{7cm}
+
+\includegraphics[height=7.25cm]{\string"unca_pics/5_hierarchy_CP 1\string".eps}<1|handout:0>\includegraphics[height=7.25cm]{\string"unca_pics/5_hierarchy_CP 2\string".eps}<2|handout:0>\includegraphics[height=7.25cm]{\string"unca_pics/5_hierarchy_CP 3\string".eps}<3|handout:0>\includegraphics[height=7.25cm]{\string"unca_pics/5_hierarchy_CP 4\string".eps}<4>
+\end{columns}
+\end{frame}
+
+\begin{frame}{Preliminaries for KAT Proof}
+
+\begin{columns}
+
+
+\column{6cm}
+
+\vfill
+\begin{block}{Monotonicity\emph{Given a face of circles at $v_{i}$, $v_{j}$, and
+$v_{k}$ in $\mathbb{C}$ or $\mathbb{D}$. }}
+
+\begin{itemize}
+\item []\emph{The angle at $v_{i}$ is }\emph{\uline{strictly and continuously
+}}\uline{decreasing}\emph{ wrt to the radius at $v_{i}$.}
+\item []\emph{The angles at $v_{j}$ and $v_{k}$ are }\emph{\uline{strictly
+and continuously }}\uline{increasing} \emph{wrt to the radius at $v_{i}$.}
+\end{itemize}
+\end{block}
+\vfill
+
+\column{5.5cm}
+
+\includegraphics[height=5cm]{unca_pics/monotonicity/mono1}<1|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/mono2}<2|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/mono3}<3|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/mono4}<4|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/mono5}<5|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/monoH1}<6|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/monoH2}<7|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/monoH3}<8|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/monoH4}<9|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/monoH5}<10|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/monoH6}<11|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/monoH7}<12|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/monoH8}<13|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/monoH9}<14|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/monoH11}<15|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/monoH14}<16|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/flower1}<17|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/flower2}<18|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/flower3}<19|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/flower4}<20|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/flower5}<21|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/flower6}<22|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/flower5}<23|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/flower3}<24|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/flower1}<25|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/flower7}<26|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/flower8}<27|handout:0>\includegraphics[height=5cm]{unca_pics/monotonicity/flower9}<28-|handout:0>
+\end{columns}
+\begin{itemize}
+\item <29->\emph{Packing condition: }Angle sum must be $2\pi n$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{KAT Proof}
+
+\begin{itemize}
+\item []<2->Let $r_{i}$ be the radius at $v_{i}$. Define a \textbf{radii
+assignment function},\textbf{\emph{ $\mathfrak{R}$}}\emph{
+\[
+\mathfrak{R}(r_{i})=\begin{cases}
+\mbox{set \ensuremath{r_{i}}so the angle sum at \ensuremath{v_{i}}is \ensuremath{2\pi}} & \mbox{if }v_{i}\in\mbox{interior}\\
+\mbox{unchanged} & \mbox{if }v_{i}\in\mbox{boundary}
+\end{cases}
+\]
+}\vspace{-.5cm}
+\end{itemize}
+\begin{columns}
+
+
+\column{4cm}
+
+\includegraphics[height=5cm]{unca_pics/monotonicity/flower6}<2-|handout:0>
+
+\column{.5cm}
+
+\uncover<3->{$\longrightarrow$}
+
+\column{4cm}
+
+\hspace{-1cm}\includegraphics[height=5cm]{unca_pics/monotonicity/flower2}<4|handout:0>
+\end{columns}
+\end{frame}
+
+\begin{frame}{KAT Proof}
+
+\begin{itemize}
+\item []<1->Let $r_{i}$ be the radius at $v_{i}$. Define a \textbf{radii
+assignment function},\textbf{\emph{ $\mathfrak{R}$}}\emph{
+\[
+\mathfrak{R}(r_{i})=\begin{cases}
+\mbox{set \ensuremath{r_{i}}so the angle sum at \ensuremath{v_{i}}is \ensuremath{2\pi}} & \mbox{if }v_{i}\in\mbox{interior}\\
+\mbox{unchanged} & \mbox{if }v_{i}\in\mbox{boundary}
+\end{cases}
+\]
+}\vspace{-.75cm}
+\end{itemize}
+\begin{columns}
+
+
+\column{5cm}
+\begin{itemize}
+\item Start in $\mathbb{C}$ or $\mathbb{D}$, so we have
+
+\begin{itemize}
+\item Border circles
+\item Monotonicity
+\end{itemize}
+\end{itemize}
+\begin{block}<2->{Lemma}
+ Given two radii collection for a pattern, such that $R'\leq R$
+then $\mathfrak{R}(R')\leq\mathfrak{R}(R)$.
+\end{block}
+
+\column{7cm}
+\begin{itemize}
+\item [] \uncover<3->{\includegraphics[width=3cm]{unca_pics/6_flower1}}\uncover<5->{\includegraphics[width=3cm]{unca_pics/6_flower2}}
+\item [] \vspace{-.3cm} \uncover<4->{\includegraphics[width=3cm]{unca_pics/6_flower3}}\uncover<6->{\includegraphics[width=3cm]{unca_pics/6_flower4}}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{KAT Proof}
+
+\begin{itemize}
+\item []<1->Let $r_{i}$ be the radius at $v_{i}$. Define a \textbf{radii
+assignment function},\textbf{\emph{ $\mathfrak{R}$}}\emph{
+\[
+\mathfrak{R}(r_{i})=\begin{cases}
+\mbox{set \ensuremath{r_{i}}so the angle sum at \ensuremath{v_{i}}is \ensuremath{2\pi}} & \mbox{if }v_{i}\in\mbox{interior}\\
+\mbox{unchanged} & \mbox{if }v_{i}\in\mbox{boundary}
+\end{cases}
+\]
+}\vspace{-.75cm}
+\end{itemize}
+\begin{columns}
+
+
+\column{12cm}
+\begin{block}<1->{Lemma}
+ Given two radii collection for a pattern, such that $R'\leq R$
+then $\mathfrak{R}(R')\leq\mathfrak{R}(R)$.
+\end{block}
+\begin{itemize}
+\item []<2->So $\mathfrak{R}(R)\leq R\iff\mathfrak{R}^{k+1}(R')\leq\mathfrak{R}^{k}(R)$
+\item []<3->and \textrm{$\mathfrak{R}(R)\leq R\iff$angle sums of $R\leq2\pi$.}
+\item []<4->and \textrm{$\mathfrak{R}^{k+1}(R)\leq\mathfrak{R}^{k}(R)\iff$angle
+sums of $\mathfrak{R}^{k}(R)\leq2\pi$.}
+\end{itemize}
+\end{columns}
+\begin{itemize}
+\item <5->Now choose some really big radii; so that $\mathfrak{R}(R_{\infty})<R_{\infty}$,
+and it converges.
+\item <6->$\dots$with some details. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{KAT Proof}
+
+\begin{columns}
+
+
+\column{5.5cm}
+\begin{block}{Theorem}
+\emph{ There exists a unique CP for any simply connected pattern
+with a collection of border circles in $\mathbb{C}$ or $\mathbb{D}$.}
+\end{block}
+\begin{itemize}
+\item <2->Maximality argument$\Rightarrow$uniqueness.
+\item <3->To get on the sphere$\dots$
+\end{itemize}
+\begin{block}<8->{Koebe-Andreev-Thurston Theorem (KAT)}
+ \emph{There exists a CP on the sphere for any finite triangulation
+of the sphere. Furthermore, this CP is unique up to Möbius transformations.} 
+\end{block}
+
+\column{5.5cm}
+
+\includegraphics[width=5.5cm]{unca_pics/6_flower2}<2>\includegraphics[width=5.5cm]{unca_pics/6_flower1}<3>\includegraphics[width=5.5cm]{unca_pics/owl_live0}<4>\includegraphics[width=5.5cm]{unca_pics/owl_live2}<5>\includegraphics[width=5.5cm]{unca_pics/owl_live5}<6>\includegraphics[width=5.5cm]{unca_pics/owl_live7}<7->
+\end{columns}
+\end{frame}
+
+\begin{frame}{Circle Packings as Discrete Analytical Function}
+
+\begin{itemize}
+\item <2->Approximation and computation of complex functions. 
+\item <3->Discrete analogues of complex functions.
+\end{itemize}
+\only<4>{\includegraphics[width=10cm]{unca_pics/map1/map1}}\only<5>{\includegraphics[width=10cm]{unca_pics/map1/map2}}\only<6>{\includegraphics[width=10cm]{unca_pics/map1/map3}}\only<7>{\includegraphics[width=10cm]{unca_pics/map1/map4}}\only<8>{\includegraphics[width=10cm]{unca_pics/map1/map5}}\only<9>{\includegraphics[width=10cm]{unca_pics/map1/map6}}\uncover<10->{\includegraphics[width=10cm]{unca_pics/map1/map7}}
+\begin{itemize}
+\item []<11->Analytic functions, \emph{map infinitesimal circles to infinitesimal
+circles.}
+\item []<12->Circle packing, \emph{maps real circles to real circles}. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Riemann Mapping Theorem}
+
+\only<1-1>{
+\begin{block}{Classical RMT}
+\emph{If $R$ is a non-empty simply connected proper subset of $\mathbb{C}$,
+then there exists an essentially unique mapping from $R$ onto the
+unit disc. }
+\end{block}
+}
+
+\only<2->{
+\begin{block}{Discrete RMT}
+\emph{If $C$ is a simply connected finite circle packing in $\mathbb{C}$,
+then there exists an essentially unique maximal packing of with the
+same pattern in $\mathbb{D}$. }
+\end{block}
+}
+
+\only<1>{\includegraphics[width=11cm]{unca_pics/RMT/1_RMT1a}}\only<2>{\includegraphics[width=11cm]{unca_pics/RMT/1_RMT2}}\only<3>{\includegraphics[width=11cm]{unca_pics/RMT/1_RMT3}}\only<4>{\includegraphics[width=11cm]{unca_pics/RMT/1_RMT4}}\only<5>{\includegraphics[width=11cm]{unca_pics/RMT/1_RMT5}}\only<6>{\includegraphics[width=11cm]{unca_pics/RMT/1_RMT6}}\only<7>{\includegraphics[width=11cm]{unca_pics/RMT/1_RMT8}}\only<8>{\includegraphics[width=11cm]{unca_pics/RMT/1_RMT10}}\only<9>{\includegraphics[width=11cm]{unca_pics/RMT/1_RMT12}}\only<10>{\includegraphics[width=11cm]{unca_pics/RMT/1_RMT14}}\only<11>{\includegraphics[width=11cm]{unca_pics/RMT/1_RMT15}}\only<12>{\includegraphics[width=11cm]{unca_pics/RMT/2_R1}}\only<13>{\includegraphics[width=11cm]{unca_pics/RMT/2_R2}}\only<14>{\includegraphics[width=11cm]{unca_pics/RMT/2_R3}}\only<15>{\includegraphics[width=11cm]{unca_pics/RMT/2_R6}}\only<16>{\includegraphics[width=11cm]{unca_pics/RMT/2_R9}}\only<17>{\includegraphics[width=11cm]{unca_pics/RMT/2_R12}}\only<18>{\includegraphics[width=11cm]{unca_pics/RMT/2_R14}}\only<19>{\includegraphics[width=11cm]{unca_pics/RMT/3R1}}\only<20>{\includegraphics[width=11cm]{unca_pics/RMT/3R2}}\only<21>{\includegraphics[width=11cm]{unca_pics/RMT/3R3}}\only<22>{\includegraphics[width=11cm]{unca_pics/RMT/3R4}}\only<23>{\includegraphics[width=11cm]{unca_pics/RMT/3R5}}\only<24>{\includegraphics[width=11cm]{unca_pics/RMT/3R7}}\only<25>{\includegraphics[width=11cm]{unca_pics/RMT/3R9}}\only<26>{\includegraphics[width=11cm]{unca_pics/RMT/3R12}}\only<27>{\includegraphics[width=11cm]{unca_pics/RMT/1_RMT1a}}
+\begin{itemize}
+\item <26->More circles, and the maps converge to the classical mapping.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Discrete \underline{\hspace{3cm}} Function}
+
+\begin{itemize}
+\item Discrete Schwarz Lemma
+\item Discrete Blaschke products
+\item Discrete polynomials
+\item Discrete rational functions, etc.
+\end{itemize}
+\begin{block}<2->{Theorem}
+\emph{Discrete analytic functions converge under refinement to their
+classical counterparts. }
+\end{block}
+\begin{itemize}
+\item []<3->\textcolor{blue}{{[}He and Schramm{]}} The KAT theorem implies
+the classical Riemann Mapping Theorem 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Branching}
+
+\begin{columns}
+
+
+\column{5cm}
+\begin{exampleblock}<1->{Flowers with angle sums of}
+
+\begin{itemize}
+\item <2-8>$2\pi$, a (trivially) branched flower.
+\item <9-15>$4\pi$, a branched flower.
+\item <16->$2.75\pi$, an ``incoherent'' flower
+\end{itemize}
+\end{exampleblock}
+
+\column{6cm}
+
+\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot-046}<2|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot-047}<3|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot-048}<4|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot-049}<5|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot-050}<6|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot-051}<7|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot-052}<8|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot4pi-053}<9|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot4pi-054}<10|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot4pi-055}<11|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot4pi-056}<12|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot4pi-057}<13|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot4pi-058}<14|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot4pi-059}<15|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot2-75pi-067}<16|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot2-75pi-068}<17|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot2-75pi-069}<18|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot2-75pi-070}<19|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot2-75pi-071}<20|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot2-75pi-072}<21|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot2-75pi-073}<22|handout:0>\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot2-75pi-074}<23|handout:0>\uncover<24->{\includegraphics[width=5cm]{../Thesis_defense/aux_pics/cp_5587/cpShot2-75pi-075}}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Branching}
+
+\begin{columns}
+
+
+\column{5cm}
+\begin{exampleblock}<1->{Interior flowers with angle sums of}
+
+\begin{itemize}
+\item <2-21>$4\pi$, a branched flower.
+\item <22->$3.66\pi$, an ``incoherent'' flower
+\end{itemize}
+\end{exampleblock}
+\begin{center} \uncover<12-23>{\includegraphics[height=4cm]{unca_pics/branched_sph}
+\begin{itemize}
+\item Given some combinatorial restrictions!}
+\end{itemize}
+\end{center}
+
+\column{6cm}
+
+\includegraphics[width=6cm]{unca_pics/holonomy2/1branch1}<1|handout:0>\includegraphics[width=6cm]{unca_pics/holonomy2/1branch2}<2>\includegraphics[width=6cm]{unca_pics/holonomy2/1branch3}<3>\includegraphics[width=6cm]{unca_pics/holonomy2/1branch4}<4>\includegraphics[width=6cm]{unca_pics/holonomy2/1branch5}<5>\includegraphics[width=6cm]{unca_pics/holonomy2/1branch6}<6>\includegraphics[width=6cm]{unca_pics/holonomy2/1branch7}<7>\includegraphics[width=6cm]{unca_pics/holonomy2/1branch8}<8>\includegraphics[width=6cm]{unca_pics/holonomy2/1branch9}<9>\includegraphics[width=6cm]{unca_pics/holonomy2/1branch10}<10>\includegraphics[width=6cm]{unca_pics/holonomy2/1branch11}<11>\includegraphics[width=6cm]{unca_pics/holonomy2/1branch12}<12>\includegraphics[width=6cm]{unca_pics/holonomy2/1branch13}<13>\includegraphics[width=6cm]{unca_pics/holonomy2/1small1}<14>\includegraphics[width=6cm]{unca_pics/holonomy2/1small2}<15>\includegraphics[width=6cm]{unca_pics/holonomy2/1small3}<16>\includegraphics[width=6cm]{unca_pics/holonomy2/1small4}<17>\includegraphics[width=6cm]{unca_pics/holonomy2/1small5}<18>\includegraphics[width=6cm]{unca_pics/holonomy2/1small6}<19>\includegraphics[width=6cm]{unca_pics/holonomy2/1small7}<20>\includegraphics[width=6cm]{unca_pics/holonomy2/1small8}<21>\includegraphics[width=6cm]{unca_pics/holonomy2/2small1}<22>\includegraphics[width=6cm]{unca_pics/holonomy2/1small2}<23>\includegraphics[width=6cm]{unca_pics/holonomy2/2small3}<24>\includegraphics[width=6cm]{unca_pics/holonomy2/2small4}<25>\includegraphics[width=6cm]{unca_pics/holonomy2/2small5}<26>\includegraphics[width=6cm]{unca_pics/holonomy2/2small6}<27>\includegraphics[width=6cm]{unca_pics/holonomy2/2small7}<28>\includegraphics[width=6cm]{unca_pics/holonomy2/2small8}<29>\includegraphics[width=6cm]{unca_pics/holonomy2/2small9}<30>\includegraphics[width=6cm]{unca_pics/holonomy2/2small10}<31>\includegraphics[width=6cm]{unca_pics/holonomy2/2branch1}<32>\includegraphics[width=6cm]{unca_pics/holonomy2/2branch2}<33>\includegraphics[width=6cm]{unca_pics/holonomy2/2branch3}<34>\includegraphics[width=6cm]{unca_pics/holonomy2/2branch4}<35>\includegraphics[width=6cm]{unca_pics/holonomy2/2branch5}<36>\includegraphics[width=6cm]{unca_pics/holonomy2/2branch6}<37>\includegraphics[width=6cm]{unca_pics/holonomy2/2branch7}<38>\includegraphics[width=6cm]{unca_pics/holonomy2/2branch8}<39>\uncover<40->{\includegraphics[width=6cm]{unca_pics/holonomy2/2branch9}}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Fractional Branching}
+
+\begin{columns}
+
+
+\column{6cm}
+
+Choose an interior face $f=\{v_{1},v_{2},v_{3}\}$. Is there a way
+to split the extra angle amongst the vertices to get a branched packing? 
+\begin{block}<4->{Theorem}
+
+$\iff$the extra angle at $v_{i}$ is $2(\angle v_{i}v_{j}$$v_{k})$
+for $v_{i},v_{j},v_{k}\in f$.
+\end{block}
+
+\begin{block}<11->{Theorem}
+
+If the pattern is simply connected then there (usually) exists a fractional
+branching on very interior face\textbf{.}
+\end{block}
+\begin{itemize}
+\item <12->Proof using Brouwer fixed point theorem. 
+\end{itemize}
+
+\column{5cm}
+
+\includegraphics[width=5cm]{unca_pics/fractional_data2}<2>\includegraphics[width=5cm]{unca_pics/fractional_data1}<3-4>\includegraphics[width=5cm]{unca_pics/rotating_trinagles1}<5>\includegraphics[width=5cm]{unca_pics/rotating_trinagles2}<6>\includegraphics[width=5cm]{unca_pics/rotating_trinagles3}<7>\includegraphics[width=5cm]{../Thesis_defense/pictures/FB_simple_unfrac}<8>\includegraphics[width=5cm]{../Thesis_defense/pictures/FB_simple_frac}<9>\includegraphics[width=5cm]{../Thesis_defense/pictures/FB_simple_frac_detail}<10>\includegraphics[width=5cm]{../Thesis_defense/pictures/FB_simple_frac_detail_b}<11->
+\end{columns}
+\end{frame}
+
+\begin{frame}{Thomson Problem}
+
+\begin{columns}
+
+
+\column{6cm}
+
+How to find the min. energy distribution of $N$ electrons on the
+surface of a sphere?
+\[
+E=\sum_{i<j}\frac{1}{\left|p_{i}-p_{j}\right|}
+\]
+
+\begin{itemize}
+\item <2-> A CP exists for any triangulation.
+\item <3-> The CP can be computed by \href{http://www.math.utk.edu/~kens/CirclePack/}{\textcolor{blue}{\tt{CirclePack}}}.
+\item <4-> As $N\rightarrow\infty$, a CP analogue will converge towards
+its continuous counterpart.
+\end{itemize}
+\begin{exampleblock}<4->{}
+
+\begin{itemize}
+\item <5->[1.] Triangulate existing data pts.
+\item <6->[2.] Compute using \tt{CirclePack}.
+\item <7->[3.] Normalize the packing.
+\end{itemize}
+\end{exampleblock}
+
+\column{5cm}
+
+\includegraphics[width=5cm]{unca_pics/thomson_pics/Thomson_410_mesh_thermal}<1>\includegraphics[width=5cm]{unca_pics/thomson_pics/Thomson_410_3d_pts}<2-5>\includegraphics[width=5cm]{unca_pics/thomson_pics/cpShot-001}<6-7>\includegraphics[width=5cm]{unca_pics/thomson_pics/data_and_chart_for_printing3}<8>\includegraphics[width=5cm]{unca_pics/thomson_pics/ladder4}<9>\includegraphics[width=5cm]{unca_pics/thomson_pics/ladder3}<10>\includegraphics[width=5cm]{unca_pics/thomson_pics/ladder2}<11>\includegraphics[width=5cm]{unca_pics/thomson_pics/ladder1}<12>
+\end{columns}
+\end{frame}
+
+\begin{frame}{}
+
+All images created with ${\tt CirclePack}$
+
+\href{http://www.math.utk.edu/~kens/CirclePack/}{\textcolor{blue}{http://www.math.utk.edu/$\sim$kens/CirclePack/}}
+
+\begin{center}
+\includegraphics[height=6.5cm]{../AMS_sectional_Knoxville_2014/pics/AMS_Knoxville_2014_pics/CP_screenshot_3_09}
+\par\end{center}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{References}
+
+\nocite{*}\bibliographystyle{plain}
+\bibliography{uncaa_jr}
+
+\end{frame}
+
+\begin{frame}{}
+
+\begin{center}
+\Large\textbf{Thanks!}
+\par\end{center}
+\end{frame}
+
+\end{document}

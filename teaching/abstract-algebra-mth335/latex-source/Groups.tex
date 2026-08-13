@@ -1,0 +1,1352 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,english]{book}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{units}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1cm,bmargin=1cm,lmargin=1.5cm,rmargin=1.5cm}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\theoremstyle{definition}
+\newtheorem{defn}{\protect\definitionname}
+\theoremstyle{definition}
+\newtheorem{example}{\protect\examplename}
+\ifx\proof\undefined\
+  \newenvironment{proof}[1][\proofname]{\par
+    \normalfont\topsep6\p@\@plus6\p@\relax
+    \trivlist
+    \itemindent\parindent
+    \item[\hskip\labelsep
+          \scshape
+      #1]\ignorespaces
+  }{%
+    \endtrivlist\@endpefalse
+  }
+  \providecommand{\proofname}{Proof}
+\fi
+\theoremstyle{definition}
+\newtheorem{xca}{\protect\exercisename}
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}
+\theoremstyle{plain}
+\newtheorem{cor}{\protect\corollaryname}
+\theoremstyle{plain}
+\newtheorem{lem}{\protect\lemmaname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{xcolor} %adds additional color options
+\hypersetup{colorlinks=true, urlcolor=Blue}%Blue
+
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows,shapes,backgrounds,matrix,shapes.geometric,fit,trees,positioning}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+
+%%%%%commands
+\newcommand{\mb}[1]{$\mathbb{#1}$}
+\newcommand{\funct}[2]{$f\colon#1\rightarrow#2$}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\corollaryname}{Corollary}
+\providecommand{\definitionname}{Definition}
+\providecommand{\examplename}{Example}
+\providecommand{\exercisename}{Exercise}
+\providecommand{\lemmaname}{Lemma}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+
+\chapter{Groups}
+
+We naturally think of many sets as having an associated operation.
+Consider the familiar set of integers and the operation addition.
+Adding integers gives another integer. Furthermore it does not matter
+the order that integers are added. There is a special integer, $0$,
+that does not affect other numbers when added to them. We can appreciate
+that the set of integers under addition has a desirable structure.
+
+We abstract these properties as \emph{group axioms}, and we will see
+a highly diverse collection of structures with these same similar
+properties. The ubiquity of groups in areas both within and outside
+mathematics makes them a central organizing principle of mathematics.
+The concept of group developed in the early nineteenth century in
+the study of polynomial equations. 
+
+First we formalize the above mentioned ``operation''.
+
+\section{Groups}
+\begin{defn}
+Let $G$ be a set. A \emph{(binary) operation}\footnote{When parts of statements are given in parenthesis, it usually means
+that future statements will leave that part out. So in the from here
+on we will simply write ``operation'' as opposed to writing ``binary
+operation''.} on the set $G$ is a function $f\colon G\times G\rightarrow G$.
+\end{defn}
+\begin{itemize}
+\item $f$ is just a function sending two elements to a single element.
+For example, define $f$ to be addition. $f(3,4)=3+4=7$.
+\end{itemize}
+\begin{example}
+Define $f\colon\mathbb{R}\times\mathbb{R}\rightarrow\mathbb{R}$ as
+$x+1$ for $x,y\in\mathbb{R}$.
+
+\begin{itemize}
+\item []$f(1,2)=3$ since $1+2=3$ and $f(2,-5)=2+(-5)=-3$ since, $2-5=-3$.
+\end{itemize}
+\end{example}
+
+\begin{defn}
+A \emph{group}, $G$, be a nonempty set with an associated (binary)
+operation $\oplus$, that combines two elements to form another element
+with the following properties for all $a,b,c\in G$.
+
+\begin{enumerate}
+\item Closure: $a\oplus b\in G$.
+\item Associativity: $(a\oplus b)\oplus c=a\oplus(b\oplus c)$.
+\item Identity: There exist an $0_{G}\in G$ such that $0_{G}\oplus a=a\oplus0_{G}=a$.
+\item Inverse: There exists an $a^{-1}\in G$ such that $a\oplus(a^{-1})=0_{G}$.
+\end{enumerate}
+\end{defn}
+\begin{itemize}
+\item We use, $\oplus$, because the operation can be many more things than
+$+$. Sometimes juxtaposition is used, e.g., $a\oplus b=ab$, in which
+case it should not be confused with multiplication. 
+\item The a set $G$ with associated operation $\oplus$ is often denoted
+$(G,\oplus)$. For example the set of rational numbers under addition
+might be written, $(\mathbb{Q},+)$.
+\end{itemize}
+\begin{example}
+The set of rational numbers, $\mathbb{Q}$, under addition is a group.
+
+\begin{proof}
+$\mathbb{Q}$ certainly is nonempty; take $\frac{1}{2}\in\mathbb{Q}$
+for instance. We can write any two rational numbers with a common
+denominator. So WLOG we can write all rational numbers with the same
+nonzero integer denominator, say $d$.
+
+Closure: $\frac{x}{d}+\frac{y}{d}=\frac{x+y}{d}$. Since $x+y\in\mathbb{Z}$
+it follows that $\frac{x+y}{d}\in\mathbb{Q}$.
+
+Associativity: $\left(\frac{x}{d}+\frac{y}{d}\right)+\frac{z}{d}=\frac{x+y}{d}+\frac{z}{d}=\frac{x+y+z}{d}=\frac{x}{d}+\left(\frac{y}{d}+\frac{z}{d}\right)$.
+
+Identity: $0=\frac{0}{d}$ and $\frac{0}{d}+\frac{x}{d}=\frac{x}{d}=\frac{x}{d}+\frac{0}{d}$
+
+Inverse: $0$ is the denominator so for any $\frac{x}{d}$ we need
+a $\frac{y}{d}$ such that $\frac{x}{d}+\frac{y}{d}=0$. Solve this
+equation to find $y=-x$ so for any rational number $\frac{x}{d}$
+, $\frac{-x}{d}$ is the additive inverse. 
+
+Thus $\mathbb{Q}$ is a group.
+\end{proof}
+\end{example}
+\begin{xca}
+\label{ex:Z is a group under +}Show that the set of integers, $\mathbb{Z}$,
+is a group under addition. 
+\end{xca}
+
+\begin{xca}
+Prove that the set of even integers is a group under addition. 
+\end{xca}
+
+\begin{xca}
+Prove that integers of $n$ multiples for $n\in\mathbb{Z}^{+}$ are
+a group under addition.
+\end{xca}
+
+\begin{example}
+$\left\{ 1,-1,i,-i\}\right\} $ where $i=\sqrt{-1}$ is a group under
+multiplication. From the table,
+
+\begin{tabular}{r|rrrr}
+$\times$ & $1$ & $-1$ & $i$ & $-i$\tabularnewline
+\hline 
+$1$ & $1$ & $-1$ & $i$ & $-i$\tabularnewline
+$-1$ & $-1$ & $1$ & $-i$ & $i$\tabularnewline
+$i$ & $i$ & $-i$ & $-1$ & $1$\tabularnewline
+$-i$ & $-i$ & $i$ & $1$ & $-1$\tabularnewline
+\end{tabular}we can see that $1$ is the identity, every element has an inverse
+($-i\cdot i=1$ for example), and the set is closed under multiplication.
+The last property, associativity, follows by associativity of $\mathbb{C}$. 
+\end{example}
+To show that a set is not a group, it is usually easiest to find an
+example where any one of the properties fails.
+\begin{example}
+$S=\left\{ 1,-1,i\right\} $ is not a group under multiplication. 
+\end{example}
+\begin{proof}
+$-1(i)=-i$ and $-i\notin S$ so it is not closed. Alternatively,
+$i\cdot x=1\Rightarrow x=-i$. So the inverse of $i$ is $-i$, $-i\notin S$. 
+\end{proof}
+\begin{xca}
+\label{matrices are a group}Prove that the set of all $2\times2$
+matrices with determinant $1$ and entries from $\mathbb{R}$ is a
+group under matrix multiplication. 
+\end{xca}
+
+\begin{xca}
+Show that the following are \emph{not} groups under the given operation.
+
+\begin{enumerate}
+\item $S=\left\{ z\colon z\in\mathbb{Z}\mbox{ and }z=\sqrt{5}\right\} $under
+addition: $(S,+)$
+\item $\mathbb{Q}$, the set of rationals under multiplication: $(\mathbb{Q},\times)$
+\item The set of odd integers under addition.
+\item $\mathbb{Z}$ under multiplication: $(\mathbb{Z},\times)$
+\end{enumerate}
+\end{xca}
+
+\begin{xca}
+Let $S=\left\{ a+b\sqrt{5}|\,a,b\mbox{ are not both zero and }a,b\in\mathbb{Q}\right\} $.
+Prove that $S$ is a group. (Hint: rationalize the denominator to
+show that the inverse of $a+b\sqrt{5}$ is in $S$.)
+\end{xca}
+
+\begin{xca}
+Show that $\left\{ 1,2,3\right\} $ under multiplication modulo $4$
+is \emph{not }a group but that $\left\{ 1,2,3,4\right\} $ under multiplication
+modulo $5$ is a group. (Example: $2\cdot3=6$ and $6=2\bmod4$ so
+$[6]=[2]$ and thus $2\cdot3$ \emph{is} in $\left\{ 1,2,3\right\} $). 
+\end{xca}
+It is easy to take the next few theorems for granted. Especially the
+cancellation law. You probably have been using it for some time without
+giving it much thought. However we cannot assume such properties until
+it is proven. Imagine trying to solve a simple linear equation without
+it.
+\begin{thm}
+\textbf{\emph{\label{thm:Cancellation-Law.}Cancellation Law. }}Right
+and left cancellation hold in a group, i.e., $b\oplus a=c\oplus a\iff b=c$
+and $a\oplus b=a\oplus c\iff b=c$ for any elements $a,b,c$ in the
+group.
+
+\begin{proof}
+Let $G$ be group with elements $a,b,c$. The inverses of the elements,
+$a^{-1},b^{-1},c^{-1}$, are also in $G$ as $G$ is a group. First
+we show the case for the right. Suppose that $b\oplus a=c\oplus a$
+then 
+\begin{eqnarray*}
+(b\oplus a)\oplus a^{-1} & = & (c\oplus a)\oplus a^{-1}\\
+\Rightarrow b\oplus(a\oplus a^{-1}) & = & c\oplus(a\oplus a^{-1})\mbox{ by associativity}\\
+\Rightarrow b\oplus0_{G} & = & c\oplus0_{G}\mbox{ since }a\oplus a^{-1}=0_{G}\\
+b & = & c
+\end{eqnarray*}
+
+Similarly we can show the case for the left. That $a\oplus b=a\oplus c\iff b=c$. 
+\end{proof}
+\end{thm}
+
+\begin{thm}
+\label{thm:identity-is-unique}A group has one and only one identity
+element, i.e., a group's identity element is unique.
+
+\begin{proof}
+Let $G$ be a group. Since $G$ is a group it has an identity element
+$0_{G}$. Now suppose there is some other $e\in G$ such that $e\oplus a=a\oplus e=a$
+for any $a\in G$. We need to show that $e=0_{G}$. Since $G$ is
+a group $a$ has an inverse $a^{-1}$. 
+\begin{eqnarray*}
+(0_{G}\oplus a)\oplus a^{-1} & = & (e\oplus a)\oplus a^{-1}\mbox{ since }o_{G}\oplus a=e\oplus a=a\\
+0_{G}\oplus(a\oplus a^{-1}) & = & e\oplus(a\oplus a^{-1})\mbox{ by associativity}\\
+0_{G}\oplus0_{G} & = & e\oplus0_{G}\mbox{ since }a\oplus a^{-1}=0_{G}\\
+0_{G} & = & e
+\end{eqnarray*}
+\end{proof}
+\end{thm}
+
+\begin{thm}
+\label{thm:Inverses-are-unique}An element in a group has one and
+only one inverse. 
+
+\begin{proof}
+Let $0_{G}$ be the unique identity of a group $G$. Suppose there
+exists an $a^{-1},x\in G$ such that $a\oplus a^{-1}=a\oplus x=0_{G}$.
+Then 
+\begin{eqnarray*}
+x & = & x\oplus0_{G}\\
+ & = & x\oplus(a\oplus a^{-1})\\
+ & = & (x\oplus a)\oplus a^{-1}\\
+ & = & 0_{G}\oplus a^{-1}=a^{-1}
+\end{eqnarray*}
+So $x=a^{-1}$ as needed. 
+\end{proof}
+\end{thm}
+\begin{itemize}
+\item Note that since the identity of a group is its own inverse, i.e.,
+$0_{G}\oplus0_{G}=0_{G}$, theorem \ref{thm:identity-is-unique} can
+be proved as a corollary of theorem \ref{thm:Inverses-are-unique}. 
+\end{itemize}
+\begin{xca}
+$\bigstar$ Addition in $\mathbb{Z}_{n}$ is defined as $\left[a\right]+\left[b\right]=\left[a+b\right]$.
+Multiplication in $\mathbb{Z}_{n}$ is defined as $\left[a\right]\cdot\left[b\right]=\left[a\cdot b\right]$.
+For example, $\mathbb{Z}_{4}=\left\{ \left[0\right],\left[1\right],\left[2\right],\left[3\right]\right\} $
+for convenience we write $\mathbb{Z}_{4}=\left\{ 0,1,2,3\right\} $.
+$2+3=5$ and $5=1\bmod4$ so $\left[5\right]=\left[1\right]$. Show
+that $\mathbb{Z}_{2}\times\mathbb{Z}_{3}$ is a group under modular
+addition. 
+\end{xca}
+\begin{defn}
+A group is \emph{abelian}\footnote{Named in honor of the mathematician Niels Henrik Abel\emph{. }Abel
+made many outstanding contributions to a variety of fields; though
+he died at the age of 26. Abelian groups are also called commutative
+groups.}\emph{ }if $a\oplus b=b\oplus a$ for all $a,b$ in the group.
+\end{defn}
+\begin{example}
+$\mathbb{Z}$ is an abelian group under addition.
+\end{example}
+
+\begin{xca}
+Prove that the set of all $n\times n$ matrices is an abelian group
+under \uline{addition}.
+\end{xca}
+
+\begin{xca}
+Prove that the set of all $2\times2$ matrices with determinant $1$
+and entries from $\mathbb{R}$ is a non-abelian group under matrix
+multiplication (we already know that it is a group by exercise \ref{matrices are a group}. 
+\end{xca}
+
+\begin{xca}
+$\bigstar$ Consider a square placed on the Cartesian plane such that
+the square's center is at the origin and its corners are on the axes
+(like a diamond; see the figure below). Any motion of the square which
+keeps the center at the origin and corners on the axes has the same
+result as one of eight motions: $r_{0}\equiv\mbox{ rotation of }0^{\circ}$,
+$r_{1}\equiv\mbox{ rotation of }90^{\circ}$, $r_{3}\equiv\mbox{ rotation of }180^{\circ}$,
+$d_{x}\equiv\mbox{ }x-\mbox{axis reflection}$, $h_{+}\equiv\,y=x\mbox{ reflection}$,
+or $h_{-}\equiv y=-x\mbox{ reflection}$. \\
+\hspace*{.5cm}\newcommand{\xmax}{1.5}
+\newcommand{\xmin}{-1.5}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{1.5}
+\newcommand{\ymin}{-1.5}
+\newcommand{\ystep}{0} %must be ymin+n
+%%%%%%%
+\begin{tikzpicture} 
+\begin{axis}[height=3.5cm, 
+	width=3.5cm, 
+	axis lines=middle,
+	x axis line style={-},y axis line style={-}, 
+	grid=none,
+	%axis line style={-latex}, 
+	xmin=\xmin,xmax=\xmax, 
+	ymin=\ymin,ymax=\ymax,
+	%restrict y to domain=-1:10,
+	no markers, 
+	xlabel={$$},ylabel={$$},
+	ticks=none,
+	]
+	
+	\addplot[very thick,blue] coordinates{(1,0) (0,1)};
+	\addplot[very thick,blue] coordinates{(0,1) (-1,0)};
+	\addplot[very thick,blue] coordinates{(-1,0) (0,-1)};
+	\addplot[very thick,blue] coordinates{(0,-1) (1,0)};
+
+	\node at (axis cs:1.3,.3) {$1$};
+	\node at (axis cs:-.3,1.3) {$2$};
+	\node at (axis cs:-1.3,-.3) {$3$};
+	\node at (axis cs:.3,-1.3) {$4$};
+	
+\end{axis}
+\end{tikzpicture}\\
+Show that $D_{4}=\left\{ r_{0},r_{1},r_{3},d_{x},d_{y},h_{+},h_{-}\right\} $
+is a non-abelian group under composition of these motions. The set
+$D_{4}$ is called the \emph{dihedral group of degree 4}. 
+\end{xca}
+
+\begin{thm}
+Let $G$ be a group and $a,b\in G$ then $(a\oplus b)^{-1}=b^{-1}\oplus a^{-1}$.
+
+\begin{proof}
+The inverse of $(a\oplus b)^{-1}$ is $(a\oplus b)$. Now $(b^{-1}\oplus a^{-1})\oplus(a\oplus b)=b^{-1}\oplus(a^{-1}\oplus a)\oplus b=b^{-1}\oplus0_{G}\oplus b=b^{-1}\oplus b=0_{G}$.
+So then $b^{-1}\oplus a^{-1}$ is the inverse of $(a\oplus b)$, and
+by theorem \ref{thm:identity-is-unique} 
+\end{proof}
+\end{thm}
+\begin{xca}
+Prove that $G$ is an Abelian group if and only is $\left(a\oplus b\right)^{-1}=a^{-1}\oplus b^{-1}$
+for all $a,b\in G$. 
+\end{xca}
+
+\begin{xca}
+Suppose that if $G$ is a group such that if $a,b,c\in G$ and $a\oplus b=c\oplus a$
+then $b=c$. Prove that $G$ is an Abelian group, i.e., that $a\oplus b=b\oplus a$
+for all $a,b\in G$. Hint: consider the element $a\oplus(b\oplus a)=(a\oplus b)\oplus a$.
+\end{xca}
+
+\begin{xca}
+$\bigstar$ Prove that if in a group $G$ that $\left(a\oplus b\right)^{2}=a^{2}\oplus b^{2}$
+then $G$ is Abelian.
+\end{xca}
+
+
+\section{Subgroups}
+\begin{defn}
+If a\emph{ }subset $H$ of a group $G$ is a group under the operation
+of $G$, then $H$ is a \emph{subgroup }of $G$, denoted $H\leq G$.
+\end{defn}
+\begin{itemize}
+\item Because $H$ is a group, it is implied in this definition that all
+subgroups are non-empty.
+\end{itemize}
+\begin{example}
+\label{ex: 2+Z10 is a subgrop of Z10}$H=\left\{ 2,4,6,8,0\right\} $
+is a subgroup of the group $\mathbb{Z}_{10}$ under modular addition.
+
+\begin{proof}
+From example \ref{ex:Z is a group under +}, we know that $\mathbb{Z}_{10}$
+is a group under addition modulo $10$. \textbf{$H\neq\emptyset$}
+and $H\subseteq\mathbb{Z}_{10}$. Using the Cayley table,
+
+\begin{center}{\bfseries{}%
+\begin{tabular}{c|ccccc}
+$\oplus$ & 0 & 2 & 4 & 6 & 8\tabularnewline
+\hline 
+0 & 0 & 2 & 4 & 6 & 8\tabularnewline
+2 & 2 & 4 & 6 & 8 & 0\tabularnewline
+4 & 4 & 6 & 8 & 0 & 2\tabularnewline
+6 & 6 & 8 & 0 & 2 & 4\tabularnewline
+8 & 8 & 0 & 2 & 4 & 6\tabularnewline
+\end{tabular}}\end{center}ee can see that it is closed, has identity element $0$
+(the same as $\mathbb{Z}_{10}$), and each element has an inverse
+($6+4\equiv0\bmod10$ for example). Associativity holds in modular
+addition; so $H$ is a group , and hence a subgroup of $\mathbb{Z}_{10}$.
+Written $H\leq\mathbb{Z}_{10}$. 
+\end{proof}
+\end{example}
+A subset $H$ of a group $G$ will always have the associativity property
+of $G$. So we need only check for closure, existence of an identity
+and inverses. The relation between the identity and inverses allows
+us check these properties in a single steo with the following theorem.
+\begin{thm}
+\textbf{\emph{\label{thm:Subgroup-Test.}Subgroup Test. }}Let $G$
+be a group and $H$ be a nonempty subset of $G$. Then $H$ is a subgroup
+of $G$ if and only if $a\oplus b^{-1}\in H$ for all $a,b\in H$.
+
+\begin{proof}
+$(\Rightarrow)$ Suppose that $H\leq G$, and let $a,b\in H$. $H$
+is a group every so element has an inverse, i.e., there exists a $b^{-1}\in H$.
+Groups are also closed so $a\oplus b^{-1}\in H$.
+
+$(\Leftarrow)$ Suppose that $a\oplus b^{-1}\in H$, and let $a,b\in H$
+for some nonempty subset of $G$. 
+
+\begin{enumerate}
+\item []Associativity: The operation, $\oplus$, in $H$ is the same as
+that of $G$ so $\oplus$ is associative in $H$. 
+\item []Identity: By the hypothesis for any $a\in H\Rightarrow a\oplus a^{-1}=0_{G}\in H$.
+So $H$ has the same identity element as $G$ (at least one such element
+exists since $H\neq\emptyset$).
+\item []Inverse: $0_{G}\in H$ (shown above) so for any $a\in H$ we have
+that $0\oplus a^{-1}=a^{-1}\in H$.
+\item []Closure: We just showed that for and $a,b\in H\Rightarrow a^{-1},b^{-1}\in H$.
+$a\oplus b=a\oplus(b^{-1})^{-1}\in H$.
+\end{enumerate}
+So $H\leq G$.
+\end{proof}
+\end{thm}
+\begin{itemize}
+\item Very often, the operation is just addition. Writing $+$ instead of
+$\oplus$, the subgroup test is then: 
+
+\begin{itemize}
+\item []A nonempty subset $H$ of a group $G$ is a subgroup of $G$ if
+and only if $a-b\in H$ for all $a,b\in H$.
+\end{itemize}
+\end{itemize}
+\begin{example}
+$H=\left\{ 2,4,6,8,0\right\} $ is a subgroup of the group $\mathbb{Z}_{10}$
+under modular addition. 
+
+\begin{proof}
+For any $a,b\in H$, $b^{-1}=-b$ since $b-b=0$. Using the subgroup
+test, $a-b\in G$ since $\mathbb{Z}_{10}$ is a group. So we need
+only show that $2|a-b$. $2|a$ and $2|b\Rightarrow a=2n$ and $b=2m$
+for some $m,n\in\mathbb{Z}$, and $2|2(n-m)\Rightarrow2|a-b$. So
+then $a-b\in H$. 
+\end{proof}
+\end{example}
+
+\begin{example}
+Show that $\mathbb{Q}$ is a subgroup of the group $\mathbb{R}$ under
+addition. 
+
+\begin{proof}
+$\mathbb{Q}$ is a nonempty subset of $\mathbb{R}$. Let $\frac{a}{b},\frac{c}{d}\in\mathbb{Q}$.
+$\frac{c}{d}^{-1}=-\frac{c}{d}$ since $\frac{c}{d}-\frac{c}{d}=0$.
+$\frac{a}{b}-\frac{c}{d}=\frac{ad-bc}{bd}\in\mathbb{Q}$. So then
+$\mathbb{Q}\leq\mathbb{R}$ by the subgroup test. 
+\end{proof}
+\end{example}
+\begin{xca}
+Let $\left(\mathbb{Q},+\right)$ be the group of rational numbers
+under addition. 
+
+\begin{enumerate}
+\item Is $\mathbb{Z}$ a subgroup of $\left(\mathbb{Q},+\right)$?
+\item Is $\mathbb{Z}^{+}=\left\{ 0,1,2,3,\dots\right\} $ a subgroup of
+$\left(\mathbb{Q},+\right)$?
+\end{enumerate}
+\end{xca}
+
+\begin{xca}
+Determine if the following are subgroups.
+\end{xca}
+\begin{enumerate}
+\item Is $\mathbb{Q}$ a subgroup of the group, $\left(\mathbb{C},+\right)$,
+the complex numbers under addition?
+\item Is $\mathbb{Z}-\left\{ 0\right\} $ a subgroup of the group, $\left(\mathbb{Q}-\left\{ 0\right\} ,\cdot\right)$,
+the non-zero rational numbers under multiplication?
+\end{enumerate}
+
+\begin{xca}
+Prove that the intersection of two subgroups $H$ and $K$ of a group
+$G$ is a subgroup.
+\end{xca}
+
+\begin{xca}
+Let $H_{1},H_{2},\dots$ be subgroups of $G$. Prove that $H_{1}\cap H_{2}\cap\cdots$
+is a subgroup of $G$.
+\end{xca}
+
+\begin{xca}
+Recall that $\mathbb{Z}_{6}=\left\{ 0,1,2,3,4,5\right\} $ is a group
+under modular addition. 
+
+\begin{enumerate}
+\item Show that $H=\left\{ 0,2,4\right\} $ and $K=\left\{ 0,3\right\} $
+are subgroups of $\mathbb{Z}_{6}$.
+\item Show that $H\cup K$ is \emph{not }a subgroup of $\mathbb{Z}_{6}$.
+\item Is the union of two subgroups of $G$ necessarily a subgroup $G$?
+\end{enumerate}
+\end{xca}
+
+\begin{xca}
+$\bigstar$ Let $\mathbb{Z}_{6}=\left\{ 0,1,2,3,4,5\right\} $ and
+$\mathbb{Z}_{4}=\left\{ 0,1,2,3\right\} $. $\mathbb{Z}_{6}\times\mathbb{Z}_{4}$
+is a group under modular addition. Show that $H=\left\{ \left(0,0\right),\left(3,0\right),\left(0,2\right),\left(3,2\right)\right\} $
+is a subgroup. 
+\end{xca}
+
+\begin{xca}
+Let $G$ be an abelian group and $H$ be a subgroup of $G$. Prove
+that $S(H)=\left\{ x|x\in G\mbox{ and }x\cdot x\in H\right\} $ is
+also a subgroup of $G$.
+\end{xca}
+
+\begin{xca}
+Let $G$ be a group. Prove that $G$ has a subgroup with one element.
+This group is called the \emph{trivial group}.
+\end{xca}
+
+\section{Finite Groups and Cyclic Groups}
+
+Groups with finitely many elements have interesting arithmetic properties. 
+\begin{defn}
+The number of elements in a group its \emph{order}, denoted $\left|G\right|$. 
+\end{defn}
+This is exactly how we defined the order of a set. For example, $\left|\mathbb{Z}_{10}\right|=10$
+and from example \ref{ex: 2+Z10 is a subgrop of Z10}, $\left|H\right|=5$. 
+
+\begin{defn}
+The \emph{order of an element }$a$ in a group $G$ is the smallest
+positive integer $n$ such that $a^{n}=0_{G}$ ($a^{n}=\underset{n\mbox{ times}}{\underbrace{a\oplus a\oplus\dots\oplus a}}).$
+\end{defn}
+\begin{example}
+From example \ref{ex: 2+Z10 is a subgrop of Z10}, $2+2+2+2+2=10\equiv0\bmod10$.
+So in $H$, $\left|2\right|=5$. In $\mathbb{Z}_{10}$, $\left|2\right|=5$
+and $\left|1\right|=10$. 
+\end{example}
+\begin{defn}
+The set \emph{generated by $a$ }is the set $\left\langle a\right\rangle =\left\{ a^{n}\colon n\in\mathbb{Z}\right\} $.
+The element $a$ is called the \emph{generator }of $\left\langle a\right\rangle $.
+\end{defn}
+\begin{itemize}
+\item If $a$ is an element of a group $G$ with $\left|a\right|=n$ then
+$a^{k}\in G$ for any integer $k$, and $\left\langle a\right\rangle =\left\{ 0_{G},a,a^{2},\dots,a^{n-1}\right\} $.
+\end{itemize}
+\begin{example}
+Let $2\in\mathbb{Z}_{10}$. $\left\langle 2\right\rangle =\left\{ 2,3,6,8,0\right\} $.
+Recall that we have already showed that this is a subgroup of $\mathbb{Z}_{10}$.
+Since $\left\langle 2\right\rangle =\left\{ 2,3,6,8,0\right\} $ we
+say that $2$ generates the group $\left\{ 2,3,6,8,0\right\} $.
+\end{example}
+
+\begin{example}
+Find all generators of $\mathbb{Z}_{6}$.
+
+\begin{itemize}
+\item []$\left\langle 1\right\rangle =\left\{ 1,2,3,4,5,0\right\} $(note:
+$1$ is a generator of $\mathbb{Z}_{n}$ for any $n$) and $\left\langle 5\right\rangle =\left\{ 5,4,3,2,1,0\right\} $
+so $\left\langle 1\right\rangle =\left\langle 5\right\rangle =\mathbb{Z}_{6}$.
+\end{itemize}
+\end{example}
+\begin{xca}
+Find all generators of $\mathbb{Z}_{8}$ and $\mathbb{Z}_{10}$.
+\end{xca}
+
+Some of your favorite sets are generated by a single element. For
+example, any integer $n$ can be written as $\pm1\pm1\pm\cdots\pm1=n$.
+So $1$ generates $\mathbb{Z}$. Similarly $2$ and $3$ generate
+$2\mathbb{Z}$ and $3\mathbb{Z}$ respectively. 
+\begin{defn}
+Let $G$ be a group. If there is a single element $g\in G$ such that
+every element in $G$ is equal to $g^{n}=\underset{n\mbox{ times}}{\underbrace{g\oplus g\oplus\dots\oplus g}}$
+for some $n\in\mbox{\ensuremath{\mathbb{Z}}}$ then $G$ is a \emph{cyclic
+}group and \emph{$g$ }is called the \emph{generator} of $G$, and
+we write $G=\left\langle g\right\rangle $.
+\end{defn}
+\begin{itemize}
+\item $\left\langle g\right\rangle =\left\{ g^{n}\colon n\in\mathbb{Z}\right\} $
+\end{itemize}
+\begin{xca}
+Prove that $\mathbb{Z}$ is a cyclic group. 
+\end{xca}
+
+\begin{xca}
+Prove that $\mathbb{Z}_{n}$ is a cyclic group under modular addition
+for any $n\in\mathbb{Z}$ such that $n>0$. (you can use the fact
+that it is a group).
+\end{xca}
+\begin{thm}
+\label{thm:All-cyclic-groups-are-abelian}All cyclic groups are abelian.
+
+\begin{proof}
+Let $G=\left\langle a\right\rangle $ be a group. So any $x,y\in G$
+can be written as $a^{i}$ and $a^{j}$ respectively. $a^{i}\oplus a^{j}=a^{i+j}=a^{j+i}=a^{i}\oplus a^{j}$.
+\end{proof}
+\end{thm}
+
+\begin{thm}
+\label{thm:<a> is a subgroup of G}If $G$ is a group and $a\in G$
+then $\left\langle a\right\rangle \leq G$.
+
+\begin{proof}
+$a\in\left\langle a\right\rangle $ so $\left\langle a\right\rangle $
+is nonempty, and $G$ is closed so $a^{m}\in G$ for any integer $m$.
+So $\left\langle a\right\rangle $ is a nonempty subset of $G$. Now
+we use the subgroup test (theorem \ref{thm:Subgroup-Test.}). 
+
+Let $a^{i}$ and $a^{j}$ be two elements in $\left\langle a\right\rangle $.
+$a^{i}\oplus a^{-j}=a^{i-j}\in\left\langle a\right\rangle $ since
+$i-j\in\mathbb{Z}$. 
+\end{proof}
+\end{thm}
+\begin{itemize}
+\item Theorem \ref{thm:All-cyclic-groups-are-abelian} gives us another
+way to show that a group is abelian. 
+\item Theorem \ref{thm:<a> is a subgroup of G} gives us an easy way to
+find abelian subgroups of any group. 
+\end{itemize}
+\begin{example}
+$\left\langle 2\right\rangle ,\left\langle 3\right\rangle ,\dots,\left\langle n\right\rangle $
+are all abelian subgroups of $\mathbb{Z}$. 
+\end{example}
+
+\begin{thm}
+\label{thm:a^i=00003Da^j iff n|i-j}Let $G$ be a group and $a\in G$.
+If $\left|a\right|=n$ then $a^{i}=a^{j}$ if and only if $n|i-j$.
+
+\begin{proof}
+$(\Leftarrow)$ Let $n|i-j$. Then $i-j=nq$ and 
+\[
+a^{i-j}=a^{nq}=\left(a^{n}\right)^{q}=(0_{G})^{q}=0_{g}
+\]
+as needed.
+
+$(\Rightarrow)$ $a^{i}=a^{j}$ implies that $a^{i}\oplus a^{-j}=a^{i-j}=0_{G}$.
+By the division algorithm we can write $i-j=qn+r$ for $q,r\in\mathbb{Z}$
+and with $0\leq r<n$. 
+\[
+0_{G}=a^{i-j}=a^{qn+r}=(a^{n})^{q}\oplus a^{r}=(0_{G})^{q}\oplus a^{r}=a^{r}=0_{G}
+\]
+Thus $r=0$, and $i-j=qn\Rightarrow n|i-j$ as needed.
+\end{proof}
+\end{thm}
+\begin{itemize}
+\item An immediate consequence of this theorem is that the order of the
+group generated by $a$ is the same as the order of $a$, i.e., $\left|a\right|=\left|\left\langle a\right\rangle \right|$.
+\end{itemize}
+\begin{example}
+Consider $\mathbb{Z}_{30}$ a group under addition modulo $30$. $\mathbb{Z}_{30}$
+has identity $0$ and is generated by $1$. $\left|5\right|=6$ since
+\[
+5+5+5+5+5+5=(6)5\equiv0\bmod30
+\]
+
+What is $5^{40}$ $\bmod30$? $5^{4}=4(5)=20$ and $6|40-4$ so then
+$5^{40}\equiv20\bmod30$ as well. More generally, $6|x-4\iff x=6q+4$
+for some $q\in\mathbb{Z}$. So then $5^{6q+4}\equiv20\bmod30$. 
+\end{example}
+
+\begin{cor}
+\label{cor: a^k=00003D0 iff n|k}Let $G$ be a group and $a\in G$.
+$\left|a\right|=n$ and $a^{k}=0_{G}$ if and only if $n|k$.
+
+\begin{proof}
+$a^{k}=a^{k-0}=0_{G}$ we know by the theorem above that $n|k-0$
+so $n|k$. The other direction also follows from the theorem.
+\end{proof}
+\end{cor}
+\begin{figure}
+\center\begin{tikzpicture}
+	\def \n {5} 
+	\def \radius {2.5cm} 
+	\def \margin {8} % margin in angles, depends on the radius
+	\foreach \s in {1,...,\n} {   
+		\node[draw,circle] at ({360/\n * (\s - 1)}:
+		\radius) {$\s$};   \draw[->, >=latex] ({360/\n * (\s - 1)+\margin}:\radius) arc ({360/\n * (\s - 1)+\margin}:{360/\n * (\s)-\margin}:\radius);
+		} 
+\end{tikzpicture}
+
+\caption{A graph representing the cyclic group $\mathbb{Z}_{6}$.}
+\end{figure}
+
+
+\section{Permutation Groups}
+
+Permutation groups are functions from a set $A$ back onto $A$.\footnote{Permutations were the first groups studied by mathematicians. In 1832
+the French mathematician Évariste Galois gave a criterion for the
+solvability of some polynomial equations in terms of the symmetry
+group of its roots (solutions), and the elements of these groups correspond
+to certain permutations of the roots. Arthur Cayley's work on permutations
+in 1854 gave the first abstract definition of a finite group. } They can be thought of ways of ``rearranging'' the elements of
+a set.
+\begin{defn}
+A \emph{permutation }of a set $A$ is a function from $A$ to $A$
+that is one-to-one and onto (a bijection). A \emph{permutation group
+}of a set $A$ is a set of permutations of $A$ that is a group under
+function composition.
+\end{defn}
+\begin{example}
+\label{ex: simple permutations }Let $\sigma\colon\left\{ 1,2,3\right\} \rightarrow\left\{ 1,2,3\right\} $
+and $\gamma\colon\left\{ 1,2,3\right\} \rightarrow\left\{ 1,2,3\right\} $
+be two bijections from $\left\{ 1,2,3\right\} $ to $\left\{ 1,2,3\right\} $
+such that 
+
+\begin{tabular}{rlc}
+$\sigma(1)=2$ &  & $\gamma(1)=2$\tabularnewline
+$\sigma(2)=3$ & and & $\gamma(2)=1$\tabularnewline
+$\sigma(3)=1$ &  & $\gamma(3)=3$\tabularnewline
+\end{tabular}
+
+Function composition is then well defined, and $\sigma\circ\gamma\colon\{1,2,3\}\rightarrow\{1,2,3\}$
+is also a bijective function from $\{1,2,3\}$ to $\{1,2,3\}$. For
+example $\gamma(\sigma(1))=\gamma(2)=1$.
+\end{example}
+There are different ways to represent permutations on a set $A$.
+As permutations map every element in $A$ to one and only one element,
+the mapping of any element forms a cycle $a\rightarrow b\rightarrow c\rightarrow\dots\rightarrow a$.
+This cycle may not include all the elements in $A$. Indeed it may
+just be $a\rightarrow a$, but it will always end where it started.
+So a map that takes $a\rightarrow b\rightarrow c\rightarrow\dots\rightarrow a$
+can be written conveniently as $(a,b,c,\dots,a)$ and $a\rightarrow a$
+as simply $a$. Writing permutations in this way is called \emph{cyclic
+form}. 
+\begin{example}
+Consider the permutations (from the example \ref{ex: simple permutations }
+above) $\sigma\colon\left\{ 1,2,3\right\} \rightarrow\left\{ 1,2,3\right\} $
+and $\gamma\colon\left\{ 1,2,3\right\} \rightarrow\left\{ 1,2,3\right\} $
+be two bijections from $\left\{ 1,2,3\right\} $ to $\left\{ 1,2,3\right\} $
+such that 
+
+\begin{tabular}{rlc}
+$\sigma(1)=2$ &  & $\gamma(1)=2$\tabularnewline
+$\sigma(2)=3$ & and & $\gamma(2)=1$\tabularnewline
+$\sigma(3)=1$ &  & $\gamma(3)=3$\tabularnewline
+\end{tabular}
+
+Graphs representing $\sigma$ and $\gamma$ are shown in figures \ref{fig:A-graph-representing (1,2,3)}
+and \ref{fig:Graphs-representing-(1,2)(3)} respectively.
+\end{example}
+\begin{figure}[h]
+\center\begin{tikzpicture}[scale=.75]
+	\def \n {3} %number of elements
+	\def \x {3} %endnumber
+	\def \ftn {$\sigma$} %function
+	\def \radius {2cm}
+	\def \radiusNode {2.25cm} %places nodes
+	\def \label {$(1,2,3)$} %center label
+	\def \margin {8} % margin in angles, depends on the radius
+	\foreach [count=\i] \s in {1,2,\x} {   
+		\node at ({360/\n * (\i - 1)}:
+			\radius) {$\s$};
+		\node at ({360/\n * (\i - 1) + 360/(2*\n)}:
+			\radiusNode) {\ftn};
+		\draw[->, >=latex] ({360/\n * (\i - 1)+\margin}:\radius) arc ({360/\n * (\i - 1)+\margin}:{360/\n * (\i)-\margin}:\radius);
+		}
+	\node {\label};
+\end{tikzpicture}
+
+\caption{\label{fig:A-graph-representing (1,2,3)}A graph representing the
+permutation of $\sigma=(1,2,3)$ on $\{1,2,3\}$.}
+\end{figure}
+
+\begin{figure}[h]
+\begin{minipage}[t]{0.5\textwidth}%
+\begin{center}
+\begin{tikzpicture}[scale=.75]
+	\def \n {2} %number of elements
+	\def \x {2} %endnumber
+	\def \ftn {$\sigma$} %function
+	\def \radius {2cm}
+	\def \radiusNode {2.25cm} %places nodes
+	\def \label {$(1,2)$} %center label
+	\def \margin {8} % margin in angles, depends on the radius
+	\foreach [count=\i] \s in {1,\x} {   
+		\node at ({360/\n * (\i - 1)}:
+			\radius) {$\s$};
+		\node at ({360/\n * (\i - 1) + 360/(2*\n)}:
+			\radiusNode) {\ftn};
+		\draw[<-, >=latex] ({360/\n * (\i - 1)+\margin}:\radius) arc ({360/\n * (\i - 1)+\margin}:{360/\n * (\i)-\margin}:\radius);
+	}
+	\node {\label};
+\end{tikzpicture}
+\par\end{center}%
+\end{minipage}%
+\begin{minipage}[t]{0.5\textwidth}%
+\begin{center}
+\begin{tikzpicture}[scale=.75]
+	\def \n {1} %number of elements
+	\def \x {3} %endnumber
+	\def \ftn {$\sigma$} %function
+	\def \radius {2cm}
+	\def \radiusNode {2.25cm} %places nodes
+	\def \label {$(3)$} %center label
+	\def \margin {8} % margin in angles, depends on the radius
+	\foreach [count=\i] \s in {\x} {   
+		\node at ({360/\n * (\i - 1)}:
+			\radius) {$\s$};
+		\node at ({360/\n * (\i - 1) + 360/(2*\n)}:
+			\radiusNode) {\ftn};
+		\draw[<-, >=latex] ({360/\n * (\i - 1)+\margin}:\radius) arc ({360/\n * (\i - 1)+\margin}:{360/\n * (\i)-\margin}:\radius);
+		}
+	\node {\label};	
+\end{tikzpicture}
+\par\end{center}%
+\end{minipage}
+
+\caption{\label{fig:Graphs-representing-(1,2)(3)}Graphs representing the permutation
+of $\gamma=(1,2)(3)$ on $\{1,2,3\}$.}
+\end{figure}
+
+\begin{example}
+Let $\alpha$ be a permutation on $\{1,2,3,4,5,6\}$ defined as follows: 
+
+\begin{tabular}{rlc}
+$\alpha(1)=2$ &  & $\alpha(4)=3$\tabularnewline
+$\alpha(2)=1$ & and & $\alpha(5)=5$\tabularnewline
+$\alpha(3)=6$ &  & $\alpha(6)=4$\tabularnewline
+\end{tabular}
+
+In cycle form $\alpha=(1,2)(3,6,4)(5)$. See the graph in figure 
+\begin{figure}[h]
+\begin{minipage}[t]{0.33\textwidth}%
+\begin{center}
+\begin{tikzpicture}[scale=.75]
+	\def \n {2} %number of elements
+	\def \x {2} %endnumber
+	\def \ftn {$\sigma$} %function
+	\def \radius {2cm}
+	\def \radiusNode {2.25cm} %places nodes
+	\def \label {$(1,2)$} %center label
+	\def \margin {8} % margin in angles, depends on the radius
+	\foreach [count=\i] \s in {1,\x} {   
+		\node at ({360/\n * (\i - 1)}:
+			\radius) {$\s$};
+		\node at ({360/\n * (\i - 1) + 360/(2*\n)}:
+			\radiusNode) {\ftn};
+		\draw[<-, >=latex] ({360/\n * (\i - 1)+\margin}:\radius) arc ({360/\n * (\i - 1)+\margin}:{360/\n * (\i)-\margin}:\radius);
+	}
+	\node {\label};
+\end{tikzpicture}
+\par\end{center}%
+\end{minipage}%
+\begin{minipage}[t]{0.33\textwidth}%
+\begin{center}
+\begin{tikzpicture}[scale=.75]
+	\def \n {3} %number of elements
+	\def \x {4} %endnumber
+	\def \ftn {$\sigma$} %function
+	\def \radius {2cm}
+	\def \radiusNode {2.25cm} %places nodes
+	\def \label {$(3,6,4)$} %center label
+	\def \margin {8} % margin in angles, depends on the radius
+	\foreach [count=\i] \s in {3,6,\x} {   
+		\node at ({360/\n * (\i - 1)}:
+			\radius) {$\s$};
+		\node at ({360/\n * (\i - 1) + 360/(2*\n)}:
+			\radiusNode) {\ftn};
+		\draw[->, >=latex] ({360/\n * (\i - 1)+\margin}:\radius) arc ({360/\n * (\i - 1)+\margin}:{360/\n * (\i)-\margin}:\radius);
+		}
+	\node {\label};	
+\end{tikzpicture}
+\par\end{center}%
+\end{minipage}%
+\begin{minipage}[t]{0.33\textwidth}%
+\begin{center}
+\begin{tikzpicture}[scale=.75]
+	\def \n {1} %number of elements
+	\def \x {5} %endnumber
+	\def \ftn {$\sigma$} %function
+	\def \radius {2cm}
+	\def \radiusNode {2.25cm} %places nodes
+	\def \label {$(5)$} %center label
+	\def \margin {8} % margin in angles, depends on the radius
+	\foreach [count=\i] \s in {\x} {   
+		\node at ({360/\n * (\i - 1)}:
+			\radius) {$\s$};
+		\node at ({360/\n * (\i - 1) + 360/(2*\n)}:
+			\radiusNode) {\ftn};
+		\draw[<-, >=latex] ({360/\n * (\i - 1)+\margin}:\radius) arc ({360/\n * (\i - 1)+\margin}:{360/\n * (\i)-\margin}:\radius);
+		}
+	\node {\label};	
+\end{tikzpicture}
+\par\end{center}%
+\end{minipage}
+
+\caption{\label{fig:Graphs-representing-(1,2)(3)-1}Graphs representing the
+permutation of $\alpha=(1,2)(3,6,4)(5)$ on $\{1,2,3,4,5,6\}$.}
+\end{figure}
+
+Let $\alpha$ be a permutation on $\{1,2,3,4,5,6\}$ defined as follows: 
+
+\begin{tabular}{rlc}
+$\alpha(1)=5$ &  & $\alpha(4)=6$\tabularnewline
+$\alpha(2)=3$ & and & $\alpha(5)=2$\tabularnewline
+$\alpha(3)=1$ &  & $\alpha(6)=4$\tabularnewline
+\end{tabular}
+
+Write in $\alpha$ in cycle form.
+\end{example}
+What we label the elements in $A$ is really arbitrary as a permutation
+only maps elements to elements, and any meaning the labels might otherwise
+have is irrelevant to this mapping. For example, both the sets $\{bob,sue,bill\}$
+or $\{a,b,c\}$ can be represent by the set $\{1,2,3\}$ as they each
+have three elements. As such we just as well use the set $\{1,2,\dots,n-1,n\}$.
+Each permutations on a set $A=\{1,2,\dots,n-1,n\}$ is an element
+in the collection of all permutations on $A$. A collection we will
+call the \emph{symmetric group of degree n}, denoted $S_{n}$. 
+
+Of course we first need to show that $S_{n}$ is a group. We have
+already seen an example of the group operation we will use, function
+composition, in example \ref{ex: simple permutations }. Note that
+function operation will always be well defined as the permutations
+are all bijections. This operation is can easily be performed using
+cycle notation. 
+\begin{example}
+Let $\sigma=(1,2,3)$ and $\gamma=(1,2)(3)$. $\sigma\circ\gamma$
+or just $\sigma\gamma$ as we will write is then 
+\[
+\begin{array}{rrr}
+1\rightarrow2\rightarrow3 & \Rightarrow & (1,3)\\
+2\rightarrow1\rightarrow2 & \Rightarrow & (2)\\
+3\rightarrow3\rightarrow1 & \Rightarrow & (3,1)
+\end{array}
+\]
+The first and last cycles are equivalent so he have $\sigma\gamma=(1,3)(2)$.
+
+\begin{itemize}
+\item Note that by writing a permutation in cycle form it can be inferred
+that both these function are bijections of the set $\left\{ 1,2,3\right\} $. 
+\end{itemize}
+\end{example}
+
+\begin{example}
+Let $\alpha=(1,2)(3)(4,5)$ and $\beta=(1,5,3)(2,4)$. 
+\begin{eqnarray*}
+\alpha\beta & = & (1,4)(2,5,3)
+\end{eqnarray*}
+\end{example}
+\begin{xca}
+Let $\alpha=(1,2)(3)(4,5)$ and $\beta=(1,5,3)(2,4)$. Find $\beta\alpha$.
+\end{xca}
+$S_{n}$ is a nonempty set with a well defined operation. Furthermore
+it is easy to see that this operation is closed. 
+
+What would the identity element be? 
+\[
+e=(1)(2)(3)\dots(n)
+\]
+$(1)$ means that $1\rightarrow1$. So then $\sigma e=e\sigma$ for
+any permutation $\sigma$ in $S_{n}$. 
+
+What about inverses? Permutations are all one-to-one, so each will
+have an inverse function. Thus $S_{n}$ is a group.
+\begin{example}
+Find the inverse of $\beta=(1,5,3)(2,4)$. We need $1\rightarrow5\rightarrow1$.
+Also we need $3\rightarrow1\rightarrow3$, and $5\rightarrow3\rightarrow5$
+so $(5,1,3)\in\beta^{-1}$. Similarly $2\rightarrow4\rightarrow2$
+and $4\rightarrow2\rightarrow4$ implies that $(2,4)\in\beta^{-1}$.
+Giving, 
+\[
+\beta^{-1}=(5,1,3)(2,4)=(1,3,5)(2,4)\mbox{.}
+\]
+It is easy to check that $\beta\beta^{-1}=(1)(2)(3)(4)(5)=\beta^{-1}\beta$.
+\end{example}
+\begin{xca}
+Find the inverse of $\alpha=(1,2)(3)(4,5)$ and $\alpha\beta=(1,4)(2,5,3)$.
+\end{xca}
+It is easy to find the number of permutations in $S_{n}$. Let $\sigma\in S_{n}$
+and $\sigma(x)=y$ represent the permutation mapping $x\rightarrow y$.
+There are $n$ choices for $\sigma(1)$, then $n-1$ choices for $\sigma(2)$,
+next there are $n-2$ choices for $\sigma(3)$ etc. So there will
+be a total of $n(n-1)(n-2)\cdots1=n!$ permutations in $S_{n}$, i.e.,
+$\left|S_{n}\right|=n!$.
+\begin{xca}
+Find the order of $S_{4}$, $S_{1}$, and $S_{3}$.
+\end{xca}
+
+\begin{xca}
+Show by example that $S_{3}$ is not abelian. Thus in general symmetric
+groups are not abelian. 
+\end{xca}
+
+\section{Cosets}
+
+Recall that the elements in $\mathbb{Z}$ each fell into $n$ classes
+of $\mathbb{Z}_{n}$ denoted $\left[a\right]$ for an $a\in\mathbb{Z}_{6}$.
+For $\mathbb{Z}_{6}$, $2\equiv8\bmod6$ so then $8\in\left[2\right]$.
+We can easily find all the elements in $\left[2\right]$ by repeatedly
+adding 6 (since we are working with modulo $6$). Similarly we could
+find all the elements of each class. 
+\begin{eqnarray*}
+\left[2\right] & = & \left\{ \dots,-2,0,2,8,14,\dots\right\} \\
+\left[3\right] & = & \left\{ \dots,-3,0,3,6,15,\dots\right\} \\
+\vdots\\
+\left[a\right] & = & \left\{ \dots,a-n,a,a+n,a+2n,\dots\right\} \\
+\vdots\\
+\left[6\right] & = & \left\{ \dots,-6,0,6,12,\dots\right\} 
+\end{eqnarray*}
+The elements of each class of $\left[a\right]$ can each be expressed
+as $a+kn$ for some $k\in\mathbb{Z}$. It thus would make sense to
+write $a+6\mathbb{Z}$ instead of $\left[a\right]$. 
+
+We call sets represented like $3+6\mathbb{Z}=\left\{ \dots,-3,0,3,6,15,\dots\right\} $
+\emph{cosets} (note that $6\mathbb{Z}$ is a subgroup of $\mathbb{Z}$).
+The idea was first explored by Galois and is key to proving Lagrange's
+theorem (the subject of the next section).
+\begin{defn}
+Let $H$ be a subgroup of $G$ and $a\in G$. 
+
+The set $a\oplus H=\left\{ a\oplus h\colon h\in H\right\} $ is called
+the \emph{left coset of H in G containing a}.
+
+The set $H\oplus a=\left\{ h\oplus a\colon h\in H\right\} $ is called
+the \emph{right coset of H in G containing a}.
+\end{defn}
+\begin{example}
+\label{ex: Z8  and <2> }Let $G=\mathbb{Z}_{8}$ and $H=\left\langle 2\right\rangle =\left\{ 0,2,4,6\right\} $.
+Then 
+\begin{eqnarray*}
+3\oplus H=3\oplus\left\langle 2\right\rangle  & = & \left\{ 3+0,3+2,3+4,3+6\right\} \\
+ & = & \{3,5,7,1\}
+\end{eqnarray*}
+also since $\mathbb{Z}_{8}$ is abelian, 
+\begin{eqnarray*}
+H\oplus3=\left\langle 2\right\rangle \oplus3 & = & \left\{ 0+3,2+3,4+3,6+3\right\} \\
+ & = & \{3,5,7,1\}
+\end{eqnarray*}
+
+The order of $2\in\left\langle 2\right\rangle $, written $\left|2\right|$,
+is $4$ since $2+2+2+2=2\cdot4=8\equiv0\bmod8$. $\left|\mathbb{Z}_{8}\right|=8$,
+and $2\mid8$, that is $\left|2\right|\mid\left|\mathbb{Z}_{8}\right|$. 
+\begin{itemize}
+\item We will see that the order of a subgroup (or element) always divides
+the order of its group.
+\end{itemize}
+$4,6,0\in\left\langle 2\right\rangle $ and $4\oplus\left\langle 2\right\rangle =\left\{ 4,6,0,2\right\} =2\oplus\left\langle 2\right\rangle $;
+$6\oplus\left\langle 2\right\rangle =\left\{ 4,6,0,2\right\} =2\oplus\left\langle 2\right\rangle $;
+and $0\oplus\left\langle 2\right\rangle =\left\langle 2\right\rangle =\left\{ 4,6,0,2\right\} =2\oplus\left\langle 2\right\rangle $\@.
+From above $3\notin\{0,2,4,6\}$ and $3\oplus\left\langle 2\right\rangle \neq2\oplus\left\langle 2\right\rangle $. 
+\begin{itemize}
+\item We will see that cosets are either mutually distinct or equal. As
+all elements in $\mathbb{Z}_{8}$ are in $\{0,2,4,6\}$ or $\{1,3,5,7\}$
+these are the only \emph{distinct }cosets. Meaning that any other
+coset $a\oplus\left\langle 2\right\rangle $ will be congruent to
+one of these two cosets. 
+\end{itemize}
+\end{example}
+\begin{xca}
+Find all the distinct cosets of $\mathbb{Z}_{9}$.
+\end{xca}
+
+\begin{xca}
+Consider the group $S_{3}=\{(1),(1,2),(1,3),(2,3)\}$ and its subgroup
+$H=\{(1),(1,3)\}$. The distinct left cosets are 
+
+\begin{eqnarray*}
+(1)H & = & \left\{ (1)(1),(1)(1,3)\right\} =H\\
+(1,2)H & = & \left\{ (1,2)(1),(1,2)(1,3)\right\} =\left\{ (1,2),(1,3,2)\right\} =(1,3,2)H\\
+(1,3)H & = & \left\{ (1,3)(1),(1,3)(1,3)\right\} =\left\{ (1,3),(1,3)\right\} =H\\
+(2,3)H & = & \left\{ (2,3)(1),(2,3)(1,3)\right\} =\left\{ (2,3),(1,2,3)\right\} =\left(1,2,3\right)H
+\end{eqnarray*}
+\end{xca}
+From these examples/exercises we can see that cosets have some distinct
+properties.
+\begin{lem}
+\label{lem:a is in a+H}Let $H$ be a subgroup of $G$ and $a\in H$.
+Then $a\in a\oplus H$ and $a\in H\oplus a$.
+
+\begin{proof}
+Let $a\in H$. Since $H$ is a subgroup it has an identity element
+$0_{G}$, and $a=a\oplus0_{G}\in a\oplus H$ and $a=0_{G}\oplus a\in a\oplus H$.
+\end{proof}
+\end{lem}
+
+\begin{lem}
+\label{lem:a+H=00003DH iff a in H}Let $H$ be a subgroup of $G$.
+If $a\in G$ then $a\oplus H=H$ and $H\oplus a=H$ if and only if
+$a\in H$.
+
+\begin{proof}
+First we show the result for $a\oplus H=H$ .
+
+$(\Rightarrow)$ Suppose that $a\oplus H=H$. $H$ is a group with
+the same identity element as $G$, say $0$. $a\oplus0=a\Rightarrow a\in a\oplus H$
+as needed. 
+
+$(\Leftarrow)$ Suppose that $a\in H$ by the lemma above, $a\in a\oplus H$.
+As $H$ is close, $a\oplus h\in H$ for any $h\in H$. So then $a\oplus H\subseteq H$. 
+
+Now let $h\in H$. Since $a$ is also in $H$ it follows that $a^{-1}\in H$
+and thus $a^{-1}\oplus h\in H$. $h=0\oplus h=(a\oplus a^{-1})\oplus h=a\oplus(a^{-1}\oplus h)\in a\oplus H$.
+Thus $H\subseteq a\oplus H$ and it follows that $H=a\oplus H$.
+
+The case for $H\oplus a=H$ follows similarly. 
+\end{proof}
+\end{lem}
+\begin{itemize}
+\item The results below are all true for right hand cosets and left hand
+cosets. For convenience they are stated for left hand cosets.
+\end{itemize}
+\begin{thm}
+\label{thm:cosets =00003D or disjoint}Let $H$ be a subgroup of $G$.
+If $a,b\in G$ then:
+
+\begin{itemize}
+\item []$a\oplus H=b\oplus H$ or
+\item []$(a\oplus H)\cap(b\oplus H)=\emptyset$. 
+\end{itemize}
+\begin{proof}
+Suppose that the cosets are not disjoint, i.e., $(a\oplus H)\cap(b\oplus H)\neq\emptyset$.
+So there is some $x\in(a\oplus H)\cap(b\oplus H)$. Thus there exists
+an $h_{1},h_{2}\in H$ such that $x=a\oplus h_{1}$ and $x=b\oplus h_{2}$.
+Thus 
+\begin{eqnarray*}
+a\oplus h_{1} & = & b\oplus h_{2}\\
+a & = & (b\oplus h_{2})\oplus h_{1}^{-1}\\
+a & = & b\oplus(h_{2}\oplus h_{1}^{-1})
+\end{eqnarray*}
+Which implies that $a\oplus H=\left(b\oplus(h_{2}\oplus h_{1}^{-1})\right)\oplus H=b\oplus(h_{2}\oplus h_{1}^{-1})\oplus H=b\oplus H$.
+As needed. The last equality follows since by closure $h_{2}\oplus h_{1}^{-1}\in H\iff(h_{2}\oplus h_{1}^{-1})\oplus H=H$
+by lemma \ref{lem:a+H=00003DH iff a in H}.
+\end{proof}
+\end{thm}
+\begin{cor}
+Let $H$ be a subgroup of $G$ and $a,b\in G$. $a\oplus H=b\oplus H$
+if and only if $a^{-1}\oplus b\in H$. 
+
+\begin{proof}
+$a\oplus H=b\oplus H\iff H=\left(a^{-1}\oplus b\right)\oplus H$ which
+implies that $a^{-1}\oplus b\in H$ by the theorem above. 
+\end{proof}
+\end{cor}
+\begin{thm}
+\label{thm:|b+H| =00003D |a+H|}Let $H$ be a subgroup of $G$ and
+$a,b\in G$. $\left|a\oplus H\right|=\left|b\oplus H\right|$
+
+\begin{proof}
+One can show that two sets have the same cardinality by finding a
+one-to-one map between them. Consider the map $f\colon a\oplus H\rightarrow b\oplus H$
+defined by $f(a\oplus h)=b\oplus h$. By the cancellation property,
+theorem \ref{thm:Cancellation-Law.}, $f(a\oplus h_{1})=f(a\oplus h_{2})\Rightarrow b\oplus h_{1}=b\oplus h_{2}\Rightarrow h_{1}=h_{2}$
+so $f$ is one-to-one as needed. 
+\end{proof}
+\end{thm}
+\begin{cor}
+Let $H$ be a subgroup of $G$ and $a\in G$. $\left|a\oplus H\right|=\left|H\right|$
+
+\begin{proof}
+This follows immediately from theorem \ref{thm:|b+H| =00003D |a+H|}
+above, since $0_{G}\in G$. So then $\left|a\oplus H\right|=\left|0+H\right|=\left|H\right|$.
+\end{proof}
+\end{cor}
+
+\begin{thm}
+Let $H$ be a subgroup of $G$ and $a\in G$. $a\oplus H$ is a subgroup
+of $G$ if and only if $a\in H$.
+
+\begin{proof}
+$(\Rightarrow)$ Let $a\oplus H\leq G$. So then $0_{G}\in a\oplus H$.
+$0_{G}$ is also in $0_{G}\oplus H=H$ thus $(a\oplus H)\cap H\neq\emptyset$
+and it follows that $a\oplus H=H$ by theorem \ref{thm:cosets =00003D or disjoint}. 
+
+$(\Leftarrow)$ Suppose that $a\in H$. This implies that $a\oplus H=H$
+by lemma \ref{lem:a+H=00003DH iff a in H}, and $a\oplus H=H\leq G$. 
+\end{proof}
+\end{thm}
+
+\section{Lagrange's Theorem}
+
+Our study of group theory ends with Lagrange's theorem and its applications.
+Lagrange's theorem is the most important result in finite group theory.
+It provides a necessary characterization for the order of subgroups
+(and consequently elements) of a finite group. Recall example \ref{ex: Z8  and <2> }: 
+\begin{example}
+$\mathbb{Z}_{8}$ and $\left\langle 2\right\rangle =\left\{ 0,2,4,6\right\} $.
+
+\begin{itemize}
+\item $\left\langle 2\right\rangle \leq\mathbb{Z}_{8}$: Since $2\in\mathbb{Z}_{8}$,
+$\left\langle 2\right\rangle $ is the cyclic subgroup generated by
+$2$. Recall that it is also abelian as all cyclic groups are abelian
+(theorem \ref{thm:All-cyclic-groups-are-abelian}).
+\item $\left|2\right|=\left|\left\langle 2\right\rangle \right|=4$: Since
+$2^{4}=2+2+2+2=8\equiv0\bmod8$. 
+\item Note that $4\mid8$: This is no coincidence. We will see that Lagrange's
+theorem tell us that this is a necessary condition of all subgroups
+and group elements.
+\item Recall that are cosets of $\left\langle 2\right\rangle $ are either
+distinct or disjoint, e.g., $g_{1}+\left\langle 2\right\rangle =g_{2}+\left\langle 2\right\rangle $
+or $\left(g_{1}+\left\langle 2\right\rangle \right)\cap\left(g_{2}+\left\langle 2\right\rangle \right)=\emptyset$.
+So the distinct left/right cosets of a subgroup \emph{partition }its
+group. This will be important in the proof of Lagrange's theorem.
+\end{itemize}
+\end{example}
+\begin{lem}
+\label{lem:G is the union of cosets}If $H$ is a subgroup of a finite
+group $G$ then $G$ is the union of the distinct cosets of $H$,
+i.e., 
+\[
+G=a_{1}\oplus H\cup a_{2}\oplus H\cup\cdots\cup a_{k}\oplus H
+\]
+ for a list of elements $a_{1},a_{2},\dots,a_{k}\in G$ where $a_{i}\oplus H\neq a_{j}\oplus H$
+if $i\neq j$ for any $1\leq i,j\leq k\leq$. 
+
+\begin{proof}
+Let $a_{1}$ be any element in $G$. If there is no such element $a_{2}\in G$
+such that $a_{1}\oplus H\neq a_{2}\oplus H$ then $a_{2}\in a_{1}\oplus H$
+for any $a_{2}\in G$. Which implies that $a_{1}\oplus H=G$, and
+we are done. 
+
+Otherwise we can either choose another $a_{2}$ such that $a_{1}\oplus H\neq a_{2}\oplus H$.
+As above, either we can find another element $a_{3}\in G$ such that
+$a_{3}\oplus H$ will be distinct from $a_{1}\oplus H$ and $a_{2}\oplus H$
+or $a_{1}\oplus H\cup a_{2}\oplus H=G$. $G$ is finite, so continuing
+like this we can compile a list of distinct elements in $G$, $a_{1},a_{2},\dots,a_{k}$
+for $k\leq\left|G\right|$, such that $G=a_{1}\oplus H\cup a_{2}\oplus H\cup\cdots\cup a_{k}\oplus H$.
+\end{proof}
+\end{lem}
+While the cosets themselves will be unique the list of elements $a_{1},a_{2},\dots,a_{k}$
+is not. However the number of cosets $k$ will always be the same.
+This number is important enough to have a name -the \emph{index }of
+the subgroup $H$.
+\begin{defn}
+If $H$ is a subgroup of a finite group $G$ such that $G=a_{1}\oplus H\cup a_{2}\oplus H\cup\cdots\cup a_{k}\oplus H$
+then the $k$ is called the \emph{index }of $H$ in $G$; denoted
+$\left|G\colon H\right|$. As we will see below, $\left|G\colon H\right|=\nicefrac{\left|G\right|}{\left|H\right|}$
+so the index is sometimes notated $\left|G\right|/\left|H\right|$.
+\end{defn}
+\begin{thm}
+\textbf{\emph{Lagrange's Theorem. }}If $H$ is a subgroup of a finite
+group $G$ then $\left|H\right|\mid\left|G\right|$. 
+
+\begin{proof}
+Let $a_{1}\oplus H,a_{2}\oplus H,\dots,a_{k}\oplus H$ be the distinct
+left cosets of $H$ in $G$. By lemma \ref{lem:G is the union of cosets}
+above, 
+\[
+G=a_{1}\oplus H\cup a_{2}\oplus H\cup\cdots\cup a_{k}\oplus H
+\]
+. Since this union is disjoint we have, 
+\[
+\left|G\right|=\left|a_{1}\oplus H\right|+\left|a_{2}\oplus H\right|+\cdots+\left|a_{k}\oplus H\right|\mbox{.}
+\]
+By the corollary to theorem \ref{thm:|b+H| =00003D |a+H|}, each coset
+$a_{i}\oplus H$ in this union has exactly $\left|H\right|$ elements,
+i.e., $\left|a_{1}\oplus H\right|=\left|H\right|$. So then $\left|G\right|=k\cdot\left|H\right|$.
+\end{proof}
+\end{thm}
+\begin{example}
+Consider $\mathbb{Z}_{8}$ and its subgroup $\left\langle 2\right\rangle $.
+The order of $\left\langle 2\right\rangle $ is either $1,2,4$, or
+$8$ as these are the only divisors of $\left|\mathbb{Z}_{8}\right|=8$
+. 
+\end{example}
+
+\begin{example}
+$H=\left\{ 0,1,2\right\} $ is not a subgroup of $\mathbb{Z}_{8}$
+as $\left|H\right|=3$ and $3\nmid8$.
+\end{example}
+
+\begin{example}
+Let $G$ be a group and $H\leq G$. If $\left|G\right|=35=7\cdot5$.
+The order of $H$ is $1,5,7,$ or $35$.
+\end{example}
+
+\begin{example}
+Let $G$ be a group and $H\leq G$. If $\left|G\right|=40$ and $\left|H\right|=7$.
+Then $H\nleq G$.
+\end{example}
+Note: The converse of Lagrange's theorem is false. Simply because
+the order of a subset divides the order of a group \uline{does not
+make it a subgroup}.
+\begin{example}
+(The converse of Lagrange's theorem is false). Let $H=\{1,2,3,4\}\subseteq\mathbb{Z}_{8}$.
+$\left|H\right|=4$ and $4\mid8$, but $H\nleq G$ as $0\notin G$.
+So it has no identity element.
+\end{example}
+
+\begin{cor}
+If $G$ is a group and $a\in G$ then $\left|a\right|\mid\left|G\right|$.
+
+\begin{proof}
+Recall that $\left|\left\langle a\right\rangle \right|=\left|a\right|$
+for any element $a$ in a group $G$, and that $\left\langle a\right\rangle \leq G$.
+So as an immediate consequence of Lagrange's theorem $\left|a\right|\mid\left|G\right|$.
+\end{proof}
+\end{cor}
+
+\begin{cor}
+If $G$ is a group with prime order then $G$ is cyclic.
+
+\begin{proof}
+As $\left|G\right|>1$, we can choose an element $a\in G$ such that
+$a\neq0_{G}$. Since $\left|G\right|=p$ for some prime integer $p$,
+$\left|a\right|\mid p$ by Lagrange's theorem. Thus $\left|a\right|=1$
+or $p$, but $\left|a\right|\neq1$ since $a\neq0_{G}$. It follows
+that $\left|\left\langle a\right\rangle \right|=p$, and since $\left\langle a\right\rangle \subseteq G$
+the result follows. 
+\end{proof}
+\end{cor}
+
+\end{document}
