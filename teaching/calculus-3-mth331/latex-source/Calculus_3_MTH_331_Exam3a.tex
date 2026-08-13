@@ -1,0 +1,297 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\newcommand{\lyxmathsym}[1]{\ifmmode\begingroup\def\b@ld{bold}
+  \text{\ifx\math@version\b@ld\bfseries\fi#1}\endgroup\else#1\fi}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{331}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{Name:}
+
+\newcommand{\examType}{Exam 3}
+
+\renewcommand{\date}{December $5^{\text{th}}$, 2012}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Unless otherwise indicated, each question is of equal value
+{[}4 pts{]}. Clearly show all of your work.}
+
+\emph{Use $\mathbf{u}=\left\langle 2,4,1\right\rangle $ and $\mathbf{v}=\left\langle 1,-3,2\right\rangle $
+to perform the indicated operations in problems \ref{enu:vect-start}--\ref{enu:vect-end}.}
+\begin{enumerate}[resume]
+\item \label{enu:vect-start}$\mathbf{u}-2\mathbf{v}$\vfill
+\item $\mathbf{u\cdot}\mathbf{v}$\vfill
+\item \label{enu:vect-end}$\mathbf{u\times v}$\vfill\vspace{1cm}
+\end{enumerate}
+\emph{Use the graph to draw the following vectors in problems \ref{enu:graph-start}--\ref{enu:graph-end}
+(provide labels). Make certain to indicate direction.}
+\begin{enumerate}[resume]
+\item \label{enu:graph-start}\begin{multicols}{2}
+
+\begin{enumerate}[resume]
+\item \textbf{$\nicefrac{1}{2}\mathbf{u}$}
+\item $\mathbf{u}+\mathbf{v}$ 
+\item $\mathbf{u}-\mathbf{v}$ (you do not have to draw it as a position
+vector)
+\end{enumerate}
+\columnbreak
+
+\tdplotsetmaincoords{0}{0}% %%specifes orientation %%\tdplotsetrotatedcoords{0}{20}{0}% %%specifes angle of rotation
+\begin{tikzpicture} 		
+	[tdplot_main_coords,
+		scale=.5,
+		grid/.style={very thin,gray}, 
+		axis/.style={->,black,thick},
+		vector/.style={very thick,red,-stealth},
+		vector guide/.style={dashed,red,thick},
+		angle/.style={black,thick}]
+	
+	%draw a grid in the x-y plane 	
+	%\foreach \x in {-1,0,...,1} 		
+	%\foreach \y in {-1,0,...,1} 		
+	{ 			
+		%\draw[grid] (\x,-0.25) -- (\x,1.25); 			
+		%\draw[grid] (-0.25,\y) -- (1.25,\y); 		
+	} 		
+	
+	
+	
+	%draw the axes 	
+	\draw[axis] (-1,0) -- (5,0) node[anchor=west]{$x$}; 	
+	\draw[axis] (0,-1) -- (0,5) node[anchor=west]{$y$}; 	
+
+	%standard tikz coordinate definition using x, y, z coords 	
+	\coordinate (O) at (0,0);
+
+	%draw vector
+	\draw[->, very thick,red,-stealth] (0,0) -- (4,4) node[anchor=south west]{\textbf{u}} node[anchor=north east,pos=.6]{$$};
+	\draw[->,very thick,blue,-stealth] (0,0) -- (3,1) node[anchor=south west]{\textbf{v}} node[anchor=north east,pos=.6]{$$};
+	%\draw[very thick,blue,stealth-] (1.75,.5) -- (.4,1.5) node[anchor=south west,pos=.65]{$A-B$} node[anchor=north east,pos=.6]{$c$};
+	%\draw[black] (0,0) -- (0,0) node[anchor=south west]{$\theta$};
+	%draw an arc illustrating the angle defining the orientation 
+	%\tdplotsetthetaplanecoords{45}	
+	%\tdplotdrawarc[tdplot_rotated_coords,angle]{(O)}{.35}{54.7}{90}{anchor=west}{$\phi$} %{center}{radius}{start}{end angle}
+\end{tikzpicture}
+	\end{multicols}
+\item \label{enu:graph-end}\begin{multicols}{2}
+
+\begin{enumerate}[resume]
+\item $\mbox{proj}_{\mathbf{v}}\mathbf{u}$
+\item $\mbox{proj}_{\mathbf{u}}\mathbf{v}$
+\end{enumerate}
+\columnbreak
+
+\tdplotsetmaincoords{0}{0}% %%specifes orientation %%\tdplotsetrotatedcoords{0}{20}{0}% %%specifes angle of rotation
+\begin{tikzpicture} 		
+	[tdplot_main_coords,
+		scale=.5,
+		grid/.style={very thin,gray}, 
+		axis/.style={->,black,thick},
+		vector/.style={very thick,red,-stealth},
+		vector guide/.style={dashed,red,thick},
+		angle/.style={black,thick}]
+	
+	%draw a grid in the x-y plane 	
+	%\foreach \x in {-1,0,...,1} 		
+	%\foreach \y in {-1,0,...,1} 		
+	{ 			
+		%\draw[grid] (\x,-0.25) -- (\x,1.25); 			
+		%\draw[grid] (-0.25,\y) -- (1.25,\y); 		
+	} 		
+	
+	
+	
+	%draw the axes 	
+	\draw[axis] (-1,0) -- (5,0) node[anchor=west]{$x$}; 	
+	\draw[axis] (0,-1) -- (0,5) node[anchor=west]{$y$}; 	
+
+	%standard tikz coordinate definition using x, y, z coords 	
+	\coordinate (O) at (0,0);
+
+	%draw vector
+	\draw[->, very thick,red,-stealth] (0,0) -- (3,4) node[anchor=south west]{\textbf{u}} node[anchor=north east,pos=.6]{$$};
+	\draw[->,very thick,blue,-stealth] (0,0) -- (1.5,0) node[anchor=south west]{\textbf{v}} node[anchor=north east,pos=.6]{$$};
+	%\draw[very thick,blue,stealth-] (1.75,.5) -- (.4,1.5) node[anchor=south west,pos=.65]{$A-B$} node[anchor=north east,pos=.6]{$c$};
+	%\draw[black] (0,0) -- (0,0) node[anchor=south west]{$\theta$};
+	%draw an arc illustrating the angle defining the orientation 
+	%\tdplotsetthetaplanecoords{45}	
+	%\tdplotdrawarc[tdplot_rotated_coords,angle]{(O)}{.35}{54.7}{90}{anchor=west}{$\phi$} %{center}{radius}{start}{end angle}
+\end{tikzpicture}
+	\end{multicols}
+\end{enumerate}
+\emph{Use the graph to perform the indicated operations (provide labels). }
+\begin{enumerate}[resume]
+\item \begin{multicols}{2}
+
+\begin{enumerate}[resume]
+\item Use the right-hand rule to label the \emph{x }and \emph{y }axes. 
+\item Plot the point $\left(4,2,3\right)$.
+\item Sketch the plane $\left(x,y,3\right)$.
+\end{enumerate}
+\columnbreak\tdplotsetmaincoords{65}{105}% %%specifes orientation
+%%\tdplotsetrotatedcoords{0}{20}{0}% %%specifes angle of rotation
+\begin{tikzpicture} 		
+	[tdplot_main_coords,
+		scale=2,
+		cube/.style={purple}, 
+		grid/.style={very thin,gray}, 
+		axis/.style={->,black,thick},
+		vector/.style={very thick,red,-stealth},
+		vector guide/.style={dashed,red,thick},
+		angle/.style={black,thick}]
+	
+	%draw a grid in the x-y plane 	
+	\foreach \x in {-0.25,0,...,1.25} 		
+	\foreach \y in {-0.25,0,...,1.25} 		
+	{ 			
+		\draw[grid] (\x,-0.25) -- (\x,1.25); 			
+		\draw[grid] (-0.25,\y) -- (1.25,\y); 		
+	} 		
+		
+	%draw the axes 	
+	\draw[axis] (0,0,0) -- (1.5,0,0) node[anchor=west]{$$}; 	
+	\draw[axis] (0,0,0) -- (0,1.5,0) node[anchor=west]{$$}; 	
+	\draw[axis] (0,0,0) -- (0,0,1.5) node[anchor=west]{$z$};
+	
+	
+	%standard tikz coordinate definition using x, y, z coords 	
+	\coordinate (O) at (0,0,0);
+	%tikz-3dplot coordinate definition using r, theta, phi coords 	
+	\tdplotsetcoord{P}{.8}{55}{60}
+
+	%draw vector
+	%\draw[vector] (O) -- (P);
+	%\draw[vector guide] (O) -- (Pxy); %\draw[vector guide] (Pxy) -- (P);
+	%\draw[->, very thick,red,-stealth] (0,0,0) -- (1,1,1);
+	%\draw[->,very thick,blue,-stealth] (0,0,0) -- (1,1,0);
+	%draw an arc illustrating the angle defining the orientation 
+	%\tdplotsetthetaplanecoords{45}	
+	%\tdplotdrawarc[tdplot_rotated_coords,angle]{(O)}{.35}{54.7}{90}{anchor=west}{$\phi$} %{center}{radius}{start}{end angle}
+\end{tikzpicture}
+	\end{multicols}\newpage
+\end{enumerate}
+\emph{Use the vectors $\mathbf{u}=\left\langle 3,6\right\rangle $,
+$\mathbf{v}=\left\langle 2,3\right\rangle $ and the point $P(1,-4)$
+to complete problems \ref{enu:pts_and_vects-start}--\ref{enu:pts_and_vects-end}.}
+\begin{enumerate}[resume]
+\item \label{enu:pts_and_vects-start}Find the line through $P$ and parallel
+to $\mathbf{u}$.\xspace\xspace\xspace\vfill
+\item Find the angle between $\mathbf{u}$ and $\mathbf{v}$.\xspace\xspace\xspace\vfill
+\item \label{enu:Find-a-vector}Find a vector orthogonal to $\mathbf{u}$
+and $\mathbf{v}$.\xspace\xspace\xspace\vfill
+\item \label{enu:pts_and_vects-end}Is the vector found in problem \ref{enu:Find-a-vector}
+unique? If not find another vector orthogonal to $\mathbf{u}$ and
+$\mathbf{v}$.\xspace\vfill
+\end{enumerate}
+\emph{Let $\mathbf{r}(t)=\left\langle 1,\frac{2}{t^{2}},e^{-t}\right\rangle $.
+Evaluate problems \ref{enu:calc}--\ref{clac-end}.}
+\begin{enumerate}[resume]
+\item \label{enu:calc}$\mathbf{r}'(t)$
+\item ${\displaystyle \int}\mathbf{r}(t)\,dt$ 
+\item ${\displaystyle \int}_{0}^{1}\mathbf{r}(t)\,dt$
+\item \label{clac-end}${\displaystyle \lim_{t\rightarrow\infty}\mathbf{r}(t)}$
+\end{enumerate}
+\emph{Compute the slope of the tangent line of the vector valued function
+at $t=1$.}
+\begin{enumerate}[resume]
+\item $\mathbf{r}(t)=\left\langle 1+t^{3},2\sin3t,e^{t}\right\rangle $\vfill
+\item A bullet is fired with a muzzle velocity of 1037 ft/sec from a gun
+aimed at an angle of $8\textdegree$ above the horizontal. Find a
+vector describing the vertical and horizontal components of the bullet's
+velocity.\vfill
+\item A sailboat floats in a current that flows due west at 3 m/s. The wind
+is blowing $30\textdegree$ north of east at a speed of 5 m/s. Find
+the speed of the boat relative to the shore.\vfill
+\item How much work does it take to slide a box 30 meters along the ground
+by pulling it with 200 Newtons of force at an angle of $15\textdegree$
+from the horizontal?\vfill
+\item A woman does legs lifts with a 10 lb weight attached to her foot (so
+the force is directed downward). The distance from her foot to her
+knee is 2 ft, and her leg below the knee makes an angle of $\theta$
+to the vertical. 
+
+\begin{enumerate}[resume]
+\item Find the magnitude of the torque on her knee if she holds her leg
+at $45\textdegree$.\vfill
+\item What positions minimizes and maximize the magnitude of the torque?\vspace{1.75cm}
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

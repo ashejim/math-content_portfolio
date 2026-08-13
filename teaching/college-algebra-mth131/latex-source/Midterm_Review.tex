@@ -1,0 +1,298 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{131}
+
+\newcommand{\classSec}{B and I}
+
+\newcommand{\examType}{Midterm Review}
+
+\renewcommand{\date}{October 30, 2012}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Find the $x$ and $y$ intercepts from a graph. }(See the
+midterm review for examples)
+\begin{enumerate}
+\item Find all the times the graph intersects the $x-$axis. These are your
+$x-$intercepts.
+\item Find all the times the graph intersects the $y-$axis. These are your
+$y-$intercepts.
+\end{enumerate}
+\textbf{Solve an equation with fractions. ex. $\frac{2x}{6}+5=\frac{3x}{9}$}
+\begin{enumerate}
+\item Multiply by the Lowest Common Denominator (LCD). In this case, $18$.
+Note BOTH terms on the left got multiplied by $18$.
+\begin{eqnarray*}
+18\left(\frac{2x}{6}+2\right) & = & \left(\frac{x}{9}\right)18\\
+\frac{36x}{6}+36 & = & \frac{18x}{9}\\
+6x+36 & = & 2x
+\end{eqnarray*}
+\item Now just solve.
+\begin{eqnarray*}
+4x & = & -36\\
+x & = & -\frac{36}{4}=-9
+\end{eqnarray*}
+\end{enumerate}
+\textbf{Solve a formula for a specified variable. ex. $P=2L+2W$ }for
+$L$.
+\begin{enumerate}
+\item Just solve like you do for an $x$, and treat the other letters like
+numbers. 
+\begin{eqnarray*}
+P & = & 2L+2W\\
+P-2W & = & 2L\\
+\frac{P-2W}{2} & = & L
+\end{eqnarray*}
+\item Note: The $2$ divides BOTH factors, and the you DO NOT cancel anything
+in $2W$.
+\end{enumerate}
+\textbf{Solve using the square root property. ex. $(x-4)^{2}+1=2$.}
+\begin{enumerate}
+\item Get the squared part by itself:
+\[
+(x-4)^{2}=1
+\]
+\item Use a square root; Don't forget the $\pm$. 
+\begin{eqnarray*}
+\sqrt{(x-4)^{2}} & = & \pm\sqrt{1}\\
+x-4 & = & \pm1
+\end{eqnarray*}
+\item Solve.
+\begin{eqnarray*}
+x & = & \pm1+4\\
+x=5 & \mbox{ and } & x=3
+\end{eqnarray*}
+\end{enumerate}
+\textbf{Solve a radical. ex. $\sqrt{x-1}+2=5$.}
+\begin{enumerate}
+\item Get the radical by itself, 
+\begin{eqnarray*}
+\sqrt{x-1}+2 & = & 5\\
+\sqrt{x-1} & = & 3
+\end{eqnarray*}
+\item Use a square root, simplify, and solve. 
+\begin{eqnarray*}
+\left(\sqrt{x-1}\right)^{2} & = & 3^{2}\\
+x-1 & = & 9\\
+x & = & 10
+\end{eqnarray*}
+\item Check! $\sqrt{10-1}=9\mbox{\ensuremath{\checkmark}}$\newpage
+\end{enumerate}
+\textbf{Solve the absolute value or indicate that is has no solution.
+ex. $|x+2|-2=10$}
+\begin{enumerate}
+\item Get the absolute value by itself.
+\begin{eqnarray*}
+\left|x+2\right|-2 & = & 10\\
+\left|x+2\right| & = & 12
+\end{eqnarray*}
+\item Solve for $+$ and $-$.
+\begin{eqnarray*}
+x+2=-12 & \mbox{ and } & x+2=12\\
+x=-14 &  & x=10
+\end{eqnarray*}
+\item Check! $\left|-14+2\right|-2=10\checkmark$ and $\left|10+2\right|-2=10\checkmark$
+\end{enumerate}
+\textbf{Solve by factoring. ex. $3x^{2}=-3x+6$}
+\begin{enumerate}
+\item Set the equation equal to $0$. 
+\[
+3x^{2}+x-2=0
+\]
+\item Factor any common multiples.
+\[
+3(x^{2}+x-2)=0
+\]
+\item Factor and solve.
+\begin{eqnarray*}
+3(x+2)(x-1) & = & 0\\
+x=-2 & \mbox{ and } & x=1
+\end{eqnarray*}
+\end{enumerate}
+\textbf{Solve the equation using the quadratic formula. ex. $3x^{2}=-2x+2$.}
+\begin{enumerate}
+\item Set the equation equal to $0$.
+\[
+3x^{2}+2x-2=0
+\]
+\item Identify the $a,b,c$ in $ax^{2}+bx+c=0$
+\[
+a=3,b=2,c=-2
+\]
+\item Use the quadratic formula, $x=\frac{-b\pm\sqrt{b^{2}-4ac}}{2a}$,
+and simplify.
+\[
+x=\frac{-2\pm\sqrt{(2)^{2}-4(3)(-2)}}{2(3)}=\frac{-2\pm\sqrt{28}}{6}=\frac{-1\pm\sqrt{7}}{3}
+\]
+\end{enumerate}
+\textbf{Solve the polynomial by factoring and using the zero principle.
+ex. $x^{3}=-x^{2}+2x$.}
+\begin{enumerate}
+\item Set the equation equal to $0$.
+\[
+x^{3}+x^{2}-2x=0
+\]
+\item Factor out as many $x's$ as you can.
+\[
+x(x^{2}+x-2)=0
+\]
+\item Factor. 
+\[
+x(x+2)(x-1)=0
+\]
+\item Solve. DO NOT forget the $x=0$ part!
+\[
+x=0,x=-2,x=1
+\]
+\end{enumerate}
+\textbf{Use the 5 step strategy for solving the word problem. When
+3 times the number is subtracted 7 times the number, the result is
+44.}
+\begin{enumerate}
+\item Summarize: ``3 times a number'' means, $3x$. ``7 times a number'',
+means $7x$. ``Subtracted from'' means, $7x-3x$. ``Result is 44''
+means, $=44$.
+\item Write an equation: $7x-3x=44$
+\item Solve: $x=11$.
+\item Check: $7(11)-3(11)=44\checkmark$
+\item State your answer as a sentence (this isn't applicable here).\newpage
+\end{enumerate}
+\textbf{Solve the word problem. ex. }A car rental place charges \$300
+a week to rent a car plus an additional \$0.50 per mile. How many
+miles can you drive in a week for \$400.
+\begin{enumerate}
+\item Write as an equation.
+\[
+300+0.50x=400
+\]
+\item Solve. 
+\begin{eqnarray*}
+0.50x & = & 100\\
+x & = & \frac{100}{0.50}=\$200
+\end{eqnarray*}
+\end{enumerate}
+\textbf{Find the Domain and the Range.}
+\begin{enumerate}
+\item Domain$=x's$; Range$=y's$.
+\item From a table or list, just find the $x's$ and $y's$. ex. 
+\begin{eqnarray*}
+\left\{ \left(1,2\right),\left(0,3\right),\left(-1,4\right),\left(-2,5\right)\right\} \\
+\mbox{domain=} & \left\{ 1,0,-1,-2\right\} \\
+\mbox{range=} & \left\{ 2,3,4,5\right\} 
+\end{eqnarray*}
+\item From a graph, look at the horizontal values for the domain ($x's$)
+and the vertical values for the range ($y's$). If they appear to
+go of the graph, then use $\pm\infty$ (See the midterm review for
+examples). 
+\end{enumerate}
+\textbf{Determine if the relation is a function. ex. $\left\{ \left(1,-2\right),\left(2,-1\right),\left(2,0\right),(3,1)\right\} $}
+\begin{enumerate}
+\item Check that each $x$ , in $\left(x,y\right)$, is paired with only
+one $y$ value.
+\begin{eqnarray*}
+1 & \rightarrow & -2\\
+2 & \rightarrow & -1\\
+2 & \rightarrow & 0\\
+3 & \rightarrow & 1
+\end{eqnarray*}
+\item If any $x$ is paired with two different $y's$ then the relation
+is NOT a function.
+\begin{eqnarray*}
+2 & \rightarrow & -1\\
+2 & \rightarrow & 0
+\end{eqnarray*}
+ So this is NOT a function.
+\item Be suspicious if an $x$ appears more than once.
+\end{enumerate}
+\textbf{Find the slope passing through the given points. ex, $(1,3)$
+}and $(0,5)$
+\begin{enumerate}
+\item Use the formula, $m=\frac{y_{2}-y_{1}}{x_{2}-x_{1}}$. Identify $(x_{1},y_{1})$
+and $(x_{2},y_{2})$.
+\[
+x_{1}=1,\mbox{ }y_{1}=3\mbox{ and \ensuremath{x_{2}=0,\mbox{ }y_{2}=5}}
+\]
+\item Plug the values into the formula.
+\[
+m=\frac{5-3}{0-1}=\frac{2}{-1}=-2
+\]
+\end{enumerate}
+\textbf{Use the information to write an equation for the line in point-slope
+formula. ex. }Slope of $-2$, passing through $(1,3)$.
+\begin{enumerate}
+\item Use the formula, $y-y_{1}=m(x-x_{1})$. Identify $m$, $x_{1},$and
+$y_{1}$. \\
+\[
+\mbox{The slope is \ensuremath{m=2}, and the point gives \ensuremath{x_{1}=1} and \ensuremath{y_{1}=3}}.
+\]
+\item Plug the values into the formula.
+\[
+y-3=-2(x-1)
+\]
+\item Simplify and write as $y=mx+b$.
+\begin{eqnarray*}
+y & = & -2x+2+3\\
+y & = & -2x+5
+\end{eqnarray*}
+\end{enumerate}
+
+\end{document}

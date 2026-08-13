@@ -1,0 +1,222 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+%\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+%\usdate
+%\usepackage{datenumber} % Counters for dates
+
+
+%\usepackage{calc}
+%\usepackage[nomessages]{fp}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{335}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\examType}{Final Exam}
+
+\renewcommand{\date}{\formatdate{2}{5}{2013}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{Name:}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\setlist{topsep=.5pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\dspace}{\vspace{.75cm}}
+\begin{enumerate}
+\item Let $A=\left\{ 1,2,3,5\right\} $ and $B=\left\{ a,b,2,c,5\right\} $
+
+\begin{enumerate}
+\item Find $A\cap B$.\dspace
+\item Find $A\cup B$.\dspace
+\item Find $B-A$.\dspace
+\item Find $A-B$.\dspace
+\end{enumerate}
+\item Let $A$ be a nonempty subset of $B$. Which of the following is true?
+
+\begin{enumerate}
+\item [\textbf{(a)}]$A\cap B=B$.
+\item [\textbf{(b)}]$A\cup B=A$.
+\item [\textbf{(c)}]$A\cup B=B$.
+\item [\textbf{(d)}]$A\cap B=\emptyset$.\dspace
+\end{enumerate}
+\item Let $A=\left\{ 3,5\right\} $ and $B=\left\{ a,b,5\right\} $. 
+
+\begin{enumerate}
+\item List all possible subsets of $B$.\dspace\dspace
+\item Find $A\times B$. \dspace\dspace
+\end{enumerate}
+\item Prove that $A\cup\left\{ \emptyset\right\} =A$.\vfill
+\item Consider the map $f:\mathbb{R}\times\mathbb{R}\rightarrow\mathbb{R}$
+where $f(x,y)=xy$. Prove that $f$ is onto.\vfill\newpage
+\item Define the relation $\mathcal{R}$ on the real number set $\mathbb{R}$
+as $x\mathcal{R}y\iff xy\geq0$. 
+
+\begin{enumerate}
+\item Show that $\mathcal{R}$ is reflexive and symmetric.\dspace\dspace\vfill
+\item Is $\mathcal{R}$ an equivalence relation? Explain.\dspace\vfill
+\end{enumerate}
+\item Let $X$ be a nonempty set. Define the following relation on the set
+of subsets of $X$ as follows $A\mathcal{R}B\iff A\cap B\neq\emptyset$
+for $A,B\subseteq X$. 
+
+\begin{enumerate}
+\item Show that $\mathcal{R}$ is symmetric.\dspace\dspace\vfill
+\item Show that $\mathcal{R}$ is not reflexive.\dspace\vfill
+\end{enumerate}
+\item Let $f:A\rightarrow B$ and $g:B\rightarrow C$ be two functions.
+
+\begin{enumerate}
+\item If $g\circ f$ is one-to-one then 
+
+\begin{enumerate}
+\item [\textbf{(a)}]$f$ is onto.
+\item [\textbf{(b)}]$f$ is one-to-one.
+\item [\textbf{(c)}]$g$ is one-to-one.
+\item [\textbf{(d)}]Both $f$ and $g$ are one-to-one.
+\item [\textbf{(e)}]None of the above. \dspace
+\end{enumerate}
+\item If $\left|A\right|>\left|B\right|$ and $A\neq\emptyset$ can $f$
+be one-to-one?\dspace\newpage
+\end{enumerate}
+\item Let $S_{3}$ be the symmetric group on three elements. 
+
+\begin{enumerate}
+\item Which of the following is true?
+
+\begin{enumerate}
+\item [\textbf{(a)}]$S_{3}$ has at least one non-abelian subgroup.
+\item [\textbf{(b)}]All proper subgroups of $S_{3}$ are abelian.
+\item [\textbf{(c)}]$S_{3}$ is abelian.
+\item [\textbf{(d)}]$S_{3}$ is cyclic.\dspace
+\end{enumerate}
+\item What is the order of $S_{3}$ and $S_{4}$?\dspace\dspace
+\end{enumerate}
+\item Let $f:G_{1}\rightarrow G_{2}$ be a group homomorphism and let $H\leq G_{2}$.
+Recall that $f^{-1}(H)=\left\{ g\in G_{1}|f(g)\in H\right\} $. 
+
+\begin{enumerate}
+\item Which of the following is true?
+
+\begin{enumerate}
+\item [\textbf{(a)}]$f^{-1}(H)$ consists only of the identity of $G_{1}$.
+\item [\textbf{(b)}]$f^{-1}(H)$ \uline{is} a subgroup of $G_{1}$.
+\item [\textbf{(c)}]$gf^{-1}(H)=f^{-1}(H)g$ for all $g\in G_{1}$ (the
+left and right cosets are equal).
+\item [\textbf{(d)}]$f^{-1}(H)$ \uline{is not} a subgroup of $G_{1}$\dspace
+\end{enumerate}
+\item Let $a,b\in G_{1}$. Does $f(ab)=f(a)f(b)$? \dspace\dspace
+\end{enumerate}
+\item Let $G$ be a finite group of order $12$ and $g\in G$. 
+
+\begin{enumerate}
+\item The order of $g$ \uline{cannot }be:
+
+\begin{enumerate}
+\item [\textbf{(a)}]8
+\item [\textbf{(b)}]6
+\item [\textbf{(c)}]4
+\item [\textbf{(d)}]3\dspace
+\end{enumerate}
+\item Let $\left|H\right|=6$. Does Lagrange's theorem imply that $H\leq G$?\dspace\dspace
+\end{enumerate}
+\item Let $G$ be a group of order $4$. Which of the following is true?
+
+\begin{enumerate}
+\item [\textbf{(a)}]$G$ is a cyclic group.
+\item [\textbf{(b)}]$G$ is $\mathbb{Z}_{2}\times\mathbb{Z}_{2}$.
+\item [\textbf{(c)}]$G$ is $\mathbb{Z}_{4}$.
+\item [\textbf{(d)}]$G$ is abelian.\dspace\newpage
+\end{enumerate}
+\item Let $G=\left\{ e,a_{1},a_{2},a_{3},a_{4},a_{5}\right\} $ be a group
+where $e$ is the identity.
+
+\begin{enumerate}
+\item Find a subgroup of $G$.\dspace\dspace
+\item Find a subgroup of $G$ distinct from the group given for part \textbf{(a)}.\dspace\dspace
+\item Can $\left|a_{2}\right|=5$?\dspace
+\end{enumerate}
+\item Let $H$ and $K$ be subgroups be non-trivial subgroups of $G$. Prove
+or disprove that $H\cap K$ is a subgroup of $G$.\vfill
+\item Let $R$ be a ring and $a,b\in R$. 
+
+\begin{enumerate}
+\item Which statement is true?
+
+\begin{enumerate}
+\item [\textbf{(a)}]If $ab=0$ then $a=0$ or $b=0$.
+\item [\textbf{(b)}]If $a^{2}=0$ then $a=0$.
+\item [\textbf{(c)}]If $a\neq0$ and $b\neq0$ then $ab\neq0$.
+\item [\textbf{(d)}]None of the above.\dspace
+\end{enumerate}
+\item Show that $\mathbb{Q}$, the set of rational numbers, is a ring under
+addition and multiplication. \vfill
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

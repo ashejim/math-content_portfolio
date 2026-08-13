@@ -1,0 +1,184 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{439}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{Name: \hspace{-4cm}}
+
+\newcommand{\examType}{Homework 2}
+
+\newcommand{\Date}{\formatdate{6}{2}{2014}} %%\AdvanceDate[12] \today
+
+%\newdate{my_date}{\day}{\month}{\year}%   
+%\AdvanceDate[-5] 
+%\displaydate{my_date}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \Date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+%\setlist{nolistsep} %eliminates space between list items
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\xspace}{\vspace{1cm}}
+
+\textbf{Homework 2 due: \formatdate{13}{2}{2014}}
+
+Choose any 10 problems from the following exercises in chapter 2 of
+the notes.
+
+\textbf{2.1 }Suppose $f(x_{1})=f(x_{2})$ for any linear function
+$f\colon\mathbb{R}\rightarrow\mathbb{R}$ with a nonzero, defined
+slope. $f(x_{1})=f(x_{2})\Rightarrow mx_{1}+b=mx_{2}+b\Rightarrow x_{1}=x_{2}$.
+So $f$ is one-to-one.\vfill\xspace
+
+\textbf{2.2 }Let $b\in\mathbb{Z}$. $f(b+0.5)=\left\lfloor b+0.5\right\rfloor =b$.
+So $f$ is onto. To see that $f$ is not one-to-one, $f(1.5)=1=f(1)$
+but $1.5\neq1$.\vfill\xspace
+
+\textbf{2.3 }Recall that modulo operator distributes over addition
+and multiplication. So for any two integers $a$ and $b$ we have
+the following:
+
+$f(a+b)=(a+b)\bmod n=(a\bmod n+b\bmod n)\bmod n=a\bmod n+b\bmod n=f(a)+f(a)$.
+
+$f(ab)=(ab)\bmod n=((a\bmod n)(b\bmod n))\bmod n=a\bmod nb\mod n=f(a)f(b)$. 
+
+So $f$ is a homomorphism. \vfill\xspace
+
+\textbf{2.4 $f(1.5+1.5)=f(3)=3\neq1+1=f(1.5)+f(1.5)$ }\vfill\xspace
+
+\textbf{2.5 }This problem should have read ``determine if $f$ is
+a homomorphism''.
+
+$f$ is \uline{not} a homomorphism under the usual operations of addition
+and multiplication since $f(2+3)=2^{2+3}=2^{2}2^{3}=32\neq12=2^{2}+2^{3}=f(2)+f(3)$.
+
+\vfill\xspace
+
+\textbf{2.6 }The key here is to look at how the identity is mapped. 
+
+The identity of $\mathbb{Z}_{n}$ is $1$. Let $f\colon\mathbb{Z}_{n}\rightarrow\mathbb{Z}_{n}$
+be a homomorphism, and suppose that $f(1)=a$ ($1$ must map to something).
+Since homomorphisms are operation preserving $f(x)=f(\underset{x\mbox{ times}}{\underbrace{1+1+\cdots+1})}=f(1)+f(1)+\cdots+f(1)=xf(1)=xa$,
+and $a=f(1)=f(1\cdot1)=f(1)f(1)=a\cdot a=a^{2}$ so $k=k^{2}$.
+
+For the second part: $g(f(a+b))=g(f(a)+f(b))=g(f(a)+f(b))=g(f(a))+g(f(b))$,
+and $g(f(ab))=g(f(a)f(b))=g(f(a))g(f(b))$. So yes $g\circ f$ is
+a homomorphism.\vfill \xspace
+
+\textbf{2.7 $2^{2}\neq2\bmod8$},\textbf{ }so it is not a ring homomorphism
+by exercise 2.6. Alternatively, $f(3\cdot3)=9\cdot2=2\bmod8$, but
+$f(3)f(3)=6\cdot6=4\bmod8$ so $f(3\cdot3)\neq f(3)f(3)$.\vfill \xspace
+
+\textbf{2.8 }Yes, it is a ring homomorphism by exercise 2.6 since
+$6^{2}=6\bmod30$. Alternatively, $f(a+b)=6(a+b)=6a+6b$, and $f(ab)=6(ab)=6\bmod30\cdot(ab)\bmod30=36\bmod30\cdot(ab)\bmod30=6a\cdot6b\bmod30=f(a)f(b)$.\vfill \xspace
+
+\textbf{2.13 }Suppose that $f\colon\mathbb{Q}\rightarrow\mathbb{Z}$
+is an isomorphism. Then $f$ is homomorphic, and $f(1)=f(\frac{1}{2}\cdot2)=f(\frac{1}{2})f(2)$.
+Since $f$ is an isomorphism it must also be onto; so by theorem 2.1
+(part 7) $f(1)=1$. This implies that $f(\frac{1}{2})f(2)=1$. $f$
+maps to $\mathbb{Z}$ so $f(\frac{1}{2})=a$ and $f(2)=b$ for some
+integers $a$ and $b$. But this implies that $ab=1$ which is only
+true for integers $a=b=1$. A contradiction because then $f(1)=f(\frac{1}{2})=1$,
+and $f$ is not one-to-one.
+
+Similarly we can show that $\mathbb{R}$ is not isomorphic to $\mathbb{Z}$.
+
+\vfill \xspace
+
+\textbf{2.14 }$f$ cannot be an isomorphism because $f$ is not one-to-one.
+$f(0)=f(n)=0\bmod n$. Also note that $|\mathbb{Z}|\neq|\mathbb{Z}_{n}|$
+so there is no isomorphism between them.
+
+\vfill \xspace
+
+\textbf{2.15 }Suppose that $m>n$ then $m=|\mathbb{Z}_{m}|>|\mathbb{Z}_{n}|=n$.
+Then any function $f\colon\mathbb{Z}_{m}\rightarrow\mbox{\ensuremath{\mathbb{Z}}}_{n}$
+cannot be one-to-one by the Pigeon hole principle. If $n<m$ then
+$f$ cannot be onto, so $f$ can be an isomorphism only if $n=m$.
+
+\vfill
+
+\textbf{Presentation Problems due: \formatdate{11}{2}{2014}.}
+
+Choose any one of the problems from chapter 2 of the notes.\vfill
+
+\textbf{Presentation Problems due: \formatdate{18}{2}{2014}}
+
+Choose 1 problem from exercises 2.9-2.12 in the notes or the following:
+\begin{enumerate}
+\item Prove that a ring that is cyclic under addition is commutative. 
+\item Prove that $\mathbb{Z}_{p}$ is an integral domain if and only if
+$p$ is prime (you can assume that it is a commutative ring with identity). 
+\item Prove that $\mathbb{Z}_{p}$ is a field
+\end{enumerate}
+\vfill
+\end{document}

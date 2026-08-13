@@ -1,0 +1,306 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+\usepackage{centernot}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage[dayofweek]{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{335}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{Solutions}
+
+\newcommand{\examType}{Homework 3}\usdate
+
+\newcommand{\Date}{Due date: \formatdate{18}{3}{2013}} %%\AdvanceDate[12] \today
+
+%\newdate{my_date}{\day}{\month}{\year}%   
+%\AdvanceDate[-5] 
+%\displaydate{my_date}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \Date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+%\setlist{nolistsep} %eliminates space between list items
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\small
+
+\textbf{Homework Problems. }\emph{Solutions should be written/typed
+in numerical order and clearly labeled. Unsolved problems should be
+included but left blank.}
+
+Use the following to answer the next two problems. Let $E=\{1,2,3\}$.
+Consider the following relations in $E$.\\
+\begin{tabular}{ll}
+$\mathcal{R}_{1}=\left\{ \left(1,1\right),\left(2,1\right),\left(2,2\right),\left(3,2\right),\left(2,3)\right)\right\} $ & $\mathcal{R}_{4}=\left\{ \left(1,1\right),\left(3,2\right),\left(2,3\right)\right\} $\tabularnewline
+$\mathcal{R}_{2}=\left\{ \left(1,1\right)\right\} $ & $\mathcal{R}_{5}=E\times E$\tabularnewline
+$\mathcal{R}_{3}=\left\{ \left(1,2\right)\right\} $ & \tabularnewline
+\end{tabular}
+\begin{enumerate}[resume]
+\item State whether each relation above, $\mathcal{R}_{1},\mathcal{R}_{2},\mathcal{R}_{3},\mathcal{R}_{4},\mathcal{R}_{5}$,
+is symmetric. Explain your answers.
+
+\begin{enumerate}[resume]
+\item [$\mathcal{R}_{1}$:]No. $(2,1)\in\mathcal{R}_{1}$, but $(1,2)\notin\mathcal{R}_{1}$
+so $3\cancel{\mathcal{R}_{1}}3$.
+\item [$\mathcal{R}_{2}$:]Yes. $(1,1)\in\mathcal{R}_{2}$ so $1\mathcal{R}_{2}1$.
+\item [$\mathcal{R}_{3}$:]No. $(1,2)\in\mathcal{R}_{3}$, but $(2,1)\notin\mathcal{R}_{3}$
+so $1\cancel{\mathcal{R}_{3}}1$.
+\item [$\mathcal{R}_{4}$:]Yes. $(3,2)\in\mathcal{R}_{4}$ and $\left(2,3\right)\in\mathcal{R}_{4}$.
+\item [$\mathcal{R}_{5}$:]Yes. $E\times E=\left\{ \left(x,y\right)|\,x\in E\mbox{ and }y\in E\right\} $,
+i.e., $E\times E$ is the set of \uline{all} pairs $(x,y)$ such that
+$x\in E$ and $y\in E$. So for any $x,y\in E$, if $\left(x,y\right)\in E\times E=\mathcal{R}_{5}$
+then $(y,x)\in E\times E=\mathcal{R}_{5}$. \vfill
+\end{enumerate}
+\end{enumerate}
+\begin{tabular}{ll}
+$\mathcal{R}_{6}=\left\{ \left(1,2\right),\left(2,2\right)\right\} $ & $\mathcal{R}_{9}=\left\{ \left(1,1\right)\right\} $\tabularnewline
+$\mathcal{R}_{7}=\left\{ \left(1,2\right),\left(2,3\right),\left(1,3\right),\left(2,1\right),\left(1,1\right)\right\} $ & $\mathcal{R}_{10}=E\times E$\tabularnewline
+$\mathcal{R}_{8}=\left\{ \left(1,2\right)\right\} $ & \tabularnewline
+\end{tabular}
+\begin{enumerate}[resume]
+\item State whether each relation above, $\mathcal{R}_{6},\mathcal{R}_{7},\mathcal{R}_{8},\mathcal{R}_{9},\mathcal{R}_{10}$,
+is transitive. Explain your answers.
+
+\begin{enumerate}[resume]
+\item [$\mathcal{R}_{6}$:]Yes. The transitive condition does not specify
+that $a\neq b\neq c$. \\
+For $\left(1,2\right)$, let $a=1$, $b=2$, and $c=2$. So for $(1,2)$
+we have $1\mathcal{R}_{1}2$ and $2\mathcal{R}_{1}2$ \uline{and also
+have }\emph{\uline{\mbox{$2\mathcal{R}_{1}2$} }}which satisfies the
+transitive condition. Similarly for $(2,2)$, let $a=2$, $b=2$,
+and $c=2$ which gives $2\mathcal{R}_{1}2$, $2\mathcal{R}_{1}2$,
+and $2\mathcal{R}_{1}2$ which satisfies the transitive condition.
+\item [$\mathcal{R}_{7}$:]No. $(2,1)\in\mathcal{R}_{7}$ and $(1,2)\in\mathcal{R}_{7}$,
+but $\left(2,2\right)\notin\mathcal{R}_{7}$ so $2\cancel{\mathcal{R}_{7}}2$.
+\item [$\mathcal{R}_{8}$:]Yes. A relation $\mathcal{R}$ is \emph{transitive}
+if \uline{whenever} $a\mathcal{R}b$ \uline{and }$b\mathcal{R}c$
+then $a\mathcal{R}c$.\emph{ }There seems to be confusion when there
+``is no $b\mathcal{R}c$ relation''. The absence of this case means
+that the transitive condition is satisfied. 
+\item [$\mathcal{R}_{9}$:]Yes.
+\item [$\mathcal{R}_{10}$:]Yes. $E\times E=\left\{ \left(x,y\right)|\,x\in E\mbox{ and }y\in E\right\} $.
+So if $\left(x,y\right),\left(y,z\right)\in E\times E$ for any $x,y,z\in E$
+then $(x,z)\in E\times E=\mathcal{R}_{10}$. \vfill
+\end{enumerate}
+\item Define the following relation on the real numbers, $\mathcal{R}:x\mathcal{R}y\iff xy\geq0$.
+Prove that $\mathcal{R}$ is reflexive and symmetric, but that $\mathcal{R}$
+is not an equivalence relation.
+
+\begin{proof}
+($\mathcal{R}$ is reflexive). $x\cdot x=x^{2}\geq0$ for all $x\in\mathbb{R}$.
+So $\mathcal{R}$ is reflexive.
+
+($\mathcal{R}$ is symmetric). Let $x,y\in\mathbb{R}$. If $xy\geq0$
+then because multiplication is commutative $xy=yx\geq0$. So $\mathcal{R}$
+is symmetric.
+
+($\mathcal{R}$ is not an equivalence relation). To show this, we
+need to show that $\mathcal{R}$ is not transitive. Consider $1,0,-1\in\mathbb{R}$.
+$1\cdot0\geq0$ and $0\cdot(-1)\geq0$, but $1\cdot(-1)=-1\not\geq0$.
+So $\mathcal{R}$ is not transitive.
+\end{proof}
+\end{enumerate}
+\vfill
+\begin{enumerate}[resume]
+\item Define the following equivalence relation on the set of subsets of
+$X$ as follows: $A\mathcal{R}B\iff A\cap B\neq\emptyset$ for $A,B\subseteq X$
+Prove or disprove that $\mathcal{R}$ is an equivalence relation.
+
+\begin{proof}
+$\mathcal{R}$ is not an equivalence relation because it is not reflexive.
+$\emptyset\subseteq X$ but $\emptyset\cap\emptyset=\emptyset$ so
+$\emptyset\cancel{\mathcal{R}}\emptyset$. 
+
+Note that if the relation was defined on the ``set of non-empty subsets
+of $X$'', then it would be reflexive, symmetric, but not transitive.
+So it still would not be an equivalence relation. 
+\end{proof}
+\end{enumerate}
+\vfill
+\begin{enumerate}[resume]
+\item Let $\mathcal{R}$ and $\mathcal{R}'$ be symmetric relations in a
+set A. Prove that $\mathcal{R}\cap\mathcal{R}'$ is a symmetric relation
+in A. (note that $\mathcal{R}$ and $\mathcal{R}'$ are subsets of
+$A\times A$). 
+\end{enumerate}
+\begin{proof}
+Let $x,y\in A$ such that $\left(x,y\right)\in\mathcal{R}\cap\mathcal{R}'$.
+Since $(x,y)\in\mathcal{R}$, $(x,y)\in\mathcal{R}'$, and both $\mathcal{R}$
+and $\mathcal{R}'$ are symmetric it follows that $(y,x)\in\mbox{\ensuremath{\mathcal{R}}}$
+and $(y,x)\in\mathcal{R}'$. Thus $(y,x)\in\mathcal{R}\cap\mathcal{R}'$
+so $\mathcal{R}\cap\mathcal{R}'$ is symmetric. 
+\end{proof}
+\vfill\newpage
+\begin{enumerate}[resume]
+\item Determine the following:
+
+\begin{enumerate}[resume]
+\item $\gcd(2^{4}\cdot3^{2}\cdot5\cdot7^{2},2\cdot3^{3}\cdot7\cdot11)$
+
+\begin{enumerate}[resume]
+\item []$=2\cdot3^{2}\cdot7$
+\end{enumerate}
+\item The lowest common multiple: $\mbox{lcm}(2^{4}\cdot3^{2}\cdot5\cdot7^{2},2\cdot3^{3}7\cdot11)$.
+
+\begin{enumerate}[resume]
+\item []$=2^{4}\cdot3^{3}\cdot5\cdot7^{2}\cdot11$
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\vfill
+\begin{enumerate}[resume]
+\item Determine $51\bmod13$, $342\bmod85$, and $(82\cdot73)\bmod7$. (Answers
+are not unique.)
+
+\begin{enumerate}[resume]
+\item [] $51=13\cdot3+12$ so $51\bmod13=12$.
+\item [] $342=85\cdot4+2$ so $342\bmod85=2$.
+\item []$(82\cdot73)\bmod7=(82\bmod7\cdot73\bmod7)\bmod7=(5\cdot3)\bmod7=1$
+\end{enumerate}
+\item Find integers $s$ and $t$ so that $1=7\cdot s+11\cdot t$. Show
+that $s$ and $t$ are not unique. 
+
+\begin{proof}
+Consider $s=-3$ and $t=2$. These can be found as follows:\begin{multicols}{2}
+
+$11=7\cdot1+4$
+
+$7=4\cdot1+3$
+
+$4=3\cdot1+1$
+
+$3=1\cdot3+0$ so $1=\gcd(11,7)$\columnbreak
+
+$1=3\cdot(-1)+4$
+
+$1=\left[7-4\cdot1\right](-1)+4=7(-1)+4(2)$
+
+$1=7(-1)+\left[11-7\right](2)$
+
+$1=7(-3)+11(2)$
+
+\end{multicols}
+
+To see that $s$ and $t$ are unique, consider $s=8$ and $t=-5$.
+Note that $as+bt=as+\left[abk-abk\right]+bt=a(s+bk)+b(t-ak)$ for
+any $k\in\mathbb{Z}$. Using the answer above, this gives us an infinite
+class of solutions. For $k=1$, $7(-3+11)+11(2-7)=7(8)+11(-5)=1$.
+\end{proof}
+\end{enumerate}
+Equations of the form $ax+by=d$ are called Diophantine equations
+(after Diophantus of Alexandria 200-284 AD). Diophantine equations
+have a solution if and only if the $\gcd(a,b)|d$, and if a solution
+exists then there are infinitely many of them.\vfill
+\begin{enumerate}[resume]
+\item Let $n$ be a positive integer greater than $1$ and let $a$ and
+$b$ be positive integers. Prove that $a\bmod n=b\bmod n$ if and
+only if $a=b\bmod n$. 
+
+To prove a ``\textbf{A} if and only if \textbf{B}'' statement, you
+must show that \textbf{A} implies \textbf{B }and \textbf{B }implies
+\textbf{A }(``if and only if''\textbf{ }is also written ``iff.''
+and $\iff$).
+
+We discussed two equivalent ways to define $a=b\bmod n$: \\
+$a=b\bmod n\iff n|b-a$, and \\
+$a=b\bmod n\iff a=qn+b$ for some $q\in\mathbb{Z}$. 
+\begin{proof}
+$(a\bmod n=b\bmod n\Rightarrow a=b\bmod n)$ If $a\bmod n=b\bmod n$
+then $n|\left(a-b\bmod n\right)$ and $n|\left(b-a\bmod n\right)$.
+So then $n|\left(\left[a-b\bmod n\right]-\left[b-a\bmod n\right]\right)$,
+and since $-b\bmod n+a\bmod n=0$ the two middle terms cancel out
+implying that $n|\left(a-b\right)$. Thus $a=b\bmod n$. 
+
+$\left(a=b\bmod n\Rightarrow a\bmod n=b\bmod n\right)$ Suppose that
+$a=b\bmod n$ so then $n|b-a$. Since $n|a-a$, $a=a\bmod n$. It
+follows that $n|b-a\Rightarrow n|b-a\bmod n\Rightarrow a\bmod n=b\bmod n$.
+\end{proof}
+(Alternatively) 
+\begin{proof}
+$(a\bmod n=b\bmod n\Rightarrow a=b\bmod n)$ If $a\bmod n=b\bmod n$
+then $a=nq_{1}+r$ and $b=nq_{2}+r$$\Rightarrow a-b=n(q_{1}-q_{2})\Rightarrow n|a-b\Rightarrow a=b\bmod n$. 
+
+$\left(a=b\bmod n\Rightarrow a\bmod n=b\bmod n\right)$ Suppose that
+$a=b\bmod n$ then $a=q_{1}n+r_{1}$ and $b=q_{2}n+r_{2}$. Since
+$a=b\bmod n\Rightarrow$$n|a-b\Rightarrow$$n|n\left(q_{1}-q_{2}\right)+\left(r_{1}+r_{2}\right)$.
+Thus $n$ divides $n\left(q_{1}-q_{2}\right)$and also divides $r_{1}+r_{2}$.
+Since $0\leq r_{1},r_{2}<n$ it follows that $r_{1}-r_{2}=0\Rightarrow r_{1}=r_{2}$.
+Thus $a\bmod n=b\bmod n$.\vfill
+\end{proof}
+\item Let $d=\gcd(a,b)$. If $a=da'$ and $b=db'$ for some $a',b'\in\mathbb{Z}$,
+show that $\gcd(a',b')=1$.
+
+\begin{proof}
+By the GCD is a linear combination theorem, $d=ax+by$ for some $x,y\in\mathbb{Z}$.
+This implies that $d=da'x+db'y$, and so dividing by $d$ gives $1=a'x+b'y$.
+Thus $1=\gcd(a',b')$.
+\end{proof}
+\end{enumerate}
+
+\end{document}

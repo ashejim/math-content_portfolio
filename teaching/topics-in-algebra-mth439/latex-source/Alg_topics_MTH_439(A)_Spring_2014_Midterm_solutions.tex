@@ -1,0 +1,334 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+
+%%%%%commands
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\funct}[3]{$#1\colon#2\rightarrow#3$}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{439}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{Solutions\hspace{-4cm}}
+
+\newcommand{\examType}{Midterm}
+
+\newcommand{\Date}{\formatdate{4}{3}{2014}} %%\AdvanceDate[12] \today
+
+%\newdate{my_date}{\day}{\month}{\year}%   
+%\AdvanceDate[-5] 
+%\displaydate{my_date}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \Date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+%\setlist{nolistsep} %eliminates space between list items
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\xspace}{\vspace{.85cm}}
+
+\small\emph{Unless stated otherwise, all rings are assumed to have
+the normal addition and multiplication operations.}
+
+\subsection*{Part 1}
+\begin{enumerate}[resume]
+\item {[}3 pts each{]} Provide the definition for each of the following:
+
+\begin{enumerate}
+\item Integral domain
+\item Onto function
+\item Ring isomorphism
+\item Ideal
+
+\begin{enumerate}
+\item []See the notes.\xspace
+\end{enumerate}
+\end{enumerate}
+\item {[}3 pts each{]} Provide an example for each of the following (do
+not use an example from problems \ref{enu:first}-\ref{enu:last}):
+
+\begin{enumerate}
+\item A ring without identity
+
+\begin{enumerate}
+\item []The ring of even integers does not have a multiplicative identity
+since $1$ is not even. Subrings of rings with identity provide examples
+such as $n\mathbb{Z}$ for $n>1$.
+\end{enumerate}
+\item A non-commutative ring 
+
+\begin{enumerate}
+\item []The ring of $2\times2$ matrices with real entries (or with integer,
+integer $\bmod n$, rational, or complex entries).
+\end{enumerate}
+\item A field 
+
+\begin{enumerate}
+\item []A few of the obvious ones: $\mathbb{R}$, $\mathbb{Q}$, $\mathbb{C}$.
+\end{enumerate}
+\item A function which is not 1-1.
+
+\begin{enumerate}
+\item []$f(x)=1$ (or any constant function) and $f(x)=x^{2}$ for $f\colon\mathbb{R}\rightarrow\mathbb{\mathbb{R}}$;
+or $f(a)=a$ and $f(a)=b$ for $f\colon\{a\}\rightarrow\{a,b\}$. 
+\end{enumerate}
+\item An onto function
+
+\begin{enumerate}
+\item []$f(x)=x$ (the identity function) and $f(x)=x^{3}$ for $f\colon\mathbb{R}\rightarrow\mathbb{\mathbb{R}}$;
+or $f(a)=a$ for $f\colon\{a\}\rightarrow\{a\}$.
+\end{enumerate}
+\item Two rings which are isomorphic.
+
+\begin{enumerate}
+\item []$\mathbb{R\times\mathbb{R}\cong\mathbb{C}}$, $\mathbb{Z}_{6}\cong\mathbb{Z}_{2}\times\mathbb{Z}_{3}$,
+and of course any ring $R$ is isomorphic to itself, $R\cong R$.
+\end{enumerate}
+\item Two rings which are not isomorphic.
+
+\begin{enumerate}
+\item []$\mathbb{R}\cancel{\cong}\mathbb{C}$, $\mathbb{R}\cancel{\cong}\mathbb{Z}$,
+$\mathbb{Q}\cancel{\cong}\mathbb{Z}$, $\mathbb{Z}_{3}\cancel{\cong}\mathbb{Z}_{4}$,
+etc. It is easy to see that any two rings with different order are
+not isomorphic.
+\end{enumerate}
+\item An ideal.
+
+\begin{enumerate}
+\item []$2\mathbb{Z}$ or $n\mathbb{Z}$ for any $n>1$; for and ring $R$,
+$0_{R}$ and $R$ are ideals.
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+
+\subsection*{\newpage}
+
+\subsection*{Part 2}
+
+\emph{{[}9 pts each{]} Choose the indicated number of problems from
+each section.}
+
+\subsubsection*{Rings: choose any three.}
+\begin{enumerate}
+\item \label{enu:first}Complete the following:
+
+\begin{enumerate}[resume]
+\item Give an example of a subset of the integers which \uline{is not} a
+ring (under the usual addition and multiplication).
+
+\begin{enumerate}[resume]
+\item []The set of odd integers, $\mathbb{Z}-\{0\}$, $\{1,2,3,4\}$, etc.
+\end{enumerate}
+\item Give an example of a subset of the integers which \uline{is} a ring.
+
+\begin{enumerate}[resume]
+\item []$2\mathbb{Z}$ (the set of even integers), $n\mathbb{Z}$, $\{0\}$,
+$\mathbb{Z}$ (I didn't specify that it had to be a proper subset),
+etc.
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\begin{enumerate}[resume]
+\item Prove that $\mathbb{Q}$ is subring of $\mathbb{R}$.
+
+\begin{proof}
+$\mathbb{Q}\subseteq\mathbb{R}$ and $\mathbb{Q}\neq\emptyset$ since
+$0\in\mathbb{Q}$ (and many others). Let $\frac{a}{b},\frac{c}{d}\in\mathbb{Q}$
+(so $a,b,c,d\in\mathbb{Z}$). $\frac{a}{b}-\frac{c}{d}=\frac{ad-bc}{bd}\in\mathbb{Q}$
+and $\frac{a}{b}\frac{c}{d}=\frac{ac}{bd}\in\mathbb{Q}$. So $\mathbb{Q}$
+is a subring by the subring test.
+\end{proof}
+\item Complete the following:
+
+\begin{enumerate}[resume]
+\item Prove that the set of odd integers is not a subring of $\mathbb{Z}$.
+
+\begin{proof}
+$3$ and $5$ are odd integers, but $3+5=8=2\cdot4$ is even. So the
+set of odd integers is not a subring of $\mathbb{Z}$ since it is
+not closed under addition.
+\end{proof}
+\item Prove that in general the union of any two rings is not a ring.
+
+\begin{proof}
+This is equivalent to showing that there are two rings such that their
+union is not a ring. $\{0,1\}$ and $3\mathbb{Z}$ are subrings of
+$\mathbb{Z}$, but $1+3=4\notin\{0,1\}\cup3\mathbb{Z}$. $M_{2\times2}(\mathbb{R})$
+and $M_{3\times3}(\mathbb{R})$ are both rings, but their union certainly
+is not -addition an multiplication between their elements isn't even
+defined.
+\end{proof}
+\end{enumerate}
+\item Prove that the intersection of any two subrings of a ring $R$ is
+also a subring of $R$.
+
+\begin{proof}
+Let $A$ and $B$ be rings. Since $0_{R}\in A\cap B$; $A\cap B\neq\emptyset$
+and we can choose $x,y\in A\cap B$. Since $x,y\in A$ and $A$ is
+a ring, we have that $x-y\in A$ and $xy\in A$. Similarly $x-y\in B$
+and $xy\in B$. Thus $x-y,xy\in A\cap B$, and $A\cap B$ is a subring
+by the subring test. 
+\end{proof}
+\item Let $R$ be a ring and $a,b\in R$. Prove that $(-a)(-b)=ab$. Hint:
+$(a+(-a))(-b)=0$.
+
+\begin{proof}
+Let $a,b\in R$. Using the hint, $(a+(-a))(-b)=0\Rightarrow a(-b)+(-a)(-b)=0$.
+So $(-a)(-b)$ is the unique additive inverse of $a(-b)$ which is
+$ab$. (Since $a(-b)+ab=a(-b+b)=0$).
+\end{proof}
+
+\begin{proof}
+$(-a)(-b)=(-a)(-b)+(-a)b+(ab)=(-a)(-b+b)+(ab)=ab$.
+\end{proof}
+\end{enumerate}
+\vfill
+
+\subsubsection*{Integral Domains and Fields: choose any two.}
+\begin{enumerate}[resume]
+\item Prove that $\mathbb{Z}_{n}$ is \uline{not} an integral domain if
+$n$ is not prime.
+
+\begin{proof}
+Since $n$ is not prime, $n=mq$ for two non-zero integers such that
+$1<m,q<n$. $m\bmod n$ and $q\bmod n$ are not zero, but $mq\bmod n=n\bmod n=0\bmod n$.
+\end{proof}
+\item Prove that $\mathbb{Z}_{3}$ is a field. 
+
+\begin{proof}
+$3$ is prime so then $\mathbb{Z}_{3}$ is a field.
+\end{proof}
+
+\begin{proof}
+We know that is $\mathbb{Z}_{3}$ is a ring. $1\cdot1=1$ and $2\cdot2=1\bmod3$.
+So every element has a multiplicative inverse and $\mathbb{Z}_{3}$
+must be a ring.
+\end{proof}
+\item Let $R$ be an integral domain and suppose that $ax-bx=0$. Prove
+that if $a\neq b$ then $x=0$.
+
+\begin{proof}
+If $ax-bx=0$ then $(a-b)x=0$. Since $a\neq b$, $a-b\neq0$. So
+$x=0$ since $R$ is an integral domain.
+\end{proof}
+\item Let $R$ be an integral domain and let $a,b,c\in R$ where $c\neq0$.
+If $ac=bc$ then $a=b$.
+
+\begin{proof}
+$ac=bc\Rightarrow ac-bc=0\Rightarrow(a-b)c=0.$ Because $R$ is an
+integral domain and $c\neq0$, $a-b$ must be zero. This implies that
+$a-b$.
+\end{proof}
+\item Let $R$ be a field. Prove that $R$ is an integral domain.
+
+\begin{proof}
+Suppose that $ab=0$ and $a\neq0$ for some $a,b\in R$. Since $R$
+is a field, there exists an $a^{-1}$ such that $a^{-1}ab=a^{-1}0\Rightarrow b=0$.
+So then $R$ is an integral domain.
+\end{proof}
+\end{enumerate}
+\vfill
+
+\subsubsection*{Homomorphisms, isomorphisms, and ideals: choose any three.}
+\begin{enumerate}[resume]
+\item Prove that $f\colon\mathbb{R}\rightarrow\mathbb{R}$ where $f(x)=e^{x}$
+is one-to-one but is not onto.
+
+\begin{proof}
+(1-1) Let $a,b\in\mathbb{R},$ $e^{a}=e^{b}\Rightarrow\ln(e^{a})=\ln(e^{b})\Rightarrow a=b$.
+\\
+(not onto) $-1\in\mathbb{R}$ but there is no real number such that
+$e^{x}=-1$. 
+\end{proof}
+\item Let \funct{f}{R}{S} and \funct{g}{S}{T} for rings $R$, $S$, and
+$T$. Prove that \funct{f\circ g}{R}{T} is a homomorphism.
+
+\begin{proof}
+$f(g(a+b))=f(g(a)+g(b))=f(g(a))+f(g(b))$, and $f(g(ab))=f(g(a)g(b))=f(g(a))f(g(b))$
+since $g$ and $f$ are each homomorphisms.
+\end{proof}
+\item Let $f\colon\mathbb{Z}_{4}\rightarrow\mathbb{Z}_{4}$. 
+
+\begin{enumerate}[resume]
+\item If $f(x)=2x$ prove that $f$ is not a homomorphism.
+\item If $f(x)=3x$ prove that $f$ is a homomorphism.
+\end{enumerate}
+\item Prove that $f\colon\sqrt{2}\mathbb{Z}\rightarrow\sqrt{2}\mathbb{Z}$
+where $f(a+b\sqrt{2})=a-b\sqrt{2}$ is an isomorphism ($\sqrt{2}\mathbb{Z}=\{a+b\sqrt{2}\colon a,b\in\mathbb{Z}\}$).
+\item \label{enu:last}Show that any ring isomorphism \funct{f}{\mb{Z}}{\mb{Z}}
+must be the identity map.
+\item Let $A$ and $B$ be ideals of $R$. Prove that $A\cap B$ is an ideal
+of $R$.
+\item Prove that $\mathbb{R}\times\mathbb{R}=\{(a,b)\colon a,b\in\mathbb{R}\}$
+is isomorphic to $\mathbb{C}=\{a+b\sqrt{-1}\colon a,b\in\mathbb{R}\}$
+if multiplication in $\mathbb{R}\times\mathbb{R}$ is defined as $(a,b)(c,d)=(ac-bd,ad+bc)$
+and addition is defined as $(a,b)+(c,d)=(a+c,b+d)$.
+\end{enumerate}
+\vfill
+\end{document}

@@ -1,0 +1,217 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+\usdate
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{335}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\examType}{Practice Midterm \textbf{due: \formatdate{4}{3}{2014}}}
+
+\renewcommand{\date}{}
+
+\newcommand{\Name}{Solutions} %name:
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first page
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\Name}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\setlist{topsep=.5pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\Dspace}{.5cm}
+\begin{enumerate}[resume]
+\item Determine the following
+
+\begin{enumerate}
+\item $17\bmod2$
+
+(answers may vary) $17\bmod2=1$. More generally, $17\bmod2=2k+1$
+for any $k\in\left\{ 0,1,2,3,\dots\right\} $ since $2|17-(2k+1)$.
+\item $\mbox{lcm}(7^{4000}\cdot5^{2}\cdot2^{4},7^{4}\cdot5^{1000}\cdot2)$
+
+$\mbox{lcm}(7^{4000}\cdot5^{2}\cdot2^{4},7^{4}\cdot5^{1000}\cdot2)=7^{4000}\cdot5^{1000}\cdot2^{4}$
+\item $17=x\cdot2-y\cdot15$. What is $\gcd(x,y)$?
+
+The $\gcd(x,y)$ is the least positive integer representable in the
+form $x\cdot s+y\cdot t$. All others are \emph{multiples }of $\gcd(x,y)$,
+e.g., $2\cdot1+6\cdot1=8$, $\gcd(2,6)=2$ and $2|8$. \\
+Since $x$ and $y$ can be written as a linear combination summing
+to $17$, the $\gcd(x,y)=\mbox{either }1\mbox{ \textbf{or} }17$.\vfill
+\end{enumerate}
+\item Complete the following
+
+\begin{enumerate}
+\item Write the given set in tabular form: $A=\{x\mid x\in\mathbb{N}\mbox{ and }x\leq5\}$
+
+$A=\left\{ 1,2,3,4,5\right\} $\vfill
+\item Write the given set in set-builder form: $A=\left\{ \dots-2,0,2,4\right\} $
+
+$A=\left\{ x|x\mbox{ is an even integer and }x\leq4\right\} $ or
+$A=\left\{ x|x=2n\leq4\mbox{ and \ensuremath{n\in\mathbb{Z}}}\right\} $\vfill
+\end{enumerate}
+\item Let $A=\left\{ 1,2,3\right\} $, $B=\left\{ 2,4,6\right\} $, $C=\left\{ 4,5,6\right\} $.
+
+\begin{enumerate}
+\item Find $A\cup C$
+
+$A\cup C=\left\{ 1,2,3,4,5,6\right\} $
+\item Find $A\cap B$
+
+$A\cap B=\left\{ 2\right\} $
+\item Find $A\cap C$
+
+$A\cap C=\emptyset$
+\item Find $\left(A\cup C\right)\cap B$
+
+$\left(A\cup C\right)\cap B=\left\{ 1,2,3,4,5,6\right\} \cap B=\left\{ 2,4,6\right\} $\vfill
+\end{enumerate}
+\item Let $A$ and $B$ be two sets. Prove that $A\cap B\subseteq A$. 
+
+\begin{proof}
+Let $x\in A\cap B$. Then $x\in B$ and $x\in A$. Thus $x\in A$
+and $A\cap B\subseteq A$.\vfill
+\end{proof}
+\item Let $A\neq\emptyset$ be a subset of $B$. Prove that $A\cup B\neq A$.
+
+\begin{proof}
+Let $A=\left\{ a\right\} $ and $B=\left\{ a,b\right\} $. Then $A\subseteq B$,
+$A\neq\emptyset$, but $\left\{ a,b\right\} =A\cup B\neq A=\left\{ a\right\} $.
+\vfill
+\end{proof}
+\item Give the definition of the following:
+
+\begin{enumerate}
+\item A \emph{function}
+
+A \emph{function} is a relation that pairs element from a set $A$
+to exactly one element in a set $B$.
+\item An \emph{onto function}.
+
+A function $f:A\rightarrow B$ is \emph{onto }if for every $b\in B$
+there exists an $a\in A$ such that $f(a)=b$.\vfill
+\end{enumerate}
+\item Consider the map $f:\mathbb{R}\times\mathbb{R}\rightarrow\mathbb{R}$
+defined as $f(x,y)=xy$. Then $f$ is:
+
+\begin{enumerate}
+\item [(a)] an onto function.
+\item [(b)] a 1-1 function.
+\item [(c)] a bijection.
+\item [(d)] none of the above.
+
+$f$ is onto since for every $b\in\mathbb{R}$, $f(b,1)=b\cdot1$.
+$f$ is not $1-1$ since $f(-2,-2)=4$ and $f(2,2)=4$. \\
+So the answer is \textbf{(a)}.\vfill
+\end{enumerate}
+\item Let $f:A\rightarrow B$ be a function, $A=\left\{ 1,2,3\right\} $,
+and $B=\left\{ 1,2\right\} $. 
+
+\begin{enumerate}
+\item Can $f$ be 1-1? Explain.
+
+No. $\left|A\right|>\left|B\right|$ so $f$ cannot be $1-1$ by the
+Pigeon Hole Theorem. 
+\item Show that $f$ can be onto.
+
+(answers can vary) Let $f(1)=1$, $f(2)=2$, and $f(3)=1$. \\
+Note that $f$ does not have to be onto, e.g, let $f$ be the constant
+function, $f(x)=1$.\vfill
+\end{enumerate}
+\item Define the following relation on the real number set: $x\mathcal{R}y\iff xy>0$.
+Show the following:
+
+\begin{enumerate}
+\item $\mathcal{R}$ is \emph{not }reflexive.
+
+\begin{proof}
+Let $x=0$. Then $x\cdot x=0\not>0$. So $\mathcal{R}$ is not reflexive.
+\end{proof}
+\item $\mathcal{R}$ is transitive.
+
+\begin{proof}
+Let $x,y,z\in\mathbb{R}$. If $x\cdot y>0$ and $y\cdot z>0$ then
+$\nicefrac{xy}{y}=x>0$ and $\nicefrac{yz}{y}=z>0$. Thus $x\cdot z>0$.
+So $\mathcal{R}$ is transitive.
+\end{proof}
+\item $\mathcal{R}$ is \emph{not }an equivalence relation.
+
+\begin{proof}
+$\mathcal{R}$ is not reflexive by part (1). So $\mathcal{R}$ is
+not an equivalence relation.\vfill
+\end{proof}
+\end{enumerate}
+\item Give an example of a relation on a set which is an equivalence relation.
+
+(answers may vary) Let $x\mathcal{R}y\iff x=y$. \\
+$x=x$ so $\mathcal{R}$ is reflexive. $x=y\Rightarrow y=x$ so $\mathcal{R}$
+is symmetric. If $x=y$ and $y=z$ then $x=y=z$ so $\mathcal{R}$
+is transitive. Thus $\mathcal{R}$ is an equivalence relation. \vfill
+\end{enumerate}
+
+\end{document}

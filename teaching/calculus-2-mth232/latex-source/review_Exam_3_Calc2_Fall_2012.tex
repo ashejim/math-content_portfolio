@@ -1,0 +1,169 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{232}
+
+\newcommand{\classSec}{C}
+
+\newcommand{\nameType}{}
+
+\newcommand{\examType}{Exam 3 Review}
+
+\renewcommand{\date}{Exam 3 will be be given on December $5^{\text{th}}$, 2012} %%\currenttime, \today
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vfill{}
+
+\subsection*{7.1: Inverse Functions}
+\begin{itemize}
+\item Find the inverse, $f^{-1}(x)$, of a function on a given interval
+and its domain. 
+
+\begin{itemize}
+\item Directly; \textbf{Problems 15-19 and 25-27.}
+\end{itemize}
+\item Verify the relationship, i.e., \textbf{$f(f^{-1}(x))=x$ }and $f^{-1}(f(x))=x$;
+\textbf{Problems 15-19.}
+\item Graph the inverse function.
+
+\begin{itemize}
+\item From a function; \textbf{Problems 25-27.}
+\item From a graph; \textbf{Problems 29-30 (these were not assigned).}
+\end{itemize}
+\item Find the derivative of an inverse function using $\left(f^{-1}\right)(y_{0})=\frac{1}{f'(x_{0})}$
+where $y_{0}=x_{0}$; \textbf{Problems 35-37.}\vfill
+\end{itemize}
+
+\subsection*{7.2: Differentiation and Integrating the Logarithmic and Exponential
+Functions}
+\begin{itemize}
+\item Find the derivatives of functions with $\ln x$, $\ln\left(u(x)\right)$,
+$e^{x}$, and $e^{u(x)}$;\textbf{ Problems 15-19 and 25-27.}
+
+\begin{itemize}
+\item You may have to use the product rule, quotient rule, and/or chain
+rule.
+\end{itemize}
+\item Find the indefinite and definite integrals of functions with $e^{x}$,
+$e^{u(x)}$, $\frac{1}{x}$, and $\frac{1}{u(x)}$ (not $\ln x$);
+\textbf{Problems 31-35, 37.}
+
+\begin{itemize}
+\item You may have to use substitution. \vfill
+\end{itemize}
+\item You will NOT be given problems where you have to use logarithmic differentiation,
+$\frac{d}{dx}\ln f(x)=f'(x)\frac{1}{f(x)}$ (Problems 39-41).
+\end{itemize}
+
+\subsection*{7.3: Logarithmic and Exponential Functions with other bases. }
+\begin{itemize}
+\item Understanding log functions; \textbf{Problems 11-15.}
+\item Finding the derivative and indefinite integrals of logarithmic and
+exponential functions with bases other than $e$\textbf{.}
+
+\begin{itemize}
+\item Derivatives of $b^{x}$; \textbf{Problems 21-25.}
+\item Indefinite Integrals with general bases; \textbf{Problems 30-33 (indefinite
+only).}
+\end{itemize}
+\item Find a derivative using the general power rule. \textbf{Problems 35,
+36, 42.}
+
+\begin{itemize}
+\item The results of section 7.3 allows the power rule (early stated for
+rational powers) to be extended to include all real numbers. 
+\end{itemize}
+\item Derivative and integral Exam problems from this section will be straight
+forward application of the formulas. There will probably be at most
+one problem taken from each item above.\vfill
+\end{itemize}
+
+\subsection*{8.1 Integration by Parts.}
+\begin{itemize}
+\item Find the indefinite integral of a function using integration by parts;
+\textbf{Problems 7-19.}
+
+\begin{itemize}
+\item You may have to use substitution. You will NOT have to use repeated
+integration by parts (Problems 23-28).
+\end{itemize}
+\item Find the definite integral of a function using integration by parts;
+\textbf{Problems 29-33.}
+
+\begin{itemize}
+\item Some of the HW problems may require trigonometric substitutions found
+in earlier problems (e.g., 35). You will NOT have to use trigonometric
+substitutions on the exam; we will cover this in 8.2 and 8.3.\vfill
+\end{itemize}
+\end{itemize}
+
+\subsection*{Some general notes.}
+\begin{itemize}
+\item You will be given the necessary formulas from section 7.1, 7.2, 7.3,
+and 8.1 (as they appear in the text). You will also be given the product,
+quotient, chain, and trigonometric rules.
+\item Of the four sections, 7.3 will be covered the least, however be prepared
+to use the formulas from that section.\vfill
+\item There will be 15-20 problems including some ``easy'' problems involving
+properties of logs and inverse functions.
+\end{itemize}
+
+\end{document}

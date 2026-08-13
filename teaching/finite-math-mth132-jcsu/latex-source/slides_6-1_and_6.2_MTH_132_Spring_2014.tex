@@ -1,0 +1,503 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,t]{beamer}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amssymb}
+\usepackage{cancel}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% this default might be overridden by plain title style
+\newcommand\makebeamertitle{\frame{\maketitle}}%
+% (ERT) argument for the TOC
+\AtBeginDocument{%
+  \let\origtableofcontents=\tableofcontents
+  \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+  \def\gobbletableofcontents#1{\origtableofcontents}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usetheme{Warsaw}
+% or ...
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+\setbeamercovered{invisible} %makes overlays invisible
+
+
+%gets rid of navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+\usepackage[super]{nth}
+
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{4 on 1}[a4paper, landscape, border shrink=7mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{3}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{4}{border code=\pgfusepath{stroke}}
+%%%Don't forget to add 'handout'
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\newcommand{\xmax}{2000}
+\newcommand{\xmin}{0}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{500}
+\newcommand{\ymin}{0}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcounter{countEx} \setcounter{countEx}{0}
+\newcounter{countProb} \setcounter{countProb}{0}
+\resetcounteronoverlays{countEx} \resetcounteronoverlays{countProb}
+
+\newcommand{\ex}[3]{
+	\addtocounter{countEx}{1}
+	\only<#1-#2>{\begin{exampleblock} {Example \chNum.\secNum.\arabic{countEx}.} #3	\end{exampleblock}}
+}
+
+\newcommand{\prob}[4]{
+	\addtocounter{countProb}{1}
+	\only<#1-#2>{\begin{exampleblock} {Problem  \chNum.\secNum.\arabic{countProb}.\,#3} #4	\end{exampleblock}}
+}
+
+\newcommand{\yline}[4]{
+	(#2 - #4)/(#1 - #3)*(x - #1) + #2
+}
+
+\beamerdefaultoverlayspecification{<+->}
+
+%%%%Chapter and Section numbers%%%%%
+\newcommand{\chNum}{6}
+\newcommand{\secNum}{1}
+\newcommand{\secTitle}{Statements}
+
+\title[Section \chNum.\secNum: \secTitle]{Section \chNum.\secNum: \secTitle}
+
+\subtitle{Finite Mathematics~~MTH 132~~Spring 2014}
+
+\author{Dr.\,James Ashe}
+
+\titlegraphic{\includegraphics[height=1.5cm]{/home/jim/JamesAshe/JCSU/images/jcsu_bull}}
+
+\institute{Johnson C. Smith University}
+
+\date{{}}
+
+\makebeamertitle 
+\begin{frame}{Chapter 6: Logic}
+
+\begin{columns}
+
+
+\column{11cm}
+\begin{itemize}
+\item []Chapter $6$: Logic
+
+\begin{itemize}
+\item [6.1:] Statements
+\item [6.2:] Truth Tables and Equivalent Statements
+\item [6.4:] Conditional Statements
+\end{itemize}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{}
+
+\begin{block}{Statement}
+A \emph{statement }is a declarative sentence that is either true
+or false. 
+\end{block}
+\begin{columns}
+
+
+\column{5.5cm}
+\begin{itemize}
+\item <2->Socrates was a man. \uncover<6->{\textbf{T}}
+\item <3->$8-3+4=1$ \uncover<7->{\textbf{F}}
+\item <4->A triangle has three sides. \uncover<8->{\textbf{T}}
+\item <5->[]\uline{STATEMENTS: True or False}
+\end{itemize}
+
+\column{5.5cm}
+\begin{itemize}
+\item <9->Is Socrates a man?
+\item <10->Go do some math.
+\item <11->$8-3+4$
+\item <12->This statement is false (\emph{Liar's Paradox}). 
+\item <13->$A$ and not $A$.
+\item <14->[]\uline{NOT STATEMENTS}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{}
+
+\begin{block}{Compound Statement}
+A \emph{compound statement} is two or more statements combined.
+
+\begin{itemize}
+\item <2->Combined with \emph{logical connectives}, e.g.,\emph{ }and, or,
+not, yet, if, then,...
+\item <3->The simple statements that compose a compound statement are called
+\emph{component} statements.
+\end{itemize}
+\end{block}
+\begin{columns}
+
+
+\column{5.5cm}
+\begin{itemize}
+\item <4->Socrates was a man, and Theano was a woman. 
+\item <5->If a polygon has three sides then it is a triangle.
+\item <6->$8-3+4=9$ not $1$.
+\item <7->[]\uline{COMPOUND STATEMENTS}
+\end{itemize}
+
+\column{5.5cm}
+\begin{itemize}
+\item <8->Is Socrates a man or woman?
+\item <9->If a polygon has three sides than go get some ice cream.
+\item <10->Truth or dare is a game.
+\item <11->This statement is true, and this statement is false. 
+\item <12->[]\uline{NOT COMPOUND STATEMENTS}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Negation}
+
+\emph{``No agreement exists as to the possibility of defining negation,
+as to its logical status, function, and meaning, as to its field of
+applicability..., and as to the interpretation of the negative judgment''
+}(F.H. Heinemann 1944)
+\begin{block}<2->{Negation}
+The \emph{negation }of a true statement makes it false, and the
+\emph{negation }of a false statement is true.
+\end{block}
+\begin{columns}
+
+
+\column{5.5cm}
+\begin{itemize}
+\item <2->[]\textbf{Statement}
+
+\begin{itemize}
+\item <2->Socrates is a man. 
+\item <4->Socrates is not a man.
+\item <6->$3<4$, ``$3$ is less than $4$'' 
+\item <8->$8-3+4=9$
+\end{itemize}
+\end{itemize}
+
+\column{6.5cm}
+\begin{itemize}
+\item <3->[]\textbf{Negation of Statement}
+
+\begin{itemize}
+\item <3->Socrates is not a man?
+\item <5->Socrates is a man.
+\item <7->$3\geq4$, ``$3$ is not less than $4$''
+\item <9->$8-3+4\neq9$
+\end{itemize}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Symbolic Logic}
+
+\begin{columns}
+
+
+\column{4.25cm}
+\begin{block}{Notation}
+
+\begin{tabular}{rl}
+ & \textbf{Symbol}\tabularnewline
+statement & $p$, $q$, $r$, etc.\tabularnewline
+``and'' & $\wedge$\tabularnewline
+``or'' & $\vee$\tabularnewline
+``not'' & $\sim$\tabularnewline
+\end{tabular}
+\end{block}
+
+\column{6.5cm}
+
+\uncover<2->{Let $m$ represent ``Socrates is a man'' and $r$
+represent ``it's going to rain''.}
+\begin{itemize}
+\item <2->[ex.]$m\wedge r$
+
+\begin{itemize}
+\item []<3->\emph{Socrates is a man and it's going to rain.}
+\end{itemize}
+\item <4->[ex.]$\sim m\vee r$
+
+\begin{itemize}
+\item []<5->\emph{Socrates if }not \emph{a man or it's going to rain.}
+\end{itemize}
+\item <6->[ex.]$\sim(m\vee r)$
+
+\begin{itemize}
+\item []<7->\emph{It is not case that Socrates is a man or it's going to
+rain.}
+\item []<8->Equivalently, $\sim m\wedge\sim r$, \emph{Socrates is not
+a man and it is not going to rain}.
+\end{itemize}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Your Turn: Statements}
+
+\prob{1}{1}{Decide whether the following is a statement. If it is a statement, decide whether or not it is compound}{Nashville is the capital of Tennessee.}
+
+\prob{2}{2}{Decide whether the following is a statement. If it is a statement, decide whether or not it is compound}{Got milk?}
+
+\prob{3}{3}{Decide whether the following is a statement. If it is a statement, decide whether or not it is compound}{China does not have a population of more than 1 billion, and it is a country.}
+
+\prob{4}{4}{Decide whether the following is a statement. If it is a statement, decide whether or not it is compound}{If I get an \emph{A}  then I will celebrate.}
+\end{frame}
+
+\begin{frame}{Your Turn: Negation}
+
+\prob{1}{1}{Write a negation of each statement.}{This is not the time to complain.}\prob{2}{2}{Write a negation of each statement.}{$y\leq 5$}\prob{3}{3}{Write a negation of each statement.}{$p \wedge q$}
+\end{frame}
+
+\begin{frame}{Finding the Truth Value: Conjunction, i.e., ``and''}
+
+\ex{1}{}{Let $p$ represent ``$5>3$'' and $q$ represent ``$6<0$''. Find the truth value of $p \wedge q$}
+\begin{enumerate}
+\item <2->[]Using a \emph{truth table}. 
+
+\begin{enumerate}
+\item <3->[]%
+\begin{tabular}{cc|c}
+$p$ & $q$ & $p\wedge q$\tabularnewline
+\hline 
+ &  & \tabularnewline
+ &  & \tabularnewline
+ &  & \tabularnewline
+ &  & \tabularnewline
+\end{tabular}
+\end{enumerate}
+\begin{itemize}
+\item <4->Determine which statements are true and false, and choose the
+corresponding answer.
+\end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Finding the Truth Value: Conjunction, i.e., ``and''}
+
+\ex{1}{}{Let $p$ be true and $q$ be true. Find the truth value of $p \wedge q$}
+\begin{enumerate}
+\item <2->[]Using a \emph{truth table}. 
+
+\begin{enumerate}
+\item <3->[]%
+\begin{tabular}{cc|c}
+$p$ & $q$ & $p\wedge q$\tabularnewline
+\hline 
+T & T & T\tabularnewline
+T & F & F\tabularnewline
+F & T & F\tabularnewline
+F & F & F\tabularnewline
+\end{tabular}
+\end{enumerate}
+\begin{itemize}
+\item <4->Determine which statements are true and false, and choose the
+corresponding answer.
+\end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Finding the Truth Value: Disjunction, i.e., ``or''}
+
+\ex{1}{}{Let $p$ represent ``$5>3$'' or $q$ represent ``$6<0$''. Find the truth value of $p \wedge q$}
+\begin{enumerate}
+\item <2->[]Using a \emph{truth table}. 
+
+\begin{enumerate}
+\item <3->[]%
+\begin{tabular}{cc|c}
+$p$ & $q$ & $p\vee q$\tabularnewline
+\hline 
+T & T & \tabularnewline
+T & F & \tabularnewline
+F & T & \tabularnewline
+F & F & \tabularnewline
+\end{tabular}
+\end{enumerate}
+\begin{itemize}
+\item <4->Determine which statements are true and false, and choose the
+corresponding answer.
+\end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Compound Statements}
+
+\ex{1}{}{Let $p$ represent a false statement, and let $q$ represent a true statement. Find the truth value of the compound statement $\sim (\sim p \wedge q)$}
+\begin{columns}
+
+
+\column{4.5cm}
+\begin{enumerate}
+\item <2->[]\footnotesize%
+\begin{tabular}{cc|c}
+$p$ & $q$ & $p\wedge q$\tabularnewline
+\hline 
+T & T & T\tabularnewline
+T & F & F\tabularnewline
+F & T & F\tabularnewline
+F & F & F\tabularnewline
+\end{tabular}
+\item <3->[]\footnotesize%
+\begin{tabular}{cc|c}
+ & \multicolumn{1}{c}{} & \tabularnewline
+$p$ & $q$ & $p\vee q$\tabularnewline
+\hline 
+T & T & T\tabularnewline
+T & F & T\tabularnewline
+F & T & T\tabularnewline
+F & F & F\tabularnewline
+\end{tabular}
+\end{enumerate}
+
+\column{6.5cm}
+\begin{itemize}
+\item []<4->\large$\sim(\sim p\wedge q)$
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Compound Statements}
+
+\ex{1}{}{Let $p$ represent a true statement, and let $q$ and $r$ represent false statements. Find the truth value of the compound statement $(p \wedge r) \vee \sim q$}
+\begin{columns}
+
+
+\column{4.5cm}
+\begin{enumerate}
+\item <2->[]\footnotesize%
+\begin{tabular}{cc|c}
+$p$ & $q$ & $p\wedge q$\tabularnewline
+\hline 
+T & T & T\tabularnewline
+T & F & F\tabularnewline
+F & T & F\tabularnewline
+F & F & F\tabularnewline
+\end{tabular}
+\item <3->[]\footnotesize%
+\begin{tabular}{cc|c}
+ & \multicolumn{1}{c}{} & \tabularnewline
+$p$ & $q$ & $p\vee q$\tabularnewline
+\hline 
+T & T & T\tabularnewline
+T & F & T\tabularnewline
+F & T & T\tabularnewline
+F & F & F\tabularnewline
+\end{tabular}
+\end{enumerate}
+
+\column{6.5cm}
+\begin{itemize}
+\item []<4->\large$(p\wedge r)\vee\sim q$
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Finding the Truth Value: Compound Statements}
+
+\ex{1}{}{If $q$ is true, what is the truth value of $q \vee (q \wedge \sim p)$}
+\begin{columns}
+
+
+\column{4.5cm}
+\begin{enumerate}
+\item <2->[]\footnotesize%
+\begin{tabular}{cc|c}
+$p$ & $q$ & $p\wedge q$\tabularnewline
+\hline 
+T & T & T\tabularnewline
+T & F & F\tabularnewline
+F & T & F\tabularnewline
+F & F & F\tabularnewline
+\end{tabular}
+\item <3->[]\footnotesize%
+\begin{tabular}{cc|c}
+ & \multicolumn{1}{c}{} & \tabularnewline
+$p$ & $q$ & $p\vee q$\tabularnewline
+\hline 
+T & T & T\tabularnewline
+T & F & T\tabularnewline
+F & T & T\tabularnewline
+F & F & F\tabularnewline
+\end{tabular}
+\end{enumerate}
+
+\column{6.5cm}
+\begin{itemize}
+\item []<4->\large$q\vee(q\wedge\sim p)$
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Your Turn: Find the Truth Value}
+
+\prob{1}{1}{Let $p$ represent a false statement and $q$ represent a true statement. Find the truth value of each compound statement.}{$\sim p$} 
+
+\prob{2}{2}{Let $p$ represent a false statement and $q$ represent a true statement. Find the truth value of each compound statement.}{$p \vee \sim q$} 
+
+\prob{3}{3}{Let $p$ represent a false statement and $q$ represent a true statement. Find the truth value of each compound statement.}{$\sim (p \vee \sim q)$} 
+\end{frame}
+
+\begin{frame}{Your Turn: Find the Truth Value}
+
+\prob{1}{1}{Let $p$ represent a true statement, and $q$ and $r$  represent false statements. Find the truth value of each compound statement.}{$(q \vee \sim r) \wedge p$} 
+
+\prob{2}{2}{Let $p$ represent a true statement, and $q$ and $r$  represent false statements. Find the truth value of each compound statement.}{$(\sim p \wedge q) \vee \sim r$} 
+\end{frame}
+
+\begin{frame}{Your Turn: Find the Truth Value}
+
+\prob{1}{1}{Let $p$ be the statement``$2>7$'', $q$ be statement ``$8 \leq 6$,'' and $r$ be the statement ``$19 \leq 19$.'' Find the truth value of each compound statement.}{$\sim p \vee \sim r$}
+
+\prob{2}{2}{Let $p$ be the statement``$2>7$'', $q$ be statement ``$8 \leq 6$,'' and $r$ be the statement ``$19 \leq 19$.'' Find the truth value of each compound statement.}{$(p \wedge q) \vee r$}
+
+\prob{3}{3}{Let $p$ be the statement``$2>7$'', $q$ be statement ``$8 \leq 6$,'' and $r$ be the statement ``$19 \leq 19$.'' Find the truth value of each compound statement.}{$(\sim r \wedge q) \vee \sim p$}
+\end{frame}
+
+\begin{frame}{Answers}
+
+Answers:\textbf{ T, F, T, T, T, F, T, T}
+\end{frame}
+
+\end{document}

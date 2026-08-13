@@ -1,0 +1,126 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{132}
+
+\newcommand{\classSec}{C \& K}
+
+\newcommand{\nameType}{Name:}
+
+\newcommand{\examType}{Worksheet 1.1 \& 1.2}
+
+\renewcommand{\date}{\formatdate{14}{1}{2014}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\xmax}{10}
+\newcommand{\xmin}{-10}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{10}
+\newcommand{\ymin}{-10}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcommand{\xspace}{\vspace{1.2cm}}
+
+\textbf{Use the given conditions to write an equation for the line
+in slope-intercept form, if possible.}
+\begin{enumerate}[resume]
+\item Slope$=-3$, passing through $(2,6)$.\vfill
+\item The line is parallel to $y=-\frac{1}{2}x+5$ and passes through $(2,0)$.\vfill
+\item Through $(5,0)$ and $(-6,2)$.\vfill
+\item Through $(1,2)$ and $(3,2)$.\vfill
+\item Through $(3,1)$ and $(3,2)$.\vfill\newpage
+\end{enumerate}
+\textbf{Solve the problem.}
+\begin{enumerate}[resume]
+\item \label{enu:After-5-years}After 5 years as an actuary, Sue's salary
+was \$130,000. After 12 years her salary had risen to \$200,000. Assuming
+that the change in her salary over time is linear, find an equation
+expressing her salary as $y$ and $x$ as the number of years on the
+job.\vfill
+\item Using the equation you found in \ref{enu:After-5-years}, how many
+years does she need to work as an actuary to have a salary of \$250,000?\vfill
+\item A shoe company will make a new type of shoe which costs \$21 to make
+per shoe. The fixed cost of producing this shoe (utilities, property
+taxes, leases, etc.) is \$25,000. The company plans to sell the shoe
+for \$100 a pair. 
+
+\begin{enumerate}[resume]
+\item Find the cost function in dollars, $C(x)$, for $x$ pairs of shoes.
+\xspace
+\item Find the revenue function in dollars, $R(x)$, for $x$ pairs of shoes.\xspace
+\item Find the profit function in dollars, $P(x)$, for $x$ pairs of shoes.\xspace\xspace
+\item How many pair of shoes must they sell to break even?\vfill
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

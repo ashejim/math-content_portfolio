@@ -1,0 +1,290 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,t]{beamer}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amssymb}
+\usepackage{cancel}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% this default might be overridden by plain title style
+\newcommand\makebeamertitle{\frame{\maketitle}}%
+% (ERT) argument for the TOC
+\AtBeginDocument{%
+  \let\origtableofcontents=\tableofcontents
+  \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+  \def\gobbletableofcontents#1{\origtableofcontents}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usetheme{Warsaw}
+% or ...
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+\setbeamercovered{invisible} %makes overlays invisible
+
+%gets rid of navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%\usepackage{hyperref}
+%\usepackage[usenames,dvipsnames,table]{xcolor} %adds additional color options
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=blue,urlcolor=links}
+
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+\usepackage[super]{nth}
+
+\usepackage{etex}
+
+\def\formatdateny{\csname noyear\languagename\expandafter\endcsname\formatdate}
+\def\noyearenglish#1, \the\@year{#1}
+\let\noyearamerican\noyearenglish
+\let\noyearbritish\noyearenglish
+
+%%%redefines column alignment to match vertically
+%\define@key{beamerframe}{t}[true]{% top
+  %\beamer@frametopskip=.2cm plus .5\paperheight\relax%
+  %\beamer@framebottomskip=0pt plus 1fill\relax%
+ % \beamer@frametopskipautobreak=\beamer@frametopskip\relax%
+  %\beamer@framebottomskipautobreak=\beamer@framebottomskip\relax%
+  %\def\beamer@initfirstlineunskip{}%
+%}
+
+%%provides pdf with 4 slides per page; don't forget to add 'handout' to remove overlays
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{4 on 1}[a4paper, landscape, border shrink=7mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{3}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{4}{border code=\pgfusepath{stroke}}
+%%%Don't forget to add 'handout'
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\newcommand{\xmax}{2000}
+\newcommand{\xmin}{0}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{500}
+\newcommand{\ymin}{0}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcounter{countEx} \setcounter{countEx}{0}
+\newcounter{countProb} \setcounter{countProb}{0}
+\resetcounteronoverlays{countEx} \resetcounteronoverlays{countProb}
+
+\newcommand{\ex}[3]{
+	\addtocounter{countEx}{1}
+	\only<#1-#2>{\begin{exampleblock} {Example \chNum.\secNum.\arabic{countEx}.} #3	\end{exampleblock}}
+}
+
+\newcommand{\prob}[4]{
+	\addtocounter{countProb}{1}
+	\only<#1-#2>{\begin{exampleblock} {Problem  \chNum.\secNum.\arabic{countProb}.\,#3} #4	\end{exampleblock}}
+}
+
+\newcommand{\yline}[4]{
+	(#2 - #4)/(#1 - #3)*(x - #1) + #2
+}
+
+\beamerdefaultoverlayspecification{<+->}
+
+%%%%Chapter and Section numbers%%%%%
+\newcommand{\chNum}{2}
+\newcommand{\secNum}{1}
+\newcommand{\secTitle}{Venn Diagrams}
+
+\title{Introduction}
+
+\subtitle{Finite Mathematics~~MTH 107~~Fall 2014}
+
+\author{Dr.\,James Ashe}
+
+\titlegraphic{\includegraphics[height=2.75cm]{/home/jim/JamesAshe/MHU/images/MarsHilUniversityLogo-Virtical.png}}
+
+\date{\formatdate{20}{8}{2014}}
+
+\institute{Mars Hill University}
+
+\makebeamertitle 
+\begin{frame}{\emph{Mathematics: A Practical Odyssey}, $7^{\mbox{th}}$ed. \\
+Johnson \& Mowry}
+
+
+\framesubtitle{Course Outline}
+\begin{columns}
+
+
+\column{6.5cm}
+\begin{itemize}
+\item []<2->\textbf{Chapter 2: Sets and Counting}
+
+\begin{itemize}
+\item <3->2.1 Sets and Set Operations
+\item <3->2.2 Applications of Venn Diagrams
+\item <3->2.3 Intro to Combinatorics
+\item <3->2.4 Permutations \& Combinations
+\end{itemize}
+\end{itemize}
+
+\column{6.5cm}
+\begin{itemize}
+\item []<5->\textbf{Chapter 1: Logic}
+
+\begin{itemize}
+\item <6->1.1 Deductive vs. Inductive Reasoning
+\item <6->1.2 Symbolic Logic
+\item <6->1.3 Truth Tables
+\item <6->1.5 Analyzing Arguments
+\end{itemize}
+\end{itemize}
+\end{columns}
+
+\begin{columns}
+
+
+\column{6cm}
+\begin{itemize}
+\item []<4->\textbf{Exam 1: }\usdate \formatdateny{8}{9}{2014}
+\item []<7->\textbf{Exam 2: }\usdate \formatdateny{1}{10}{2014}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{\emph{Mathematics: A Practical Odyssey}, $7^{\mbox{th}}$ed. \\
+Johnson \& Mowry}
+
+\begin{columns}
+
+
+\column{6cm}
+\begin{itemize}
+\item []<1->\textbf{Chapter 3: Probability }
+
+\begin{itemize}
+\item <2->3.2 Basic Terms of Probability
+\item <2->3.3 Basic Rules of Probability
+\item <2->3.4 Combinatorics \& Probability
+\item <2->3.5 Expected Value
+\item <2->3.6 Conditional Probability
+\item <2->3.7 Independence; Trees in Genetics
+\end{itemize}
+\end{itemize}
+
+\column{6cm}
+\begin{itemize}
+\item []<4->\textbf{Chapter 4: Statistics}
+
+\begin{itemize}
+\item <5->4.1 Population, Sample, \& Data
+\item <5->4.2 Measures of Central Tendency
+\item <5->4.3 Measures of Dispersion
+\item <5->4.4 The Normal Distribution
+\end{itemize}
+\end{itemize}
+\end{columns}
+
+\begin{columns}
+
+
+\column{6cm}
+\begin{itemize}
+\item []<3->\textbf{Exam 3: }\usdate \formatdateny{27}{10}{2014}
+\item []<6->\textbf{Exam 4: }\usdate \formatdateny{21}{11}{2014}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Grades}
+
+\vfill
+\begin{columns}
+
+
+\column{6cm}
+\begin{itemize}
+\item []<2->$15\%$ HW/Quizzes
+\item []<3->$15\%$ Exam 1
+\item []<3->$15\%$ Exam 2
+\item []<3->$15\%$ Exam 3
+\item []<3->$15\%$ Exam 4
+\item []<4->$25\%$ Final Exam
+\end{itemize}
+
+\column{6cm}
+\begin{block}<2->{HW/Quizzes}
+\emph{WebAssign }online HW and anything that isn't an Exam.
+\end{block}
+
+\begin{block}<4->{Final Exam}
+Will replace the lowest exam score, if beneficial. 
+\end{block}
+\end{columns}
+\vfill
+\end{frame}
+
+\begin{frame}{Policies}
+
+\vfill
+\begin{itemize}
+\item []\textbf{Attendance}
+
+\begin{itemize}
+\item Come to class.
+\item $2.5\%$ will be deducted for each absence over $5$.
+\end{itemize}
+\item []\textbf{Make-ups}
+
+\begin{itemize}
+\item At least $2$ will be dropped.
+\item No make-ups for HW/quizzes.
+\item A missed exam will count as the lowest exam to be replaced by the
+final. 
+\item If you know you will miss an exam, schedule to take it at a different
+time.
+\end{itemize}
+\end{itemize}
+\vfill
+\end{frame}
+
+\begin{frame}{WebAssign}
+
+\vfill
+
+A \emph{WebAssign }account is required for this course. To setup an
+account complete the following:
+\begin{enumerate}
+\item Go to the website \href{http://www.webassign.net/}{www.webassign.net}.
+In the upper right corner is a gray box, \href{http://www.webassign.net/v4cgi/selfenroll/classkey.html}{$ \begin{array}{l} \includegraphics[height=12pt,keepaspectratio=true]{/home/jim/JamesAshe/MHU/MHU_Finite_Math/WebAssign_Enter_Class_Key.png}
+\end{array}$}; click on it.
+\item Enter the code for your section. 
+\item Follow the step-by-step instructions. If you have used \emph{WebAssign
+}before, use your existing account. If you are creating a new account,
+use last name dot first name (example: John Smith would have username
+smith.john).
+\item \uline{Add your email address the first time you logo in}. Use your
+MHU email account if possible.
+\end{enumerate}
+\vfill
+\end{frame}
+
+\end{document}

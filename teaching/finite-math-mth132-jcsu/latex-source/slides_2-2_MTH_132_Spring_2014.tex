@@ -1,0 +1,198 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,t]{beamer}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amssymb}
+\usepackage{cancel}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% this default might be overridden by plain title style
+\newcommand\makebeamertitle{\frame{\maketitle}}%
+% (ERT) argument for the TOC
+\AtBeginDocument{%
+  \let\origtableofcontents=\tableofcontents
+  \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+  \def\gobbletableofcontents#1{\origtableofcontents}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usetheme{Warsaw}
+% or ...
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+\setbeamercovered{invisible} %makes overlays invisible
+
+
+%gets rid of navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{4 on 1}[a4paper, landscape, border shrink=7mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{3}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{4}{border code=\pgfusepath{stroke}}
+%%%Don't forget to add 'handout'
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\newcommand{\xmax}{2000}
+\newcommand{\xmin}{0}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{500}
+\newcommand{\ymin}{0}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcounter{countEx} \setcounter{countEx}{0}
+\newcounter{countProb} \setcounter{countProb}{0}
+\resetcounteronoverlays{countEx} \resetcounteronoverlays{countProb}
+
+\newcommand{\ex}[3]{
+	\addtocounter{countEx}{1}
+	\only<#1-#2>{\begin{exampleblock} {Example \chNum.\secNum.\arabic{countEx}.} #3	\end{exampleblock}}
+}
+
+\newcommand{\prob}[4]{
+	\addtocounter{countProb}{1}
+	\only<#1-#2>{\begin{exampleblock} {Problem  \chNum.\secNum.\arabic{countProb}.\,#3} #4	\end{exampleblock}}
+}
+
+\newcommand{\yline}[4]{
+	(#2 - #4)/(#1 - #3)*(x - #1) + #2
+}
+
+\beamerdefaultoverlayspecification{<+->}
+
+%%%%Chapter and Section numbers%%%%%
+\newcommand{\chNum}{2}
+\newcommand{\secNum}{2}
+\newcommand{\secTitle}{Solving Systems of Linear Equations by the Gauss-Jordan Method}
+
+\title[Section \chNum.\secNum: \secTitle]{Section \chNum.\secNum: \secTitle}
+
+\subtitle{Finite Mathematics~~MTH 132~~Spring 2014}
+
+\author{Dr.\,James Ashe}
+
+\titlegraphic{\includegraphics[height=1.5cm]{/home/jim/JamesAshe/JCSU/images/jcsu_bull}}
+
+\institute{Johnson C. Smith University}
+
+\date{{}}
+
+\makebeamertitle 
+\begin{frame}{Solving Linear Systems by the Gauss-Jordan method}
+
+\begin{columns}
+
+
+\column{5.5cm}
+\begin{itemize}
+\item <1->[]$\begin{array}{rrrrr}
+-2x & + & y & = & -8\\
+2x & + & y & = & 4
+\end{array}$
+\item <3->[]$\begin{array}{rrrrr}
+-2 & \,\,\,\,\,\,\,\,\, & 1 & \,\,\,\,\,\,\,\,\, & -8\\
+2 & \,\,\,\,\,\, & 1 & \,\,\,\, & 4
+\end{array}$
+\item <4->[]$\begin{bmatrix}\begin{array}{rr|r}
+-2 & 1 & -8\\
+2 & 1 & 4
+\end{array}\end{bmatrix}$
+\end{itemize}
+
+\column{5.5cm}
+
+\vspace{-.525cm}
+\begin{block}<2->{step 1}
+Write the system in abbreviated form, called an \emph{augmented
+matrix}.
+\end{block}
+\end{columns}
+\end{frame}
+
+\begin{frame}{}
+
+\begin{columns}
+
+
+\column{5.5cm}
+\begin{itemize}
+\item <1->[]$\begin{bmatrix}\begin{array}{rr|r}
+-2 & 1 & -8\\
+2 & 1 & 4
+\end{array}\end{bmatrix}$
+\end{itemize}
+
+\column{5.5cm}
+
+\vspace{-.525cm}
+\begin{block}<2->{step 2}
+Transform the matrix so that each column (except the last) has no
+more than one $0$.
+\end{block}
+
+\begin{block}<3->{step 3}
+Divide so the leading enrty for each row is $1$.
+\end{block}
+
+\begin{block}<4->{step 4}
+A row of $0$'s means no solution. Otherwise the last column gives
+the solution.
+\end{block}
+\end{columns}
+\end{frame}
+
+\begin{frame}{}
+
+\ex{1}{}{Solve the system $\begin{array}{rrrrr} -3x & + & y & = & 4\\ 2x & - & 2y & = & -4 \end{array}$}
+\end{frame}
+
+\begin{frame}{}
+
+\ex{1}{}{Use the Gauss-Jordan method to solve the system.}
+\begin{itemize}
+\item <1->[]$\begin{array}{rrrr}
+x &  & +z & =3\\
+ & y & -z & =1\\
+x & +y & +z & =4
+\end{array}$
+\item <2->[]$\begin{bmatrix}\begin{array}{rrr|r}
+1 & 0 & 1 & 3\\
+0 & 1 & -1 & 1\\
+1 & 1 & 1 & 4
+\end{array}\end{bmatrix}$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+
+\prob{1}{}{Use the Gauss-Jordan method to solve the system.}{\hfill $\begin{array}{rrrrr} x & + & y & = & 5\\ 3x & + & 2y & = & 12 \end{array}$ \hfill}
+\begin{itemize}
+\item <2->[]Answer: $(2,3)$
+\end{itemize}
+\end{frame}
+
+\end{document}

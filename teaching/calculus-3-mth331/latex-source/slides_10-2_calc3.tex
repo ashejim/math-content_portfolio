@@ -1,0 +1,153 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,handout]{beamer}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% this default might be overridden by plain title style
+\newcommand\makebeamertitle{\frame{\maketitle}}%
+% (ERT) argument for the TOC
+\AtBeginDocument{%
+  \let\origtableofcontents=\tableofcontents
+  \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+  \def\gobbletableofcontents#1{\origtableofcontents}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usetheme{Warsaw}
+% or ...
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+\setbeamercovered{invisible} %makes overlays invisible
+
+
+%gets rid of navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+
+\usepackage{pgfpages}
+\pgfpagesuselayout{4 on 1}[a4paper, landscape, border shrink=7mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{3}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{4}{border code=\pgfusepath{stroke}}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\title[Properties of Power Series]{Ch. 10.2: Properties of Power Series}
+\subtitle{Calculus III | MTH 331~~|~~Section A~~|~~Fall 2012}
+\author{Dr.\,James Ashe}
+\titlegraphic{\includegraphics[height=1.5cm]{../../jcsu_bull.jpg}}
+\institute{Johnson C. Smith University}
+\date{{}}
+
+\makebeamertitle
+
+%\beamerdefaultoverlayspecification{<+->}
+\begin{frame}{}
+
+\begin{block}{Definition}
+
+A \emph{power series }is an infinite series of the form \\
+\hfill${\displaystyle \sum_{k=0}^{\infty}c_{k}x^{k}=c_{0}+c_{1}x+c_{2}x^{2}+\dots+c_{n}x^{n}+c_{n+1}x^{n+1}\dots}$\hfill\,\\
+or, more generally,\\
+\hfill${\displaystyle \sum_{k=0}^{\infty}c_{k}(x-a)^{k}=c_{0}+c_{1}(x-a)+\dots+c_{n}(x-a)^{n}+\dots}$\hfill\,\\
+where $c_{k}$ are constants.
+\end{block}
+\begin{itemize}
+\item <2->The constant $a$ is the \textbf{center}.
+\item <3->The set of $x$'s such that the series converges is called the
+\textbf{interval of convergence}, $I=[c,d]$. i.e., \\
+$I=\{x\in\mathbb{R}|\,\sum_{k=0}^{\infty}c_{k}(x-a)^{k}<\infty\}$.
+\item <4->The \textbf{radius of convergence }of the series, $R$, is the
+distance from $a$ to $d$, i.e., $R=|d-a|$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Finding an interval of convergence}
+
+\begin{itemize}
+\item [ex.]<2->${\displaystyle \sum\frac{x^{k}}{2^{k}}}$ 
+\item []<3->Need to find all $x$ such that the series converges. \uncover<4->{By
+the Ratio Test, ${\displaystyle \lim_{k\rightarrow\infty}\left|\frac{a_{n+1}}{a_{n}}\right|}={\displaystyle \lim_{k\rightarrow\infty}\left|\frac{\nicefrac{x^{k+1}}{2^{k+1}}}{\nicefrac{x^{k}}{2^{k}}}\right|}={\displaystyle \lim_{k\rightarrow\infty}\frac{\left|x\right|}{2}=\frac{\left|x\right|}{2}}$
+}
+\item []<4->So this series diverges when$\frac{\left|x\right|}{2}>1\Rightarrow x<-2\mbox{ and }x>2$.
+\item <5->Need to test the endpoints. 
+\item []<6->At $x=-2$, ${\displaystyle \sum_{k=0}^{\infty}\frac{(-2)^{k}}{2^{k}}=1-1+1-1+\cdots}$,
+so it \uncover<7->{diverges.}
+\item []<8->At $x=2$, $\sum_{k=0}^{\infty}\frac{(2)^{k}}{2^{k}}=1+1+\cdots$,
+so it \uncover<9->{diverges.}
+\item []<10->So the interval of convergence is \uncover<11->{$-2<x<2$.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+
+\begin{itemize}
+\item [ex.]${\displaystyle \sum_{k=1}^{\infty}\frac{(x-2)^{k}}{nk^{n}}}$
+\item []<2->Using the Ratio Test, ${\displaystyle \lim_{k\rightarrow\infty}\left(\frac{n}{n+1}\cdot\frac{5^{n}}{5^{n+1}}\cdot\frac{\left|x-2\right|^{n+1}}{\left|x-2\right|^{n}}\right)=\frac{1}{5}\left|x-2\right|}$.
+\item []<3->$\frac{1}{5}\left|x-2\right|>1\Rightarrow\left|x-2\right|>5$,
+so then the series diverges when $x\not\in\left(-3,7\right)$.
+\item []<4->For $x=7$, the series is ${\displaystyle \sum_{k=1}^{\infty}\frac{1}{k}}$
+is harmonic so it diverges.
+\item []<5->For $x=-3$, the seres is $\sum_{k=1}^{\infty}(-1)^{k}\frac{1}{k}$,
+which is the alternating harmonic series which converges (by the Alternating
+Series Test). 
+\item []<6->So the interval of convergence is $-3\leq x<7$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Finding a power series representation for $f(x)$ and its interval
+of convergence}
+
+\begin{exampleblock}{}
+
+\begin{center}$g(x)=\frac{1}{1-x}={\displaystyle \sum_{k=0}^{\infty}x^{k}}$
+when $|x|<1$.\end{center}
+\end{exampleblock}
+\begin{itemize}
+\item The geometric series, ${\displaystyle \sum_{k=0}^{\infty}x^{k}}=\frac{1}{1-x}$
+is a power series (replacing the $r$ with a variable; each $c_{i}=1$).
+\item [ex.]<2-> Find a power series for $f(x)=\frac{1}{1+x^{3}}$ centered
+at $0$.
+\item []<3->Substitute $-x^{3}$ for $x$ in $g(x)$. This gives $\frac{1}{1-(-x^{3})}$,
+and
+\item []<4->$\frac{1}{1-(-x^{3})}={\displaystyle \sum_{k=0}^{\infty}(-x^{3})^{n}}$
+\emph{provided} that $|-x^{3}|<1.$
+\item []<5->Now \textrm{${\displaystyle \sum_{k=0}^{\infty}(-x^{3})^{n}=\sum_{k=0}^{\infty}(-1)^{n}x^{3n}}$
+and $|x^{3}|<1\Rightarrow|x|<1$.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+
+\begin{itemize}
+\item [ex. 33]Find the power series for $h(x)=\frac{1}{(1-x)^{2}}$ using
+$g(x)=\frac{1}{1-x}$.
+\item []<2->Note: $\frac{1}{(1-x)^{2}}=\frac{d}{dx}\left(\frac{1}{1-x}\right)$,
+and 
+\item []<3->$\frac{1}{1-x}={\displaystyle \sum_{k=0}^{\infty}x^{k}}$ when
+$\left|x\right|<1$.
+\item []<4->So then $h(x)=\frac{1}{(1-x)^{2}}=\frac{d}{dx}\left(\frac{1}{1-x}\right)=\frac{d}{dx}{\displaystyle \sum_{k=0}^{\infty}x^{k}}$
+\uncover<5->{$={\displaystyle \sum_{k=1}^{\infty}kx^{k-1}}$}. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+
+\textbf{Homework }due (10/24)
+
+\textbf{10.2: }9-12, 21-24, 34-35, 39-41
+
+\end{frame}
+
+\end{document}

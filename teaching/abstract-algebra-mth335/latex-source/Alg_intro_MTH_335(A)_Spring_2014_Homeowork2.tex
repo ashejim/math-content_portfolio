@@ -1,0 +1,155 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\usepackage{wasysym}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{335}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{Name: \hspace{-4cm}}
+
+\newcommand{\examType}{Homework 2}
+
+\newcommand{\Date}{\formatdate{28}{1}{2014}} %%\AdvanceDate[12] \today
+
+%\newdate{my_date}{\day}{\month}{\year}%   
+%\AdvanceDate[-5] 
+%\displaydate{my_date}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \Date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+%\setlist{nolistsep} %eliminates space between list items
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Homework}
+\begin{enumerate}
+\item Prove or disprove the following.
+
+\begin{enumerate}[resume]
+\item A constant function is not one-to-one if the domain has more than
+one element.
+\item The identity function is one-to-one.
+\item The identity function is onto.\vfill
+\end{enumerate}
+\item Let $g:A\rightarrow B$ and $f:B\rightarrow C$. Prove that if $f\circ g:A\rightarrow C$
+is one-to-one and $g$ is onto then $f$ is also one-to-one. \vfill
+\item Suppose that $f:A\rightarrow B$ is a one-to-one function. Prove or
+disprove that if $f^{-1}:f(B)\rightarrow A$ is a function then $f^{-1}$
+is also one-to-one.\vfill
+\end{enumerate}
+\begin{enumerate}[resume]
+\item Let $f:A\rightarrow B$ be a one-to-one function. Show that $\left|A\right|\leq\left|B\right|$.\vfill
+\item Let $f:A\rightarrow B$ and $g:B\rightarrow C$ be functions. Prove
+that $g\circ f:A\rightarrow C$ is a function.\vfill
+\item (This problem was dropped) Let $f:A\rightarrow A$, $g:A\rightarrow A$,
+and $h:A\rightarrow A$; prove that $\left(h\circ g\right)\circ f=h\circ\left(g\circ f\right)$.\vfill
+\item Prove that if $f:A\rightarrow B$ is onto and $g:B\rightarrow C$
+is onto, then $\left(g\circ f\right):A\rightarrow C$ is onto. \vfill
+\item Each of the following statements, $P(x,y)$, define a relation $R$
+in the natural numbers, $\mathbb{N}$, i.e., $R=(\mathbb{N},\mbox{\ensuremath{\mathbb{N}}},P(x,y))$.
+Show whether each of the following relations is reflexive. 
+
+\begin{enumerate}
+\item $P(x,y)=$``$x$ is less than or equal to $y$''\vfill
+\end{enumerate}
+\begin{enumerate}[resume]
+\item $P(x,y)=$``$x$ divides $y$''\vfill
+\item $P(x,y)=$``$x+y=10$''\vfill
+\item $P(x,y)=$ ``$x$ and $y$ are relatively prime.''\vfill
+\end{enumerate}
+\end{enumerate}
+\textbf{Presentation problems.}
+\begin{enumerate}
+\item Let the function $f:A\rightarrow B$ be 1-1 and onto, i.e., $f^{-1}$
+exists and $\left|A\right|=\left|B\right|$. Prove that $\left(f^{-1}\circ f\right):A\rightarrow A$
+is the identity function on $A$ and that $\left(f\circ f^{-1}\right):B\rightarrow B$
+is the identity function on $B$.
+\item Let $f:A\rightarrow B$ be 1-1 and onto. Prove that $g=f^{-1}$, if
+$\left(g\circ f\right):A\rightarrow A$ is the identity function on
+$A$ and $\left(f\circ g\right):B\rightarrow B$ is the identity function
+on $B$. 
+\item The \emph{product set }of sets $A$ and $B$ is the set of all ordered
+pairs $(a,b)$ where $a\in A$ and $b\in B$; it is denoted by $A\times B$.
+Prove that $A\times(B\cap C)=(A\times B)\cap(A\times C)$. 
+\item Prove: Let $R$ and $R'$ be symmetric relations in a set $A$; then
+$R\cap R'$ is a symmetric relation in $A$.
+\item Prove that ${\displaystyle \sum_{k=1}^{n}2k=n^{2}+n}$
+\item The Fibonacci numbers are :$1,1,2,3,5,8,13,21,34,\dots$. In general,
+the Fibonacci numbers are defined by $f_{1}=1$, $f_{2}=1$, and $f_{n+2}=f_{n+1}+f_{n}$
+for $n=1,2,3,\dots$. Prove that the $n^{\mbox{th}}$ Fibonacci number
+$f_{n}<2^{n}$.
+\item Prove that there infinitely many prime numbers. 
+\item [$\smiley$\textbf{.}]Two sets are said to be \emph{equal }if there
+exists a bijective function between them; we write $\left|A\right|=\left|B\right|$.
+$B$ is said to have \emph{strictly greater cardinality} than $B$
+if there is a one-to-one function from $A$ into $B$, but there does
+not exist a bijective function from $A$ into $B$; we write$\left|A\right|<\left|B\right|$.
+Prove that $\left|\mathbb{N}\right|<\left|\mathbb{R}\right|$.
+\end{enumerate}
+\vfill
+\end{document}

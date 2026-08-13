@@ -1,0 +1,251 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\usepackage{wasysym}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage[dayofweek]{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{335}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{Name:}
+
+\newcommand{\examType}{Homework 2}\usdate
+
+\newcommand{\Date}{Due date: \formatdate{4}{3}{2013}} %%\AdvanceDate[12] \today
+
+%\newdate{my_date}{\day}{\month}{\year}%   
+%\AdvanceDate[-5] 
+%\displaydate{my_date}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \Date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+%\setlist{nolistsep} %eliminates space between list items
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Homework Problems. }\emph{Solutions should be written/typed
+in numerical order and clearly labeled. Unsolved problems should be
+included but left blank.}
+\begin{enumerate}
+\item Prove or disprove the following.
+
+\begin{enumerate}
+\item A constant function is not one-to-one.
+\end{enumerate}
+\begin{proof}
+[False.] Let $A=\{a\}$ and $f:A\rightarrow B$ and $f(a)=b$ for
+all $a\in A$. If $f(a_{1})=f(a_{2})$ then $a_{1}=a_{2}$ because
+$A$ only has one element. So $f$ is constant and also one-to-one.
+\emph{In general constant functions are not 1-1, i.e., the statement
+``constant functions are 1-1'' is false.}
+\end{proof}
+\begin{enumerate}[resume]
+\item The identity function is one-to-one.
+\end{enumerate}
+\begin{proof}
+[True.] Let $f:A\rightarrow A$ be the identity function. If $f(a_{1})=f(a_{2})$
+then $f(a_{1})=a_{1}=a_{2}=f(a_{2})$ because $f(a)=a$ for any $a\in A$.
+Thus $f$ is one-to-one. 
+\end{proof}
+\begin{enumerate}[resume]
+\item The identity function is onto.
+\end{enumerate}
+\begin{proof}
+[True.]Let $f:A\rightarrow A$ be the identity function and $a\in A$.
+$f(a)=a$ so then $f$ is onto.\vfill
+\end{proof}
+\item Let $g:A\rightarrow B$ and $f:B\rightarrow C$. Prove that if $f\circ g:A\rightarrow C$
+is one-to-one and $g$ is onto then $f$ is also one-to-one. 
+
+\begin{proof}
+Let $b_{1},b_{2}\in B$ such that $b_{1}\neq b_{2}$. Because $g$
+is onto there is a $a_{1},a_{2}\in A$ such that $g(a_{1})=b_{1}$
+and $g(a_{2})=b_{2}$. So then $f(b_{1})\neq f(b_{2})$ since $f(g(a_{1}))\neq f(g(a_{2}))$.
+\vfill
+\end{proof}
+\item Suppose that $f:A\rightarrow B$ is a one-to-one function. Prove or
+disprove that if $f^{-1}:f(B)\rightarrow A$ is a function then $f^{-1}$
+is also one-to-one.
+
+\begin{proof}
+[True.] Recall: It was shown in class that for a function $g$, the
+inverse of $g$ is a function if and only if $g$ is $1-1$. Since
+$f^{-1}$ is a function and $(f^{-1})^{-1}=f$ is also a function,
+it follows that $f^{-1}$ is $1-1$. 
+\end{proof}
+Alternatively,
+\begin{proof}
+Suppose to the contrary that $f^{-1}$ is \emph{not }$1-1$. So then
+there is $b_{1},b_{2}\in B$ such that $b_{1}\neq b_{2}$ and $f^{-1}(b_{1})=f^{-1}(b_{2})=a$
+for some $a\in A$. Thus $f(f^{-1}(b_{1}))=b_{1}\neq b_{2}=f(f^{-1}(b_{2}))$
+which contradicts the assumption that $f$ is a fucntion. 
+\end{proof}
+\end{enumerate}
+\vfill
+\begin{enumerate}
+\item Let $f:A\rightarrow B$ be a one-to-one function. Show that $\left|A\right|\leq\left|B\right|$.
+
+\begin{proof}
+Let $\left|A\right|$ be the number of items and $\left|B\right|$
+be the number of boxes. By the pigeon hole theorem, if $\left|A\right|>\left|B\right|$
+then $f$ would map (or place) at least $2$ items to the same box
+and thus not be $1-1$. Thus $f$ must be $1-1$.\vfill
+\end{proof}
+\item Let $f:A\rightarrow B$ and $g:B\rightarrow C$ be functions. Prove
+that $g\circ f:A\rightarrow C$ is a function. 
+
+\begin{proof}
+$f$ is a function implies that for any $a\in A$ there is a unique
+$b\in B$ such that $f(a)=b$. Also, $g$ is a function implies that
+for any $b\in B$ there is a unique $c\in C$ such that $g(b)=c$.
+Thus for any for any $a\in A$ there is a unique $c\in C$ such that
+$g(f(a)=c$. So $g\circ f$ is a function.\vfill
+\end{proof}
+\item Let $f:A\rightarrow A$, $g:A\rightarrow A$, and $h:A\rightarrow A$;
+prove that $\left(h\circ g\right)\circ f=h\circ\left(g\circ f\right)$.
+
+\begin{proof}
+Let $a_{0}\in A$. Since $f,g,h$ are functions there are $a_{1},a_{2},a_{3}\in A$
+such that, $f(a_{0})=a_{1}$, $g(a_{1})=a_{2}$, and $h(a_{2})=a_{3}$.
+$\left(\left(h\circ g\right)\circ f\right)(a_{0})=h(g(f(a_{0})))=h(g(a_{1}))=h(a_{2})=a_{3}$.
+Also, $\left(h\circ\left(g\circ f\right)\right)(a_{0})=h((g\circ f)(a_{0}))=h(g(f(a_{0})))=h(g(a_{1}))=h(a_{2})=a_{3}$.
+Thus $\left(h\circ g\right)\circ f=h\circ\left(g\circ f\right)$.\vfill
+\end{proof}
+\item Prove that if $f:A\rightarrow B$ is onto and $g:B\rightarrow C$
+is onto, then $\left(g\circ f\right):A\rightarrow C$ is onto. 
+
+\begin{proof}
+Let $c\in C$. $g$ is onto so then there exists a\textbf{ $b\in B$
+}such that $g(b)=c$. Since $f$ is onto there also exists an $a\in A$
+such that $f(a)=b$. So then $g(f(a))=g(b)=c$; thus $g\circ f$ is
+onto.\vfill
+\end{proof}
+\item Each of the following statements, $P(x,y)$, define a relation $R$
+in the natural numbers, $\mathbb{N}$, i.e., $R=(\mathbb{N},\mbox{\ensuremath{\mathbb{N}}},P(x,y))$.
+Show whether each of the following relations is reflexive. 
+
+\begin{enumerate}
+\item $P(x,y)=$$x$ is less than or equal to $y$
+\end{enumerate}
+\begin{proof}
+[Reflexive:] Let $x\in\mathbb{N}$. $x=x\Rightarrow$$x\leq x$ so
+then $R$ is reflexive.
+\end{proof}
+\begin{enumerate}[resume]
+\item $P(x,y)=$$x$ divides $y$
+\end{enumerate}
+\begin{proof}
+[Reflexive:] Let $x\in\mathbb{N}$. $x=1\cdot x$ so then $x|x$.
+Thus $R$ is reflexive.
+\end{proof}
+\begin{enumerate}[resume]
+\item $x+y=10$
+\end{enumerate}
+\begin{proof}
+[Not Reflexive:] Consider the natural number $4$; $4+4\neq10$.
+Thus $R$ is not reflexive. 
+\end{proof}
+\begin{enumerate}[resume]
+\item $x$ and $y$ are relatively prime.
+\end{enumerate}
+\begin{proof}
+[Not Reflexive:] Consider the natural number $8$; $\gcd(8,8)=8\neq1$
+since $8|8$. Thus $R$ is not reflexive.\vfill
+\end{proof}
+\end{enumerate}
+\begin{enumerate}[resume]
+\item Extra Credit: Did you attend the STEM college Lyceum given by Dr.\,Stephenson?
+
+\begin{proof}
+YES of course. It was better than a Beyonce concert at Disney World.\vfill
+\end{proof}
+\end{enumerate}
+\newpage
+
+\textbf{Presentation problems.}
+\begin{enumerate}
+\item Let the function $f:A\rightarrow B$ be 1-1 and onto, i.e., $f^{-1}$
+exists and $\left|A\right|=\left|B\right|$. Prove that $\left(f^{-1}\circ f\right):A\rightarrow A$
+is the identity function on $A$ and that $\left(f\circ f^{-1}\right):B\rightarrow B$
+is the identity function on $B$.
+\item Let $f:A\rightarrow B$ be 1-1 and onto. Prove that $g=f^{-1}$, if
+$\left(g\circ f\right):A\rightarrow A$ is the identity function on
+$A$ and $\left(f\circ g\right):B\rightarrow B$ is the identity function
+on $B$. 
+\item The \emph{product set }of sets $A$ and $B$ is the set of all ordered
+pairs $(a,b)$ where $a\in A$ and $b\in B$; it is denoted by $A\times B$.
+Prove that $A\times(B\cap C)=(A\times B)\cap(A\times C)$. 
+\item Prove: Let $R$ and $R'$ be symmetric relations in a set $A$; then
+$R\cap R'$ is a symmetric relation in $A$.
+\item Prove that ${\displaystyle \sum_{k=1}^{n}2k=n^{2}+n}$
+\item The Fibonacci numbers are :$1,1,2,3,5,8,13,21,34,\dots$. In general,
+the Fibonacci numbers are defined by $f_{1}=1$, $f_{2}=1$, and $f_{n+2}=f_{n+1}+f_{n}$
+for $n=1,2,3,\dots$. Prove that the $n^{\mbox{th}}$ Fibonacci number
+$f_{n}<2^{n}$.
+\item Prove that there infinitely many prime numbers. 
+\item [$\smiley$\textbf{.}]Two sets are said to be \emph{equal }if there
+exists a bijective function between them; we write $\left|A\right|=\left|B\right|$.
+$B$ is said to have \emph{strictly greater cardinality} than $B$
+if there is a one-to-one function from $A$ into $B$, but there does
+not exist a bijective function from $A$ into $B$; we write$\left|A\right|<\left|B\right|$.
+Prove that $\left|\mathbb{N}\right|<\left|\mathbb{R}\right|$.
+\end{enumerate}
+\vfill
+\end{document}

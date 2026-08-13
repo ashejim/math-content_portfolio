@@ -1,0 +1,160 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+\usepackage[super]{nth}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{336}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\examType}{Exam 3 Review}
+
+\renewcommand{\date}{\formatdate{18}{11}{2013}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} ~\date{}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\textbf{}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\setlist{topsep=.5pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\xmax}{0}
+\newcommand{\xmin}{-\xmax}
+\newcommand{\xstep}{0}
+\newcommand{\ymax}{0}
+\newcommand{\ymin}{-\ymax}
+\newcommand{\ystep}{0} 
+\newcommand{\dspace}{\vspace{1cm}}
+\newcommand{\xa}{0}
+\newcommand{\xb}{0}
+\newcommand{\ya}{1}
+\newcommand{\yb}{1}
+
+\subsubsection*{Chapter 5 Determinants}
+\begin{itemize}
+\item \textbf{5.1 Properties of Determinants:}
+
+\begin{itemize}
+\item Calculate the determinant of a matrix using properties of determinants.
+
+\begin{itemize}
+\item [\textbf{ex.}] HW 1ab.
+\item [\textbf{ex.}]Let $\det(A)=\sqrt{2}$. Does $A^{-1}$ exist? If so
+find $\det(A^{-1})$.
+\item [\textbf{ex.}]Let $R$ be the reduced row echelon form of $A$. How
+does $\det A$ relate to $\det R$?
+\item [\textbf{ex.}]Let $A\in\mathcal{M}_{2\times2}$ with a determinant
+of $3$ and $B=\begin{bmatrix}\begin{array}{rr}
+1 & 2\\
+2 & 2
+\end{array}\end{bmatrix}$, find $\det AB$.
+\end{itemize}
+\item For $n\times n$ matrices:
+
+\begin{itemize}
+\item See Proposition 1.7.
+\item $A$ is an upper (or lower) triangle matrix $\Rightarrow$ $\det A$
+is equal to the product of $A$'s diagonal entries.
+\item $A$ is nonsingular $\iff$ $\det A\neq0$.
+\item $\det(AB)=\det A\det B$.
+\item $A$ is a nonsingular $\Rightarrow$$\det(A^{-1})=\frac{1}{\det A}$.
+\end{itemize}
+\end{itemize}
+\item \textbf{5.2 Cofactors}
+
+\begin{itemize}
+\item Calculate the determinant of a matrix using cofactors.
+\item Calculate the $x_{i}$ coordinate in a solution vector using Cramer's
+rule.
+\end{itemize}
+\end{itemize}
+
+\subsubsection*{Chapter 6 Eigenvalues and Eigenvectors}
+\begin{itemize}
+\item \textbf{6.1: The Characteristic Polynomial}
+
+\begin{itemize}
+\item Calculate the characterisitice polynomial of $A$, $p_{A}(t)$.
+\item Find the eigenvalues and eigenvectors of $A$.
+\item Know the definition of \emph{eigenvalue} and \emph{eigenvector}.
+\end{itemize}
+\item \textbf{6.2: Diagonalization}
+
+\begin{itemize}
+\item Know the defintion of \emph{similar matrices}: $A$ and $B$ are similar
+if there exists an invertible matrix $P$ such that $A=P^{-1}BP$
+\item \uline{Prove:} If $A$ and $B$ are similar matrices then $\det(A)=\det(B)$.
+(Hint: use the last two properties under 5.1 above)
+\item Know the definition of \emph{diagonalizable}.
+\end{itemize}
+\end{itemize}
+
+\end{document}

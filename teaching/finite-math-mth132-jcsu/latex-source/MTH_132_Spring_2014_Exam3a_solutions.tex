@@ -1,0 +1,355 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{calc}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\setlist{noitemsep,nosep}
+%\setlist{nolistsep}
+\usepackage{ifthen}
+
+%\setlist{nolistsep} % or
+%\setlist{noitemsep} %to leave space around whole list
+
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{132}
+
+\newcommand{\classSec}{C and K}
+
+\newcommand{\nameType}{Solutions}
+
+\newcommand{\examType}{Exam 3}
+
+\renewcommand{\date}{\formatdate{1}{4}{2014}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+ %\setlist{noitemsep,nosep,topsep=0pt,partopsep=0pt,parsep=0pt,itemsep=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\xmax}{10}
+\newcommand{\xmin}{-10}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{10}
+\newcommand{\ymin}{-10}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcommand{\xspace}{\vspace{1.5cm}}
+
+\emph{You must show work to receive credit.}
+
+\textbf{Find the simple interest AND the future value of the loan. }
+\begin{enumerate}[resume]
+\item \$1000 at 4.25\% for 6 months.
+
+\begin{enumerate}[resume]
+\item [FV:]$1000\left(1+.0425\cdot\frac{6}{12}\right)=\$1021.25$
+\item [interest:]$1021.25-1000=\$21.25$\vfill
+\end{enumerate}
+\end{enumerate}
+\textbf{Find the compound amount for the given deposit and the amount
+of interest earned.}
+\begin{enumerate}[resume]
+\item \$2500 at 6.01\% compounded monthly for 38 months.
+
+\begin{enumerate}[resume]
+\item [FV:]$2500\left(1+\frac{.0601}{12}\right)^{12\cdot\frac{38}{12}}\approx\$3022.65$
+\item [interest:]$3022.65-2500=522.65$\vfill
+\end{enumerate}
+\item \$2500 at 7\% compounded continuously for $5$ years.
+
+\begin{enumerate}[resume]
+\item [FV:]$2500e^{\left(.07\cdot5\right)}\approx\$3547.67$
+\item [interest:]$3547.67-2500=\$1047.67$
+\end{enumerate}
+\end{enumerate}
+\textbf{Find the amount that should be invested now to accumulate
+the following amount, if the money is compounded as indicated.}
+\begin{enumerate}[resume]
+\item \$6200 at $9.5\%$ compounded quarterly for 29 months.
+
+\begin{enumerate}[resume]
+\item []$6200(1+\frac{.095}{4})^{-(4\cdot\frac{29}{12})}\approx\$4941.41$\vfill
+\end{enumerate}
+\end{enumerate}
+\textbf{Solve}
+\begin{enumerate}[resume]
+\item Jane needs \$500,000 in 25 years to retire. To meet this goal she
+will invest money into an account paying 7\% annual interest rate
+compounded continuously. How much money needs to be invested into
+the account?
+
+\begin{enumerate}[resume]
+\item []$500,000e^{-(25\cdot.07)}\approx\$86,886.97$\vfill
+\end{enumerate}
+\item You place \$1500 into an account which pays 5\% compounded daily.
+How much money will be in the account after 800 days? Assume that
+there are 360 days in a year and 30 days in a month.
+
+\begin{enumerate}[resume]
+\item []$1500(1+\frac{.05}{360})^{\left(360\cdot\frac{800}{360}\right)}\approx\$1676.27$\vfill\newpage
+\end{enumerate}
+\end{enumerate}
+\textbf{Find the future value of each ordinary annuity, if payments
+are made and interest is compounded as given. Then determine how much
+of this value is from interest.}
+\begin{enumerate}[resume]
+\item $R=\$3,250$ (payments); $11\%$ interest compounded semi-annually
+for 7 years.\vspace{-5pt}
+\end{enumerate}
+\begin{itemize}
+\item []\begin{multicols}{2}%
+\begin{tabular}{rll}
+\textbf{N:} & $2\cdot7=14$ & \tabularnewline
+${\tt I\%}$: & $11$ & \tabularnewline
+${\tt PV}$: & $0$ & \tabularnewline
+${\tt PMT}$: & $-3250$ & \tabularnewline
+${\tt FV}$: & ? & $\Rightarrow$${\tt FV:}\$65,950.86$\tabularnewline
+${\tt P/Y}$: & 2 & \tabularnewline
+${\tt C/Y}$: & 2 & \tabularnewline
+\end{tabular}\columnbreak
+\begin{eqnarray*}
+S & = & 3250\left[\frac{\left(1+\nicefrac{.11}{2}\right)^{2\cdot7}-1}{\nicefrac{.11}{2}}\right]\\
+ & \approx & \$65,950.86
+\end{eqnarray*}
+and $65950.86-3250\cdot14=\$20,450.86$ is from interest.\end{multicols}\vfill
+\end{itemize}
+\textbf{Find the periodic payment that will amount to each given sum
+under the given conditions. }
+\begin{enumerate}[resume]
+\item $S=\$100,000$; interest is 5\% compounded annually; payments are
+made at the end of each year for 12 years.\vspace{-5pt}
+\end{enumerate}
+\begin{itemize}
+\item []\begin{multicols}{2}%
+\begin{tabular}{rll}
+\textbf{N:} & $12\cdot1$ & \tabularnewline
+${\tt I\%}$: & 5 & \tabularnewline
+${\tt PV}$: & $0$ & \tabularnewline
+${\tt PMT}$: & ? & $\Rightarrow$${\tt PMT:-6282.5410}$ \tabularnewline
+${\tt FV}$: & $100,000$ & so payments of $\$6282.54$.\tabularnewline
+${\tt P/Y}$: & 1 & \tabularnewline
+${\tt C/Y}$: & 1 & \tabularnewline
+\end{tabular}\columnbreak
+\begin{eqnarray*}
+R & = & \frac{100000\left(\nicefrac{.05}{1}\right)}{(1+\nicefrac{,05}{1})^{12\cdot1}-1}\\
+ & \approx & \$6,282.54
+\end{eqnarray*}
+\end{multicols}\vspace{-5pt}
+\end{itemize}
+\textbf{Find the future value of each ordinary annuity, if payments
+are made and interest is compounded as given. Then determine how much
+of this value is from interest.}
+\begin{enumerate}[resume]
+\item Payments of $\$800$ into an account paying 6.51\% interest compounded
+quarterly for 12 years. \vspace{-5pt}
+\end{enumerate}
+\begin{itemize}
+\item []\begin{multicols}{2}%
+\begin{tabular}{rll}
+\textbf{N:} & $4\cdot12=48$ & \tabularnewline
+${\tt I\%}$: & 6.51 & \tabularnewline
+${\tt PV}$: & $0$ & \tabularnewline
+${\tt PMT}$: & $-800$ & \tabularnewline
+${\tt FV}$: & ? & $\Rightarrow$${\tt FV:}\$57,531.14$.\tabularnewline
+${\tt P/Y}$: & 4 & \tabularnewline
+${\tt C/Y}$: & 4 & \tabularnewline
+\end{tabular}\columnbreak
+\begin{eqnarray*}
+S & = & 800\left[\frac{\left(1+\nicefrac{.0651}{4}\right)^{4\cdot12}-1}{\nicefrac{..0651}{4}}\right]\\
+ & \approx & \$57,531.14
+\end{eqnarray*}
+Total payments were $800\cdot48=38,400$. So $57,531.14-38,400=\$19,131.14$
+is from interest.\end{multicols}
+\end{itemize}
+\textbf{Find the present value of each ordinary annuity.}
+\begin{enumerate}[resume]
+\item Payments of \$100 each month for 10 years at 8.5\%.\vspace{-5pt}
+\end{enumerate}
+\begin{itemize}
+\item []\begin{multicols}{2}%
+\begin{tabular}{rll}
+\textbf{N:} & $12\cdot10=120$ & \tabularnewline
+${\tt I\%}$: & 8.5 & \tabularnewline
+${\tt PV}$: & ? & \tabularnewline
+${\tt PMT}$: & $-100$ & $\Rightarrow{\tt PV:}\$8065.45$\tabularnewline
+${\tt FV}$: & $0$  & \tabularnewline
+${\tt P/Y}$: & 12 & \tabularnewline
+${\tt C/Y}$: & 12 & \tabularnewline
+\end{tabular}\columnbreak
+\begin{eqnarray*}
+P & = & 100\left[\frac{1-\left(1+\nicefrac{.085}{12}\right)^{-10\cdot12}}{\nicefrac{.085}{12}}\right]\\
+ & \approx & \$8065.45
+\end{eqnarray*}
+\end{multicols}\vspace{-5pt}
+\end{itemize}
+\textbf{Find the monthly house payments necessary to amortize each
+loan. Then calculate the total payments and the total amount of interest
+paid. }
+\begin{enumerate}[resume]
+\item \$175,000 at 6.24\% for 30 years.\vspace{-5pt}
+\end{enumerate}
+\begin{itemize}
+\item []\begin{multicols}{2}%
+\begin{tabular}{rl}
+\textbf{N:} & $12\cdot30=360$\tabularnewline
+${\tt I\%}$: & 6.24\tabularnewline
+${\tt PV}$: & 175,000\tabularnewline
+${\tt PMT}$: & ?\tabularnewline
+${\tt FV}$: & $0$ \tabularnewline
+${\tt P/Y}$: & 12\tabularnewline
+${\tt C/Y}$: & 12\tabularnewline
+\end{tabular}\columnbreak
+\item [Monthly payments:]${\tt PMT=}-1076.3671$ so payments of $\$1076.37$
+\item [Total payments:]$1076.37\cdot360=\$387,493.20$
+\item [Interet paid:]$387,493.20-175,000=\$212,493.20$\end{multicols}\vfill
+\end{itemize}
+\newpage
+
+\textbf{\xspace}
+
+\subsection*{\center{Formula Sheet}}
+
+\noindent\begin{minipage}[t]{1\columnwidth}%
+\begin{center}
+\begin{tabular}{llll}
+$P=$principal/present value & $r=$annual interest rate & $m=$compoundings per year & $n=tm$\tabularnewline
+$A=$future/maturity value & $t=$number of years & $i=\nicefrac{r}{m}=$rate per period & $r_{E}=$effective rate\tabularnewline
+\end{tabular}
+\par\end{center}%
+\end{minipage}
+
+\noindent\fcolorbox{black}{white}{\begin{minipage}[t]{1\columnwidth - 2\fboxsep - 2\fboxrule}%
+\begin{center}
+\begin{tabular}{lclcl}
+\textbf{Simple Interest} &  & \textbf{Compound Interest} &  & \textbf{Continuous Compounding}\tabularnewline
+\midrule
+$A=P(1+rt)$ &  & $A=P(1+i)^{n}$ &  & $A=Pe^{rt}$\tabularnewline
+$P=\frac{A}{1+rt}$ &  & $P=A(1+i)^{-n}$ &  & $P=Ae^{-rt}$\tabularnewline
+ &  & $r_{E}=\left(1+\frac{r}{m}\right)^{m}-1$ &  & $r_{E}=e^{r}-1$\tabularnewline
+\end{tabular}
+\par\end{center}%
+\end{minipage}}
+
+\xspace%
+\noindent\begin{minipage}[t]{1\columnwidth}%
+\begin{center}
+\begin{tabular}{lll}
+$R=$periodic payment & $P=$present value of annuity & $n=$number of periods\tabularnewline
+$S=$future value &  & $i=$rate per period\tabularnewline
+\end{tabular}
+\par\end{center}%
+\end{minipage}
+
+\noindent\fcolorbox{black}{white}{\begin{minipage}[t]{1\columnwidth - 2\fboxsep - 2\fboxrule}%
+\begin{center}
+\begin{tabular}{lcl}
+\textbf{Future Value of an Annuity} &  & \textbf{Sinking Fund Payment}\tabularnewline
+\midrule
+$S=R\left[\frac{\left(1+i\right)^{n}-1}{i}\right]$ &  & $R=\frac{S\cdot i}{(1+i)^{n}-1}$\tabularnewline
+\end{tabular}
+\par\end{center}%
+\end{minipage}}
+
+\noindent\fcolorbox{black}{white}{\begin{minipage}[t]{1\columnwidth - 2\fboxsep - 2\fboxrule}%
+\begin{center}
+\begin{tabular}{ll}
+\textbf{Present Value of an Annuity} & \textbf{Amortization Payments}\tabularnewline
+\midrule
+$P=R\left[\frac{1-\left(1+i\right)^{-n}}{i}\right]$ & $R=\frac{P}{\left[1-(1+i)^{-n}\right]}$\tabularnewline
+\end{tabular}
+\par\end{center}%
+\end{minipage}}
+
+\xspace
+
+\begin{center}
+\textbf{Ti-83/84 }
+\par\end{center}
+
+\begin{center}
+\begin{tabular}{rl}
+\textbf{N} & : number of payments\tabularnewline
+${\tt I\%}$ & : interest rate\tabularnewline
+${\tt PV}$ & : present value\tabularnewline
+${\tt PMT}$ & : payment size\tabularnewline
+${\tt FV}$ & : future value\tabularnewline
+${\tt P/Y}$ & : payments per year\tabularnewline
+${\tt C/Y}$ & : compoundings per year\tabularnewline
+\end{tabular}
+\par\end{center}
+
+\textbackslash
+\end{document}

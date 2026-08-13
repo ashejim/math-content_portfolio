@@ -1,0 +1,144 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{sectsty} %%one way to change section header font sizes.
+\sectionfont{\large}
+\usepackage[usenames,dvipsnames,table]{xcolor} %adds additional color options
+\usepackage{datetime}   % Dates formatting
+%\longdate %\usdate 
+\newdateformat{MD}{\monthname[\THEMONTH] \ordinal{DAY}}
+
+%%defines new date format
+\def\formatdateny{\csname noyear\languagename\expandafter\endcsname\formatdate}
+\def\noyearenglish#1, \the\@year{#1}
+\let\noyearamerican\noyearenglish
+\let\noyearbritish\noyearenglish
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+%%%Enter the section number, time, room, etc. in the brackets%%%
+\newcommand{\secNum}{07}
+\newcommand{\secTime}{11:00-12:00}
+\newcommand{\secRoom}{Walls 418}
+\newcommand{\secSem}{Fall 2014}
+\newcommand{\secWebCode}{mhu 2542 5052}
+\newcommand{\secFinal}{\formatdate{5}{12}{2014}}
+
+\section*{\center{Tentative Schedule}}
+\begin{center}
+\textbf{Finite Mathematics~~|~~Math 107~~|~~Section \secNum~~|~~\secSem}\\
+\textbf{MWF \secTime~~|~~\secRoom}
+\par\end{center}
+
+\rowcolors{1}{gray!40}{white}
+
+\begin{center}
+\begin{tabular}{|r|l|}
+\hline 
+\formatdateny{20}{8}{2014} & Syllabus, Intro. to WebAssign, Section 2.1\tabularnewline
+\hline 
+\formatdateny{22}{8}{2014} & Section 2.1\tabularnewline
+\hline 
+\formatdateny{25}{8}{2014} & Section 2.2\tabularnewline
+\hline 
+\formatdateny{27}{8}{2014} & Section 2.3\tabularnewline
+\hline 
+\formatdateny{29}{8}{2014} & Section 2.3\tabularnewline
+\hline 
+\formatdateny{1}{9}{2014} & Section 2.4\tabularnewline
+\hline 
+\formatdateny{3}{9}{2014} & Section 2.4\tabularnewline
+\hline 
+\formatdateny{5}{9}{2014} & Review \tabularnewline
+\hline 
+\formatdateny{8}{9}{2014} & \textbf{Exam 1}\tabularnewline
+\hline 
+\formatdateny{10}{9}{2014} & Section 1.1\tabularnewline
+\hline 
+\formatdateny{12}{9}{2014} & Section 1.2 \tabularnewline
+\hline 
+\formatdateny{15}{9}{2014} & Section 1.2; Last day to drop w/o an ``I''\tabularnewline
+\hline 
+\formatdateny{17}{9}{2014} & Section 1.3\tabularnewline
+\hline 
+\formatdateny{19}{9}{2014} & Section 1.3 \tabularnewline
+\hline 
+\formatdateny{22}{9}{2014} & Section 1.4\tabularnewline
+\hline 
+\formatdateny{24}{9}{2014} & Section 1.5\tabularnewline
+\hline 
+\formatdateny{26}{9}{2014} & Section 1.5 \tabularnewline
+\hline 
+\formatdateny{29}{9}{2014} & Review\tabularnewline
+\hline 
+\formatdateny{1}{10}{2014} & \textbf{Exam 2}\tabularnewline
+\hline 
+\formatdateny{3}{10}{2014} & Section 3.2\tabularnewline
+\hline 
+\formatdateny{6}{10}{2014} & \textbf{Fall Break}\tabularnewline
+\hline 
+\formatdateny{8}{10}{2014} & Section 3.3\tabularnewline
+\hline 
+\formatdateny{10}{10}{2014} & Section 3.3 \tabularnewline
+\hline 
+\formatdateny{13}{10}{2014} & Section 3.4; Last day to withdraw with a \textquotedblleft W\textquotedblright{}\tabularnewline
+\hline 
+\formatdateny{15}{10}{2014} & Section 3.4\tabularnewline
+\hline 
+\formatdateny{17}{10}{2014} & Section 3.5 \tabularnewline
+\hline 
+\formatdateny{20}{10}{2014} & Section 3.6\tabularnewline
+\hline 
+\formatdateny{22}{10}{2014} & Section 3.7\tabularnewline
+\hline 
+\formatdateny{24}{10}{2014} & Review \tabularnewline
+\hline 
+\formatdateny{27}{10}{2014} & \textbf{Exam 3}\tabularnewline
+\hline 
+\formatdateny{29}{10}{2014} & Section 4.1\tabularnewline
+\hline 
+\formatdateny{31}{10}{2014} & Section 4.2 \tabularnewline
+\hline 
+\formatdateny{3}{11}{2014} & Section 4.2-4.3 \tabularnewline
+\hline 
+\formatdateny{5}{11}{2014} & Section 4.3\tabularnewline
+\hline 
+\formatdateny{7}{11}{2014} & Section 4.3 \tabularnewline
+\hline 
+\formatdateny{10}{11}{2014} & Section 4.3-4.4\tabularnewline
+\hline 
+\formatdateny{12}{11}{2014} & Section 4.4\tabularnewline
+\hline 
+\formatdateny{14}{11}{2014} & Section 4.4\tabularnewline
+\hline 
+\formatdateny{17}{11}{2014} & Section 4.4\tabularnewline
+\hline 
+\formatdateny{19}{11}{2014} & Review\tabularnewline
+\hline 
+\formatdateny{21}{11}{2014} & \textbf{Exam 4}\tabularnewline
+\hline 
+\formatdateny{24}{11}{2014} & Review\tabularnewline
+\hline 
+\formatdateny{26}{11}{2014} & \textbf{Thanksgiving Break}\tabularnewline
+\hline 
+\formatdateny{28}{11}{2014} & \textbf{Thanksgiving Break}\tabularnewline
+\hline 
+\formatdateny{1}{12}{2014} & Review\tabularnewline
+\hline 
+\secFinal & \textbf{Final Exam}\tabularnewline
+\hline 
+\end{tabular}
+\par\end{center}
+\end{document}

@@ -1,0 +1,161 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{439}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{Name: \hspace{-4cm}}
+
+\newcommand{\examType}{Homework 1}
+
+\newcommand{\Date}{\formatdate{14}{1}{2014}} %%\AdvanceDate[12] \today
+
+%\newdate{my_date}{\day}{\month}{\year}%   
+%\AdvanceDate[-5] 
+%\displaydate{my_date}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \Date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+%\setlist{nolistsep} %eliminates space between list items
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Homework}
+\begin{enumerate}
+\item Show that $\mathbb{Z}_{6}$ is a ring with unity under addition and
+multiplication. 
+\item Show that the set $\sqrt{2}\mathbb{Z}=\{x\colon x=\sqrt{2}n\mbox{ for some \ensuremath{n\in\mathbb{Z}}}\}$
+is a ring. 
+\item Let $F$ be the set of all functions from $\mathbb{R}$ to $\mathbb{R}$.
+Define addition and multiplication as 
+\[
+(f+g)(x)=f(x)+g(x)\mbox{ and }(fg)(x)=f(x)g(x).
+\]
+Show that $F$ is a commutative ring with identity. 
+\item Prove that the ring above, $F$, is not an integral domain.
+
+\begin{itemize}
+\item [Hint]Here are two \emph{indicator functions} 
+\[
+\mathbf{1}_{[0,\infty)}(x)=\begin{cases}
+1 & \mbox{if }x\in[0,\infty)\\
+0 & \mbox{if }x\notin[0,\infty)
+\end{cases}\mbox{ and }\mathbf{1}_{(-\infty,0]}(x)=\begin{cases}
+1 & \mbox{if }x\in(-\infty,0]\\
+0 & \mbox{if }x\notin(-\infty,0]
+\end{cases}
+\]
+\\
+ The indicator function is a function that has an output of either
+$1$ or $0$. For example, $\mathbf{1}_{[0,\infty)}(2)=1$ and $\mathbf{1}_{[0,\infty)}(-2)=1$.
+Now consider the functions $f(x)=x\mathbf{1}_{[0,\infty)}$ and $g(x)=x\mathbf{1}_{(-\infty,0]}$.
+\end{itemize}
+\item Let $R$ and $S$ be rings. Define addition and multiplication on
+the Cartesian product $R\times S$ by, 
+\[
+(r,s)+(r',s')=(r+r',s+s')\mbox{ and }(r,s)(r',s')=(rr',ss')
+\]
+for $r,r'\in R$ and $s,s'\in S$. Prove that $R\times S$ is a ring. 
+\item Show that the set $k\mathbb{Z}=\{x\colon x=kn\mbox{ for some \ensuremath{n\in\mathbb{Z}}}\}$
+for any integer $k$ is a subring of $\mathbb{Z}$. 
+\item Prove that $\mathbb{Q}$ is an integral domain. 
+\item Prove that $\mathbb{Z}_{6}$ is not an integral domain. 
+\item Let $a$ and $b$ be two nonzero elements in a ring $R$. Prove that
+in general, $ax=b$ does not have a unique solution.
+
+\begin{itemize}
+\item [Hint]It should be understood that $x$ must be in $R$. An example
+is all that is needed. You can find an example that has two solutions,
+or find an example with no solution. 
+\end{itemize}
+\item Prove that $\mathbb{Z}_{n}$ is not an integral domain (under the
+usual addition and multiplication) if $n$ is not a prime ($n$ is
+assumed to be a positive integer). 
+
+\begin{itemize}
+\item [Hint]If $n$ is not prime then $n=mq$ for two integers $1<m,q<n$.
+Looking at the example seen in exercise might help. 
+\end{itemize}
+\end{enumerate}
+\textbf{Presentation Problems} 
+\begin{enumerate}
+\item Prove that the intersection of any two subrings of a ring $R$ is
+also a subring of $R$. 
+\item Give an example of a ring with elements $a$ and $b$ with properties
+that $ab=0$ but $ba\neq0$. 
+\item Let $m$ and $n$ be positive integers with least common multiple
+$k$. Proves that $m\mathbb{Z}\cap n\mathbb{Z}=k\mathbb{Z}$. 
+\item Prove that a ring that is cyclic under addition is commutative. 
+\item Prove that if a ring element has a multiplicative inverse, it is unique. 
+\item Prove that a field is an integral domain. 
+\item Prove that $\mathbb{Z}_{p}$ is an integral domain if $p$ is prime
+(you can assume that it is a commutative ring with identity). 
+\item Prove that $\mathbb{Z}_{p}$ is a field.
+\end{enumerate}
+
+\end{document}

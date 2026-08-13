@@ -1,0 +1,316 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{336}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\examType}{HW 1.2 Solutions}
+
+\renewcommand{\date}{\formatdate{6}{9}{2013}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} ~\date{}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\textbf{Name:\hspace{4cm}}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{Name:}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\setlist{topsep=.5pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\xmax}{0}
+\newcommand{\xmin}{-\xmax}
+\newcommand{\xstep}{0}
+\newcommand{\ymax}{0}
+\newcommand{\ymin}{-\ymax}
+\newcommand{\ystep}{0} 
+\newcommand{\dspace}{\vspace{1cm}}
+\newcommand{\xa}{0}
+\newcommand{\xb}{0}
+\newcommand{\ya}{1}
+\newcommand{\yb}{1}
+\begin{enumerate}[resume]
+\item $\mathbf{x\cdot}\mathbf{y}=(x_{1},x_{2},\dots,x_{n})\cdot(y_{1},y_{2},\dots,y_{n})=x_{1}y_{1}+x_{2}y_{2}+\cdots+x_{n}y_{n}$
+and $\mathbf{x\cdot}\mathbf{y}=\Vert\mathbf{x}\Vert\Vert\mathbf{y}\Vert\cos\theta$.
+
+\begin{enumerate}[resume]
+\item [\textbf{b.}]\setcounter{enumii}{2}$(2,1)\cdot(-1,1)=2(-1)+1(1)=-2+1=-1$.
+$\Vert(2,1)\Vert=\sqrt{2^{2}+1^{2}}=\sqrt{5}$ and $\Vert(-1,1)\Vert=\sqrt{(-1)^{2}+1^{2}}=\sqrt{2}$.
+So then $\theta=\cos^{-1}\left(\nicefrac{-1}{\sqrt{10}}\right)$ ($\approx108.435^{\circ}$). 
+\item $(1,8)\cdot(7,4)=-25$. $\theta=\cos^{-1}\left(\nicefrac{-25}{\Vert(1,8)\Vert\Vert(7,4)\Vert}\right)=\cos^{-1}\left(\nicefrac{-25}{\sqrt{65}\sqrt{65}}\right)=\cos^{-1}\left(-\nicefrac{5}{13}\right)$
+($\approx112.62^{\circ}$).
+\item $(1,4,-3)\cdot(5,1,3)=1(5)+4(1)+(-3)(3)=5+4-9=0$. So the vectors
+are orthogonal, i.e., $\theta=\nicefrac{\pi}{2}=90^{\circ}$.
+\end{enumerate}
+\item $\mbox{proj}_{\mathbf{y}}\mathbf{x}=\frac{\mathbf{x\cdot y}}{\Vert\mathbf{y}\Vert^{2}}\mathbf{y}$
+and $\mbox{proj}_{\mathbf{x}}\mathbf{y}=\frac{\mathbf{x\cdot y}}{\Vert\mathbf{x}\Vert^{2}}\mathbf{x}$.
+
+\begin{enumerate}[resume]
+\item [\textbf{b.}]Using results from above,\\
+$\mbox{proj}_{\mathbf{y}}\mathbf{x}=\frac{-1}{(\sqrt{2})^{2}}(-1,1)=-\frac{1}{2}(-1,1)$
+and $\mbox{proj}_{\mathbf{x}}\mathbf{y}=\frac{-1}{(\sqrt{5})^{2}}(2,1)=-\frac{1}{5}(2,1)$.
+\item [\textbf{d.}]The vectors are orthogonal, so $\mbox{proj}_{\mathbf{y}}\mathbf{x}=\mbox{proj}_{\mathbf{x}}\mathbf{y}=0$. 
+\end{enumerate}
+\item [\textbf{4.}]Note that scaling and position does not affect the problem.
+So without loss of generality we can assume that vectors $(0,0,0),(1,0,0),(0,1,0),(1,1,0),(0,0,1),(1,0,1),(0,1,1)$,
+and $(1,1,1)$ represent the eight vertices of the cube. A long diagonal
+and a face angle are given by $(1,1,1)$ and $(1,0,0)$ respectively.
+$(1,1,1)\cdot(1,1,0)=2$, $\Vert(1,1,1)\Vert=\sqrt{3}$, and $\Vert(1,1,0)\Vert=\sqrt{2}$.
+This gives $\cos^{-1}\left(\nicefrac{2}{\sqrt{6}}\right)\approx35.3^{\circ}$.\\
+\tdplotsetmaincoords{60}{115}% %%specifes orientation
+%%\tdplotsetrotatedcoords{0}{20}{0}% %%specifes angle of rotation
+\begin{tikzpicture} 		
+	[tdplot_main_coords,
+		scale=2,
+		cube/.style={purple}, 
+		grid/.style={very thin,gray}, 
+		axis/.style={->,blue,thick},
+		vector/.style={very thick,red,-stealth},
+		vector guide/.style={dashed,red,thick},
+		angle/.style={black,thick}]
+	
+	%draw a grid in the x-y plane 	
+	\foreach \x in {-0.25,0,...,1.25} 		
+	\foreach \y in {-0.25,0,...,1.25} 		
+	{ 			
+		%\draw[grid] (\x,-0.25) -- (\x,1.25); 			
+		%\draw[grid] (-0.25,\y) -- (1.25,\y); 		
+	} 		
+	
+	
+	
+	%draw the axes 	
+	\draw[axis] (0,0,0) -- (1.5,0,0) node[anchor=west]{$x$}; 	
+	\draw[axis] (0,0,0) -- (0,1.5,0) node[anchor=west]{$y$}; 	
+	\draw[axis] (0,0,0) -- (0,0,1.5) node[anchor=west]{$z$};
+	
+	%draw the top and bottom of the cube 	
+	\draw[cube] (0,0,0) -- (0,1,0) -- (1,1,0) -- (1,0,0) -- cycle; 	
+	\draw[cube] (0,0,1) -- (0,1,1) -- (1,1,1) -- (1,0,1) -- cycle; 
+	
+	%draw the edges of the cube 	
+	\draw[cube] (0,0,0) -- (0,0,1); 	
+	\draw[cube] (0,1,0) -- (0,1,1); 	
+	\draw[cube] (1,0,0) -- (1,0,1); 	
+	\draw[cube] (1,1,0) -- (1,1,1);
+
+	%standard tikz coordinate definition using x, y, z coords 	
+	\coordinate (O) at (0,0,0);
+	%tikz-3dplot coordinate definition using r, theta, phi coords 	
+	\tdplotsetcoord{P}{.8}{55}{60}
+
+	%draw vector
+	%\draw[vector] (O) -- (P);
+	%\draw[vector guide] (O) -- (Pxy); \draw[vector guide] (Pxy) -- (P);
+	\draw[->, very thick,red,-stealth] (0,0,0) -- (1,1,1);
+	\draw[->,very thick,blue,-stealth] (0,0,0) -- (1,1,0);
+	%draw an arc illustrating the angle defining the orientation 
+	\tdplotsetthetaplanecoords{45}	
+	\tdplotdrawarc[tdplot_rotated_coords,angle]{(O)}{.35}{54.7}{90}{anchor=west}{$\phi$} %{center}{radius}{start}{end angle}
+\end{tikzpicture}
+	\tdplotsetmaincoords{90}{0}% %%specifes orientation
+%%\tdplotsetrotatedcoords{0}{20}{0}% %%specifes angle of rotation
+\begin{tikzpicture} 		
+	[tdplot_main_coords,
+		scale=2,
+		cube/.style={purple}, 
+		grid/.style={very thin,gray}, 
+		axis/.style={->,blue,thick},
+		vector/.style={very thick,red,-stealth},
+		vector guide/.style={dashed,red,thick},
+		angle/.style={black,thick}]
+	
+	%draw a grid in the x-y plane 	
+	\foreach \x in {-0.25,0,...,1.25} 		
+	\foreach \y in {-0.25,0,...,1.25} 		
+	{ 			
+		%\draw[grid] (\x,-0.25) -- (\x,1.25); 			
+		%\draw[grid] (-0.25,\y) -- (1.25,\y); 		
+	} 		
+	
+	
+	
+	%draw the axes 	
+	\draw[axis] (0,0,0) -- (1.5,0,0) node[anchor=west]{$x$}; 	
+	\draw[axis] (0,0,0) -- (0,1.5,0) node[anchor=west]{$y$}; 	
+	\draw[axis] (0,0,0) -- (0,0,1.5) node[anchor=west]{$z$};
+	
+	%draw the top and bottom of the cube 	
+	\draw[cube] (0,0,0) -- (0,1,0) -- (1,1,0) -- (1,0,0) -- cycle; 	
+	\draw[cube] (0,0,1) -- (0,1,1) -- (1,1,1) -- (1,0,1) -- cycle; 
+	
+	%draw the edges of the cube 	
+	\draw[cube] (0,0,0) -- (0,0,1); 	
+	\draw[cube] (0,1,0) -- (0,1,1); 	
+	\draw[cube] (1,0,0) -- (1,0,1); 	
+	\draw[cube] (1,1,0) -- (1,1,1);
+
+	%standard tikz coordinate definition using x, y, z coords 	
+	\coordinate (O) at (0,0,0);
+	%tikz-3dplot coordinate definition using r, theta, phi coords 	
+	\tdplotsetcoord{P}{.8}{55}{60}
+
+	%draw vector
+	%\draw[vector] (O) -- (P);
+	%\draw[vector guide] (O) -- (Pxy); \draw[vector guide] (Pxy) -- (P);
+	\draw[->, very thick,red,-stealth] (0,0,0) -- (1,1,1);
+	\draw[->,very thick,blue,-stealth] (0,0,0) -- (1,1,0);
+	%draw an arc illustrating the angle defining the orientation 
+	\tdplotsetthetaplanecoords{45}	
+	\tdplotdrawarc[tdplot_rotated_coords,angle]{(O)}{.35}{54.7}{90}{anchor=west}{$\phi$} %{center}{radius}{start}{end angle}
+
+\end{tikzpicture}
+	
+\item [\textbf{7.}]The vectors $2\mathbf{x}+3\mathbf{y}$ and $\mathbf{x}-\mathbf{y}$
+are orthogonal if and only if their dot product is $0$. The dot product
+is distributive and $\mathbf{x\cdot x=\Vert}\mathbf{x}\Vert^{2}$
+so then 
+\begin{eqnarray*}
+(2\mathbf{x}+3\mathbf{y})\cdot(\mathbf{x}-\mathbf{y}) & = & 2\mathbf{x\cdot x}-2\mathbf{x\cdot}\mathbf{y}+3\mathbf{y}\cdot\mathbf{x}-3\mathbf{y}\cdot\mathbf{y}\\
+ & = & 2\Vert\mathbf{x}\Vert^{2}+\mathbf{y\cdot}\mathbf{x}-3\Vert\mathbf{y}\Vert^{2}\\
+ & = & 2(2)+\mathbf{y\cdot x}-3\mbox{.}
+\end{eqnarray*}
+The angle between $\mathbf{x}$ and $\mathbf{y}$ is $\nicefrac{3\pi}{4}=\cos^{-1}\left(\nicefrac{\mathbf{x\cdot}\mathbf{y}}{\sqrt{2}}\right)\Rightarrow\mathbf{x\cdot y}=-1$
+(solve for $\mathbf{x\cdot y}$). Thus 
+\[
+2(2)+\mathbf{y\cdot x}-3=4-1-3=0
+\]
+ Which tells us that $2\mathbf{x}+3\mathbf{y}$ and $\mathbf{x}-\mathbf{y}$
+are orthogonal.
+\item [\textbf{11.}]$\mathbf{x}$ is orthogonal to each $\mathbf{v_{1}},\mathbf{v_{2}},\dots,\mathbf{v_{k}}$
+implies that $\mathbf{x}\cdot\mathbf{v_{i}}=0$ for each $i=1,2,\dots,k$.
+So then by the distributive property of the dot product, 
+\begin{eqnarray*}
+\mathbf{x}\cdot(c_{1}\mathbf{v_{1}}+c_{2}\mathbf{v_{2}}+\cdots+c_{k}\mathbf{v_{k}}) & = & c_{1}\mathbf{x\cdot}\mathbf{v_{1}}+c_{2}\mathbf{x\cdot}\mathbf{v_{2}}+\cdots+c_{k}\mathbf{x\cdot}\mathbf{v_{k}}\\
+ & = & c_{1}(0)+c_{2}(0)+\cdots+c_{k}(0)\\
+ & = & 0+0+\cdots+0=0\mbox{.}
+\end{eqnarray*}
+So then $\mathbf{x}$ is orthogonal to $c_{1}\mathbf{v_{1}}+c_{2}\mathbf{v_{2}}+\cdots+c_{k}\mathbf{v_{k}}$
+for any $c_{1},c_{2},\dots,c_{k}\in\mathbb{R}$.
+\item [\textbf{14}] Let $A$, $B$ be vectors as illustrated below.\\
+\tdplotsetmaincoords{0}{0}% %%specifes orientation
+%%\tdplotsetrotatedcoords{0}{20}{0}% %%specifes angle of rotation
+\begin{tikzpicture} 		
+	[tdplot_main_coords,
+		scale=1.5,
+		grid/.style={very thin,gray}, 
+		axis/.style={->,black,thick},
+		vector/.style={very thick,red,-stealth},
+		vector guide/.style={dashed,red,thick},
+		angle/.style={black,thick}]
+	
+	%draw a grid in the x-y plane 	
+	%\foreach \x in {-1,0,...,1} 		
+	%\foreach \y in {-1,0,...,1} 		
+	{ 			
+		%\draw[grid] (\x,-0.25) -- (\x,1.25); 			
+		%\draw[grid] (-0.25,\y) -- (1.25,\y); 		
+	} 		
+	
+	
+	
+	%draw the axes 	
+	\draw[axis] (-.25,0) -- (2,0) node[anchor=west]{$x$}; 	
+	\draw[axis] (0,-.25) -- (0,2) node[anchor=west]{$y$}; 	
+
+	%standard tikz coordinate definition using x, y, z coords 	
+	\coordinate (O) at (0,0);
+
+	%draw vector
+	\draw[->, very thick,red,-stealth] (0,0) -- (1.75,.5) node[anchor=south west]{$A$} node[anchor=north east,pos=.6]{$b$};
+	\draw[->,very thick,red,-stealth] (0,0) -- (.4,1.5) node[anchor=south west]{$B$} node[anchor=north east,pos=.6]{$a$};
+	\draw[very thick,blue,stealth-] (1.75,.5) -- (.4,1.5) node[anchor=south west,pos=.65]{$A-B$} node[anchor=north east,pos=.6]{$c$};
+	\draw[black] (0,0) -- (0,0) node[anchor=south west]{$\theta$};
+	%draw an arc illustrating the angle defining the orientation 
+	%\tdplotsetthetaplanecoords{45}	
+	%\tdplotdrawarc[tdplot_rotated_coords,angle]{(O)}{.35}{54.7}{90}{anchor=west}{$\phi$} %{center}{radius}{start}{end angle}
+\end{tikzpicture}
+	\\
+ $b=\Vert A\Vert$, $a=\Vert B\Vert$, $c=\Vert A-B\Vert$, and $\Vert A\Vert\Vert B\Vert\cos\theta=A\cdot B$.
+So then
+\begin{eqnarray*}
+a^{2}+b^{2}-2ab(\cos\theta^{2}) & = & \Vert B\Vert^{2}+\Vert A\Vert^{2}-2\Vert B\Vert\Vert A\Vert\left(\frac{A\cdot B}{\Vert A\Vert\Vert B\Vert}\right)\\
+ & = & \Vert B\Vert^{2}+\Vert A\Vert^{2}-2A\cdot B\\
+ & = & B\cdot B+A\cdot A-2A\cdot B\\
+ & = & (B-A)^{2}=(A-B)^{2}=\Vert A-B\Vert^{2}\\
+ & = & c^{2}
+\end{eqnarray*}
+($c$ is the length between $A$ and $B$ so then $c=\Vert A-B\Vert$). 
+\item [\textbf{18.}] The Cauchy-Schwarz inequality says that $|\mathbf{x\cdot y}|\leq\Vert\mathbf{x}\Vert\Vert\mathbf{y}\Vert$.
+Following the hint we use 
+\begin{eqnarray*}
+\Vert\mathbf{x}+\mathbf{y}\Vert^{2} & = & (\mathbf{x}+\mathbf{y})\cdot(\mathbf{x}+\mathbf{y})=\Vert\mathbf{x}\Vert^{2}+2\mathbf{x}\cdot\mathbf{y}+\Vert\mathbf{y}\Vert^{2}\\
+ & \leq & \Vert\mathbf{x}\Vert^{2}+2|\mathbf{x\cdot y}|+\Vert\mathbf{y}\Vert^{2}\\
+ & \leq & \Vert\mathbf{x}\Vert^{2}+2\Vert\mathbf{x}\Vert\Vert\mathbf{y}\Vert+\Vert\mathbf{y}\Vert^{2}\mbox{ (by Cauchy-Schwarz)}\\
+ & \leq & (\Vert\mathbf{x}\Vert+\Vert\mathbf{y}\Vert)^{2}\mbox{ (factor)}
+\end{eqnarray*}
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,1030 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,t]{beamer}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{graphicx}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% this default might be overridden by plain title style
+\newcommand\makebeamertitle{\frame{\maketitle}}%
+% (ERT) argument for the TOC
+\AtBeginDocument{%
+  \let\origtableofcontents=\tableofcontents
+  \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+  \def\gobbletableofcontents#1{\origtableofcontents}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usetheme{Warsaw}
+% or ...
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+\setbeamercovered{invisible} %makes overlays invisible
+
+%gets rid of navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%\usepackage{hyperref}
+%\usepackage[usenames,dvipsnames,table]{xcolor} %adds additional color options
+\definecolor{links}{HTML}{2A1B81}
+%\hypersetup{colorlinks,linkcolor=blue,urlcolor=links}
+
+\usepackage{multicol}
+
+\usepackage{hyperref}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{shapes}
+\usepackage{pgfplots} %\usepackage{pgfplots, pgfplotstable}
+\pgfplotsset{compat=newest}
+\usepackage{filecontents}  %allows in file data
+\usepgfplotslibrary{statistics} %allows histogram stuff
+
+\usepackage{forest} %%for tree diagram
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage[super]{nth} %easy 1st, 2nd, etc
+
+%\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+%\usepackage{datenumber} % Counters for dates
+
+\usepackage[super]{nth}
+
+\usepackage{etex}
+
+\usepackage{fancybox}
+
+%%table colors
+%\usepackage[table]{xcolor}
+\usepackage{colortbl}
+
+\usepackage[outline]{contour}  %allows text halos
+
+\usepackage{epsdice} %%dice font
+\usepackage[misc]{ifsym}
+\newfont\dice{dice3d} %%3d dice font
+
+\contourlength{1pt} %sets halo width
+%%example: \node at (0.75,0.5) {\contour{white}{\Large Text!}};
+%%example:  \node [fill=white,inner sep=1pt] at (2.25,0.5) {\Large 			Text!};
+%%example:  \node [fill=white,rounded corners=2pt,inner sep=1pt] at 			(3.75,0.5) {\Large Text!};
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\formatdateny{\csname noyear\languagename\expandafter\endcsname\formatdate}
+\def\noyearenglish#1, \the\@year{#1}
+\let\noyearamerican\noyearenglish
+\let\noyearbritish\noyearenglish
+
+%%allows uncover with forest diagrams
+\tikzset{
+    invisible/.style={opacity=0,text opacity=0},
+    visible on/.style={alt=#1{}{invisible}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+    },
+}
+\forestset{
+  visible on/.style={
+    for tree={
+      /tikz/visible on={#1},
+      edge={/tikz/visible on={#1}}}}}
+
+%%%redefines column alignment to match vertically
+%\define@key{beamerframe}{t}[true]{% top
+  %\beamer@frametopskip=.2cm plus .5\paperheight\relax%
+  %\beamer@framebottomskip=0pt plus 1fill\relax%
+ % \beamer@frametopskipautobreak=\beamer@frametopskip\relax%
+  %\beamer@framebottomskipautobreak=\beamer@framebottomskip\relax%
+  %\def\beamer@initfirstlineunskip{}%
+%}
+
+%%provides pdf with 4 slides per page; don't forget to add 'handout' to remove overlays
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{4 on 1}[a4paper, landscape, border shrink=7mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{3}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{4}{border code=\pgfusepath{stroke}}
+%%%Don't forget to add 'handout'
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\newcommand{\gauss}[2]{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}
+
+\newcommand{\Gauss}[2]{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))} %third value is x variable
+
+\newcommand{\xmax}{2000}
+\newcommand{\xmin}{0}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{500}
+\newcommand{\ymin}{0}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcounter{countEx} \setcounter{countEx}{0}
+\newcounter{countProb} \setcounter{countProb}{0}
+\resetcounteronoverlays{countEx} \resetcounteronoverlays{countProb}
+
+\newcommand{\ex}[3]{
+	\addtocounter{countEx}{1}
+	\only<#1-#2>{\begin{exampleblock} {Example \chNum.\secNum.\arabic{countEx}.} #3	\end{exampleblock}}
+}
+
+\newcommand{\prob}[4]{
+	\addtocounter{countProb}{1}
+	\only<#1-#2>{\begin{exampleblock} {Problem  \chNum.\secNum.\arabic{countProb}.\,#3} #4	\end{exampleblock}}
+}
+
+\newcommand{\yline}[4]{
+	(#2 - #4)/(#1 - #3)*(x - #1) + #2
+}
+
+\beamerdefaultoverlayspecification{<+->}
+
+%%%%Chapter and Section numbers%%%%%
+\newcommand{\chNum}{4}
+\newcommand{\secNum}{4}
+\newcommand{\secTitle}{Part B: Probability and the Standard Distribution}
+\date{\formatdate{7}{11}{2014}}
+
+\title[Section \chNum.\secNum: \secTitle]{Section \chNum.\secNum: \secTitle}
+
+\subtitle{Finite Mathematics~~MTH 107~~Fall 2014}
+
+\author{Dr.\,James Ashe}
+
+\titlegraphic{\includegraphics[height=2.75cm]{/home/jim/JamesAshe/MHU/images/MarsHilUniversityLogo-Virtical.png}}
+
+\institute{Mars Hill University}
+
+\makebeamertitle 
+
+%%True false command
+\newcommand{\T}{\textcolor{green}{\contour{black}{T}}}
+\newcommand{\F}{\textcolor{red}{\contour{black}{F}}}
+\newcommand{\uT}[2]{\uncover<#1-#2>{\T}}
+\newcommand{\uF}[2]{\uncover<#1-#2>{\F}}
+
+%tkiz ball item 
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]
+	{\node[circle,ball color=green!50!black!100, shade,   color=white,inner sep=1.2pt] (char) {\tiny #1};
+	}
+}
+\begin{frame}{}
+
+\begin{itemize}
+\item []\textbf{Two key ideas}
+\item [1.]Area under the curve between two values \\
+= Percent of population between those values.
+
+\begin{itemize}
+\item []\begin{center}\begin{tikzpicture} 
+\begin{axis}[ 
+	no markers, 
+	domain=0:10, 
+	%samples=100, 
+	axis lines*=left, 
+	%xlabel=Standard deviations, 
+	%ylabel=Frequency, 
+	height=3cm, 
+	width=5cm, 
+	hide y axis,
+	ticks=none,
+	%xtick={-3, -2, -1, 0, 1, 2, 3},
+	%xticklabels={61, 64, 67, 70, 73, 76, 79},
+	%ytick=empty, 
+	enlargelimits=false, 
+	clip=false, 
+	axis on top, 
+	%grid = major
+	]
+
+	\addplot [fill=blue!50, draw=red,  domain=-1:2] {\gauss{0}{1}} \closedcycle;
+		\node[above] at (axis cs: 0.15, 0.05) {$81.9\%$};
+	\addplot [draw, thick, smooth, domain=-3.5:3.5] {\gauss{0}{1}} \closedcycle;
+	
+	%\addplot [fill=orange!20, draw=none, domain=2:3] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=-2:-1] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=1:2] {\gauss{0}{1}} \closedcycle; 
+	%\only<1->{\node[above] at (axis cs: -0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: 0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: -1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 2.5, 0.05) {$2.1\%$};}
+	%\only<1->{\node[above] at (axis cs: -2.5, 0.05) {$2.1\%$};}
+	%\only<1->{ \addplot[<->,black,very thick] coordinates {(-1,0.4) (1,0.4)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.4) {$68.2\%$};} 
+	%\only<1->{\addplot[<->,black,very thick] coordinates {(-2,0.3) (2,0.3)};}
+	%\only<1->{\node[above] at (axis cs: 0, 0.3) {$95.4\%$};}
+	%\only<1->{\addplot[<->,black, very thick] coordinates {(-3,0.2) (3,0.2)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.2) {$99.7\%$};}
+	\end{axis} 
+\end{tikzpicture}\end{center}
+\end{itemize}
+\item [2.]Percent of population between two values of any normally distributed
+population can be found by using the \emph{standard distribution.}
+
+\begin{itemize}
+\item []\begin{center}\begin{tikzpicture} 
+\begin{axis}[ 
+	no markers, 
+	domain=0:10, 
+	%samples=100, 
+	axis lines*=left, 
+	%xlabel=Standard Distribution, 
+	%ylabel=Frequency, 
+	height=3cm, 
+	width=5cm, 
+	hide y axis,
+	ticks=none,
+	%xtick={-3, -2, -1, 0, 1, 2, 3},
+	%xticklabels={61, 64, 67, 70, 73, 76, 79},
+	%ytick=empty, 
+	enlargelimits=false, 
+	clip=false, 
+	axis on top, 
+	%grid = major
+	]
+
+	\addplot [fill=blue!50, draw=red,  domain=-1:2] {\gauss{0}{1}} \closedcycle;
+	\addplot [fill=none, draw=black, dashed,domain=-0.01:0] {\gauss{0}{1}} \closedcycle;
+		\node[above] at (axis cs: 0.15, 0.05) {$81.9\%$};
+		\node[below] at (axis cs: -1, 0.0) {$-1$};
+		\node[below] at (axis cs: 0, 0.0) {$0$};
+		\node[below] at (axis cs: 2, 0.0) {$2$};
+	\addplot [draw, thick, smooth, domain=-3:3] {\gauss{0}{1}} \closedcycle;
+	
+	%\addplot [fill=orange!20, draw=none, domain=2:3] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=-2:-1] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=1:2] {\gauss{0}{1}} \closedcycle; 
+	%\only<1->{\node[above] at (axis cs: -0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: 0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: -1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 2.5, 0.05) {$2.1\%$};}
+	%\only<1->{\node[above] at (axis cs: -2.5, 0.05) {$2.1\%$};}
+	%\only<1->{ \addplot[<->,black,very thick] coordinates {(-1,0.4) (1,0.4)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.4) {$68.2\%$};} 
+	%\only<1->{\addplot[<->,black,very thick] coordinates {(-2,0.3) (2,0.3)};}
+	%\only<1->{\node[above] at (axis cs: 0, 0.3) {$95.4\%$};}
+	%\only<1->{\addplot[<->,black, very thick] coordinates {(-3,0.2) (3,0.2)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.2) {$99.7\%$};}
+	\end{axis} 
+\end{tikzpicture}$\longleftrightarrow$\begin{tikzpicture} 
+\begin{axis}[ 
+	no markers, 
+	domain=0:10, 
+	%samples=100, 
+	axis lines*=left, 
+	%xlabel=Standard deviations, 
+	%ylabel=Frequency, 
+	height=3cm, 
+	width=6cm, 
+	hide y axis,
+	ticks=none,
+	%xtick={-3, -2, -1, 0, 1, 2, 3},
+	%xticklabels={61, 64, 67, 70, 73, 76, 79},
+	%ytick=empty, 
+	enlargelimits=false, 
+	clip=false, 
+	axis on top, 
+	%grid = major
+	]
+
+	\addplot [fill=blue!50, draw=red,  domain=-3:6] {\gauss{0}{3}} \closedcycle;
+	\addplot [fill=none, draw=black, dashed,domain=-0.01:0] {\gauss{0}{3}} \closedcycle;
+		\node[above] at (axis cs: 0.15, 0.05) {$81.9\%$};
+		\node[below] at (axis cs: -3, 0.0) {$67$};
+		\node[below] at (axis cs: 0, 0.0) {$70$};
+		\node[below] at (axis cs: 6, 0.0) {$76$};
+	\addplot [draw, thick, smooth, domain=-9:9] {\gauss{0}{3}} \closedcycle;
+	
+	%\addplot [fill=orange!20, draw=none, domain=2:3] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=-2:-1] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=1:2] {\gauss{0}{1}} \closedcycle; 
+	%\only<1->{\node[above] at (axis cs: -0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: 0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: -1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 2.5, 0.05) {$2.1\%$};}
+	%\only<1->{\node[above] at (axis cs: -2.5, 0.05) {$2.1\%$};}
+	%\only<1->{ \addplot[<->,black,very thick] coordinates {(-1,0.4) (1,0.4)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.4) {$68.2\%$};} 
+	%\only<1->{\addplot[<->,black,very thick] coordinates {(-2,0.3) (2,0.3)};}
+	%\only<1->{\node[above] at (axis cs: 0, 0.3) {$95.4\%$};}
+	%\only<1->{\addplot[<->,black, very thick] coordinates {(-3,0.2) (3,0.2)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.2) {$99.7\%$};}
+	\end{axis} 
+\end{tikzpicture}\end{center}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Standard Distribution: Probability}
+
+\begin{columns}
+
+
+\column{5.5cm}
+
+\ex{1}{}{The \emph{standard normal z-distribution} has a mean of
+$0$ and standard deviation of $1$.
+\begin{itemize}
+\item [a.] What percentage of the standard distribution lies between $z=-1$
+and $z=2$?
+\item [b.] What is the probability that a randomly selected data point
+has a value between 1 and 2?
+\item [c.] Find $p(z<0)$.
+\end{itemize}
+}
+
+\column{5.5cm}
+
+\vspace{0cm}\begin{tikzpicture}[scale=.6] 
+\begin{axis}[ 
+	no markers, 
+	domain=0:10, 
+	%samples=100, 
+	axis lines*=left, 
+	xlabel=Standard Distribution, 
+	%ylabel=Frequency, 
+	height=6cm, %%.6 ratio 
+	width=10cm, 
+	xtick={-3, -2, -1, 0, 1, 2, 3},
+	xticklabels={$\mu-3\sigma$, $\mu-2\sigma$, $\mu-1\sigma$, $\mu$, $\mu+1\sigma$, $\mu+2\sigma$, $\mu+3\sigma$},
+	%ytick=empty, 
+	enlargelimits=false, 
+	clip=false, 
+	axis on top, 
+	grid = major
+	] 
+	\addplot [fill=cyan!20, draw, very thick, smooth, domain=-3:3] {\gauss{0}{1}} \closedcycle; 
+	\addplot [fill=orange!20, draw=none, domain=-3:-2] {\gauss{0}{1}} \closedcycle; 
+	\addplot [fill=orange!20, draw=none, domain=2:3] {\gauss{0}{1}} \closedcycle; 
+	\addplot [fill=blue!20, draw=none, domain=-2:-1] {\gauss{0}{1}} \closedcycle; 
+	\addplot [fill=blue!20, draw=none, domain=1:2] {\gauss{0}{1}} \closedcycle; 
+	\only<1->{
+		\node[above] at (axis cs: -0.5, 0.025) {$34.13\%$};} 
+	\only<1->{
+		\node[above] at (axis cs: 0.5, 0.025) {$34.13\%$};} 
+	\only<1->{
+		\node[above] at (axis cs: -1.5, 0.025) {$13.59\%$}; 
+		\node[above] at (axis cs: 1.5, 0.025) {$13.59\%$};}
+	\only<1->{
+		\node[above] at (axis cs: 2.5, 0.05) {$2.15\%$}; 
+		\node[above] at (axis cs: -2.5, 0.05) {$2.15\%$};}
+	\only<1->{ 
+		\addplot[<->,black,very thick] coordinates {(-1,0.4) (1,0.4)}; 
+		\node[above] at (axis cs: 0, 0.4) {$68.26\%$};} 
+	\only<1->{	
+		\addplot[<->,black,very thick] coordinates {(-2,0.3) (2,0.3)}; 
+		\node[above] at (axis cs: 0, 0.3) {$95.44\%$};}
+	\only<1->{
+		\addplot[<->,black, very thick] coordinates {(-3,0.2) (3,0.2)}; 
+		\node[above] at (axis cs: 0, 0.2) {$99.74\%$};}
+	\end{axis} 
+\end{tikzpicture}
+\begin{itemize}
+\item <2->[a.] $68.26\%+13.59\%=81.85\%$
+\item <3->[b.] $81.85\%$
+\item <4->[C.] $50\%$
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Normal Distribution: Probability}
+
+\begin{columns}
+
+
+\column{5.5cm}
+
+\ex{1}{}{The mean height of males is $70$ inches with a standard
+deviation of 3 inches.
+\begin{itemize}
+\item [a.] What percentage of men are between 67 and 76 inches?
+\item [b.] What is the probability that a randomly selected man has a height
+between 67 and 76 inches?
+\item [c.] Find $p(x>70)$.
+\end{itemize}
+}
+
+\column{5.5cm}
+
+\vspace{0cm}\begin{tikzpicture}[scale=.6] 
+\begin{axis}[ 
+	no markers, 
+	domain=0:10, 
+	%samples=100, 
+	axis lines*=left, 
+	xlabel=Heights of Men, 
+	hide y axis, 
+	%ylabel=Frequency, 
+	height=6cm, %%.6 ratio 
+	width=10cm, 
+	xtick={-3, -2, -1, 0, 1, 2, 3},
+	xticklabels={$\mu-3\sigma$, $\mu-2\sigma$, $\mu-1\sigma$, $\mu$, $\mu+1\sigma$, $\mu+2\sigma$, $\mu+3\sigma$},
+	%ytick=empty, 
+	enlargelimits=false, 
+	clip=false, 
+	axis on top, 
+	grid = major
+	] 
+	\addplot [fill=cyan!20, draw, very thick, smooth, domain=-3:3] {\gauss{0}{1}} \closedcycle; 
+	\addplot [fill=orange!20, draw=none, domain=-3:-2] {\gauss{0}{1}} \closedcycle; 
+	\addplot [fill=orange!20, draw=none, domain=2:3] {\gauss{0}{1}} \closedcycle; 
+	\addplot [fill=blue!20, draw=none, domain=-2:-1] {\gauss{0}{1}} \closedcycle; 
+	\addplot [fill=blue!20, draw=none, domain=1:2] {\gauss{0}{1}} \closedcycle; 
+	\only<1->{
+		\node[above] at (axis cs: -0.5, 0.025) {$34.13\%$};} 
+	\only<1->{
+		\node[above] at (axis cs: 0.5, 0.025) {$34.13\%$};} 
+	\only<1->{
+		\node[above] at (axis cs: -1.5, 0.025) {$13.59\%$}; 
+		\node[above] at (axis cs: 1.5, 0.025) {$13.59\%$};}
+	\only<1->{
+		\node[above] at (axis cs: 2.5, 0.05) {$2.15\%$}; 
+		\node[above] at (axis cs: -2.5, 0.05) {$2.15\%$};}
+	\only<1->{ 
+		\addplot[<->,black,very thick] coordinates {(-1,0.4) (1,0.4)}; 
+		\node[above] at (axis cs: 0, 0.4) {$68.26\%$};} 
+	\only<1->{	
+		\addplot[<->,black,very thick] coordinates {(-2,0.3) (2,0.3)}; 
+		\node[above] at (axis cs: 0, 0.3) {$95.44\%$};}
+	\only<1->{
+		\addplot[<->,black, very thick] coordinates {(-3,0.2) (3,0.2)}; 
+		\node[above] at (axis cs: 0, 0.2) {$99.74\%$};}
+	\end{axis} 
+\end{tikzpicture}
+\begin{itemize}
+\item <2->[a.] $68.26\%+13.59\%=81.85\%$
+\item <3->[b.] $81.85\%$
+\item <4->[c.] $50\%$
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Standard Distribution: Probability}
+
+\scriptsize\textbf{Applet: }\href{http://www.mathsisfun.com/data/standard-normal-distribution-table.html}{http://www.mathsisfun.com/data/standard-normal-distribution-table.html}
+
+\textbf{Chart:} \href{http://www.stat.ufl.edu/~athienit/Tables/Ztable.pdf}{http://www.stat.ufl.edu/~athienit/Tables/Ztable.pdf}
+
+\normalsize
+\begin{columns}
+
+
+\column{4cm}
+
+\ex{1}{}{Find the following probabilities.
+\begin{itemize}
+\item [a.] $p(z<1.65)$
+\item [b.] $p(0<z<1.65)$
+\item [c.] $p(z<-0.67)$
+\item [d.]$p(-.67<z)$
+\item [e.]$p(-.67<z<1.65)$
+\end{itemize}
+}
+
+\column{6.5cm}
+
+\vspace{0cm}\only<1-1>{
+\begin{tikzpicture} 
+\begin{axis}[ 
+	no markers, 
+	domain=0:10, 
+	%samples=100, 
+	axis lines*=left, 
+	%xlabel=Standard deviations, 
+	%ylabel=Frequency, 
+	height=4cm, 
+	width=6cm, 
+	hide y axis,
+	%ticks=none,
+	xtick={-3, -2, -1, 0, 1, 2, 3},
+	%xticklabels={61, 64, 67, 70, 73, 76, 79},
+	%ytick=empty, 
+	enlargelimits=false, 
+	clip=false, 
+	axis on top, 
+	grid = major
+	]
+
+	%\addplot [fill=blue!50, draw=red,  domain=-1:2] {\gauss{0}{1}} \closedcycle;
+		%\node[above] at (axis cs: 0.15, 0.05) {$81.9\%$};
+	\addplot [draw, thick, smooth, domain=-3:3] {\gauss{0}{1}} \closedcycle;
+	
+	%\addplot [fill=orange!20, draw=none, domain=2:3] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=-2:-1] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=1:2] {\gauss{0}{1}} \closedcycle; 
+	%\only<1->{\node[above] at (axis cs: -0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: 0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: -1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 2.5, 0.05) {$2.1\%$};}
+	%\only<1->{\node[above] at (axis cs: -2.5, 0.05) {$2.1\%$};}
+	%\only<1->{ \addplot[<->,black,very thick] coordinates {(-1,0.4) (1,0.4)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.4) {$68.2\%$};} 
+	%\only<1->{\addplot[<->,black,very thick] coordinates {(-2,0.3) (2,0.3)};}
+	%\only<1->{\node[above] at (axis cs: 0, 0.3) {$95.4\%$};}
+	%\only<1->{\addplot[<->,black, very thick] coordinates {(-3,0.2) (3,0.2)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.2) {$99.7\%$};}
+	\end{axis} 
+\end{tikzpicture}
+}\only<2>{\includegraphics[height=4cm]{pics/z-chart-pos}}\only<3>{\includegraphics[height=4cm]{pics/z-chart-1-65_a}}\only<4>{\includegraphics[height=4cm]{pics/z-chart-1-65_b}}\only<5>{\includegraphics[height=4cm]{pics/z-chart-1-65_c}}\only<6-6>{
+\begin{tikzpicture} 
+\begin{axis}[ 
+	no markers, 
+	domain=0:10, 
+	%samples=100, 
+	axis lines*=left, 
+	%xlabel=Standard deviations, 
+	%ylabel=Frequency, 
+	height=4cm, 
+	width=6cm, 
+	hide y axis,
+	%ticks=none,
+	xtick={-3, -2, -1, 0, 1, 2, 3},
+	%xticklabels={61, 64, 67, 70, 73, 76, 79},
+	%ytick=empty, 
+	enlargelimits=false, 
+	clip=false, 
+	axis on top, 
+	grid = major
+	]
+
+	\addplot [fill=blue!50, draw=red,  domain=-3:1.65] {\gauss{0}{1}} \closedcycle;
+		%\node[above] at (axis cs: 0.15, 0.05) {$81.9\%$};
+	\addplot [draw, thick, smooth, domain=-3:3] {\gauss{0}{1}} \closedcycle;
+	
+	%\addplot [fill=orange!20, draw=none, domain=2:3] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=-2:-1] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=1:2] {\gauss{0}{1}} \closedcycle; 
+	%\only<1->{\node[above] at (axis cs: -0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: 0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: -1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 2.5, 0.05) {$2.1\%$};}
+	%\only<1->{\node[above] at (axis cs: -2.5, 0.05) {$2.1\%$};}
+	%\only<1->{ \addplot[<->,black,very thick] coordinates {(-1,0.4) (1,0.4)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.4) {$68.2\%$};} 
+	%\only<1->{\addplot[<->,black,very thick] coordinates {(-2,0.3) (2,0.3)};}
+	%\only<1->{\node[above] at (axis cs: 0, 0.3) {$95.4\%$};}
+	%\only<1->{\addplot[<->,black, very thick] coordinates {(-3,0.2) (3,0.2)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.2) {$99.7\%$};}
+	\end{axis} 
+\end{tikzpicture}
+}\only<7-8>{
+\begin{tikzpicture} 
+\begin{axis}[ 
+	no markers, 
+	domain=0:10, 
+	%samples=100, 
+	axis lines*=left, 
+	%xlabel=Standard deviations, 
+	%ylabel=Frequency, 
+	height=4cm, 
+	width=6cm, 
+	hide y axis,
+	%ticks=none,
+	xtick={-3, -2, -1, 0, 1, 2, 3},
+	%xticklabels={61, 64, 67, 70, 73, 76, 79},
+	%ytick=empty, 
+	enlargelimits=false, 
+	clip=false, 
+	axis on top, 
+	grid = major
+	]
+
+	\addplot [fill=blue!50, draw=red,  domain=0:1.65] {\gauss{0}{1}} \closedcycle;
+		%\node[above] at (axis cs: 0.15, 0.05) {$81.9\%$};
+	\addplot [draw, thick, smooth, domain=-3:3] {\gauss{0}{1}} \closedcycle;
+	
+	%\addplot [fill=orange!20, draw=none, domain=2:3] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=-2:-1] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=1:2] {\gauss{0}{1}} \closedcycle; 
+	%\only<1->{\node[above] at (axis cs: -0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: 0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: -1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 2.5, 0.05) {$2.1\%$};}
+	%\only<1->{\node[above] at (axis cs: -2.5, 0.05) {$2.1\%$};}
+	%\only<1->{ \addplot[<->,black,very thick] coordinates {(-1,0.4) (1,0.4)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.4) {$68.2\%$};} 
+	%\only<1->{\addplot[<->,black,very thick] coordinates {(-2,0.3) (2,0.3)};}
+	%\only<1->{\node[above] at (axis cs: 0, 0.3) {$95.4\%$};}
+	%\only<1->{\addplot[<->,black, very thick] coordinates {(-3,0.2) (3,0.2)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.2) {$99.7\%$};}
+	\end{axis} 
+\end{tikzpicture}
+}\only<9>{\includegraphics[height=4cm]{pics/z-chart-neg}}\only<10>{\includegraphics[height=4cm]{pics/z-chart--67_a}}\only<11>{\includegraphics[height=4cm]{pics/z-chart--67_b}}\only<12>{\includegraphics[height=4cm]{pics/z-chart--67_c}}\only<13>{\includegraphics[height=4cm]{pics/z-chart--67_d}}\only<14-14>{
+\begin{tikzpicture} 
+\begin{axis}[ 
+	no markers, 
+	domain=0:10, 
+	%samples=100, 
+	axis lines*=left, 
+	%xlabel=Standard deviations, 
+	%ylabel=Frequency, 
+	height=4cm, 
+	width=6cm, 
+	hide y axis,
+	%ticks=none,
+	xtick={-3, -2, -1, 0, 1, 2, 3},
+	%xticklabels={61, 64, 67, 70, 73, 76, 79},
+	%ytick=empty, 
+	enlargelimits=false, 
+	clip=false, 
+	axis on top, 
+	grid = major
+	]
+
+	\addplot [fill=blue!50, draw=red,  domain=-3:-.67] {\gauss{0}{1}} \closedcycle;
+		%\node[above] at (axis cs: 0.15, 0.05) {$81.9\%$};
+	\addplot [draw, thick, smooth, domain=-3:3] {\gauss{0}{1}} \closedcycle;
+	
+	%\addplot [fill=orange!20, draw=none, domain=2:3] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=-2:-1] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=1:2] {\gauss{0}{1}} \closedcycle; 
+	%\only<1->{\node[above] at (axis cs: -0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: 0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: -1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 2.5, 0.05) {$2.1\%$};}
+	%\only<1->{\node[above] at (axis cs: -2.5, 0.05) {$2.1\%$};}
+	%\only<1->{ \addplot[<->,black,very thick] coordinates {(-1,0.4) (1,0.4)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.4) {$68.2\%$};} 
+	%\only<1->{\addplot[<->,black,very thick] coordinates {(-2,0.3) (2,0.3)};}
+	%\only<1->{\node[above] at (axis cs: 0, 0.3) {$95.4\%$};}
+	%\only<1->{\addplot[<->,black, very thick] coordinates {(-3,0.2) (3,0.2)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.2) {$99.7\%$};}
+	\end{axis} 
+\end{tikzpicture}
+}\only<15-16>{
+\begin{tikzpicture} 
+\begin{axis}[ 
+	no markers, 
+	domain=0:10, 
+	%samples=100, 
+	axis lines*=left, 
+	%xlabel=Standard deviations, 
+	%ylabel=Frequency, 
+	height=4cm, 
+	width=6cm, 
+	hide y axis,
+	%ticks=none,
+	xtick={-3, -2, -1, 0, 1, 2, 3},
+	%xticklabels={61, 64, 67, 70, 73, 76, 79},
+	%ytick=empty, 
+	enlargelimits=false, 
+	clip=false, 
+	axis on top, 
+	grid = major
+	]
+
+	\addplot [fill=blue!50, draw=red,  domain=-.67:3] {\gauss{0}{1}} \closedcycle;
+		%\node[above] at (axis cs: 0.15, 0.05) {$81.9\%$};
+	\addplot [draw, thick, smooth, domain=-3:3] {\gauss{0}{1}} \closedcycle;
+	
+	%\addplot [fill=orange!20, draw=none, domain=2:3] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=-2:-1] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=1:2] {\gauss{0}{1}} \closedcycle; 
+	%\only<1->{\node[above] at (axis cs: -0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: 0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: -1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 2.5, 0.05) {$2.1\%$};}
+	%\only<1->{\node[above] at (axis cs: -2.5, 0.05) {$2.1\%$};}
+	%\only<1->{ \addplot[<->,black,very thick] coordinates {(-1,0.4) (1,0.4)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.4) {$68.2\%$};} 
+	%\only<1->{\addplot[<->,black,very thick] coordinates {(-2,0.3) (2,0.3)};}
+	%\only<1->{\node[above] at (axis cs: 0, 0.3) {$95.4\%$};}
+	%\only<1->{\addplot[<->,black, very thick] coordinates {(-3,0.2) (3,0.2)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.2) {$99.7\%$};}
+	\end{axis} 
+\end{tikzpicture}
+}\only<17>{
+\begin{tikzpicture} 
+\begin{axis}[ 
+	no markers, 
+	domain=0:10, 
+	%samples=100, 
+	axis lines*=left, 
+	%xlabel=Standard deviations, 
+	%ylabel=Frequency, 
+	height=4cm, 
+	width=6cm, 
+	hide y axis,
+	%ticks=none,
+	xtick={-3, -2, -1, 0, 1, 2, 3},
+	%xticklabels={61, 64, 67, 70, 73, 76, 79},
+	%ytick=empty, 
+	enlargelimits=false, 
+	clip=false, 
+	axis on top, 
+	grid = major
+	]
+
+	\addplot [fill=blue!50, draw=red,  domain=-3:1.65] {\gauss{0}{1}} \closedcycle;
+		%\node[above] at (axis cs: 0.15, 0.05) {$81.9\%$};
+	\addplot [draw, thick, smooth, domain=-3:3] {\gauss{0}{1}} \closedcycle;
+	
+	%\addplot [fill=orange!20, draw=none, domain=2:3] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=-2:-1] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=1:2] {\gauss{0}{1}} \closedcycle; 
+	%\only<1->{\node[above] at (axis cs: -0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: 0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: -1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 2.5, 0.05) {$2.1\%$};}
+	%\only<1->{\node[above] at (axis cs: -2.5, 0.05) {$2.1\%$};}
+	%\only<1->{ \addplot[<->,black,very thick] coordinates {(-1,0.4) (1,0.4)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.4) {$68.2\%$};} 
+	%\only<1->{\addplot[<->,black,very thick] coordinates {(-2,0.3) (2,0.3)};}
+	%\only<1->{\node[above] at (axis cs: 0, 0.3) {$95.4\%$};}
+	%\only<1->{\addplot[<->,black, very thick] coordinates {(-3,0.2) (3,0.2)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.2) {$99.7\%$};}
+	\end{axis} 
+\end{tikzpicture}
+}\only<18>{
+\begin{tikzpicture} 
+\begin{axis}[ 
+	no markers, 
+	domain=0:10, 
+	%samples=100, 
+	axis lines*=left, 
+	%xlabel=Standard deviations, 
+	%ylabel=Frequency, 
+	height=4cm, 
+	width=6cm, 
+	hide y axis,
+	%ticks=none,
+	xtick={-3, -2, -1, 0, 1, 2, 3},
+	%xticklabels={61, 64, 67, 70, 73, 76, 79},
+	%ytick=empty, 
+	enlargelimits=false, 
+	clip=false, 
+	axis on top, 
+	grid = major
+	]
+
+	\addplot [fill=blue!50, draw=red,  domain=-3:1.65] {\gauss{0}{1}} \closedcycle;
+	\addplot [fill=green!50, draw=red,  domain=-3:-.67] {\gauss{0}{1}} \closedcycle;
+		%\node[above] at (axis cs: 0.15, 0.05) {$81.9\%$};
+	\addplot [draw, thick, smooth, domain=-3:3] {\gauss{0}{1}} \closedcycle;
+	
+	%\addplot [fill=orange!20, draw=none, domain=2:3] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=-2:-1] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=1:2] {\gauss{0}{1}} \closedcycle; 
+	%\only<1->{\node[above] at (axis cs: -0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: 0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: -1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 2.5, 0.05) {$2.1\%$};}
+	%\only<1->{\node[above] at (axis cs: -2.5, 0.05) {$2.1\%$};}
+	%\only<1->{ \addplot[<->,black,very thick] coordinates {(-1,0.4) (1,0.4)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.4) {$68.2\%$};} 
+	%\only<1->{\addplot[<->,black,very thick] coordinates {(-2,0.3) (2,0.3)};}
+	%\only<1->{\node[above] at (axis cs: 0, 0.3) {$95.4\%$};}
+	%\only<1->{\addplot[<->,black, very thick] coordinates {(-3,0.2) (3,0.2)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.2) {$99.7\%$};}
+	\end{axis} 
+\end{tikzpicture}
+}\only<19->{
+\begin{tikzpicture} 
+\begin{axis}[ 
+	no markers, 
+	domain=0:10, 
+	%samples=100, 
+	axis lines*=left, 
+	%xlabel=Standard deviations, 
+	%ylabel=Frequency, 
+	height=4cm, 
+	width=6cm, 
+	hide y axis,
+	%ticks=none,
+	xtick={-3, -2, -1, 0, 1, 2, 3},
+	%xticklabels={61, 64, 67, 70, 73, 76, 79},
+	%ytick=empty, 
+	enlargelimits=false, 
+	clip=false, 
+	axis on top, 
+	grid = major
+	]
+
+	\addplot [fill=blue!50, draw=red,  domain=-.67:1.65] {\gauss{0}{1}} \closedcycle;
+	%\addplot [fill=green!50, draw=red,  domain=-3:-67] {\gauss{0}{1}} \closedcycle;
+		%\node[above] at (axis cs: 0.15, 0.05) {$81.9\%$};
+	\addplot [draw, thick, smooth, domain=-3:3] {\gauss{0}{1}} \closedcycle;
+	
+	%\addplot [fill=orange!20, draw=none, domain=2:3] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=-2:-1] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=1:2] {\gauss{0}{1}} \closedcycle; 
+	%\only<1->{\node[above] at (axis cs: -0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: 0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: -1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 2.5, 0.05) {$2.1\%$};}
+	%\only<1->{\node[above] at (axis cs: -2.5, 0.05) {$2.1\%$};}
+	%\only<1->{ \addplot[<->,black,very thick] coordinates {(-1,0.4) (1,0.4)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.4) {$68.2\%$};} 
+	%\only<1->{\addplot[<->,black,very thick] coordinates {(-2,0.3) (2,0.3)};}
+	%\only<1->{\node[above] at (axis cs: 0, 0.3) {$95.4\%$};}
+	%\only<1->{\addplot[<->,black, very thick] coordinates {(-3,0.2) (3,0.2)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.2) {$99.7\%$};}
+	\end{axis} 
+\end{tikzpicture}
+}
+\begin{itemize}
+\item <6->[a.] $95.05\%$
+\item <8->[b.] $95.05\%-50\%=45.05\%$
+\item <13->[c.] $25.14\%$
+\item <16->[d.] $100\%-25.14\%=74.86\%$
+\item <20->[e.]$95.05\%-25.14\%=69.91\%$
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Standard Distribution: Probability}
+
+\scriptsize\textbf{Applet: }\href{http://www.mathsisfun.com/data/standard-normal-distribution-table.html}{http://www.mathsisfun.com/data/standard-normal-distribution-table.html}
+
+\textbf{Chart:} \href{http://www.stat.ufl.edu/~athienit/Tables/Ztable.pdf}{http://www.stat.ufl.edu/~athienit/Tables/Ztable.pdf}
+
+\normalsize
+\begin{columns}
+
+
+\column{4cm}
+
+\ex{1}{}{Find the following probabilities.
+\begin{itemize}
+\item [a.] $p(z<1.42)$
+\item <5->[b.] Let $\mu=5$ and $\sigma=10$; $p(x<19.2)$
+\end{itemize}
+}
+
+\column{6.5cm}
+
+\vspace{0cm}\only<2>{\includegraphics[height=4cm]{pics/z-chart-pos}}\only<3>{\includegraphics[height=4cm]{pics/z-chart-1-65_a}}\only<4->{
+\begin{tikzpicture} 
+\begin{axis}[ 
+	no markers, 
+	domain=0:10, 
+	%samples=100, 
+	axis lines*=left, 
+	%xlabel=Standard deviations, 
+	%ylabel=Frequency, 
+	height=4cm, 
+	width=6cm, 
+	hide y axis,
+	%ticks=none,
+	xtick={-3, -2, -1, 0, 1, 2, 3},
+	%xticklabels={61, 64, 67, 70, 73, 76, 79},
+	%ytick=empty, 
+	enlargelimits=false, 
+	clip=false, 
+	axis on top, 
+	grid = major
+	]
+
+	\addplot [fill=blue!50, draw=red,  domain=-3:1.42] {\gauss{0}{1}} \closedcycle;
+		%\node[above] at (axis cs: 0.15, 0.05) {$81.9\%$};
+	\addplot [draw, thick, smooth, domain=-3:3] {\gauss{0}{1}} \closedcycle;
+	
+	%\addplot [fill=orange!20, draw=none, domain=2:3] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=-2:-1] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=1:2] {\gauss{0}{1}} \closedcycle; 
+	%\only<1->{\node[above] at (axis cs: -0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: 0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: -1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 2.5, 0.05) {$2.1\%$};}
+	%\only<1->{\node[above] at (axis cs: -2.5, 0.05) {$2.1\%$};}
+	%\only<1->{ \addplot[<->,black,very thick] coordinates {(-1,0.4) (1,0.4)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.4) {$68.2\%$};} 
+	%\only<1->{\addplot[<->,black,very thick] coordinates {(-2,0.3) (2,0.3)};}
+	%\only<1->{\node[above] at (axis cs: 0, 0.3) {$95.4\%$};}
+	%\only<1->{\addplot[<->,black, very thick] coordinates {(-3,0.2) (3,0.2)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.2) {$99.7\%$};}
+	\end{axis} 
+\end{tikzpicture}
+}
+\begin{itemize}
+\item <4->[a.] $92.22\%$
+\item <6->[b.] $19.2=5+1.42\cdot10$
+\item <7->[] $x=19.2$ is $1.42$ standard deviations above the mean. 
+\item <8->[] $p(x<19.2)=92.22\%$
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Normal Distribution: Probability}
+
+\vspace{-.8cm}
+\begin{columns}
+
+
+\column{4.75cm}
+
+\small\ex{1}{}{ A population is normally distributed with a mean
+of 5 and a standard deviation of 10. Find the following:
+\begin{itemize}
+\item [a.] $p(x<19.2)$
+\item [b.]$p(15<x)$
+\item [c.]$p(11<x<15)$
+\end{itemize}
+}
+
+\vspace{-.2cm}
+\begin{block}<2->{Convert a Normal to a Z}
+ If $x$ is in a normal distribution then it is 
+\[
+z=\dfrac{x-\mu}{\sigma}
+\]
+ standard deviations from the mean.
+\end{block}
+
+\column{6cm}
+
+\normalsize\vspace{1cm}\begin{tikzpicture} 
+\begin{axis}[ 
+	no markers, 
+	domain=0:10, 
+	%samples=100, 
+	axis lines*=left, 
+	%xlabel=Standard deviations, 
+	%ylabel=Frequency, 
+	height=4cm, 
+	width=6cm, 
+	hide y axis,
+	%ticks=none,
+	xtick={-3, -2, -1, 0, 1, 2, 3},
+	xticklabels={-25, -15, -5, 5, 15, 25, 35},
+	%ytick=empty, 
+	enlargelimits=false, 
+	clip=false, 
+	axis on top, 
+	grid = major
+	]
+
+	%\addplot [fill=blue!50, draw=red,  domain=-1:2] {\gauss{0}{1}} \closedcycle;
+		%\node[above] at (axis cs: 0.15, 0.05) {$81.9\%$};
+	\addplot [draw, thick, smooth, domain=-3:3] {\gauss{0}{1}} \closedcycle;
+	
+	%\addplot [fill=orange!20, draw=none, domain=2:3] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=-2:-1] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=1:2] {\gauss{0}{1}} \closedcycle; 
+	%\only<1->{\node[above] at (axis cs: -0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: 0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: -1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 2.5, 0.05) {$2.1\%$};}
+	%\only<1->{\node[above] at (axis cs: -2.5, 0.05) {$2.1\%$};}
+	%\only<1->{ \addplot[<->,black,very thick] coordinates {(-1,0.4) (1,0.4)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.4) {$68.2\%$};} 
+	%\only<1->{\addplot[<->,black,very thick] coordinates {(-2,0.3) (2,0.3)};}
+	%\only<1->{\node[above] at (axis cs: 0, 0.3) {$95.4\%$};}
+	%\only<1->{\addplot[<->,black, very thick] coordinates {(-3,0.2) (3,0.2)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.2) {$99.7\%$};}
+	\end{axis} 
+\end{tikzpicture}
+\begin{itemize}
+\item <3->[a.]\only<3>{$z=\dfrac{x-5}{10}$}\only<4>{$z=\dfrac{19.2-5}{10}$}\only<5>{$1.42=\dfrac{19.2-5}{10}$}\uncover<6->{$p(x<19.2)=p(z<1.42)=92.22\%$}
+\item <6->[b.]\only<7>{$z=\dfrac{x-5}{10}$}\only<8>{$z=\dfrac{15-5}{10}$}\only<9>{$1=\dfrac{15-5}{10}$}\uncover<10->{$p(x<15)=p(z<1)=84.13\%$}
+\item <11->[c.]\only<12>{$z=\dfrac{x-5}{10}$}\only<13>{$z=\dfrac{11-5}{10}$}\only<14>{$.6=\dfrac{11-5}{10}$}\uncover<15->{$p(x<11)=p(z<.6)=72.57\%$}
+\item <16->[]$p(11<x<15)$\\
+\textrm{$=p(.6<z<1)$}\\
+\textrm{$=84.13\%-72.57\%=11.56\%$}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{}
+
+\begin{center}
+\includegraphics[height=8.5cm]{pics/z-chart-neg-full}
+\par\end{center}
+
+\end{frame}
+
+\begin{frame}{}
+
+\begin{center}
+\includegraphics[height=8.5cm]{pics/z-chart-pos-full}
+\par\end{center}
+\end{frame}
+
+\end{document}

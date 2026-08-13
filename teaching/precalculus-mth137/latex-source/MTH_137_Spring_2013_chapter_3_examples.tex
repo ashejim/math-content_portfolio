@@ -1,0 +1,300 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{137}
+
+\newcommand{\classSec}{B}
+
+\newcommand{\nameType}{Name:}
+
+\newcommand{\examType}{Example Excercises}
+
+\renewcommand{\date}{\formatdate{22}{3}{2013}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\xmax}{10}
+\newcommand{\xmin}{-10}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{10}
+\newcommand{\ymin}{-10}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcommand{\Dspace}{\vspace{1cm}}
+
+\small
+
+\subsubsection*{An example of solving with radicals. }
+\begin{enumerate}[resume]
+\item Find all real solutions of $\sqrt{x+10}+\sqrt{x-9}=19$. 
+
+\begin{enumerate}[resume]
+\item []This problem is probably easiest to tackle by isolating one of
+the radicals, squaring and simplifying; and then isolating the other
+radical.
+\begin{eqnarray*}
+\sqrt{x+10}+\sqrt{x-9} & = & 19\\
+\Rightarrow\sqrt{x+10} & = & 19-\sqrt{x-9}\\
+\Rightarrow\left(\sqrt{x+10}\right)^{2} & = & \left(19-\sqrt{x-9}\right)^{2}\\
+\Rightarrow x+10 & = & 361-38\sqrt{x-9}+x-9\\
+\Rightarrow-342 & = & -38\sqrt{x-9}\\
+\left(-342\right)^{2} & = & \left(-38\sqrt{x-9}\right)^{2}\\
+116964 & = & 1444\left(x-9\right)\\
+81 & = & x-9\\
+x & = & 90
+\end{eqnarray*}
+\\
+While a little too complicated for an exam, this problem is good algebra
+practice. The concept of isolating the radical so it can be squared
+is key. 
+\end{enumerate}
+\end{enumerate}
+
+\subsubsection*{Problem 12 from section 3.4: The William, Nancy, and Edgar distance
+problem.}
+
+\textbf{If they all start at the same time:}
+\begin{enumerate}[resume]
+\item William, Nancy, and Edgar met at the lodge. \uline{At 8 AM} William
+began hiking at 2 mph, Nancy began hiking north at 5 mph, and Edgar
+went East on a three-wheeler at 12 mph. At what time was the distance
+between Nancy and Edgar 20 miles greater than than the distance between
+Nancy and William?\vspace{.5cm}
+
+We need to solve the inequality 
+\begin{equation}
+\mbox{dist}\left(N,E\right)>\mbox{dist}\left(N,W\right)+20\label{eq:dist-1}
+\end{equation}
+Where $N=\mbox{Nancy's position}$, $E=\mbox{Edgar's position}$,
+and $W=\mbox{William's position}$ as $\left(x,y\right)$ coordinates
+with the cabin at the origin (point $(0,0)$). See the figure:
+
+\begin{center}
+\renewcommand{\xmax}{15}
+\renewcommand{\xmin}{-5}
+\renewcommand{\xstep}{0} %must be xmin+n
+\renewcommand{\ymax}{8}
+\renewcommand{\ymin}{0}
+\renewcommand{\ystep}{0} %must be ymin+n
+%%%%%%%
+\begin{tikzpicture} 
+\begin{axis}[height=3.5cm, 
+	width=3.5cm, 
+	axis lines=middle,
+	minor x tick num={4},
+	minor y tick num={4},
+	grid=none,
+	xtick={0,50,...,250},
+	ytick={0,10,20,...,40},
+	%axis line style={-latex}, 
+	xmin=\xmin,xmax=\xmax, 
+	ymin=\ymin,ymax=\ymax,
+	%restrict y to domain=-1:10,
+	%no markers, 
+	xlabel={$$},ylabel={$$}, 
+	%every axis x label/.append style={anchor=north}, 
+	%every axis y label/.append style={anchor=east}
+	]
+	
+	\addplot[color=red,mark=o,solid] coordinates {(0,5)} node[right] {$N$};
+	\addplot[color=blue,mark=o,solid] coordinates {(12,0)} node[above] {$E$};
+	\addplot[color=black,mark=o,solid] coordinates {(-2,0)} node[above] {$W$};
+
+	\addplot[color=blue,dashed,mark=*,mark size=1pt] coordinates {(0,5) (12,0) (-2,0) };
+	\addplot[color=red,dashed,mark=*,mark size=1pt] coordinates {(0,5) (-2,0) };
+
+	
+\end{axis}
+\end{tikzpicture} 
+\par\end{center}
+
+$N=\left(0,5t\right)$, $E=\left(12t,0\right)$, and $W=\left(-2t,0\right)$.
+The $"-"$ for William nearly denotes his direction (it is not really
+necessary). Each point is given with respect to time \uline{after
+8 AM}. At $t=0$, they are all at the cabin; $\left(0,0\right)$.
+They all move away from the cabin according to their speed and direction.
+The picture shows $t=1$.
+
+$\mbox{dist}\left(\left(x_{1},y_{1}\right),\left(x_{2},y_{2}\right)\right)=\sqrt{\left(x_{1}-x_{2}\right)^{2}+\left(y_{1}-y_{2}\right)^{2}}$,
+so:
+\begin{itemize}
+\item $\mbox{dist}\left(N,W\right)=\sqrt{\left(0-\left(-2t\right)\right)^{2}+\left(5t-0\right)^{2}}=\sqrt{4t^{2}+25t^{2}}=\sqrt{29t^{2}}=\sqrt{29}t$
+\item $\mbox{dist}\left(N,E\right)=\sqrt{\left(0-12t\right)^{2}+\left(5t-0\right)^{2}}=\sqrt{144t^{2}+25t^{2}}=\sqrt{169t^{2}}=13t$
+\end{itemize}
+Plugging this into equation \ref{eq:dist-1}, we have:
+\begin{eqnarray*}
+13t & > & \sqrt{29}t+20\\
+13t-\sqrt{29}t & > & 20\\
+\left(13-\sqrt{29}\right)t & > & 20\\
+t & > & \frac{20}{13-\sqrt{29}}\approx2.63\mbox{ hrs after 8AM}
+\end{eqnarray*}
+
+So about $8+2.63=10.63\mbox{ AM}$ or $10:\left(.63\right)\cdot60=10:38\mbox{ AM}$\vfill
+\end{enumerate}
+\newpage\textbf{If William gets a head start:}
+\begin{enumerate}[resume]
+\item William, Nancy, and Edgar met at the lodge at \uline{8 AM}, and William
+began hiking at 2 mph. \uline{At 10 AM}, Nancy began hiking north
+at 5 mph and Edgar went East on a three-wheeler at 12 mph. At what
+time was the distance between Nancy and Edgar 20 miles greater than
+than the distance between Nancy and William?
+
+\vspace{.5cm}We need to solve the inequality 
+\begin{equation}
+\mbox{dist}\left(N,E\right)>\mbox{dist}\left(N,W\right)+20\label{eq:dist}
+\end{equation}
+Where $N=\mbox{Nancy's position}$, $E=\mbox{Edgar's position}$,
+and $W=\mbox{William's position}$ as $\left(x,y\right)$ coordinates
+with the cabin at the origin (point $(0,0)$). See the figure:
+
+\begin{center}
+\renewcommand{\xmax}{15}
+\renewcommand{\xmin}{-8}
+\renewcommand{\xstep}{0} %must be xmin+n
+\renewcommand{\ymax}{8}
+\renewcommand{\ymin}{0}
+\renewcommand{\ystep}{0} %must be ymin+n
+%%%%%%%
+\begin{tikzpicture} 
+\begin{axis}[height=3.5cm, 
+	width=3.5cm, 
+	axis lines=middle,
+	minor x tick num={4},
+	minor y tick num={4},
+	grid=none,
+	xtick={0,50,...,250},
+	ytick={0,10,20,...,40},
+	%axis line style={-latex}, 
+	xmin=\xmin,xmax=\xmax, 
+	ymin=\ymin,ymax=\ymax,
+	%restrict y to domain=-1:10,
+	%no markers, 
+	xlabel={$$},ylabel={$$}, 
+	%every axis x label/.append style={anchor=north}, 
+	%every axis y label/.append style={anchor=east}
+	]
+	
+	\addplot[color=red,mark=o,solid] coordinates {(0,5)} node[right] {$N$};
+	\addplot[color=blue,mark=o,solid] coordinates {(12,0)} node[above] {$E$};
+	\addplot[color=black,mark=o,solid] coordinates {(-6,0)} node[above] {$W$};
+
+	\addplot[color=blue,dashed,mark=*,mark size=1pt] coordinates {(0,5) (12,0) };
+	\addplot[color=red,dashed,mark=*,mark size=1pt] coordinates {(0,5) (-6,0) };
+
+	
+\end{axis}
+\end{tikzpicture} 
+\par\end{center}
+
+$N=\left(0,5t\right)$, $E=\left(12t,0\right)$, and $W=\left(-2t-4,0\right)$.
+William starts 2 hours earlier hence the $-2\cdot2=-4$ (the negative
+denotes direction; it turns out to be unnecessary in this problem).
+Each point is given with respect to time \uline{after 10 AM}. At $t=0$,
+$N$ and $E$ they are at the cabin, $\left(0,0\right)$; $W$ is
+4 miles west of the cabin, $\left(-4,0\right)$. They all move away
+from the cabin according to their speed and direction. The picture
+shows $t=1$.
+
+$\mbox{dist}\left(\left(x_{1},y_{1}\right),\left(x_{2},y_{2}\right)\right)=\sqrt{\left(x_{1}-x_{2}\right)^{2}+\left(y_{1}-y_{2}\right)^{2}}$,
+so:
+\begin{itemize}
+\item $\mbox{dist}\left(N,W\right)=\sqrt{\left(0-\left(-2t-4\right)\right)^{2}+\left(5t-0\right)^{2}}=\sqrt{4t^{2}+16t+16+25t^{2}}=\sqrt{29t^{2}+16t+4}$
+\item $\mbox{dist}\left(N,E\right)=\sqrt{\left(0-12t\right)^{2}+\left(5t-0\right)^{2}}=\sqrt{144t^{2}+25t^{2}}=\sqrt{169t^{2}}=13t$
+\end{itemize}
+Plugging this into equation \ref{eq:dist}, we have:
+\begin{eqnarray}
+13t & > & \sqrt{29t^{2}+16t+4}+20\nonumber \\
+13t-20 & > & \sqrt{29t^{2}+16t+4}\label{eq:ineq}\\
+\left(13t-20\right)^{2} & > & \left(\sqrt{29t^{2}+16t+4}\right)^{2}\nonumber \\
+169t^{2}-520t+400 & > & 29t^{2}+16t+4\nonumber \\
+140t^{2}-536t+396 & > & 0\nonumber \\
+4(t-1)(35t-99) & > & 0\nonumber 
+\end{eqnarray}
+
+So we need to solve the quadratic inequality, $4(t-1)(35t-99)=0$.
+So $t=1$ or $t=\frac{99}{35}\approx2.829$. But $t=1\Rightarrow13(1)-20=-7$
+which is not a solution for the inequality \ref{eq:ineq} above because
+the radical cannot be less than 0. So then $t\approx2.829\mbox{ hrs}$. 
+
+So the solution is approximately $10+2.829=12.83\mbox{ PM}$ or $12:50\mbox{ PM}.$
+\end{enumerate}
+\vspace{1cm}While a good problem, it is difficult because there are
+so many little details to mess up!
+
+Note that the negative used for $W$'s position was unnecessary because
+it got squared. However if you wanted to find the distance between
+$W$ and $E$ it would be needed. the distance between points could
+have been found using Pythagoras\textquoteright s Theorem, but this
+theorem is really just a distance formula. 
+\end{document}

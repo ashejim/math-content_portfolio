@@ -1,0 +1,303 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames,table]{xcolor} %adds additional color options
+\hypersetup{colorlinks=true, urlcolor=Blue}
+
+\usepackage{sectsty} %%one way to change section header font sizes.
+\sectionfont{\large}
+
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{10pt}{0pt}
+
+\usepackage{multicol}
+\usepackage[super]{nth}
+
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+%\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+%\usepackage{datenumber} % Counters for dates
+%\longdate %\usdate 
+\newdateformat{MD}{\monthname[\THEMONTH] \ordinal{DAY}}
+
+\def\formatdateny{\csname noyear\languagename\expandafter\endcsname\formatdate}
+\def\noyearenglish#1, \the\@year{#1}
+\let\noyearamerican\noyearenglish
+\let\noyearbritish\noyearenglish
+% Added by lyx2lyx
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\newcommand{\secNum}{07}
+\newcommand{\secTime}{11:00-12:00}
+\newcommand{\secRoom}{Walls 418?}
+\newcommand{\secSem}{Fall 2014}
+\newcommand{\secWebCode}{mhu 2542 5052}
+\newcommand{\secFinal}{\formatdate{5}{12}{2014}}
+
+\begin{center}
+{\Large\textbf{Mars Hill University}}\textbf{}\\
+\textbf{Finite Mathematics~~|~~Math 107~~|~~Section \secNum~~|~~\secSem}\\
+\textbf{MWF \secTime~~|~~\secRoom}\\
+\textbf{\rule[0.25ex]{1\columnwidth}{1pt}}
+\par\end{center}
+
+\vspace{-15pt}
+
+\begin{center}
+\emph{\textquotedblleft Every act of conscious learning requires the
+willingness to suffer an injury to one's self-esteem. That is why
+young children, before they are aware of their own self-importance,
+learn so easily; and why older persons, especially if vain or important,
+cannot learn at all.\textquotedblright{}} \\
+--Thomas Szasz, author, professor of psychiatry (1920- 2012)\vspace{-.25cm}
+\par\end{center}
+
+\section*{Instructor Information}
+
+\textbf{Name: }Dr.\,James Ashe\\
+\textbf{Office location: }TBD\\
+\textbf{Email: }\href{mailto:jashe@mhu.edu}{jashe@mhu.edu}\\
+\textbf{Office phone: }NA\\
+\textbf{Office hours: }TBD
+
+\section*{Course Description}
+
+Selected topics including an introduction to descriptive statistics,
+collecting and interpreting data, finite probability and logical reasoning.
+Prerequisite: MTH 101 or a rating of 2 on the placement exam. Fulfills
+general education perspectives requirement. 
+
+Instructional methods will primarily consist of lectures, in-class
+discussions, and projects. However other methods may be adopted according
+to the particular needs of the class.
+
+\section*{Course Materials }
+
+\textbf{Textbook/WebAssign:} A \emph{WebAssign }account is required
+for this course. To setup an account complete the following:
+\begin{enumerate}
+\item Go to the website \href{http://www.webassign.net/}{www.webassign.net}.
+In the upper right corner is a gray box, \href{http://www.webassign.net/v4cgi/selfenroll/classkey.html}{$ \begin{array}{l} \includegraphics[height=14pt,keepaspectratio=true]{WebAssign_Enter_Class_Key.png}
+\end{array}$}, click on it (alternatively click on the picture; it is a hyperlink).
+\item Enter the code: the code: \fbox{\textbf{\secWebCode}} 
+\item Follow the step-by-step instructions.
+\end{enumerate}
+\emph{WebAssign }is free for the first two weeks of class (until \formatdateny{3}{9}{2014}).
+An electronic copy of the text \href{http://www.amazon.com/Mathematics-Practical-Odyssey-Seventh-Edition/dp/B0072G1BXU}{\emph{Mathematics, A practical Odyssey} \nth{7} edition ohnson, David B. and Thomas A. Mowry}
+is included with every WebAssign account. If you prefer to buy a physical
+text, first \uline{make certain that it comes with a }\emph{\uline{WebAssign
+}}\uline{code}. 
+
+\textbf{Calculator: }A scientific calculator is required for this
+course. Graphing calculators such as the TI-83, TI-83+, and TI-84+
+are allowed and supported. 
+
+\section*{Grades}
+
+Grades will be taken from homework/quizzes, 4 exams, and a Final Exam
+as follows:\textbf{}\\
+\textbf{Evaluation: }HW/Quizzes $=20\%$, Exams 1, 2, 3, 4$=15\%$
+each; Final Exam $=20\%$.
+
+\textbf{Grading scale: $\mbox{A}^{+}\geq98\%>\mbox{A}\geq95\%>\mbox{A}^{-}\geq90\%>\mbox{B}^{+}\geq88\%>\mbox{B}\geq85\%>\mbox{B}^{-}\geq80\%>\mbox{C}^{+}\geq78\%>\mbox{C}\geq75\%>\mbox{C}^{-}\geq70\%>\mbox{F}$}
+
+\textbf{HW/Quizzes: }HW/Quizzes will consist of any graded assignment
+which is not an exam. The majority of this grade will be from the
+\emph{WebAssign }online HW, however it will also include in-class
+quizzes and projects. Unless stated otherwise, each HW/quiz will be
+of equal value. At least two of the lowest HW/quiz grades will be
+dropped. \textbf{}\\
+\textbf{Final Exam: }The final exam will be given in class on \secFinal;
+see the exam schedule \href{http://www.mhu.edu/academics/course-catalog/exam-schedule}{www.mhu.edu/academics/course-catalog/exam-schedule}.
+\emph{If beneficial, the final exam score will replace the lowest
+exam score.}
+
+\section*{Class Policies}
+
+MHU policies regarding attendance, \uline{academic integrity}, grades,
+and change of enrollment will be enforced. It is the student\textquoteright s
+responsibility to be aware of these policies and of related deadlines
+as well as any announcements or syllabus adjustments (written or oral)
+made in class. Please see the student handbook for details, \href{http://www.mhu.edu/campus-life/student-handbook}{www.mhu.edu/campus-life/student-handbook}.
+All Mars Hill University students are expected to conform to the following
+code:
+
+\begin{center}\textbf{Honor Code}\\
+``We, the students of Mars Hill University, pledge ourselves to uphold
+integrity, honesty, and academic responsibility in and out of the
+classroom.''
+
+\textbf{Honor Pledge}\\
+``On my honor, I have neither given nor received any academic aid
+or information that would violate the Honor Code of Mars Hill University.''\end{center}
+
+\textbf{Attendance: }$2.5\%$ will be deducted from a student's final
+grade for each absence over five. Leaving early will count as one
+tardy, and three tardies will be counted as one absence. \uline{There
+are no excused absences}. Classes missed for personal or school related
+events, e.g., sports, band etc., are included in the five absences
+which are not penalized. 
+
+\textbf{Missed HW/quizzes: }There will be no make-ups for in-class
+quizzes unless the class was missed for a University sponsored event,
+and advance notice of the absence was given by the student. In this
+case the assignment will be excused or a make-up will be given depending
+on circumstances. Late take-home assignments will have 25\% deducted
+for each day it is late.\\
+\textbf{Missed exams: }If a student misses an exam for a verifiable
+excuse, they should send me an e-mail \emph{as soon as possible }so
+that a make-up can be arranged. Make-up exams may be significantly
+more difficult. If you will be gone for any reason, it will be \emph{your
+}responsibility to inform me at least a week in advance to schedule
+to take the exam early. 
+
+\textbf{\textit{\emph{Snow Policy}}}\textit{\emph{:}} If class is
+canceled due to inclement weather, I will send an email to the class
+via MHU Webmail.\textit{ It is your responsibility to check your MHU
+email account regularly for announcements from the instructor.}
+
+\textbf{Student support services: }If you need course adaptations
+or accommodations for a documented disability please contact the \href{http://www.mhu.edu/campus-life/disability-services}{Disability Services}
+(828)\,689-1410 and/or \href{http://www.mhu.edu/campus-life/student-services/student-support-services}{Student Support Services}
+(828)\,689-1380. The \href{http://www.mhu.edu/campus-life/counseling-center}{Counseling Center}
+(828)\,689-1196 provides confidential intakes and assessments, personal
+counseling and referrals to appropriate resources to all enrolled
+students on a walk-in or appointment basis. 
+
+\textbf{Disclaimer: }While I do not foresee any significant changes
+to the items in this syllabus during the semester, I reserve the right
+to make appropriate changes. Students will be notified of any such
+changes in writing.
+
+\newpage
+
+\section*{\center{Tentative Schedule}}
+
+\rowcolors{1}{gray!40}{white}
+
+\begin{center}
+\begin{tabular}{|r|l|}
+\hline 
+\formatdateny{20}{8}{2014} & Syllabus, Intro. to WebAssign, Section 2.1\tabularnewline
+\hline 
+\formatdateny{22}{8}{2014} & Section 2.1\tabularnewline
+\hline 
+\formatdateny{25}{8}{2014} & Section 2.2\tabularnewline
+\hline 
+\formatdateny{27}{8}{2014} & Section 2.3\tabularnewline
+\hline 
+\formatdateny{29}{8}{2014} & Section 2.3\tabularnewline
+\hline 
+\formatdateny{1}{9}{2014} & Section 2.4\tabularnewline
+\hline 
+\formatdateny{3}{9}{2014} & Section 2.4\tabularnewline
+\hline 
+\formatdateny{5}{9}{2014} & Review \tabularnewline
+\hline 
+\formatdateny{8}{9}{2014} & \textbf{Exam 1}\tabularnewline
+\hline 
+\formatdateny{10}{9}{2014} & Section 1.1\tabularnewline
+\hline 
+\formatdateny{12}{9}{2014} & Section 1.2 \tabularnewline
+\hline 
+\formatdateny{15}{9}{2014} & Section 1.2; Last day to drop w/o an ``I''\tabularnewline
+\hline 
+\formatdateny{17}{9}{2014} & Section 1.3\tabularnewline
+\hline 
+\formatdateny{19}{9}{2014} & Section 1.3 \tabularnewline
+\hline 
+\formatdateny{22}{9}{2014} & Section 1.4\tabularnewline
+\hline 
+\formatdateny{24}{9}{2014} & Section 1.5\tabularnewline
+\hline 
+\formatdateny{26}{9}{2014} & Section 1.5 \tabularnewline
+\hline 
+\formatdateny{29}{9}{2014} & Review\tabularnewline
+\hline 
+\formatdateny{1}{10}{2014} & \textbf{Exam 2}\tabularnewline
+\hline 
+\formatdateny{3}{10}{2014} & Section 3.2\tabularnewline
+\hline 
+\formatdateny{6}{10}{2014} & \textbf{Fall Break}\tabularnewline
+\hline 
+\formatdateny{8}{10}{2014} & Section 3.3\tabularnewline
+\hline 
+\formatdateny{10}{10}{2014} & Section 3.3 \tabularnewline
+\hline 
+\formatdateny{13}{10}{2014} & Section 3.4; Last day to withdraw with a \textquotedblleft W\textquotedblright{}\tabularnewline
+\hline 
+\formatdateny{15}{10}{2014} & Section 3.4\tabularnewline
+\hline 
+\formatdateny{17}{10}{2014} & Section 3.5 \tabularnewline
+\hline 
+\formatdateny{20}{10}{2014} & Section 3.6\tabularnewline
+\hline 
+\formatdateny{22}{10}{2014} & Section 3.7\tabularnewline
+\hline 
+\formatdateny{24}{10}{2014} & Review \tabularnewline
+\hline 
+\formatdateny{27}{10}{2014} & \textbf{Exam 3}\tabularnewline
+\hline 
+\formatdateny{29}{10}{2014} & Section 4.1\tabularnewline
+\hline 
+\formatdateny{31}{10}{2014} & Section 4.2 \tabularnewline
+\hline 
+\formatdateny{3}{11}{2014} & Section 4.2-4.3 \tabularnewline
+\hline 
+\formatdateny{5}{11}{2014} & Section 4.3\tabularnewline
+\hline 
+\formatdateny{7}{11}{2014} & Section 4.3 \tabularnewline
+\hline 
+\formatdateny{10}{11}{2014} & Section 4.3-4.4\tabularnewline
+\hline 
+\formatdateny{12}{11}{2014} & Section 4.4\tabularnewline
+\hline 
+\formatdateny{14}{11}{2014} & Section 4.4\tabularnewline
+\hline 
+\formatdateny{17}{11}{2014} & Section 4.4\tabularnewline
+\hline 
+\formatdateny{19}{11}{2014} & Review\tabularnewline
+\hline 
+\formatdateny{21}{11}{2014} & \textbf{Exam 4}\tabularnewline
+\hline 
+\formatdateny{24}{11}{2014} & Review\tabularnewline
+\hline 
+\formatdateny{26}{11}{2014} & \textbf{Thanksgiving Break}\tabularnewline
+\hline 
+\formatdateny{28}{11}{2014} & \textbf{Thanksgiving Break}\tabularnewline
+\hline 
+\formatdateny{1}{12}{2014} & Review\tabularnewline
+\hline 
+\secFinal & \textbf{Final Exam}\tabularnewline
+\hline 
+\end{tabular}
+\par\end{center}
+\end{document}

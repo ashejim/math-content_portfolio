@@ -1,0 +1,212 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+\usdate
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{335}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\examType}{Midterm Exam}
+
+\renewcommand{\date}{\formatdate{5}{4}{2013}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{Solutions}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\setlist{topsep=.5pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\Dspace}{.8cm}\small
+\begin{enumerate}[resume]
+\item Determine the following:
+
+\begin{enumerate}
+\item Find an integer $x$ such that $0\leq x<4$ and $x=15\bmod4$
+
+\begin{enumerate}
+\item []$x=3$. Using, $15=3\cdot4+\mathbf{3}$ or $4|15-3$.
+\end{enumerate}
+\item $\mbox{gcd}(2\cdot3^{40}\cdot5^{20}\cdot13,2\cdot3\cdot5^{19}\cdot7)=2\cdot3\cdot5^{19}$
+\item Write the set $A=\left\{ \dots-3,0,3,6,\dots\right\} $ in set-builder
+form.
+
+\begin{enumerate}
+\item []$A=\left\{ x|x=3n\mbox{ for }n\in\mathbb{Z}\right\} $\vfill
+\end{enumerate}
+\end{enumerate}
+\item Complete the following:
+
+\begin{enumerate}
+\item $a\cdot s+b\cdot t=1$ for integers $a,b,s,t\in\mathbb{Z}$. What
+is $\gcd(a,b)$?
+
+\begin{enumerate}
+\item []$\gcd(a,b)=1$ since $a\cdot s+b\cdot t=1$
+\end{enumerate}
+\item If $a\cdot s+b\cdot t=1$ is there an integer $d>1$ such that $d|a$
+and $d|b$? Explain.
+
+\begin{enumerate}
+\item []No. The greatest common divisor is $1$ since $\gcd(a,b)=1$, and
+$d>1$.\vfill
+\end{enumerate}
+\end{enumerate}
+\item Complete the following:
+
+\begin{enumerate}
+\item Find all the subsets of $A=\left\{ a,b,c\right\} $.
+
+\begin{enumerate}
+\item []$\emptyset,\left\{ a\right\} ,\left\{ b\right\} ,\left\{ c\right\} ,\left\{ a,b\right\} ,\left\{ a,c\right\} ,\left\{ b,c\right\} ,\left\{ a,b,c\right\} $
+\end{enumerate}
+\item If $\left|A\right|=4$ how many subsets does $A$ have?
+
+\begin{enumerate}
+\item []$2^{4}=16$\vfill
+\end{enumerate}
+\end{enumerate}
+\item Let $A=\left\{ 1,2\right\} $ and $B=\left\{ 2,4\right\} $.
+
+\begin{enumerate}
+\item Find $A\cup B=\left\{ 1,2,4\right\} $
+\item Find $A-B=\left\{ 1\right\} $
+\item Find $A\times B=\left\{ \left(1,2\right),\left(1,4\right),\left(2,2\right),\left(2,4\right)\right\} $\vfill
+\end{enumerate}
+\item Prove that $A=A\cup A$.
+
+\begin{proof}
+$\left(A\subseteq A\cup A\right)$: Let $x\in A$. $x\in A$ or $x\in A$
+so then $x\in A\cup A$. Thus $A\subseteq A\cup A$.
+
+$\left(\left(A\cup A\right)\subseteq A\right)$: Let $x\in A\cup A$.
+So $x\in A$ or $x\in A$. Thus $A\cup A\subseteq A$.\vfill
+\end{proof}
+\item Let $A\subseteq B$ and $B\subseteq C$. Prove that $A\subseteq C$.
+
+\begin{proof}
+Let $a\in A$ then , and $a\in B$ implies that $a\in C$. So then
+$A\subseteq C$.\vfill
+\end{proof}
+\item Give the definition of the following:
+
+\begin{enumerate}
+\item A \emph{1-1 function}.
+
+$f:A\rightarrow B$ is a function is 1-1 if and only if $f(x_{1})=f(x_{2})$
+then $x_{1}=x_{2}$.
+\item A \emph{transitive relation.}
+
+A relation $\mathcal{R}$ is \emph{transitive }if $x\mathcal{R}y$
+and $yRz$ implies that $yRz$.\vfill
+\end{enumerate}
+\item Let $f:A\rightarrow B$ be a function from set $A$ to set $B$.
+
+\begin{enumerate}
+\item If $\left|A\right|=20$ and $\left|B\right|=21$ can $f$ be onto?
+
+No, since $\left|A\right|<\left|B\right|$. 
+\item If $f$ is a constant function and $\left|B\right|>1$, can it be
+$1-1$? ($f$ is \emph{constant function }if $f(a)=b$ for all $a\in A$
+and some $b\in B$.)
+
+Yes. Let $A=\left\{ a\right\} $ and $f(a)=b$. \emph{In general,
+}a constant function is not 1-1.\emph{ }\vfill
+\end{enumerate}
+\item Let $\mathcal{R}=\left\{ \left(a,b\right),\left(b,a\right),\left(b,c\right),\left(a,a\right),\left(b,b\right),\left(c,c\right)\right\} $
+be a relation on the set $E=\left\{ a,b,c\right\} $.
+
+\begin{enumerate}[resume]
+\item Is $\mathcal{R}$ reflexive? Explain. 
+
+Yes. $\left(a,a\right),\left(b,b\right),\left(c,c\right)\in\mathcal{R}$.
+\item Is $\mathcal{R}$ symmetric? Explain.
+
+No. $\left(b,c\right)\in\mathcal{R}$ but $\left(c,b\right)\notin\mathcal{R}$.\vfill
+\end{enumerate}
+\item Define the relation $\mathcal{R}$ on the set of even integers as
+$x\mathcal{R}y\iff2|x\cdot y$ (i.e., $x\cdot y$ is an even integer).
+Show that $\mathcal{R}$ is an equivalence relation.
+
+\begin{proof}
+Let $x,y,z\in2\mathbb{Z}$, i,e., $x=2n_{0},y=2n_{1},$ and $z=2n_{2}$
+for some $n_{0},n_{1},n_{2}\in\mathbb{Z}$.\\
+Reflexive: $x\cdot x=2n\cdot2n=4n^{2}$ and $2|4n^{2}$ so $x\mathcal{R}x$.
+
+Symmetric: Suppose that $2|x\cdot y$. $x\cdot y=y\cdot x$ so then
+$2|yx$.
+
+Transitive: Suppose that $2|x\cdot y$ and $2|y\cdot z$. $x\cdot z=2n_{0}2n_{2}=4n_{0}n_{2}$
+so then $2|x\cdot z$.
+
+$\mathcal{R}$ is reflexive, symmetric, and transitive so it is an
+equivalence relation.
+\end{proof}
+\vfill
+\end{enumerate}
+
+\end{document}

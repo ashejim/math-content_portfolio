@@ -1,0 +1,134 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+\theoremstyle{definition}
+\newtheorem*{defn*}{\protect\definitionname}
+\theoremstyle{plain}
+\newtheorem*{lem*}{\protect\lemmaname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\definitionname}{Definition}
+\providecommand{\lemmaname}{Lemma}
+
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{335}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{Name: \hspace{-4cm}}
+
+\newcommand{\examType}{Homework 5}
+
+\newcommand{\Date}{\today} %%\AdvanceDate[12] \today
+
+%\newdate{my_date}{\day}{\month}{\year}%   
+%\AdvanceDate[-5] 
+%\displaydate{my_date}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \Date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+%\setlist{nolistsep} %eliminates space between list items
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Homework Problems. }\emph{Bonus Problems}
+\begin{defn*}
+A \emph{group homomorphism} is a function $f:G_{1}\rightarrow G_{2}$
+between two groups that preserves the group operation; i.e., $f(ab)=\underset{\mbox{operation of }G_{2}}{\underbrace{f(a)f(b)}\mbox{.}}$
+\end{defn*}
+\begin{itemize}
+\item [ex.]The mapping $f:\mathbb{Z}\rightarrow\mathbb{Z}_{n}$ where $\mathbb{Z}$
+and $\mathbb{Z}_{n}$ are groups under addition and modular addition
+respectively. Since $f(a+b)=(a+b)\bmod n=a\bmod n+b\bmod n$.
+\end{itemize}
+\begin{defn*}
+Let $G$ be a group a $H$ a subset of $G$. For any $a\in G$, the
+set $aH=\left\{ ah|h\in H\right\} $ is called the \emph{left coset
+of H in G containing a. }$Ha=\left\{ ha|h\in H\right\} $ is called
+the \emph{right coset of H in G containing a}. 
+\end{defn*}
+\begin{lem*}
+For $H$ a subgroup of $G$ and $a,b\in G$, the following properties
+of cosets hold:
+
+\begin{enumerate}
+\item $a\in aH$.\vfill
+\item $aH=H$ if and only if $a\in H$. (parts 1 and 2 must be done together)
+\item $aH=bH$ or $aH\cap bH=\emptyset$.
+\item $\left|aH\right|=\left|Ha\right|=\left|bH\right|=\left|H\right|$.\vfill
+\end{enumerate}
+\end{lem*}
+\begin{enumerate}[resume]
+\item \textbf{Lagrange's Theorem: $\left|H\right||\left|G\right|$. }If
+$G$ is a finite group and $H$ is a subgroup of $G$, then $\left|H\right|$
+divides $\left|G\right|$. (also $\frac{\left|G\right|}{\left|H\right|}$is
+the number of distinct left cosets in $G$).\vfill
+\item Prove that if $\left|G\right|\leq4$ then $G$ is abelian. Then prove
+that if $\left|G\right|<6$ then $G$ is abelian. \vfill
+\item Let $f:G_{1}\rightarrow G_{2}$ be a group homomorphism and let $H\leq G_{2}$.
+Prove that $f^{-1}(H)=\left\{ g\in G_{1}|f(g)\in H\right\} $ is a
+subgroup of $G_{1}$.\vfill
+\end{enumerate}
+
+\end{document}

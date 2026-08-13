@@ -1,0 +1,161 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{beamer}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% this default might be overridden by plain title style
+\newcommand\makebeamertitle{\frame{\maketitle}}%
+% (ERT) argument for the TOC
+\AtBeginDocument{%
+  \let\origtableofcontents=\tableofcontents
+  \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+  \def\gobbletableofcontents#1{\origtableofcontents}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usetheme{Warsaw}
+% or ...
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+\setbeamercovered{invisible} %makes overlays invisible
+
+
+%gets rid of navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\title[Exam Review]{Exam Review: 9.1-9.5}
+\subtitle{Calculus III | MTH 331~~|~~Section A~~|~~Fall 2012}
+\author{Dr.\,James Ashe}
+\titlegraphic{\includegraphics[height=1.5cm]{../../jcsu_bull.jpg}}
+\institute{Johnson C. Smith University}
+\date{{}}
+
+\makebeamertitle
+
+%\beamerdefaultoverlayspecification{<+->}
+\begin{frame}{}
+
+\textbf{Homework}
+
+\textbf{9.1}: 21, 55, 60, 66, 68 
+
+\textbf{9.2}: 4, 9, 18, 20, 29, 46, 48, 51-56, 58 
+
+\textbf{9.3}: 12, 19, 23, 26, 47, 49 
+
+\textbf{9.4}: 12, 14, 20, 24, 26, 29 
+
+\textbf{9.5}: 9-14, 19-25, 27-28
+\end{frame}
+
+\begin{frame}{}
+
+\begin{block}{Recall: Integration by Parts}
+
+$\int u\,dv=uv-\int v\,du$
+\end{block}
+\begin{itemize}
+\item <2->[ex.]Find $\int xe^{-x}\,dx$. \uncover<3->{Let $u=x$ so that,}\uncover<4->{
+\[
+\begin{array}{rcl}
+u=x &  & dv=e^{-x}\,dx\\
+du=x &  & v=-e^{-x}
+\end{array}
+\]
+}\vspace{-10pt}
+\item <5->[]$\int\underset{u}{\underbrace{x}}\cdot\underset{dv}{\underbrace{e^{-x}\,dx}}$\uncover<6->{$=\underset{u}{\underbrace{x}}\underset{v}{\underbrace{(-e^{-x})}}-\int\underset{v}{\underbrace{(-e^{-x})}}\,\underset{du}{\underbrace{dx}}$.}
+\item <7->[]$=-xe^{-x}-e^{-x}+C$
+\end{itemize}
+\begin{block}<8->{$e^{x}$}
+${\displaystyle \lim_{n\rightarrow\infty}\left(\frac{n+x}{n}\right)^{n}=e^{x}}$
+\end{block}
+\uncover<9->{In particular, ${\displaystyle \lim_{n\rightarrow\infty}\left(\frac{n}{n+1}\right)^{n}=e^{-1}}$.}
+\begin{itemize}
+\item <9->[]These facts come in useful on problems \textbf{9.4: }29, \textbf{9.5:
+}12 and 14 (among others)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Types of Problems}
+
+\begin{block}{\textbf{9.1: }Overview of Sequences and Series}
+
+Reading and writing the notation
+\end{block}
+\begin{itemize}
+\item <2->Write: \textbf{ex. }Find an explicit formula for the sequence
+$\{1,3,9,27,81,\dots\}$.
+\item <3->Write: \textbf{ex. }Write $0.6+0.06+0.006+\dots$ in sigma notation.
+\item <4->Read: \textbf{ex. }Find the first $4$ terms of the series ${\displaystyle \sum_{k=1}^{\infty}\frac{1}{2^{k}}}$. 
+\end{itemize}
+\begin{block}<4->{\textbf{9.2: }Sequences}
+
+Determine the limit of a given sequence.
+\end{block}
+\begin{itemize}
+\item <5->[ex.]Directly: \textbf{ex. }Find the limit of $\left\{ \frac{n^{3}}{n^{4}+1}\right\} $.
+\item <6->[ex.]By comparing growth: \textbf{ex. }$\left\{ \frac{3^{n}}{n!}\right\} $;
+$3^{n}\ll n!$.
+\item <7->[ex.]By using the Squeeze Thm: \textbf{ex. }$?\leq\left\{ \frac{n\sin^{3}n}{n+1}\right\} \leq?$. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+
+\begin{block}{\textbf{9.3: }Series}
+
+Working with geometric and telescoping series.
+\end{block}
+\begin{itemize}
+\item <2->Recognize and evaluate a geometric series: \textbf{ex. }${\displaystyle \sum_{k=0}^{\infty}\frac{3}{5^{k}}}$,
+${\displaystyle \sum_{k=1}^{\infty}\left(\frac{9}{7}\right)^{k}}$.
+\item <3->Recognize and evaluate a telescoping series: \textbf{ex. ${\displaystyle \sum_{k=1}^{\infty}\left(\frac{1}{k+2}-\frac{1}{k+3}\right)}$}
+(no method of partial fractions).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+
+\begin{block}{\textbf{9.4: }Divergence and Integral Tests.}
+
+Applying the divergence and integral tests.
+\end{block}
+\begin{itemize}
+\item <2->Recognize the harmonic series, and recall that it diverges.
+\item <3->Be able to manipulate series using basic properties: \textbf{ex.
+}${\displaystyle \sum_{k=0}^{\infty}\left[2\left(\frac{3}{5}\right)^{k}+3\left(\frac{4}{9}\right)^{k}\right]}$.
+\item <4->Use the Divergence Test: \textbf{ex. }${\displaystyle \sum_{k=2}^{\infty}\frac{1}{k\ln k}}$.
+\item <5->Use the Integral Test: \textbf{ex. }${\displaystyle \sum_{k=1}^{\infty}\frac{1}{\sqrt[3]{k+10}}}$.
+These problems may give you the $\frac{d}{dx}$ and $\int dx$. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+
+\begin{block}{\textbf{9.5: }Ratio, Root, and Comparison Tests.}
+
+Applying all these tests.
+\end{block}
+\begin{itemize}
+\item <2->Ratio: Look at the ratio of $a_{k}$ and $a_{k+1}$ in a series.
+\textbf{ex. }${\displaystyle \sum_{k=1}^{\infty}\frac{2^{k}}{k!}}$. 
+\item <3->Root: Look at $\sqrt[n]{a_{k}}$ in a series. \textbf{ex. ${\displaystyle \sum_{k=1}^{\infty}\left(\frac{k+1}{2k}\right)^{k}}$}.
+\item <4->Comparision: \textbf{ex. }${\displaystyle \sum_{k=1}^{\infty}\frac{\sin(\nicefrac{1}{k})}{k^{2}}}$,
+\textrm{${\displaystyle \sum_{k=1}^{\infty}\frac{k^{2}}{\sin(\nicefrac{1}{k})}}$}
+\end{itemize}
+\uncover<5->{You will be provided with all major results}
+\end{frame}
+
+\end{document}

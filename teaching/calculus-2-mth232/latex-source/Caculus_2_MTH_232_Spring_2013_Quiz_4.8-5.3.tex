@@ -1,0 +1,143 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usepackage{pgfplots}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{232}
+
+\newcommand{\classSec}{A and B}
+
+\newcommand{\examType}{Quiz}
+
+\renewcommand{\date}{February 11, 2013} 
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{Name:}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{Name:}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\xmax}{0}
+\newcommand{\xmin}{-\xmax}
+\newcommand{\xstep}{0}
+\newcommand{\ymax}{0}
+\newcommand{\ymin}{-\ymax}
+\newcommand{\ystep}{0} 
+
+\textbf{Justify your answers and show your work. }This quiz will be
+worth two homework grades. 
+
+\emph{Complete the following steps for $f(x)=24-2x$, interval $[0,6]$,
+and $n=3$.}
+\begin{enumerate}[resume]
+\item Sketch the graph of the function on the given interval and illustrate
+the \emph{right Riemann sums }using $n$ subintervals. Clearly label
+the gridpoints.\\
+\vspace{2.0in}
+\item Calculate the \emph{right Riemann sums }for the given interval and
+number of subintervals, $n$.\vspace{2cm}
+\end{enumerate}
+\emph{The figure shows the area of regions bounded by the graph of
+$f(x)$ and the $x-$axis. Evaluate the following integrals.}
+
+\begin{multicols}{2}
+\begin{enumerate}[resume]
+\item ${\displaystyle \int_{0}^{8}f}(x)\,dx$\vfill
+\item ${\displaystyle \int}_{5}^{8}2f(x)\,dx$\vfill
+\item ${\displaystyle \int_{0}^{5}f(x)\,dx}-{\displaystyle \int_{8}^{0}f(x)\,dx}$\vfill\columnbreak
+\end{enumerate}
+\includegraphics[width=3in]{D:/home/jim/JamesAshe/JCSU/Calc_2_MTH_232/images/Exam_1_area_under_graph.svg}
+
+\end{multicols}
+\begin{enumerate}[resume]
+\item [\textbf{6.}]\setcounter{enumi}{6}Write the series in summation notation:
+$2+4+6+8+10$.
+\end{enumerate}
+\newpage
+
+\emph{Use area to evaluate the definite integral.}
+\begin{enumerate}[resume]
+\item ${\displaystyle \int_{-9}^{9}\sqrt{81-x^{2}}}\,dx$\vfill
+\end{enumerate}
+\emph{Use the value of the first integral $I$ to evaluate the given
+integral. $I={\displaystyle \int_{0}^{1}\left(x^{3}-5x\right)\,dx}=-\frac{7}{4}$.}
+\begin{enumerate}[resume]
+\item ${\displaystyle \int_{0}^{1}\left(10x-2x^{3}\right)\,dx}$\vfill
+\end{enumerate}
+\emph{Evaluate the following.}
+\begin{enumerate}[resume]
+\item Let $a$ and $b$ be constants ${\displaystyle {\displaystyle \frac{d}{dx}\int_{a}^{x}f(t)\,dt}}$\vfill
+\item $\frac{d}{dx}{\displaystyle \int_{x}^{2}\sqrt{t^{5}}}\,dt$\vfill
+\item $\int_{1}^{2}(x^{2}-8x+1)\,dx$\vfill\vspace{1cm}\newpage
+\item ${\displaystyle \int\frac{x-\sqrt{x}}{x^{3}}}\,dx$\vfill
+\item $f(x)=\cos3x$
+
+\begin{enumerate}
+\item ${\displaystyle \int\cos3x\,dx}$\vfill\vspace{-2.0cm}
+\item ${\displaystyle \int_{-\nicefrac{\pi}{3}}^{\nicefrac{\pi}{3}}\cos3x\,dx}$\vfill\vspace{-2.0cm}
+\end{enumerate}
+\item Find the solution to the following intital value problem. $g'(x)=4x\left(x^{3}-\frac{1}{4}\right)$
+and $g(1)=2.$\vfill
+\item A bowling ball rolls down a ramp at a speed of $v(t)=-3t^{2}$ feet
+per second (where $t$ is seconds). The distance of the ball from
+the top of the ramp is $4$ feet after $2$ seconds. Find the function
+giving the distance of the ball from the top of the ramp at $t$ seconds.\vfill
+\end{enumerate}
+
+\end{document}

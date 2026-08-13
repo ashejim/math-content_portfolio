@@ -1,0 +1,209 @@
+\documentclass[12pt]{article}
+
+\usepackage{amssymb, amsmath, fullpage, amsthm, fancybox}
+\usepackage[demo]{graphicx}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{corollary}{Corollary}
+
+%\newenvironment{proof}[1][Proof]{\begin{trivlist}
+%\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{example}[1][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{remark}[1][Remark]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newcommand{\dfdx}{\frac{\partial f}{\partial x}}
+\newcommand{\QED}{\nobreak \ifvmode \relax \else
+     \ifdim\lastskip<1.5em \hskip-\lastskip
+    \hskip1.5em plus0em minus0.5em \fi \nobreak
+   \vrule height0.75em width0.5em depth0.25em\fi}
+\renewcommand{\qedsymbol}{\QED}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\limsupf}{\limsup_{\x \rightarrow \x_0; \x \in E} f\left(\x\right)}
+\newcommand{\supf}{\sup_{\x \in B'\left(\x_0;\delta\right)\cap E} f\left(\x\right)}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\convm}{\overset{m}{\longrightarrow}}
+\newcommand{\w}{\omega}
+\newcommand{\al}{\alpha}
+\newcommand{\eps}{\epsilon}
+\newcommand{\ph}{\varphi}
+\newcommand{\tab}{\hspace*{2em}}
+\newcommand{\bigsp}{\vspace{1 in}}
+\newcommand{\smallsp}{\vspace{.5 in}}
+
+\begin{document}
+\pagestyle{empty}
+
+
+\begin{center}
+\begin{large}
+Math 107-01\\
+Test 3A: November 4, 2013
+\end{large}
+\end{center}
+
+\begin{small} Answer all of the following questions.  You will have 50 minutes to complete the
+test. You may not use any outside assistance on this test.  You may use a
+calculator, but you may not program information into the calculator. The use of
+electronic equipment such as mp3 players, ipods, cell phones and any
+electronic devices other than your calculator during the test is
+prohibited.  If you have time, check your answers for accuracy.  \textbf{Show all work. Unsupported answers may not
+receive credit.}  Good luck!\end{small}
+
+\vspace{ .15 in}
+Name: \underline{\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad}\\
+
+\begin{enumerate}
+\item A die is rolled and a coin flipped.  Find the following (3 points each):
+\begin{enumerate}
+\item The sample space
+\vspace{.9 in}
+\item The number of outcomes in the sample space
+\vspace{.7 in}
+\end{enumerate}
+
+\item A card is dealt from a standard deck of 52 cards.  Find the probability of being dealt each of the following.  State your answers as reduced fractions (4 points each):
+\begin{enumerate}
+\item a four
+\vspace{.4 in}
+\item a diamond
+\vspace{.4 in}
+\item not a diamond
+\vspace{.4 in}
+\item the four of diamonds
+\vspace{.4 in}
+\item a four or a diamond
+\vspace{.4 in}
+
+\end{enumerate}
+
+\item A die is rolled.  Find the following (3 points each):
+\begin{enumerate}
+\item the probability of rolling a 2
+\vspace{.5 in}
+\item the odds of rolling a 2
+\vspace{.5 in}
+\item the probability of rolling a number greater than 4
+\vspace{.5 in}
+\item the odds of rolling a number greater than 4
+\vspace{.5 in}
+\end{enumerate}
+
+
+
+\item
+A jar contains 35 jellybeans.  There are twelve blue, eight red, ten yellow, and five green jellybeans.  You pick 5 jellybeans without looking.  Find the probability of each of the following.  Show all work and round your answers to four decimal places (4 points each):
+
+\begin{enumerate}
+\item
+all five are blue
+
+\vspace{.6 in}
+
+
+
+\item
+exactly four are blue
+
+\vspace{.6 in}
+
+\item
+at least four are blue
+
+\vspace{.4 in}
+\end{enumerate}
+
+\newpage
+\item (4 points each)
+\begin{enumerate}
+\item
+For a certain factory, the probability of selecting a worker earning a particular hourly wage is as follows:
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Hourly wage	& \$8.50 & \$9.00 & \$9.50 & \$10.00 & \$10.50 & \$ 11.00 \\
+\hline
+Probability & 15\% & 20\% & 25\% & 20\% & 15\% & 5\%\\
+\hline
+\end{tabular}
+\\Find the expected hourly wage that a worker at this factory makes.  Round to the nearest cent.
+
+\vspace{1.1 in}
+\item Find the expected value of the following game:
+\\You roll a die.  If you roll a 2,4, or 6, then you win \$15.
+\\If you roll a 3 or 5, then you lose \$10.
+\\If you roll a 1, then you lose \$20.
+\\Round to the nearest cent.
+\end{enumerate}
+\vspace{1.1 in}
+
+\item
+In a certain Math 107 class, 75\% of the students live on campus.  80\% of the students are taking an English course.  60\% of the students live on campus and are taking an English course.
+
+Let L=\{live on campus\} and E=\{taking an English course\}.
+
+Construct a Venn diagram illustrating the situation and find $p(L\cup E)$. (5 points)
+
+\includegraphics{venn1test3.jpg}
+
+$p(L\cup E)=\underline{\hspace{1.0 in}}$
+
+\item
+$A$ and $B$ are two events for a sample space. $p(A)=0.58$ and $p(B) = 0.29$.  You must show \underline{all} work to receive \underline{full} credit. (3 points each):
+\begin{enumerate}
+\item If $p(A\cap B)=0.16$, what is $p(A\cup B)$?
+
+\vspace{1.3 in}
+
+\item If $A$ and $B$ are mutually exclusive events, what is $p(A\cup B)$?
+\vspace{1.4 in}
+\end{enumerate}
+
+\item
+The probability that the new library is finished in time for the Summer Festival is 55\%.  If the library is finished for the Summer Festival, the probability it will have a roof that leaks is 25\%.  If the library is not finished in time for the Summer Festival, the probability that it will have a roof that leaks is 10\%.
+
+Construct a tree diagram, including the probability of each limb.  (10 points)
+
+\includegraphics{venn3test3.jpg}
+
+\newpage
+\item
+Of the students who are Biology majors, 55\% are taking Calculus and 65\% are taking Ecology.  30\% of the Biology majors are taking both courses.
+
+Let C=\{taking Calculus\} and E=\{taking Ecology\}.
+
+The Venn diagram is given below.
+
+\includegraphics{venn2test3.jpg}
+
+Jack is a Biology major.  Calculate the following probabilities (3 points each):
+\begin{enumerate}
+\item
+Jack is not taking Calculus
+\vspace{.3 in}
+\item
+Jack is taking Calculus and Ecology
+\vspace{.3 in}
+\item
+Jack is taking Calculus or Ecology
+\vspace{.3in}
+\item
+Jack is not taking Calculus and not taking Ecology
+\vspace{.3 in}
+\item
+Jack is not taking Calculus and is taking Ecology
+\vspace{.3 in}
+\item
+Jack is taking Calculus given that he is taking Ecology
+\vspace{.3 in}
+\item
+Jack is taking Ecology given that he is taking Calculus
+\vspace{.3 in}
+\end{enumerate}
+\vspace{.5 in}
+On my honor, I have neither given nor received any academic aid or information that would violate the Honor Code of Mars Hill University. \underline{\hspace{2.0 in}}(please sign)
+\end{enumerate}
+\end{document} 

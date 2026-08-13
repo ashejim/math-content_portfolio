@@ -1,0 +1,206 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\usepackage{setspace}
+\onehalfspacing
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newlength{\lyxlabelwidth}      % auxiliary length 
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\usepackage{multicol}
+
+\DeclareMathSizes{10}{10}{10}{10}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{232}
+
+\newcommand{\classSec}{C}
+
+\newcommand{\examType}{Table of Formulas}
+
+\renewcommand{\date}{}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{}}
+	\setlength{\headsep}{20pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\setenumerate[0]{itemsep=6pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle} %%sets first page style so that it has differeny heading
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace*{.5in}
+
+\subsection*{Indefinite Integrals of Trigonometric Functions}
+\begin{enumerate}[resume]
+\item $\frac{d}{dx}(\sin ax)=a\cos ax\longrightarrow\int\cos ax\,dx=\frac{1}{a}\sin ax+C$
+\item $\frac{d}{dx}(\cos ax)=-a\sin ax\longrightarrow\int\sin ax\,dx=-\frac{1}{a}\cos ax+C$
+\item $\frac{d}{dx}(\tan ax)=a\sec^{2}ax\longrightarrow\int\sec^{2}ax\,dx=\frac{1}{a}\tan ax+C$
+\item $\frac{d}{dx}(\cot ax)=-a\csc^{2}ax\longrightarrow\int\csc^{2}ax\,dx=-\frac{1}{a}\cot ax+C$\vfill
+\end{enumerate}
+\textbf{Substitution Rule for Indefinite Integrals} Let $u=g(x)$,
+where $g'$ is continuous on $[a,b]$, and let $f$ be continuous
+on the range of $g$. Then 
+\[
+\int f(g(x))g'(x)\,dx=\int f(u)\,du\mbox{.}
+\]
+\vfill\textbf{General Slicing Method. }Suppose a solid object extends
+from $x=a$ to $x=b$ and the cross section of the solid perpendicular
+to the $x-$axis has an area given by a function $A$ that is intergable
+on $[a,b]$. The volume of the solid is 
+\[
+V={\displaystyle \int_{a}^{b}A(x)\,dx}
+\]
+
+\vfill\textbf{Disk Method About the }\textbf{\emph{x}}\textbf{-Axis.
+}Let $f$ be continuous with $f(x)\geq0$ on the interval $[a,b]$.
+If the region $R$ bounded by the graph of $f$, the \emph{x}-axis,
+and the lines $x=a$ and $x=b$ is revolved about the \emph{x}-axis,
+the volume of the resulting solid of revolution is 
+\[
+V={\displaystyle \int_{a}^{b}\pi f(x)^{2}\,dx}\mbox{.}
+\]
+
+\vfill\textbf{Arc length. }Let $f$ have a continuous first derivative
+on the interval $[a,b]$. The length of the curve from $\left(a,f(a)\right)$
+to $\left(b,f(b)\right)$ is 
+\[
+L={\displaystyle \int_{a}^{b}\sqrt{1+f'(x)^{2}}\,dx\mbox{.}}
+\]
+
+\newpage
+
+\section*{Helpful Formulas}
+
+\subsection*{Sections 7.1, 7.2, 7.3, and 8.1}
+
+\vfill\textbf{Derivative of the Inverse Function. }Let $f$ be differentiable
+and have an inverse on an interval $I$. If $x_{0}$ is a point of
+$I$ at which $f'(x_{0})\neq0$, then $f^{-1}$is differentiable at
+$y_{0}=f(x_{0})$ and 
+\[
+\left(f^{-1}\right)'(y_{0})=\frac{1}{f'(x_{0})}\mbox{, where }y_{0}=f(x_{0}).
+\]
+
+\vfill\newpage
+
+\subsection*{Helpful Formulas: Sections 8.1, 8.2, 8.3}
+
+\begin{multicols}{2}
+
+\subsubsection*{Formulas for Derivatives}
+\begin{enumerate}
+\item $\frac{d}{dx}\left(x^{n}\right)=nx^{n-1}$
+\item $\frac{d}{dx}\left[f\left(g(x)\right)\right]=f'\left(g(x)\right)\cdot g'(x)$
+(Chain rule)
+\item $\frac{d}{dx}\left(f(x)g(x)\right)=f'(x)g(x)+f(x)g'(x)$
+\item $\frac{d}{dx}\left(\frac{f(x)}{g(x)}\right)=\frac{g(x)f'(x)-f(x)g'(x)}{\left(g(x)\right)^{2}}$
+\item $\frac{d}{dx}(\sin ax)=a\cos ax$
+\item $\frac{d}{dx}(\cos ax)=-a\sin a$
+\item $\frac{d}{dx}e^{x}=e^{x}$
+\item $\frac{d}{dx}e^{u(x)}=u'(x)e^{u(x)}$
+\item $\frac{d}{dx}\left(b^{x}\right)=b^{x}\ln b$
+\item $\frac{d}{dx}\left(b^{u(x)}\right)=b^{u(x)}\left(\ln b\right)u'(x)$
+\item $\frac{d}{dx}\ln x=\frac{1}{x}$
+\item $\frac{d}{dx}\left(\log_{b}x\right)=\frac{1}{x\ln b}$, for $x>0$\columnbreak
+\end{enumerate}
+
+\subsubsection*{Formulas for Integration}
+\begin{enumerate}
+\item $\int x^{n}\,dx=\frac{1}{n+1}x^{n+1}+C$; $n\neq-1$
+\item $\int\cos ax\,dx=\frac{1}{a}\sin ax+C$
+\item $\int\sin ax\,dx=-\frac{1}{a}\cos ax+C$
+\item $\int e^{ax}\,dx=\frac{1}{a}e^{ax}+C$
+\item $\int\frac{1}{x}\,dx=\ln\left|x\right|+C$
+\item $\int b^{x}\,dx=\frac{1}{\ln b}b^{x}+C$ for $b>0$ and $b\neq1$
+\item $\int\ln x\,dx=x\ln x-x+C$
+\item $\int\tan x\,dx=\ln\left|\cos x\right|+C$
+\item $\int\sec x\,dx=\ln\left|\sec x+\tan x\right|+C$
+\item $\int f(g(x))g'(x)\,dx=\int f(u)\,du$ (Substitution rule)
+\item $\int u\,dv=uv-\int v\,du$ (Integration by parts)
+\end{enumerate}
+\end{multicols}\vfill
+
+\textbf{General Reduction Formulas }
+\begin{enumerate}
+\item $\int\sin^{n}ax\,dx=-\frac{\sin^{n-1}ax\cdot\cos ax}{an}+\frac{n-1}{n}\int\sin^{n-2}ax\,dx$
+\item $\int\cos^{n}ax\,dx=\frac{\cos^{n-1}ax\cdot\sin ax}{an}+\frac{n-1}{n}\int\cos^{n-2}ax\,dx$\vfill
+\end{enumerate}
+\begin{multicols}{2}
+
+\textbf{Trigonometric Substitution Identities}
+\begin{enumerate}
+\item $a^{2}-x^{2}\rightarrow a^{2}\cos^{2}\theta$ where $x=a\sin\theta$
+\item $a^{2}+x^{2}\rightarrow a^{2}\sec^{2}\theta$ where $x=a\sin\theta$
+\item $x^{2}-a^{2}\rightarrow a^{2}\tan^{2}\theta$ where $x=a\sec\theta$
+\end{enumerate}
+\textbf{Pythagorean Identity}
+\begin{enumerate}[resume]
+\item $\sin^{2}\theta+\cos^{2}\theta=1$
+\end{enumerate}
+\textbf{Half-Angle Formulas }
+\begin{enumerate}[resume]
+\item $\cos^{2}\theta=\frac{1+\cos2\theta}{2}$; ~~$\sin^{2}\theta=\frac{1-\cos2\theta}{2}$
+\end{enumerate}
+\textbf{Double-Angle Identities}
+\begin{enumerate}[resume]
+\item $\sin2\theta=2\sin\theta\cos\theta$;~~$\cos2\theta=2\cos^{2}\theta-1$
+\end{enumerate}
+\vfill
+\columnbreak
+
+\center{\includegraphics[width=4cm]{images/Trig_Sub_reference_Triangle_a^2-x^2.png}}
+
+\includegraphics[width=6.5cm]{images/unit-circle8_43216_lg.gif}
+
+\end{multicols}
+
+\newpage
+\begin{enumerate}
+\item $\int\tan^{n}ax\,dx=\frac{\tan^{n-1}ax}{a\left(n-1\right)}-\int\tan^{n-2}ax\,dx$
+\item $\int\sec^{n}ax\,dx=-\frac{\sec^{n-2}ax\cdot\tan ax}{a\left(n-1\right)}+\frac{n-2}{n-1}\int\sec^{n-2}ax\,dx$
+\end{enumerate}
+
+\end{document}

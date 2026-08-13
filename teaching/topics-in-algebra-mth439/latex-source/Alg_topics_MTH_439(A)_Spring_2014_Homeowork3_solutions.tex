@@ -1,0 +1,253 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}[section]
+\theoremstyle{definition}
+\newtheorem{xca}[thm]{\protect\exercisename}
+\theoremstyle{remark}
+\newtheorem*{rem*}{\protect\remarkname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\exercisename}{Exercise}
+\providecommand{\remarkname}{Remark}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{439}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{Name: \hspace{-4cm}}
+
+\newcommand{\examType}{Homework 3}
+
+\newcommand{\Date}{\formatdate{6}{2}{2014}} %%\AdvanceDate[12] \today
+
+%\newdate{my_date}{\day}{\month}{\year}%   
+%\AdvanceDate[-5] 
+%\displaydate{my_date}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \Date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+%\setlist{nolistsep} %eliminates space between list items
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\null
+
+\vspace{1cm}
+
+\setcounter{section}{3}
+
+\Large{\textbf{Chapter 3}} \large
+
+All excercises \uline{without }a $\bigstar$ from 3.1--3.13
+
+\textbf{\textbf{\examType} due: \formatdate{18}{3}{2014}}
+\begin{xca}
+Prove that $0_{R}$ and $R$ are ideals of $R$ for any ring $R$.
+The ideal $0_{R}$ is called the \emph{zero ideal}. 
+
+\begin{proof}
+We already know that $0_{R}$ and $R$ are non-empty subrings of $R$.
+The only element in $0_{R}$ is $0_{R}$, and $a0_{R}=0_{R}a=0_{R}$
+for all $a\in R$. So $0_{R}$ is an ideal. Also, $ar$ and $ra$
+are both in $R$ for any $r,a\in R$. So $R$ is an ideal as well.
+\end{proof}
+\end{xca}
+
+\begin{xca}
+Let $\mathbb{R}[x]$, the set of all polynomials with real coefficients.
+Let $C$ be the subset of $\mathbb{R}[x]$ with constant terms that
+are $0$. For example, $x^{3}+x\in C$ but $x^{3}+x-4\notin C$. Prove
+that $C$ is or is not an ideal.
+
+\begin{proof}
+$C$ is an ideal. $x\in C$ so then $C$ is non-empty. 
+
+Let $i,j\in C$. $i-j\in C$ since both $i$ and $j$ have a constant
+term of $0$, and so the constant term of $i-j$ is $0$. 
+
+Any polynomial in $\mathbb{R}[x]$ can be written as $f(x)+c$ where
+$c$ is the constant term and $f(x)\in C$. Let $f(x)+0\in C$ and
+$g(x)+c\in\mathbb{R}[x]$. $f(x)(g(x)+c)=f(x)g(x)+f(x)c$ which has
+a constant term of $0$. So then $C$ is an ideal by the ideal test.
+\end{proof}
+\end{xca}
+
+\begin{xca}
+Prove that the set $I=\{(a,0)\colon a\in\mathbb{Z}\}$ is an ideal
+of the ring $\mathbb{Z}\times\mathbb{Z}$. 
+
+\begin{proof}
+$\mathbb{Z}\times\mathbb{Z}\neq\emptyset$ since $(1,0)\in\mathbb{Z}\times\mathbb{Z}$.
+Let $(a,0),(b,0)\in\mathbb{Z}\times\mathbb{Z}$. $(a,0)-(b,0)=(a-b,0)\in\mathbb{Z}\times\mathbb{Z}$.
+Now let $(x,y)\in\mathbb{Z}\times\mathbb{Z}$. $(x,y)(a,0)=(x\cdot a,y\cdot0)=(x\cdot a,0)\in\mathbb{Z}\times\mathbb{Z}$.
+So $\mathbb{Z}\times\mathbb{Z}$ is an ideal by the ideal test.
+\end{proof}
+\end{xca}
+
+\begin{xca}
+Let $A$ and $B$ be ideals of $R$. Prove that $A\cap B$ is also
+an ideal of $R$.
+
+\begin{proof}
+$A$ and $B$ are both ideals. Thus $0_{R}\in A$ and $0_{R}\in B$
+and $0_{R}\in A\cap B$ ($0_{R}\in I$ for any ideal in $R$. If not
+then $a\cdot0_{R}=0_{R}\notin I$ for any $a\in I$.) 
+
+Let $x,y\in A\cap B$. $x-y\in A$ and $x-y\in B$ since $A$ and
+$B$ are both subrings, and subrings are closed under subtraction. 
+
+Let $r\in R$. $rx,xr\in A$ and $ry,yr\in B$ since $A$ and $B$
+are ideals. So each of these products are also in $A\cap B$, and
+$A\cap B$ is an ideal by the ideal test.
+\end{proof}
+\end{xca}
+
+\begin{xca}
+Let $A$ and $B$ be ideals of $R$. Prove that $A\cup B$ is not
+necessarily an ideal of $R$.
+
+\begin{proof}
+Consider the ring $\mathbb{Z}$ with ideals $2\mathbb{Z}$ and $3\mathbb{Z}$.
+$2\in2\mathbb{Z}$ and $3\in3\mathbb{Z}$, but $3-2=1\notin2\mathbb{Z}\cup3\mathbb{Z}$.
+
+\begin{rem*}
+The union of plenty ideals \emph{is }an ideal, e.g., $I\cup0_{R}$
+and $I\cup I$ for any ideal $I$ in $R$. Recall that the union of
+subrings is not necessarily a subring.
+\end{rem*}
+\end{proof}
+\end{xca}
+
+\begin{xca}
+If $I$ is an ideal in the ring $R$ and $J$ is an ideal of the ring
+$S$, prove that $I\times J$ is an ideal of the ring $R\times S$.
+
+\begin{proof}
+$I,J\neq\emptyset$ as they are both ideals. So there exists and $i\in I$
+and $j\in J$ such that $(i,j)\in I\times J$, and $I\times J\neq\emptyset$.
+
+Let $i,i'\in I$ and $j,j'\in J$. $(i,j)-(i',j')=(i-i',j-j')\in I\times J$
+as $i-i'\in I$ and $j-j'\in J$ since $I$ and $J$ are both ideals.
+
+Let $(r,s)\in R\times S$. $(i,j)(r,s)=(ir,js)\in R\times S$. Similarly
+$(r,s)(i,j)\in R\times S$. So $I\times J$ is an ideal by the ideal
+test. 
+\end{proof}
+\end{xca}
+
+\begin{xca}
+Let $R$ be a ring with unity $1_{R}$ and let $I$ be an ideal of
+$R$. If $1_{R}\in I$ prove $I=R$.  
+
+\begin{proof}
+$I\subset R$ by definition of an ideal. If $1_{R}\in I$ then $1_{R}r,\,r1_{R}\in I$
+since $I$ is an ideal. So then $1_{R}r=r1_{R}=r\in I$ for all $r\in R$
+which implies that $R\subset I$ and $R=I$.
+\end{proof}
+\end{xca}
+
+\begin{xca}
+Let $R$ be a ring with unity $1_{R}$ and let $I$ be an ideal of
+$R$. If $I$ has an element $x$ and $x^{-1}$ such that $x\cdot x^{-1}=x^{-1}\cdot x=1_{R}$,
+prove that $I=R$.
+
+\begin{proof}
+So if $I$ has two elements such that $x\cdot x^{-1}=x^{-1}\cdot x=1_{R}$
+then $1_{R}\in I$ since $I$ is a subring and closed under multiplication.
+It follows that $I=R$ by the exercise above.
+\end{proof}
+\end{xca}
+
+\begin{xca}
+$\bigstar$
+\end{xca}
+
+\begin{xca}
+$\bigstar$
+\end{xca}
+
+\begin{xca}
+$\bigstar$
+\end{xca}
+
+\begin{xca}
+Show that $5\mathbb{Z}$ is a prime ideal. 
+
+\begin{proof}
+We know from example 3.1 that $5\mathbb{Z}$ is an ideal in $\mathbb{Z}$.
+$6\notin5\mathbb{Z}$, so it is a proper ideal. Let $a,b\in\mathbb{Z}$
+such that $ab\in5\mathbb{Z}$. So then $ab=5n$ for some $n\in\mathbb{Z}$
+which implies that $5|ab$. Suppose that $b\notin5\mathbb{Z}$ so
+that $5\nmid b$. Since $5$ is prime, $5|a$ (by Euclid's Lemma).
+Thus $5\mathbb{Z}$ is a prime ideal.
+\end{proof}
+\end{xca}
+
+
+\end{document}

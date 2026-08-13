@@ -1,0 +1,159 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{331}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{Name:}
+
+\newcommand{\examType}{Exam 4 Review}
+
+\renewcommand{\date}{}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{12.1: Vectors in the Plane}
+\begin{itemize}
+\item Basic vector operations and arithmetic: \textbf{17-20,} \textbf{39,
+41, 43}
+
+\begin{itemize}
+\item Magnitude and unit vectors.
+\item Adding, subtracting, scalars.
+\item Parallelogram/Triangle rule.
+\end{itemize}
+\item Word problems: \textbf{45, 47}
+
+\begin{itemize}
+\item Describe various motions as vectors or as a combination of vectors.
+\item Find a vector description given the direction and magnitude of a force. 
+\item Find the magnitude and direction given a vector. 
+\end{itemize}
+\end{itemize}
+
+\section*{12.2: Vectors in Three Dimensions}
+\begin{itemize}
+\item Graphing points in $\mathbb{R}^{3}$: \textbf{9-21}
+\item Basic vector operations and arithmetic in $\mathbb{R}^{3}$ (similar
+to 12.1 above): \textbf{35, 37}
+\end{itemize}
+
+\section*{12.3: Dot Products}
+\begin{itemize}
+\item Compute the dot product, $\mathbf{u\cdot v}$: \textbf{13-17}
+\item Find the angle between two vectors (in 2 or 3 dimensions): \textbf{13-17}
+\item Find $\mbox{proj}_{\mathbf{v}}\mathbf{u}$ and $\mbox{scal}_{\mathbf{v}}\mathbf{u}$:
+\textbf{19-21, 25-27}
+\item Word problems: \textbf{29-31}
+
+\begin{itemize}
+\item Find the \emph{work}, given vectors and/or magnitude and directions. 
+\end{itemize}
+\end{itemize}
+
+\section*{12.4: Cross Products}
+\begin{itemize}
+\item Compute the cross product, $\mathbf{u\times v}$, and find an orthogonal
+vector: \textbf{9-11, 25, 29}
+\item Find torque: \textbf{33, 57}
+\item Word problems: \textbf{37, 38, 57, 58}
+
+\begin{itemize}
+\item Describe a resulting force as the cross product of vectors.
+\item Find the magnitude and direction of the force.
+\end{itemize}
+\end{itemize}
+
+\section*{12.5: Lines and Curves in Space}
+
+Continuous motions can be described using vector-valued functions
+(also called position vector),\\
+ $\mathbf{r}(t)=\left\langle x(t),y(t),z(t)\right\rangle $. This
+is a parametric function in $\mathbb{R}^{3}$. 
+\begin{itemize}
+\item Concept questions about vector-valued functions: \textbf{1-8, 39-41}
+\item Finding an equation of a line meeting given conditions: \textbf{9-13}
+\end{itemize}
+
+\section*{12.6: Calculus of Vector-Valued Functions}
+\begin{itemize}
+\item Find the derivative of a vector-valued function, $\mathbf{r}(t)$:
+\textbf{7-15, 19, 31}
+
+\begin{itemize}
+\item Review the power, product, quotient, and chain rules. Also review
+the derivative rules for the natural logarithmic, exponential, and
+trigonometric functions. 
+\end{itemize}
+\item Find the definite and indefinite integral of $\mathbf{r}(t)$: \textbf{41-43,
+49-53}
+
+\begin{itemize}
+\item Review the power and substitution rule. Also review the integration
+rules for the natural logarithmic, exponential, and trigonometric
+functions. You will not need to use integration by parts.
+\end{itemize}
+\item You will be provided all the necessary derivative and integration
+rules (as they appear in the text).
+\end{itemize}
+
+\end{document}

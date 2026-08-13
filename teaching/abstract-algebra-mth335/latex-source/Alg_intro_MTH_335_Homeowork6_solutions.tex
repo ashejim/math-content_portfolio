@@ -1,0 +1,209 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+\theoremstyle{definition}
+\newtheorem*{defn*}{\protect\definitionname}
+\theoremstyle{plain}
+\newtheorem*{lem*}{\protect\lemmaname}
+\theoremstyle{plain}
+\newtheorem*{thm*}{\protect\theoremname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\definitionname}{Definition}
+\providecommand{\lemmaname}{Lemma}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{335}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{\hspace{4cm} Solutions}
+
+\newcommand{\examType}{Homework 6}
+
+\newcommand{\Date}{Due date: \formatdate{26}{4}{2013}} %%\AdvanceDate[12] \today
+
+%\newdate{my_date}{\day}{\month}{\year}%   
+%\AdvanceDate[-5] 
+%\displaydate{my_date}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \Date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+%\setlist{nolistsep} %eliminates space between list items
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\small
+\begin{defn*}
+A \emph{group homomorphism} is a function $f:G_{1}\rightarrow G_{2}$
+between two groups that preserves the group operation; i.e., $f(ab)=\underset{\mbox{operation of }G_{2}}{\underbrace{f(a)f(b)}\mbox{.}}$
+\end{defn*}
+\begin{itemize}
+\item [ex.]The mapping $f:\mathbb{Z}\rightarrow\mathbb{Z}_{n}$ where $\mathbb{Z}$
+and $\mathbb{Z}_{n}$ are groups under addition and modular addition
+respectively. Since $f(a+b)=(a+b)\bmod n=a\bmod n+b\bmod n$.
+\end{itemize}
+\begin{defn*}
+Let $G$ be a group a $H$ a subset of $G$. For any $a\in G$, the
+set $aH=\left\{ ah|h\in H\right\} $ is called the \emph{left coset
+of H in G containing a. }$Ha=\left\{ ha|h\in H\right\} $ is called
+the \emph{right coset of H in G containing a}. 
+\end{defn*}
+\begin{lem*}
+For $H$ a subgroup of $G$ and $a,b\in G$, the following properties
+of cosets hold:
+
+\begin{enumerate}
+\item $a\in aH$
+
+\begin{proof}
+$e\in H$ since $H\leq G$. So $a=ae\in aH$.
+\end{proof}
+\item $aH=H$ if and only if $a\in H$.
+
+\begin{proof}
+Let $aH=H$. Then $a=ae\in aH=H$. Suppose that $a\in H$. $aH\subseteq H$
+since $H$ is closed, and $H\subseteq aH$ since if $h\in H$ then
+$a^{-1}h\in H$. Thus $h=eh=\left(aa^{-1}\right)h=a\left(a^{-1}h\right)\in aH$. 
+\end{proof}
+\item $aH=bH$ or $aH\cap bH=\emptyset$
+
+\begin{proof}
+Suppose that $aH\cap bH\neq\emptyset$. Then there exists an $x\in aH\cap bH$,
+and there are $h_{1},h_{2}\in H$ such that $x=ah_{1}=bh_{2}$. Thus
+$a=xh_{1}^{-1}=bh_{2}h_{1}^{-1}$. So then $aH=\left(bh_{2}h_{1}^{-1}\right)H=bH$
+since $h_{2},h_{1}^{-1}\in H$ (because $H\leq G$). 
+\end{proof}
+\item $\left|aH\right|=\left|Ha\right|=\left|bH\right|=\left|H\right|$.
+
+\begin{proof}
+Two sets have equal order if and only if there is a bijection between
+them. Let $h\mapsto ah$ define a map from $H$ to $aH$. $\left|aH\right|\leq\left|H\right|$
+by definition, so the $h\mapsto ah$ is onto. Because $G$ is a group
+there exists an $a^{-1}$. So then there exists an inverse map $a^{-1}(ah)\mapsto h$
+so that map is $1-1$. Thus it is a bijection and $\left|H\right|=\left|aH\right|$.
+Similarly a bijection exists for $bH$ and $Ha$, and $\left|aH\right|=\left|Ha\right|=\left|bH\right|=\left|H\right|$.
+\end{proof}
+\end{enumerate}
+\end{lem*}
+\begin{thm*}
+\textbf{Lagrange's Theorem: $\left|H\right||\left|G\right|$. }If
+$G$ is a finite group and $H$ is a subgroup of $G$, then $\left|H\right|$
+divides $\left|G\right|$. (also $\frac{\left|G\right|}{\left|H\right|}$is
+the number of distinct left cosets in $G$).
+
+\begin{proof}
+Let $a_{1}H,a_{2}H,\dots,a_{n}H$ be a list of distinct left cosets
+of $G$. For each $a\in G$, $aH=a_{i}H$ for some $1\leq i\leq n$.
+By part 1 of the lemma, $a\in aH=a_{i}H$. Thus each $a\in G$ is
+in on of the cosets from the list, and we can write 
+\[
+G=a_{1}H\cup a_{2}H\cup\dots\cup a_{n}H\mbox{.}
+\]
+By part 3 of the lemma, $a_{i}H\cap a_{j}H=\emptyset$ for each $i$
+and $j$ from the list. So then 
+\[
+\left|G\right|=\left|a_{1}H\right|+\left|a_{2}H\right|+\dots+\left|a_{n}H\right|\mbox{.}
+\]
+By part 4, $\left|a_{i}H\right|=\left|H\right|$. So we have that
+$\left|G\right|=n\left|H\right|$ which implies that $\left|H\right||\left|G\right|$. 
+\end{proof}
+\end{thm*}
+\begin{enumerate}
+\item Prove that if $\left|G\right|\leq4$ then $G$ is abelian. Then prove
+that if $\left|G\right|<6$ then $G$ is abelian. 
+
+\begin{proof}
+Suppose that $\left|G\right|\leq4$ and that $ab\neq ba$ for some
+$a,b\in G$. Since $ab\neq ba$ then $a\neq b$ and neither $a$ or
+$b$ are the identity. So then $e,a,b,ab,ba$ are all distinct elements
+in $G$ but then $\left|G\right|>4$ which is a contradiction. 
+
+Alternatively, since $G$ is nontrivial it has an element $a$ such
+that $a\neq e$. By Lagrange's Theorem, $\left|a\right|=4\mbox{ or }2$.
+If $\left|a\right|=4$ then $G$ is cyclic and thus abelian. If all
+of its nontrivial elements have order 4 then $e=ab\left(ab\right)\Rightarrow ba=ba\left(abab\right)=b\left(aa\right)bab=bbab=ab$.
+Since $aa=e$ and $bb=e$. 
+
+For the second part we need only show $G$ is abelian when $\left|G\right|=5$.
+$5$ is prime so then if $a\in G$ and $a\neq e$ then$\left|a\right||5$.
+So then $G$ is cyclic. 
+\end{proof}
+\end{enumerate}
+\begin{enumerate}[resume]
+\item Let $f:G_{1}\rightarrow G_{2}$ be a group homomorphism and let $H\leq G_{2}$.
+Prove that $f^{-1}(H)=\left\{ g\in G_{1}|f(g)\in H\right\} $ is a
+subgroup of $G_{1}$.
+
+\begin{proof}
+$e\in f^{-1}(H)$ so $f^{-1}(H)\neq\emptyset$. Also $f^{-1}(H)\subseteq G_{1}$
+by definition. Now let $a,b\in f^{-1}(H)$. By definition of $f^{-1}(H)$,
+$f(a),f(b)\in H$, and thus $f(b^{-1})\in H$ since $H$ is a subgroup.
+So then $f(ab^{-1})=f(a)f(b)^{-1}\in H$ since $f$ is a homomorphism
+and $H$ is a subgroup, which implies that $ab^{-1}\in f^{-1}(H)$.
+\end{proof}
+\end{enumerate}
+
+\end{document}

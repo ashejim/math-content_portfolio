@@ -1,0 +1,160 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{137}
+
+\newcommand{\classSec}{B}
+
+\newcommand{\nameType}{Name:}
+
+\newcommand{\examType}{Quiz 1.1-1.4}
+
+\renewcommand{\date}{\today} %%\today
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\xmax}{0}
+\newcommand{\xstep}{0}
+\newcommand{\ystep}{0}
+\newcommand{\ymax}{0}
+
+\textbf{No credit will be given unless you show your work.} This quiz
+will count as two homework grades. 
+
+\emph{Solve the following equations.}
+\begin{enumerate}[resume]
+\item $4(x+4)=6(x-2)$\vfill
+\item $\frac{3x}{4}-4=1-\frac{7x}{8}$\vfill
+\item $5|4x-5|-3=9$\vfill
+\item $\frac{1}{F}=\frac{1}{v}+\frac{1}{n}$ for $n$.\vfill
+\item $B=\frac{1}{9}t(f-s)$ for $f$.\vfill\newpage
+\end{enumerate}
+\emph{Solve the following equation; identify the equation as an identity,
+inconsistent, or conditional equation; and determine for which values
+the equation is undefined.}
+\begin{enumerate}[resume]
+\item $\frac{9y}{y+1}=7-\frac{9}{y+1}$\vfill
+\end{enumerate}
+\emph{Solve the following word problems}
+\begin{enumerate}[resume]
+\item Farmer John is going to fence off a lot and then cross-fence to divide
+it into four smaller lots. If he has 516 feet of fencing, how much
+area will be fenced?\vfill
+\item How many liters of a 70\% alcohol solution must be mixed with a 50
+liter solution that is 30\% alcohol to get a mixture that is 50\%
+alcohol. \vfill
+\item James can grade a pile of 30 quizzes in 2 hours. It takes Catherine
+1 hour to grade the same stack of quizzes. If they work together,
+how long will it take to grade the quizzes?\vfill\newpage
+\end{enumerate}
+\emph{Perform the indicated operation(s).}
+\begin{enumerate}[resume]
+\item Find the center and the radius of the circle. Then graph the circle$(x+3)^{2}+y^{2}=9$.\\
+\renewcommand{\xmax}{8} \renewcommand{\xstep}{4}
+\renewcommand{\ymax}{\xmax} \renewcommand{\ystep}{4}
+%%%%%%%
+\begin{tikzpicture} 
+	\begin{axis}[
+		axis x line=middle, axis y line=middle,     		
+		xtick={-\xmax,-\xstep,...,\xmax},
+		ytick={-\ymax,-\ystep,...,\ymax},
+		minor x tick num={3},
+		minor y tick num={3},
+		grid=both,
+		xlabel={$$},     
+		ylabel={$$},
+		xmin=-\xmax.25,xmax=\xmax.25,
+		ymin=-\ymax.25,ymax=\ymax.25,     		width=6cm,     		height=6cm] 		%\addplot[mark=noner,smooth,domain=-1:1]{}; 
+	\end{axis}
+\end{tikzpicture}
+\item Write the standard equation for the circle centered at $(9,4)$ and
+passing through the origin.\vfill
+\item Find the slope, if it exists, of the line passing through the points
+$\left(5,1\right)$ and $\left(-2,1\right)$.\vfill
+\item Write an equation for the line shown on the right. \\
+\renewcommand{\xmax}{8} \renewcommand{\xstep}{4}
+\renewcommand{\ymax}{\xmax} \renewcommand{\ystep}{4}
+%%%%%%%
+\begin{tikzpicture} 
+	\begin{axis}[
+		axis x line=middle, axis y line=middle,     		
+		xtick={-\xmax,-\xstep,...,\xmax},
+		ytick={-\ymax,-\ystep,...,\ymax},
+		minor x tick num={3},
+		minor y tick num={3},
+		grid=both,
+		xlabel=$x$,     
+		ylabel={$x^2$},
+		xmin=-\xmax.25,xmax=\xmax.25,
+		ymin=-\ymax.25,ymax=\ymax.25,     		width=6cm,     		height=6cm] 		%\addplot[mark=noner,smooth,domain=-1:1]{}; 
+		\addplot[color=red, domain=-\xmax:\xmax] {-1/3*(x)+1};
+	\end{axis}
+\end{tikzpicture}
+\item Find an equation for the line which passes through the point $\left(5,-4\right)$
+and is perpendicular to $y=\frac{1}{2}x+4$.\vfill
+\end{enumerate}
+
+\end{document}

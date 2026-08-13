@@ -1,0 +1,413 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{131}
+
+\newcommand{\classSec}{B}
+
+\newcommand{\nameType}{Solutions}
+
+\newcommand{\examType}{Exam 4} 
+
+\renewcommand{\date}{\formatdate{18}{11}{2013}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+%\setlist[enumerate]{topsep=0pt,itemsep=1pt,partopsep=1ex,parsep=1ex}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\xmax}{10}
+\newcommand{\xmin}{-10}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{10}
+\newcommand{\ymin}{-10}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcommand{\X}{2} \newcommand{\Y}{1} \newcommand{\Z}{1} 
+\newcommand{\x}{2} \newcommand{\y}{1} \newcommand{\z}{1} 
+\newcommand{\Ro}{1} \newcommand{\Po}{1} \newcommand{\Ao}{1} \newcommand{\To}{1}
+
+\newcounter{probs}
+\newcommand{\xspace}{\vspace{1.5cm}}
+\newcommand{\sol}[1]{\textcolor{blue}{#1}}
+
+\textbf{You must show your work to recieve. Each problem is worth
+4 pts unless stated otherwise.}
+\begin{enumerate}[resume]
+\item \renewcommand{\X}{2} 
+\renewcommand{\Y}{1} 
+\renewcommand{\Z}{1}Use the function, $f(x)=\X^{x}$, to complete parts \ref{enu:Graph-start}--\ref{enu:Find-end}.\begin{multicols}{2}
+
+\begin{enumerate}
+\item \label{enu:Graph-start}Graph $f(x)$. Label the \emph{y}-int and
+at least one other point.\addtocounter{probs}{1}
+\item Find the domain of $f(x)$.
+
+\begin{enumerate}
+\item []$(-\infty,\infty)$\vfill\addtocounter{probs}{1}
+\end{enumerate}
+\item Find the range of $f(x)$.
+
+\begin{enumerate}
+\item []$(0,\infty)$\vfill\addtocounter{probs}{1}
+\end{enumerate}
+\item \label{enu:Find-end}Find the horizontal asymptote of $f(x)$.
+
+\begin{enumerate}
+\item []$y=0$\vfill\addtocounter{probs}{1}\columnbreak
+\end{enumerate}
+\item []\renewcommand{\xmax}{10} 
+\renewcommand{\xstep}{5}
+\renewcommand{\ymax}{\xmax} 
+\renewcommand{\ystep}{5}
+%%%%%%%
+\begin{tikzpicture} 
+	\begin{axis}[
+		axis x line=middle, axis y line=middle,     		
+		xtick={-\xmax,-\xstep,...,\xmax},
+		ytick={-\ymax,-\ystep,...,\ymax},
+		minor x tick num={4},
+		minor y tick num={4},
+		grid=both,
+		xlabel={$$},     
+		ylabel={$$},
+		xmin=-\xmax.25,xmax=\xmax.25,
+		ymin=-\ymax.25,ymax=\ymax.25,     		width=5.5cm,     		height=5.5cm]
+		
+\addplot[red,very thick,mark=noner,smooth,domain=\xmin:\xmax]{\X^x};
+
+	\end{axis}
+\end{tikzpicture}
+\end{enumerate}
+\end{multicols}
+\item \renewcommand{\X}{2} 
+\renewcommand{\Y}{1} 
+\renewcommand{\Z}{5}Use the function, $f(x)=\left(\frac{1}{\X}\right)^{x}$, to complete
+parts \ref{enu:Graph-start-1-1}--\ref{enu:Find-end-1-1}.\begin{multicols}{2}
+
+\begin{enumerate}
+\item \label{enu:Graph-start-1-1}Graph $f(x)$. Label the \emph{y}-int
+and at least one other point.\addtocounter{probs}{1}
+\item \label{enu:Find-end-1-1}Find the horizontal asymptote of \\
+$g(x)=\left(\frac{1}{\X}\right)^{x}-\Z$.
+
+\begin{enumerate}
+\item []$y=-5$ ($g(x)$ is the dashed curve)\vfill\addtocounter{probs}{1}\columnbreak
+\end{enumerate}
+\item []\renewcommand{\xmax}{10} 
+\renewcommand{\xstep}{5}
+\renewcommand{\ymax}{\xmax} 
+\renewcommand{\ystep}{5}
+%%%%%%%
+\begin{tikzpicture} 
+	\begin{axis}[
+		axis x line=middle, axis y line=middle,     		
+		xtick={-\xmax,-\xstep,...,\xmax},
+		ytick={-\ymax,-\ystep,...,\ymax},
+		minor x tick num={4},
+		minor y tick num={4},
+		grid=both,
+		xlabel={$$},     
+		ylabel={$$},
+		xmin=-\xmax.25,xmax=\xmax.25,
+		ymin=-\ymax.25,ymax=\ymax.25,     		width=5.5cm,     		height=5.5cm] 		
+\addplot[red,very thick,mark=noner,smooth,domain=\xmin:\xmax]{(1/(\X))^x};
+\addplot[purple,dashed,very thick,mark=noner,smooth,domain=\xmin:\xmax]{(1/(\X))^x-\Z};
+	\end{axis}
+\end{tikzpicture}
+\end{enumerate}
+\end{multicols}
+\item \renewcommand{\X}{+2} 
+\renewcommand{\Y}{+4} 
+\renewcommand{\Z}{1}Use the graph of $b^{x}$ in parts \ref{enu:Graph-start-1}--\ref{enu:Find-end-1}
+to graph the given transformation.\begin{multicols}{3} \newcommand{\xWidth}{6cm}
+
+\begin{enumerate}
+\item \label{enu:Graph-start-1}Graph $b^{x}\X$\addtocounter{probs}{1}
+\item [] \hspace{-1.5cm}\renewcommand{\xmax}{10} 
+\renewcommand{\xstep}{5}
+\renewcommand{\ymax}{\xmax} 
+\renewcommand{\ystep}{5}
+%%%%%%%
+\begin{tikzpicture} 
+	\begin{axis}[
+		axis x line=middle, axis y line=middle,     		
+		xtick={-\xmax,-\xstep,...,\xmax},
+		ytick={-\ymax,-\ystep,...,\ymax},
+		minor x tick num={4},
+		minor y tick num={4},
+		grid=both,
+		xlabel={$$},     
+		ylabel={$$},
+		xmin=-\xmax.25,xmax=\xmax.25,
+		ymin=-\ymax.25,ymax=\ymax.25,     		width=\xWidth,     		height=\xWidth] 		
+\addplot[red,very thick,mark=noner,smooth,domain=\xmin:\xmax]{2^x};
+\addplot[blue,dashed,very thick,mark=noner,smooth,domain=\xmin:\xmax]{2^x\X};
+	\end{axis}
+\end{tikzpicture}\columnbreak
+\item Graph $b^{x\Y}$\addtocounter{probs}{1}
+\item [] \hspace{-1.5cm}\renewcommand{\xmax}{10} 
+\renewcommand{\xstep}{5}
+\renewcommand{\ymax}{\xmax} 
+\renewcommand{\ystep}{5}
+%%%%%%%
+\begin{tikzpicture} 
+	\begin{axis}[
+		axis x line=middle, axis y line=middle,     		
+		xtick={-\xmax,-\xstep,...,\xmax},
+		ytick={-\ymax,-\ystep,...,\ymax},
+		minor x tick num={4},
+		minor y tick num={4},
+		grid=both,
+		xlabel={$$},     
+		ylabel={$$},
+		xmin=-\xmax.25,xmax=\xmax.25,
+		ymin=-\ymax.25,ymax=\ymax.25,     		width=\xWidth,     		height=\xWidth] 		
+\addplot[red,very thick,mark=noner,smooth,domain=\xmin:\xmax]{2^x};
+\addplot[blue,dashed,very thick,mark=noner,smooth,domain=\xmin:0]{2^(x\Y)};
+	\end{axis}
+\end{tikzpicture}\columnbreak
+\item \label{enu:Find-end-1}Graph $b^{x\Y}\X$\addtocounter{probs}{1}
+\item [] \hspace{-1.5cm}\renewcommand{\xmax}{10} 
+\renewcommand{\xstep}{5}
+\renewcommand{\ymax}{\xmax} 
+\renewcommand{\ystep}{5}
+%%%%%%%
+\begin{tikzpicture} 
+	\begin{axis}[
+		axis x line=middle, axis y line=middle,     		
+		xtick={-\xmax,-\xstep,...,\xmax},
+		ytick={-\ymax,-\ystep,...,\ymax},
+		minor x tick num={4},
+		minor y tick num={4},
+		grid=both,
+		xlabel={$$},     
+		ylabel={$$},
+		xmin=-\xmax.25,xmax=\xmax.25,
+		ymin=-\ymax.25,ymax=\ymax.25,     		width=\xWidth,     		height=\xWidth] 		
+\addplot[red,very thick,mark=noner,smooth,domain=\xmin:\xmax]{2^x};
+\addplot[dashed,blue,very thick,mark=noner,smooth,domain=-10:0]{2^(x\Y)\X};
+	\end{axis}
+\end{tikzpicture}\columnbreak
+\end{enumerate}
+\end{multicols}
+\end{enumerate}
+\emph{Use the formulas, $A=P(1+r)^{t}$, $A=P(1+\frac{r}{n})^{nt}$,
+or $A=Pe^{rt}$ to problems \ref{enu:first}--\ref{enu:last}.}
+\begin{enumerate}[resume]
+\item \label{enu:first}\renewcommand{\Po}{850} 
+\renewcommand{\Ro}{9} 
+\renewcommand{\To}{10}
+\renewcommand{\Ao}{1}
+\FPeval{\Z}{round(\Po*(1+.0\Ro/4)^(4*\To),3)}{[}6 points{]}Find the accumulated value of an investment of \$\Po~at
+\Ro\% interest compounded quarterly after \To~ years.\addtocounter{probs}{1}
+
+\begin{enumerate}[resume]
+\item []$P=\Po,\,r=.0\Ro,\,t=\To,\,\mbox{and }n=4$. So $A=(1+\frac{.0\Ro}{4})^{4\cdot\To}\approx\$\Z$\vfill
+\end{enumerate}
+\end{enumerate}
+\newpage
+\begin{enumerate}[resume]
+\item \renewcommand{\Po}{150000} 
+\renewcommand{\Ro}{4.5} 
+\renewcommand{\To}{15}
+\renewcommand{\Ao}{10}
+\FPeval{\Z}{round(\Po*(1+.0\Ro/4)^(4*\To),3)}{[}6 points{]} Bob buys a house for \$\Po. The value of the house
+grows at a rate of \Ro\% compounded monthly. Find how much the house
+is worth after \To~years.
+
+\begin{enumerate}[resume]
+\item []\renewcommand{\Ro}{45}$P=\Po,\,r=.0\Ro,\,t=\To,\,\mbox{and }n=12$.
+So $A=(1+\frac{.0\Ro}{12})^{12\cdot\To}\approx\$\Z$\vfill\addtocounter{probs}{1}
+\end{enumerate}
+\item \label{enu:last}\renewcommand{\Po}{2000} 
+\renewcommand{\Ro}{6.5} 
+\renewcommand{\To}{10}
+\renewcommand{\Ao}{1}
+{[}6 points{]} Suppose Jane has \$\Po~to invest. Which investment
+yields the greater return over \To~years: 
+
+\begin{enumerate}[resume]
+\item []7\% compounded monthly or \Ro\% compounded continuously? Justiy
+your answer.\addtocounter{probs}{1}
+\end{enumerate}
+\begin{itemize}
+\item 7\% compounded monthly \\
+\FPeval{\Z}{round(\Po*(1+.07/12)^(12*\To),3)}$P=\Po,\,r=.07,\,t=\To,\,\mbox{and }n=12$.
+So $A=(1+\frac{.07}{12})^{12\cdot\To}\approx\$\Z$
+\item \Ro\% compounded continuously\\
+\renewcommand{\Ro}{65}\FPeval{\Z}{round(\Po*e^(.0\Ro*\To),3)}$P=\Po,\,r=.0\Ro,\,t=\To$.
+So $A=2000e^{.0\Ro\cdot\To}\approx\$\Z$
+
+\begin{itemize}
+\item []So 7\% compounded monthly is better.\vfill
+\end{itemize}
+\end{itemize}
+\item Write the expression in its equivalent \emph{exponential} form for
+parts \ref{enu:first-1}--\ref{enu:last-1}.\begin{multicols}{3}
+
+\begin{enumerate}
+\item \label{enu:first-1}\renewcommand{\x}{x} 
+\renewcommand{\y}{9} 
+\renewcommand{\z}{3}$\log_{\z}\x=\y$
+
+\begin{enumerate}
+\item []$\z^{\y}=\x$\columnbreak\xspace\addtocounter{probs}{1}
+\end{enumerate}
+\item \renewcommand{\x}{x} 
+\renewcommand{\y}{5} 
+\renewcommand{\z}{1}$\ln\x=\y$
+
+\begin{enumerate}
+\item []$e^{\y}=\x$\columnbreak\xspace\addtocounter{probs}{1}
+\end{enumerate}
+\item \label{enu:last-1}\renewcommand{\x}{2} 
+\renewcommand{\y}{c} 
+\renewcommand{\z}{x}$\log_{\z}\x=\y$
+
+\begin{enumerate}
+\item []$\z^{\y}=\x$\columnbreak\xspace\addtocounter{probs}{1}
+\end{enumerate}
+\end{enumerate}
+\end{multicols}\xspace
+\item Write the expression in its equivalent \emph{logarithmic} form for
+parts \ref{enu:first-1-1}--\ref{enu:last-1-1}.\begin{multicols}{3}
+
+\begin{enumerate}
+\item \label{enu:first-1-1}\renewcommand{\x}{x} 
+\renewcommand{\y}{125} 
+\renewcommand{\z}{5}$\z^{\x}=\y$
+
+\begin{enumerate}
+\item []$\log_{\z}\y=\x$\xspace\addtocounter{probs}{1}\columnbreak
+\end{enumerate}
+\item \renewcommand{\x}{12} 
+\renewcommand{\y}{7} 
+\renewcommand{\z}{x}$\z^{\x}=\y$
+
+\begin{enumerate}
+\item []$\log_{\z}\y=\x$\xspace\addtocounter{probs}{1}\columnbreak
+\end{enumerate}
+\item \label{enu:last-1-1}\renewcommand{\x}{-2} 
+\renewcommand{\y}{\frac{1}{16}} 
+\renewcommand{\z}{x}$\z^{\x}=\y$
+
+\begin{enumerate}
+\item []$\log_{\z}\y=\x$\xspace\addtocounter{probs}{1}\columnbreak
+\end{enumerate}
+\end{enumerate}
+\end{multicols}\xspace
+\item {[}3 points each{]} Evaluate or simplify the expression without using
+a calculator for parts \ref{enu:first-1-2}--\ref{enu:last-1-2}.\begin{multicols}{3}
+
+\begin{enumerate}
+\item \label{enu:first-1-2}\renewcommand{\x}{2} 
+\renewcommand{\y}{1} 
+\renewcommand{\z}{1}$\log_{5}5=1$\xspace\addtocounter{probs}{1}
+\item \renewcommand{\x}{2} 
+\renewcommand{\y}{1} 
+\renewcommand{\z}{1}$e^{\ln2}=2$\xspace\addtocounter{probs}{1}\columnbreak
+\item \renewcommand{\x}{2} 
+\renewcommand{\y}{1} 
+\renewcommand{\z}{1}$\log_{2}2^{10}=10$\xspace\addtocounter{probs}{1}
+\item \renewcommand{\x}{2} 
+\renewcommand{\y}{1} 
+\renewcommand{\z}{1}$4^{\log_{4}11}=11$\xspace\addtocounter{probs}{1}\columnbreak
+\item \renewcommand{\x}{2} 
+\renewcommand{\y}{1} 
+\renewcommand{\z}{1}$\log_{5}25=2$ since $5^{2}=25$\xspace\addtocounter{probs}{1}
+\item \label{enu:last-1-2}\renewcommand{\x}{2} 
+\renewcommand{\y}{1} 
+\renewcommand{\z}{1}$\log10=1$ since $10^{1}=10$\xspace\vfill
+\end{enumerate}
+\end{multicols}
+\item Find the domain of the logarithmic function for parts \ref{enu:first-1-2-1}--\ref{enu:last-1-2-1}.\begin{multicols}{2}
+
+\begin{enumerate}
+\item \label{enu:first-1-2-1}\renewcommand{\x}{2} 
+\renewcommand{\y}{1} 
+\renewcommand{\z}{1}$\log_{13}x$
+
+\begin{enumerate}
+\item []Domain: $(0,\infty)$\addtocounter{probs}{1}\columnbreak
+\end{enumerate}
+\item \label{enu:last-1-2-1}\renewcommand{\x}{2} 
+\renewcommand{\y}{1} 
+\renewcommand{\z}{1}$\ln(x-2)$
+
+\begin{enumerate}
+\item []$x-2>0\Rightarrow x>2$ \\
+Domain: $(2,\infty)$\addtocounter{probs}{1}
+\end{enumerate}
+\end{enumerate}
+\end{multicols}\xspace
+\end{enumerate}
+
+\end{document}

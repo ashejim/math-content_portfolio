@@ -1,0 +1,178 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+\usdate
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{335}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\examType}{Practice Final}
+
+\renewcommand{\date}{Due: \formatdate{5}{2}{2014}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{Name:}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\setlist{topsep=.5pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{enumerate}
+\item Let $A=\left\{ a,b,c,d\right\} $ and $B=\left\{ a,b,e,f,g\right\} $
+
+\begin{enumerate}
+\item Find $A\cap B$
+\item Find $A\cup B$.
+\item Find $B-A$.
+\item Find $A-B$.\vfill
+\end{enumerate}
+\item Let $A$ be a nonempty subset of $B$.
+
+\begin{enumerate}
+\item Prove that $A\cup B=B$.
+\item Prove that generally $A\cap B=B$ is false.\vfill
+\end{enumerate}
+\item Let $A=\left\{ 1,2,3\right\} $ and $B=\left\{ x,y,z\right\} $.
+
+\begin{enumerate}
+\item Find all possible subsets of $A$.
+\item List 2 elements in $A\times B$.\vfill
+\end{enumerate}
+\item Prove that $A\cup\emptyset=A$.\vfill
+\item Prove that $A\cap\emptyset=\emptyset$.\vfill
+\item Consider the map $f:\mathbb{R}\rightarrow\mathbb{R}$ where $f(x)=2x+1$.
+Prove that $f$ is onto.\vfill
+\item Define the relation $\mathcal{R}$ on the real number set $\mathbb{R}$
+as $x\mathcal{R}y\iff x\geq y$. 
+
+\begin{enumerate}
+\item Show that $\mathcal{R}$ is reflexive 
+\item Show that $\mathcal{R}$ is symmetric.
+\item Show that $\mathcal{R}$ is transitive. 
+\item Is $\mathcal{R}$ an equivalence relation?\vfill
+\end{enumerate}
+\item Give an example of a relation which is not transitive.\vfill
+\item Let $X$ be a nonempty set. Define the following relation on the set
+of subsets of $X$ as follows $A\mathcal{R}B\iff A\cap B\neq\emptyset$
+for $A,B\subseteq X$. Prove that $\mathcal{R}$ is not reflexive.
+\vfill
+\item Let $f:A\rightarrow B$ and $g:B\rightarrow C$ be two functions.
+
+\begin{enumerate}
+\item Suppose that $\left|A\right|>\left|B\right|$. Prove that $f$ is
+not one-to-one.
+\item Suppose that $\left|A\right|<\left|B\right|$. Is $f$ onto? 
+\item Is $g\circ f$ onto then is $g$ onto? is $f$ onto? \vfill\newpage
+\end{enumerate}
+\item Let $S_{3}$ be the symmetric group on three elements. 
+
+\begin{enumerate}
+\item Is $S_{3}$ abelian?
+\item Is $S_{3}$ cyclic? 
+\item Prove that $S_{3}$ has an abelian subgroup.
+\item Prove that $S_{3}$ has a non-abelian subgroup.
+\item What is the order of $S_{n}$. \vfill
+\end{enumerate}
+\item Give the definition of homomorphism, and show by example that $f\colon\mathbb{R}\rightarrow\mathbb{R}$
+where $f(x)=2x$ is a group homomorphism (under addition). \vfill
+\item Let $f:G_{1}\rightarrow G_{2}$ be a group homomorphism and let $H\leq G_{2}$.
+Recall that $f^{-1}(H)=\left\{ g\in G_{1}|f(g)\in H\right\} $. Prove
+that $f^{-1}(H)\leq G_{2}$. \vfill
+\item Let $G$ be a finite group of order $24$ and $g\in G$. 
+
+\begin{enumerate}
+\item List the \emph{possible }orders of $g$. 
+\item Let $H$ be a subset of $G$ such that $\left|H\right|=7$. Is $H\leq G$?
+\item Let $\left|H\right|=8$. Does Lagrange's theorem imply that $H\leq G$?\vfill
+\end{enumerate}
+\item Let $G$ be a group of order $4$. Prove that $G$ is abelian. \vfill
+\item Let $G$ be a group where $0_{G}$ is the identity.
+
+\begin{enumerate}
+\item Find a subgroup of $G$.
+\item Find a subgroup of $G$ distinct from the group given for part \textbf{(a)}.
+\item If $\left|G\right|=10$ and $H\leq G$. Prove that $\left|H\right|\neq6$
+\vfill
+\end{enumerate}
+\item Let $H$ and $K$ be subgroups be non-trivial subgroups of $G$. Prove
+that $H\cap K$ is a subgroup of $G$.
+\item Let $R$ be a ring and $a,b\in R$. 
+
+\begin{enumerate}
+\item Which statement is true?
+
+\begin{enumerate}
+\item \textbf{(a)}]If $ab=0$ then $a=0$ or $b=0$.
+\item \textbf{(b)}]If $a^{2}=0$ then $a=0$.
+\item \textbf{(c)}]If $a\neq0$ and $b\neq0$ then $ab\neq0$.
+\item \textbf{(d)}]None of the above.\vfill
+\end{enumerate}
+\end{enumerate}
+\item Prove that $\mathbb{Z}$, the set of integers, is a ring under addition
+and multiplication. \vfill
+\end{enumerate}
+
+\end{document}

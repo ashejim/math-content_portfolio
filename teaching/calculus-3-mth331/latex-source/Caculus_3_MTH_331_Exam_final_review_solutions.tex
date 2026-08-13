@@ -1,0 +1,299 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\newcommand{\lyxmathsym}[1]{\ifmmode\begingroup\def\b@ld{bold}
+  \text{\ifx\math@version\b@ld\bfseries\fi#1}\endgroup\else#1\fi}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{polar}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{331}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\examType}{Final Exam review}
+
+\renewcommand{\date}{}
+
+\newcommand{\name}{Final Exam time: \formatdate{3}{12}{2013}~ from 5--7pm}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} ~\date{}}
+	%%%\fancyhead[C]{\textbf{\name}}
+	\fancyhead[R]{\textbf{\name}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{MTH \classNum{}(\classSec{})} 
+%\chead{\textbf{\name}}
+\rhead{\textbf{\name}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+%\setlist{topsep=.5pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\xmax}{0}
+\newcommand{\xmin}{-\xmax}
+\newcommand{\xstep}{0}
+\newcommand{\ymax}{0}
+\newcommand{\ymin}{-\ymax}
+\newcommand{\ystep}{0} 
+\newcommand{\dspace}{\vspace{1cm}}
+\newcommand{\xa}{0}
+\newcommand{\xb}{0}
+\newcommand{\ya}{1}
+\newcommand{\yb}{1}
+
+\newcommand{\xspace}{\vspace{1cm}}
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Reading and writing sigma notation}
+\begin{enumerate}[resume]
+\item Write the infinite series, $0.3+0.03+0.003+\cdots$, using sigma notation
+(i.e. using $\Sigma$) . 
+\item Write the first 3 terms of the sequence of partial sums of the series
+${\displaystyle \sum_{k=1}^{\infty}\frac{3^{k}}{2}}$.
+\end{enumerate}
+
+\subsubsection*{Convergence/Divergence of series}
+
+\emph{Evaluate the geometric series or state that it diverges. }
+\begin{enumerate}[resume]
+\item ${\displaystyle \sum_{k=0}^{\infty}\frac{2^{k}}{7^{k}}}$
+\item ${\displaystyle \sum_{m=2}^{\infty}\left(\frac{1}{3}\right)^{m}}$
+\end{enumerate}
+\emph{Determine the radius of convergence of the following power series. }
+\begin{enumerate}[resume]
+\item ${\displaystyle \sum\frac{x^{k}}{2^{k}}}$
+\end{enumerate}
+\emph{Using the Squeeze Theorem, find the limit of the following sequence
+or determine that the limit does not exist.}
+\begin{enumerate}[resume]
+\item ${\displaystyle \lim_{n\rightarrow\infty}\left\{ \frac{\sin^{2}n}{2^{n}}\right\} }$
+\end{enumerate}
+\emph{Use the Divergence Test to determine whether the following series
+diverge, or state that the test is inconclusive.}
+\begin{enumerate}[resume]
+\item ${\displaystyle \sum_{k=1}^{\infty}\frac{k^{4}-1}{k^{4}+10}}$
+\end{enumerate}
+\emph{Use the Ratio Test to determine whether the following series
+converges.}
+\begin{enumerate}[resume]
+\item ${\displaystyle \sum_{k=1}^{\infty}\frac{3k+3}{6(k+1)}}$
+\end{enumerate}
+
+\subsubsection*{Taylor polynomials}
+\begin{enumerate}[resume]
+\item Let $f(x)=2\cos(x)$. Find the Taylor polynomial of order $n=3$ for
+$f(x)$ centered at $0$.
+
+\begin{enumerate}[resume]
+\item Use the Taylor polynomial from above to approximate $2\cos(0.1)$.
+\item Compute the absolute error in the approximation assuming the exact
+value is given by a calculator.
+\end{enumerate}
+\end{enumerate}
+
+\subsubsection*{Parametric functions}
+
+\emph{Determine $\nicefrac{dy}{dx}$ in terms of $t$ and evaluate
+it at the given value of $t$. }
+\begin{enumerate}[resume]
+\item $x=2t$, $y=4t^{2}$; $t=1$.
+\end{enumerate}
+\emph{Give a set of parametric equations that describes the curve.}
+\begin{enumerate}[resume]
+\item A circle centered at $(0,0$) with radius 6, generated clockwise.
+\end{enumerate}
+
+\subsubsection*{Calculus in polar coordinates}
+
+\emph{Locate the following polar coordinates on a graph. }
+\begin{enumerate}[resume]
+\item A:$\left(2,\frac{\pi}{4}\right)$, B:$\left(-2,\frac{\pi}{4}\right)$,
+C:$\left(2,\frac{\pi}{4}+\pi\right)$, D:$\left(2,\frac{\pi}{4}+2\pi\right)$
+\end{enumerate}
+\emph{Express the following }\textbf{\emph{polar}}\emph{ coordinates
+in }\textbf{\emph{Cartesian}}\emph{ coordinates.}
+\begin{enumerate}[resume]
+\item $\left(-4,\frac{2\pi}{3}\right)$
+\end{enumerate}
+\emph{Express the following }\textbf{\emph{Cartesian}}\emph{ coordinates
+in }\textbf{\emph{polar}}\emph{ coordinates in at least }\textbf{\emph{two}}\emph{
+different ways. }
+\begin{enumerate}[resume]
+\item $\left(-1,1\right)$
+\end{enumerate}
+\emph{Find the slope of the line tangent to the following polar curves
+at the given point using calculus. }
+\begin{enumerate}[resume]
+\item $r=2\cos2\theta$; $\left(2,\frac{\pi}{2}\right)$.
+\end{enumerate}
+
+\subsubsection*{Vectors}
+
+\emph{Let $\mathbf{u}=\left\langle 2,4,1\right\rangle $ and $\mathbf{v}=\left\langle 1,-3,2\right\rangle $.
+Perform the indicated operations.}
+\begin{enumerate}[resume]
+\item $\mathbf{u}-2\mathbf{v}$
+\item $\mathbf{u\cdot}\mathbf{v}$
+\item $\mathbf{u\times v}$
+\end{enumerate}
+\emph{Use the graph to draw the following vectors (provide labels).
+Make certain to indicate direction.}
+\begin{enumerate}[resume]
+\item \begin{multicols}{2}
+
+\begin{enumerate}[resume]
+\item \textbf{$2\mathbf{u}$}
+\item $\mathbf{u}+\mathbf{v}$ 
+\item $\mathbf{u}-\mathbf{v}$ (you do not have to draw it as a position
+vector)
+\item $\mbox{proj}_{\mathbf{v}}\mathbf{u}$ 
+\end{enumerate}
+\columnbreak\includegraphics[width=2cm]{D:/home/jim/JamesAshe/JCSU/Calc_3_MTH_331/slides_Calc3/images/vectors_2D.svg}\end{multicols}
+\end{enumerate}
+\emph{Use a graph to perform the indicated operations (provide labels). }
+\begin{enumerate}[resume]
+\item Plot the point $\left(3,3,3\right)$.
+
+\begin{enumerate}[resume]
+\item Sketch the plane $\left(0,3,0\right)$.
+\end{enumerate}
+\end{enumerate}
+\emph{Perform the indicated operation.}
+\begin{enumerate}[resume]
+\item Let $\mathbf{u}=5\mathbf{i+4}\mathbf{j}$ and $\mathbf{v=}3\mathbf{i}-\mathbf{j}$.
+Find the angle between $\mathbf{u}$ and $\mathbf{v}$.
+\item Find a vector perpendicular to $\mathbf{u}=\left\langle 2,0,0\right\rangle $
+and $\mathbf{v}=\left\langle 0,-3,0\right\rangle $
+\item A bullet is fired with a muzzle velocity of 1037 ft/sec from a gun
+aimed at an angle of $8\textdegree$ above the horizontal. Find a
+vector describing the vertical and horizontal components of the bullet's
+velocity.
+\end{enumerate}
+
+\subsubsection*{Derivatives of multi-variable functions}
+
+\emph{Find the indicated partial derivative of the following functions.}
+\begin{enumerate}[resume]
+\item Find $g_{y}$ and $g_{y}$ for $g(x,y)=(x^{2}+2)e^{y}$.
+\item Find the four second partial derivatives of $h(x,y)=x^{2}\cos2y$.
+\end{enumerate}
+\emph{Use the Chain Rule to find the following derivative. When feasible
+express your answer in terms of the independent variable. }
+\begin{enumerate}[resume]
+\item $dz/dt$ where $z=x^{3}y-x$, $x=t^{2}$, and $y=2t^{-1}$.
+\end{enumerate}
+
+\subsubsection*{Maximum/Minimum of multi-variable functions}
+
+\emph{Compute the gradient of the following function and evaluate
+it at the given point P.}
+\begin{enumerate}[resume]
+\item $f(x,y)=x^{2}+y^{2}$; $P(-1,2)$
+\end{enumerate}
+\emph{Consider the following functions and points P. }
+
+\textbf{a.}\emph{ Find the }\emph{\uline{unit}}\emph{ vectors that
+give the direction of steepest ascent and steepest descent at P.}
+
+\textbf{b.}\emph{ Find a vector that points in a direction of no
+change in the function at P.}
+\begin{enumerate}[resume]
+\item $f(x,y)=x^{2}+y^{2}$; $P(-1,2)$
+\end{enumerate}
+\emph{Use the Second Derivative Test to determine (if possible) whether
+each critical point of the given function is a local maximum, local
+minimum, or saddle point.}
+\begin{enumerate}[resume]
+\item $f(x,y)=4+x^{3}+y^{3}-3xy$ with critical points $(0,0)$ and $(1,1).$
+\end{enumerate}
+\emph{Find all of the critical points (there are two) of the following
+function.}
+\begin{enumerate}[resume]
+\item $f(x,y)=\frac{x^{3}}{3}-\frac{y^{3}}{3}+3xy$
+\end{enumerate}
+\newpage
+
+\subsubsection*{Lagrange Multipliers}
+
+\emph{Use Lagrange multipliers to find the maximum and minimum values
+of $f$ (when they exist) subject to the constraint.}
+\begin{enumerate}[resume]
+\item $f(x,y)=x+2y$ subject to $x^{2}+y^{2}=4$
+\item $f(x,y)=e^{2xy}$ subject to $x^{3}+y^{3}=16$
+\end{enumerate}
+
+\end{document}

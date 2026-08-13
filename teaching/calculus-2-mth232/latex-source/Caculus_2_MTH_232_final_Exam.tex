@@ -1,0 +1,365 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{} %%your name%% Dr.\,James Ashe
+
+\newcommand{\classNum}{232}
+
+\newcommand{\classSec}{} %%class section%%
+
+\newcommand{\examType}{Final Exam}
+
+\renewcommand{\date}{} %\formatdate{15}{5}{2013} %%copy and paste for date {day}{month}{year}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{} \classSec{} \author{}\\
+	\textbf{\examType{}} ~\date{}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\textbf{Name:\hspace{7cm}}}
+	\setlength{\headsep}{20pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{MTH \classNum{} \classSec{}} 
+\chead{} 
+\rhead{\textbf{Name:\hspace{7cm}}}
+\cfoot{\thepage{}~of~\pageref{LastPage}}
+\setlength{\headsep}{10pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\setlist{topsep=.5pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\Alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\xmax}{0}
+\newcommand{\xmin}{-\xmax}
+\newcommand{\xstep}{0}
+\newcommand{\ymax}{0}
+\newcommand{\ymin}{-\ymax}
+\newcommand{\ystep}{0} 
+\newcommand{\Fx}{x}
+\newcommand{\Gx}{x}
+
+\newcommand{\dspace}{\vspace{0cm}}
+\newcommand{\samples}{500}
+\begin{enumerate}
+\item The technique of integration used to find the indefinite integral
+${\displaystyle \int x^{2}e^{-x}\,dx}$ is 
+
+\begin{multicols}{4}
+\begin{enumerate}
+\item partial fractions\textbf{\columnbreak}
+\item by parts \textbf{\columnbreak}
+\item trigonometric substitution\textbf{\columnbreak}
+\item power rule
+\end{enumerate}
+\end{multicols}\vfill\dspace
+\item If $x>1$, and $y={\displaystyle \int_{1}^{x^{2}}\sqrt{1+\sqrt{t}}\,dt}$,
+then $\frac{dy}{dx}$ is equal to
+
+\begin{multicols}{4}
+\begin{enumerate}
+\item \textbf{$1+x$\columnbreak}
+\item \textbf{$2x\sqrt{1+x}$\columnbreak}
+\item \textbf{$\sqrt{1+\sqrt{x}}$\columnbreak}
+\item \textbf{$\sqrt{1+x^{2}}$}
+\end{enumerate}
+\end{multicols}\vfill\dspace
+\item The \emph{length of the arc }on the graph of $y=f(x)$ from the point
+$\left(a,f(a)\right)$ to the point $\left(b,f(b)\right)$ is computed
+using
+
+\begin{multicols}{4}
+\begin{enumerate}
+\item ${\displaystyle \int_{a}^{b}\sqrt{1+\left[f'(x)\right]^{2}}}$\columnbreak
+\item ${\displaystyle \int_{a}^{b}\sqrt{1+\left[f(x)\right]^{2}}}$\columnbreak
+\item ${\displaystyle \pi\int_{a}^{b}\sqrt{1+\frac{d^{2}y}{dx^{2}}}}$\columnbreak
+\item ${\displaystyle \pi\int_{a}^{b}\left(f(x)\right)^{2}x}$\columnbreak
+\end{enumerate}
+\end{multicols}\vfill\dspace
+\item The integral expression which gives the area of the shaded region
+$R$ in the figure is
+
+\begin{multicols}{3}
+\begin{enumerate}
+\item ${\displaystyle \int_{a}^{b}\left(g(x)-f(x)\right)\,dx}$\vfill
+\item $\pi{\displaystyle \int_{a}^{b}\left(f(x)-g(x)\right)\,dx}$\vfill\columnbreak
+\item ${\displaystyle \int_{a}^{b}\left(f(x)-g(x)\right)^{2}\,dx}$\vfill
+\item ${\displaystyle \int_{a}^{b}\left(f(x)-g(x)\right)\,dx}$\vfill\columnbreak
+\item []\renewcommand{\xmax}{15}
+\renewcommand{\xmin}{-4}
+\renewcommand{\xstep}{0} %must be xmin+n
+\renewcommand{\ymax}{15}
+\renewcommand{\ymin}{-3}
+\renewcommand{\ystep}{-} %must be ymin+n
+%%%%%%%
+\begin{tikzpicture}
+\begin{axis}[height=4cm, 
+	width=5cm, 
+	axis lines=middle,
+	%axis line style={-latex}, 
+	xmin=\xmin,xmax=\xmax, 
+	ymin=\ymin,ymax=\ymax,
+	%restrict y to domain=-1:10,
+	no markers, 
+	ticks=none,
+	xlabel={$x$},ylabel={$y$}, 
+	%every axis x label/.append style={anchor=north}, 
+	%every axis y label/.append style={anchor=east}, 
+	area style,tension=0.08]
+
+\addplot+[domain=3:12,fill,black!30!white]{1*cos(deg(x/2))+10} \closedcycle;
+	%\addplot+[domain=3:12,fill,black!30!white]{1*cos(deg(x/2.7))+3} \closedcycle;
+	\addplot+[domain=3:12,fill,white]{1*cos(deg(x/2.7))+3} \closedcycle; 
+
+	\draw[thick,black,dashed] (axis cs:3,0) node[below] {$a$} -- (axis cs:3,10.0707) ;
+	\draw[thick,black,dashed] (axis cs:12,0) node[below] {$b$} -- (axis cs:12,10.9602);
+	
+	\addplot[domain=\xmin+1:\xmax,thick,smooth,red,samples=\samples]{1*cos(deg(x/2))+10} node[above,pos=.04] {$f(x)$}; 
+	\addplot[domain=\xmin+1:\xmax,thick,smooth,blue,samples=\samples]{1*cos(deg(x/2.7))+3} node[above,pos=.04] {$g(x)$};
+
+	\node at (axis cs:7.5,6) {$R$};
+\end{axis}
+\end{tikzpicture}
+\end{enumerate}
+\end{multicols}\vfill
+\item Let $f(x)$ be continuous on $[-5,5]$ and ${\displaystyle \int_{0}^{5}f(x)\,dx}=13$.
+If for each $x$ in $[-5,5]$, $f(-x)=f(x)$, i.e., $f(x)$ is an
+even function, then ${\displaystyle \int_{-5}^{5}f(x)\,dx}=$
+
+\begin{multicols}{4}
+\begin{enumerate}
+\item 26\columnbreak
+\item 13\columnbreak
+\item 0\columnbreak
+\item -13\columnbreak
+\end{enumerate}
+\end{multicols}\vfill\dspace
+\item Let $f(x)$ be continuous on $[-5,5]$ and ${\displaystyle \int_{-5}^{0}f(x)\,dx}=13$.
+If for each $x$ in $[-5,5]$, $f(-x)=-f(x)$, i.e., $f(x)$ is an
+odd function, then ${\displaystyle \int_{-5}^{5}f(x)\,dx}=$
+
+\begin{multicols}{4}
+\begin{enumerate}
+\item 26\columnbreak
+\item 13\columnbreak
+\item 0\columnbreak
+\item -13\columnbreak
+\end{enumerate}
+\end{multicols}\vfill\dspace
+\item The average value of a function $f$ on the interval $[a,b]$ is given
+by 
+
+\begin{multicols}{4}
+\begin{enumerate}
+\item $\frac{1}{b-a}{\displaystyle \int_{a}^{b}f(x)\,dx}$\columnbreak
+\item $(b-a){\displaystyle \int_{a}^{b}f(x)\,dx}$\columnbreak
+\item $\frac{b}{a}\int_{a}^{b}f(x)\,dx$\columnbreak
+\item $\frac{f(b)-f(a)}{b-a}$\columnbreak
+\end{enumerate}
+\end{multicols}\vfill\dspace\newpage
+\item If ${\displaystyle \int_{1}^{2}f(x)\,dx}=5$, then ${\displaystyle \int_{1}^{2}\left(f(x)+2x\right)\,dx}$
+is equal to
+
+\begin{multicols}{4}
+\begin{enumerate}
+\item $5$\columnbreak
+\item $8$\columnbreak
+\item $10$\columnbreak
+\item $2x\cdot f(x)$\columnbreak
+\end{enumerate}
+\end{multicols}\vspace{2.25cm}
+\item If ${\displaystyle \int_{b}^{a}f(x)\,dx}=13$, then ${\displaystyle \int_{a}^{b}f(x)\,dx}=$
+
+\begin{multicols}{4}
+\begin{enumerate}
+\item $13$\columnbreak
+\item $6.5$\columnbreak
+\item $-13$\columnbreak
+\item $0$\columnbreak
+\end{enumerate}
+\end{multicols}\dspace
+\item The volume of the solid generated by revolving the shaded region $R$
+about the $x$-axis is computed using the formula 
+
+\begin{multicols}{3}
+\begin{enumerate}
+\item $\pi{\displaystyle \int_{1}^{3}\left(f(x)\right)^{2}\,dx}$\vfill
+\item $\pi{\displaystyle \int_{1}^{3}f(x)\,dx}$\vfill\columnbreak
+\item $\int f(x)\,dx$\vfill
+\item $\pi{\displaystyle \int_{1}^{3}\sqrt{1+\left(\frac{dy}{dx}\right)^{2}}\,dx}$\vfill\columnbreak
+\item []\renewcommand{\Fx}{x^(1/2)}
+\renewcommand{\xmax}{5}
+\renewcommand{\xmin}{-1}
+\renewcommand{\xstep}{0} %must be xmin+n
+\renewcommand{\ymax}{2}
+\renewcommand{\ymin}{-.35}
+\renewcommand{\ystep}{-} %must be ymin+n
+%%%%%%%
+\begin{tikzpicture}
+\begin{axis}[height=4cm, 
+	width=5cm, 
+	axis lines=middle,
+	%axis line style={-latex}, 
+	xmin=\xmin,xmax=\xmax, 
+	ymin=\ymin,ymax=\ymax,
+	%restrict y to domain=-1:10,
+	no markers, 
+	ticks=none,
+	xlabel={$x$},ylabel={$y$}, 
+	%every axis x label/.append style={anchor=north}, 
+	%every axis y label/.append style={anchor=east}, 
+	area style,tension=0.08]
+
+	\addplot+[domain=1:3,fill,black!30!white]{\Fx} \closedcycle;
+	\addplot+[domain=1:3,fill,black!30!white]{\Fx} \closedcycle;
+
+	\draw[thick,black,dashed] (axis cs:1,0) node[below] {$1$} -- (axis cs:1,1) ;
+	\draw[thick,black,dashed] (axis cs:3,0) node[below] {$3$} -- (axis cs:3,1.73205);
+	
+	\addplot[domain=0:\xmax,thick,smooth,red,samples=\samples]{\Fx} node[above,pos=.35,yshift=3pt] {$f(x)$}; 
+	
+	\node at (axis cs:2,.75) {$R$};
+\end{axis}
+\end{tikzpicture}
+\end{enumerate}
+\end{multicols}\dspace
+\item ${\displaystyle \int_{3}^{3}}\frac{x^{4}+x^{2}+1}{\sqrt{x^{8}+x^{4}+2}}$
+
+\begin{multicols}{4}
+\begin{enumerate}
+\item 9\columnbreak
+\item 0\columnbreak
+\item 6\columnbreak
+\item $\frac{1}{\sqrt{3}}$\columnbreak
+\end{enumerate}
+\end{multicols}\dspace
+\end{enumerate}
+Find each indefinite integral for problems \ref{enu:first-indefinite-int-prob}
+through \ref{last-indef-int-prob}. \emph{Show your work.}
+\begin{enumerate}[resume]
+\item \label{enu:first-indefinite-int-prob}${\displaystyle \int\frac{dx}{(x-1)(x+3)}}$\vfill
+\item ${\displaystyle \int xe^{-x}\,dx}$\vfill\newpage
+\item ${\displaystyle \int\frac{dx}{9+x^{2}}}$\vfill
+\item ${\displaystyle \int\frac{2x}{9+x^{2}}\,dx}$\vfill
+\item \label{last-indef-int-prob}${\displaystyle \int\tan^{5}x\sec^{2}\,dx}$\vfill
+\item Find the area of the region bounded by the graphs of $y=x^{2}+2$
+and $y=x-2$ from $x=-1$ to $x=1$.\vfill\newpage
+\item Find the volume of the solid generated by revolving the region bounded
+by the the $x$-axis and the curve $y=\sqrt{x+1}$ from $x=0$ to
+$x=3$ around the $x$-axis.\vfill
+\item Find the length of the arc on the graph of $y=\frac{2}{3}x^{\nicefrac{3}{2}}+9$
+from the point $(0,9)$ to the point $(3,2\sqrt{3}+9)$.\vfill
+\item If $F(x)$ is an antiderivative of $f(x)$ on the interval $[a,b]$
+and $F(a)=2$, $F(b)=5$ then ${\displaystyle \int_{a}^{b}f(x)\,dx}=$
+
+\begin{multicols}{4}
+\begin{enumerate}
+\item 7\columnbreak
+\item 5\columnbreak
+\item 2\columnbreak
+\item 3\columnbreak
+\end{enumerate}
+\end{multicols}
+\item Solve the initial value problem, $\frac{dy}{dx}=\sqrt{x+1}$ and $y(0)=1$.\vfill
+\item Evaluate ${\displaystyle \int_{-1}^{3}\left|x-2\right|}\,dx$.\vfill
+\item Use the figure to evaluate ${\displaystyle \int_{-4}^{4}f(x)\,dx}$.
+
+\begin{enumerate}
+\item []\hfill\renewcommand{\Fx}{x+4}
+\renewcommand{\Gx}{-2*x+4}
+\renewcommand{\xmax}{7}
+\renewcommand{\xmin}{-7}
+\renewcommand{\xstep}{0} %must be xmin+n
+\renewcommand{\ymax}{5}
+\renewcommand{\ymin}{-5}
+\renewcommand{\ystep}{-} %must be ymin+n
+%%%%%%%
+\begin{tikzpicture}
+\begin{axis}[%height=5cm, 
+	width=6cm,
+	axis equal,
+	axis lines=middle,
+	%axis line style={-latex}, 
+	xmin=\xmin,xmax=\xmax, 
+	ymin=\ymin,ymax=\ymax,
+	%restrict y to domain=-1:10,
+	%no markers, 
+	%ticks=none,
+	%minor grid style={gray!25},
+	%major grid style={black!50},
+	minor x tick num={4},
+	minor y tick num={4},
+	grid=both,
+	xlabel={$x$},ylabel={$y$}, 
+	%every axis x label/.append style={anchor=north}, 
+	%every axis y label/.append style={anchor=east}, 
+	]
+
+	%\addplot+[domain=1:3,fill,black!30!white]{\Fx} \closedcycle;
+	%\addplot+[domain=1:3,fill,black!30!white]{\Fx} \closedcycle;
+
+	%\draw[thick,black,dashed] (axis cs:1,0) node[below] {$1$} -- (axis cs:1,1) ;
+	%\draw[thick,black,dashed] (axis cs:3,0) node[below] {$3$} -- (axis cs:3,1.73205);
+	
+	\addplot[domain=-4:0,thick,smooth,red,samples=\samples]{\Fx} node[above,pos=.35,yshift=10pt] {$f(x)$};
+	\addplot[domain=0:4,thick,smooth,red,samples=\samples]{\Gx} node[above,pos=.35,yshift=5pt] {$$}; 
+	
+	\node at (axis cs:2,.75) {$R$};
+\end{axis}
+\end{tikzpicture}
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

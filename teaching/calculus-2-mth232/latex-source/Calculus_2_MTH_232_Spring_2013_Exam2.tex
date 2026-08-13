@@ -1,0 +1,164 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{231}
+
+\newcommand{\classSec}{C}
+
+\newcommand{\nameType}{Name:}
+
+\newcommand{\examType}{Exam 2}
+
+\renewcommand{\date}{November 9, 2012}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\xmax}{0}
+\newcommand{\xmin}{-\xmax}
+\newcommand{\xstep}{0}
+\newcommand{\ymax}{0}
+\newcommand{\ymin}{-\ymax}
+\newcommand{\ystep}{0} 
+
+\emph{Find the displacement over the given interval.}
+\begin{enumerate}[resume]
+\item $v(t)=\cos\left(\frac{\pi}{2}t\right)$ on $[0,3]$; $s(0)=0$.\\
+\renewcommand{\xmax}{4}
+\renewcommand{\xmin}{-1}
+\renewcommand{\xstep}{0} %must be xmin+n
+\renewcommand{\ymax}{3}
+\renewcommand{\ymin}{-1}
+\renewcommand{\ystep}{4} %must be ymin+n
+%%%%%%%
+\begin{tikzpicture} 
+\begin{axis}[height=6cm, 
+	width=6cm, 
+	axis lines=middle,
+	%axis line style={-latex}, 
+	xmin=-1,xmax=3, 
+	ymin=-1,ymax=10,
+	%restrict y to domain=-1:10,
+	%no markers, 
+	xlabel={$x$},ylabel={$y$}, 
+	%every axis x label/.append style={anchor=north}, 
+	%every axis y label/.append style={anchor=east}, 
+	area style,tension=0.08]
+	
+	\addplot+[domain=0:2,fill,black!30!white]{4*sqrt(2*x)} \closedcycle;
+	\addplot+[domain=-1:3,fill,white]{-4*x+6} \closedcycle; 
+	\addplot+[domain=-1:3,fill,white]{2*x^2}  \closedcycle;
+	
+	\addplot[domain=0:3,thick,smooth,samples=500]{4*sqrt(2*x)} node[anchor=135] {$f(x)=\dfrac{1}{x}$}; 
+	\addplot[domain=-1:3,thick] {-4*x+6} node[right] {$f(x)=\dfrac{2}{x}$}; 	
+	\addplot[domain=-1:3,thick] {2*x^2} node[right] {$f(x)=x$}; 
+	
+	\node at (axis cs:1,1.5) {$R$};
+\end{axis}
+\end{tikzpicture}\vfill
+\end{enumerate}
+\emph{Determine the position function.}
+\begin{enumerate}[resume]
+\item An object is moving at a velocity of $(t+9)^{\nicefrac{1}{2}}$ with
+an initial position of $s(0)=20$ at time $t$.\vfill
+\end{enumerate}
+\emph{Solve the problem.}
+\begin{enumerate}[resume]
+\item A projectile is launched vertically from the ground at $t=0$ where
+$t$ is seconds, and its velocity in flight (in $\nicefrac{\mbox{m}}{\mbox{s}}$)
+is given by $v(t)=20-10t$.
+
+\begin{enumerate}
+\item Find the position at time $t$ for $0\leq t\leq4$.
+\item Find the total distance traveled from $t=0$ to $t=4$.\vspace{3cm}\vfill\newpage
+\end{enumerate}
+\end{enumerate}
+\emph{Use calculus to find the area of the region described.}
+\begin{enumerate}[resume]
+\item The region bounded by $y=x$ and $y=x^{2}-4x$.\\
+\includegraphics[width=3cm]{D:/home/jim/JamesAshe/JCSU/Calc_2_MTH_232/images/x_and_x2-4x.png}\vfill
+\item The region bounded by $y=\frac{1}{2}x^{2}$ and $y=-x^{2}+6$.\\
+\includegraphics[width=3cm]{D:/home/jim/JamesAshe/JCSU/Calc_2_MTH_232/images/1-x_and_x-1.png}\vfill
+\item The region in the first quadrant bounded by $-x+1$ and $x-1$ from
+$0\leq x\leq2$.\\
+\includegraphics[width=3cm]{D:/home/jim/JamesAshe/JCSU/Calc_2_MTH_232/images/1-x_and_x-1.png}\vfill\newpage
+\end{enumerate}
+\emph{Use the general slicing method and calculus to find the volume
+of the solid.}
+\begin{enumerate}[resume]
+\item The rectangular box with dimensions a height of $3$, width of $4$,
+and length of $10$.\vfill
+\end{enumerate}
+\emph{Let $R$ be the region bounded by the following curves. Use
+the disk method to find the volume of the solid generated when $R$
+is revolved about the $x$-axis.}
+\begin{enumerate}[resume]
+\item $y=\sqrt{x}$, $x=0$, and $x=9$.\vfill
+\item $y=\sqrt{\sin4x}$, $y=0$, $0\leq x\leq\frac{\pi}{4}$.\vfill\newpage
+\end{enumerate}
+\emph{Find the length of the curve.}
+\begin{enumerate}[resume]
+\item $y=2x^{\nicefrac{3}{2}}$ from $x=0$ to $x=\frac{5}{4}$.\vfill
+\item $y=\left(4-x^{\nicefrac{2}{3}}\right)^{\nicefrac{3}{2}}$ from $x=0$
+to $x=8$.\vfill
+\end{enumerate}
+\emph{BONUS: Use calculus and the general slicing method to find a
+general formula for the volume of a pyramid with a square base.}\vfill
+\end{document}

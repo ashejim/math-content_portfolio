@@ -1,0 +1,776 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,t]{beamer}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amssymb}
+\usepackage{cancel}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% this default might be overridden by plain title style
+\newcommand\makebeamertitle{\frame{\maketitle}}%
+% (ERT) argument for the TOC
+\AtBeginDocument{%
+  \let\origtableofcontents=\tableofcontents
+  \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+  \def\gobbletableofcontents#1{\origtableofcontents}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usetheme{Warsaw}
+% or ...
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+\setbeamercovered{invisible} %makes overlays invisible
+
+%gets rid of navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%\usepackage{hyperref}
+%\usepackage[usenames,dvipsnames,table]{xcolor} %adds additional color options
+\definecolor{links}{HTML}{2A1B81}
+%\hypersetup{colorlinks,linkcolor=blue,urlcolor=links}
+
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{shapes}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{forest} %%for tree diagram
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+%\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+%\usepackage{datenumber} % Counters for dates
+
+\usepackage[super]{nth}
+
+\usepackage{etex}
+
+\usepackage{fancybox}
+
+\usepackage[outline]{contour}  %allows text halos
+\contourlength{1pt} %sets halo width
+%%example: \node at (0.75,0.5) {\contour{white}{\Large Text!}};
+%%example:  \node [fill=white,inner sep=1pt] at (2.25,0.5) {\Large 			Text!};
+%%example:  \node [fill=white,rounded corners=2pt,inner sep=1pt] at 			(3.75,0.5) {\Large Text!};
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\formatdateny{\csname noyear\languagename\expandafter\endcsname\formatdate}
+\def\noyearenglish#1, \the\@year{#1}
+\let\noyearamerican\noyearenglish
+\let\noyearbritish\noyearenglish
+
+%%allows uncover with forest diagrams
+\tikzset{
+    invisible/.style={opacity=0,text opacity=0},
+    visible on/.style={alt=#1{}{invisible}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+    },
+}
+\forestset{
+  visible on/.style={
+    for tree={
+      /tikz/visible on={#1},
+      edge={/tikz/visible on={#1}}}}}
+
+%%%redefines column alignment to match vertically
+%\define@key{beamerframe}{t}[true]{% top
+  %\beamer@frametopskip=.2cm plus .5\paperheight\relax%
+  %\beamer@framebottomskip=0pt plus 1fill\relax%
+ % \beamer@frametopskipautobreak=\beamer@frametopskip\relax%
+  %\beamer@framebottomskipautobreak=\beamer@framebottomskip\relax%
+  %\def\beamer@initfirstlineunskip{}%
+%}
+
+%%provides pdf with 4 slides per page; don't forget to add 'handout' to remove overlays
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{4 on 1}[a4paper, landscape, border shrink=7mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{3}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{4}{border code=\pgfusepath{stroke}}
+%%%Don't forget to add 'handout'
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\newcommand{\xmax}{2000}
+\newcommand{\xmin}{0}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{500}
+\newcommand{\ymin}{0}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcounter{countEx} \setcounter{countEx}{0}
+\newcounter{countProb} \setcounter{countProb}{0}
+\resetcounteronoverlays{countEx} \resetcounteronoverlays{countProb}
+
+\newcommand{\ex}[3]{
+	\addtocounter{countEx}{1}
+	\only<#1-#2>{\begin{exampleblock} {Example \chNum.\secNum.\arabic{countEx}.} #3	\end{exampleblock}}
+}
+
+\newcommand{\prob}[4]{
+	\addtocounter{countProb}{1}
+	\only<#1-#2>{\begin{exampleblock} {Problem  \chNum.\secNum.\arabic{countProb}.\,#3} #4	\end{exampleblock}}
+}
+
+\newcommand{\yline}[4]{
+	(#2 - #4)/(#1 - #3)*(x - #1) + #2
+}
+
+\beamerdefaultoverlayspecification{<+->}
+
+%%%%Chapter and Section numbers%%%%%
+\newcommand{\chNum}{1}
+\newcommand{\secNum}{3}
+\newcommand{\secTitle}{Truth Tables}
+\date{\formatdate{17}{9}{2014} and \formatdate{19}{9}{2014}}
+
+\title[Section \chNum.\secNum: \secTitle]{Section \chNum.\secNum: \secTitle}
+
+\subtitle{Finite Mathematics~~MTH 107~~Fall 2014}
+
+\author{Dr.\,James Ashe}
+
+\titlegraphic{\includegraphics[height=2.75cm]{/home/jim/JamesAshe/MHU/images/MarsHilUniversityLogo-Virtical.png}}
+
+\institute{Mars Hill University}
+
+\makebeamertitle 
+
+%%True false command
+\newcommand{\T}{\textcolor{green}{\contour{black}{T}}}
+\newcommand{\F}{\textcolor{red}{\contour{black}{F}}}
+\newcommand{\uT}[2]{\uncover<#1-#2>{\T}}
+\newcommand{\uF}[2]{\uncover<#1-#2>{\F}}
+
+%tkiz ball item 
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]
+	{\node[circle,ball color=green!50!black!100, shade,   color=white,inner sep=1.2pt] (char) {\tiny #1};
+	}
+}
+\begin{frame}{Finding the Truth Value: Negation}
+
+\ex{1}{}{Let $p$ represent ``I am an Elephant''. Find the truth value of $~p$.}
+
+\vspace{-.5cm}
+\begin{columns}
+
+
+\column{5.5cm}
+\begin{itemize}
+\item <2->[]Using a \emph{truth table}. 
+\item <3->[]\only<2->{\forestset{  
+	L1/.style={rectangle, rounded corners, shade, top color=white,     bottom color=blue!50!black!20, draw=blue!40!black!60, very     thick},   	
+	L2/.style={rectangle, rounded corners, shade, top color=white,     bottom color=blue!50!black!20, draw=blue!40!black!60, very     thick,
+		edge={black,line width=1.15pt,line cap=round,->}},   	
+	L3/.style={rectangle, rounded corners, shade, top color=white,     bottom color=blue!50!black!20, draw=blue!40!black!60, very     thick,
+		edge={black,line width=1.15pt,line cap=round,->}},   	
+	L4/.style={rectangle, rounded corners, shade, top color=white,     bottom color=blue!50!black!20, draw=blue!40!black!60, very     thick,
+	edge={black,line width=1.15pt,line cap=round,->}}, 
+}
+
+\begin{forest}     
+	for tree={
+		scale=.75,        
+		grow=0,
+		reversed, %tree direction         
+		parent anchor=east,
+		child anchor=west, %edge anchors   		edge={line cap=round},
+		outer sep=+1pt, %edge/node connection  		rounded corners,
+		minimum width=15mm,
+		minimum height=8mm, %node shape         l 		sep=10mm %level distance     
+		}   
+[Start,L1,for children={visible on=<2->}
+	[\T,L2, for children={visible on=<3->}                     
+	]     
+	[\F,L2,for children={visible on=<4->}                   
+	] 
+] 
+\end{forest}}
+\end{itemize}
+
+\column{5.5cm}
+\begin{itemize}
+\item []\only<5->{%
+\begin{tabular}{cc}
+ & \tabularnewline
+\textbf{$p$} & $\sim p$\tabularnewline
+\hline 
+\uT{6}{} & \uF{8}{}\tabularnewline
+\uF{7}{} & \uT{9}{}\tabularnewline
+\end{tabular}}
+\end{itemize}
+\end{columns}
+\begin{itemize}
+\item <10->Determine which statements are true and false, and choose the
+corresponding answer.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Finding the Truth Value: Conjunction, i.e., ``and''}
+
+\ex{1}{}{Let $p$ represent ``I am a man'' and $q$ represent ``I am an Elephant''. Find the truth value of $p \wedge q$.}
+
+\vspace{-.5cm}
+\begin{columns}
+
+
+\column{5.5cm}
+\begin{itemize}
+\item <2->[]Using a \emph{truth table}. 
+\item <2->[]\only<2->{\forestset{  
+	L1/.style={rectangle, rounded corners, shade, top color=white,     bottom color=blue!50!black!20, draw=blue!40!black!60, very     thick},   	
+	L2/.style={rectangle, rounded corners, shade, top color=white,     bottom color=blue!50!black!20, draw=blue!40!black!60, very     thick,
+		edge={black,line width=1.15pt,line cap=round,->}},   	
+	L3/.style={rectangle, rounded corners, shade, top color=white,     bottom color=blue!50!black!20, draw=blue!40!black!60, very     thick,
+		edge={black,line width=1.15pt,line cap=round,->}},   	
+	L4/.style={rectangle, rounded corners, shade, top color=white,     bottom color=blue!50!black!20, draw=blue!40!black!60, very     thick,
+	edge={black,line width=1.15pt,line cap=round,->}}, 
+}
+
+\begin{forest}     
+	for tree={
+		scale=.75,        
+		grow=0,
+		reversed, %tree direction         
+		parent anchor=east,
+		child anchor=west, %edge anchors   		edge={line cap=round},
+		outer sep=+1pt, %edge/node connection  		rounded corners,
+		minimum width=15mm,
+		minimum height=8mm, %node shape         l 		sep=10mm %level distance     
+		}   
+[Start,L1,visible on=<2-> %%for children={visible on=<2->}%%
+	[\T,L2, visible on=<3->         
+		[\T,L3,visible on=<5->                     
+		]         
+		[\F,L3,visible on=<6->           
+		]               
+	]     
+	[\F,L2,visible on=<4->         
+		[\T,L3,visible on=<7->                     
+		]         
+		[\F,L3,visible on=<8->           
+		]               
+	] 
+] 
+\end{forest}}
+\end{itemize}
+
+\column{5.5cm}
+\begin{itemize}
+\item []\only<9->{%
+\begin{tabular}{cc|c}
+ & \multicolumn{1}{c}{} & \tabularnewline
+ & \multicolumn{1}{c}{} & \tabularnewline
+\textbf{$p$} & \textbf{$q$} & \textbf{$p\wedge q$}\tabularnewline
+\hline 
+\uT{10}{} & \uT{12}{} & \uT{15}{}\tabularnewline
+\uT{10}{} & \uF{13}{} & \uF{16}{}\tabularnewline
+\uF{11}{} & \uT{12}{} & \uF{17}{}\tabularnewline
+\uF{11}{} & \uF{13}{} & \uF{18}{}\tabularnewline
+\end{tabular}}
+\end{itemize}
+\end{columns}
+\begin{itemize}
+\item <14->Determine which statements are true and false, and choose the
+corresponding answer.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Finding the Truth Value: Conjunction, i.e., ``and''}
+
+\ex{1}{}{Let $p$ be true and $q$ be true. Find the truth value of $p \wedge q$.}
+\begin{enumerate}
+\item <2->[]Using a \emph{truth table}. 
+
+\begin{enumerate}
+\item <3->[]%
+\begin{tabular}{cc|c}
+$p$ & $q$ & $p\wedge q$\tabularnewline
+\hline 
+ &  & \tabularnewline
+ &  & \tabularnewline
+ &  & \tabularnewline
+ &  & \tabularnewline
+\end{tabular}
+\end{enumerate}
+\begin{itemize}
+\item <4->Determine which statements are true and false, and choose the
+corresponding answer.
+\end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Finding the Truth Value: Disjunction, i.e., ``or''}
+
+\ex{1}{}{Let $p$ represent ``I am a man'' and $q$ represent ``I am an Elephant''. Find the truth value of $p \vee q$.}
+
+\vspace{-.5cm}
+\begin{columns}
+
+
+\column{4cm}
+\begin{itemize}
+\item []\only<2->{%
+\begin{tabular}{cc|c}
+ & \multicolumn{1}{c}{} & \tabularnewline
+ & \multicolumn{1}{c}{} & \tabularnewline
+\textbf{$p$} & \textbf{$q$} & \textbf{$p\vee q$}\tabularnewline
+\hline 
+\uT{2}{} & \uT{2}{} & \uT{3}{}\tabularnewline
+\uT{2}{} & \uF{2}{} & \uT{4}{}\tabularnewline
+\uF{2}{} & \uT{2}{} & \uT{5}{}\tabularnewline
+\uF{2}{} & \uF{2}{} & \uF{6}{}\tabularnewline
+\end{tabular}}
+\end{itemize}
+\end{columns}
+\begin{itemize}
+\item <2->Determine which statements are true and false, and choose the
+corresponding answer.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Finding the Truth Value: Disjunction, i.e., ``or''}
+
+\ex{1}{}{Let $p$ represent $0>3$, and let $q$ represent $0<2$. Find the truth value of the compound statement $p\vee q$}
+\begin{enumerate}
+\item <2->[]Using a \emph{truth table}. 
+
+\begin{enumerate}
+\item <3->[]%
+\begin{tabular}{cc|c}
+$p$ & $q$ & $p\vee q$\tabularnewline
+\hline 
+ &  & \tabularnewline
+ &  & \tabularnewline
+ &  & \tabularnewline
+ &  & \tabularnewline
+\end{tabular}
+\end{enumerate}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Compound Statements}
+
+\ex{1}{}{Let $p$ represent $0>3$, and let $q$ represent $0<2$. Find the truth value of the compound statement $\sim (\sim p \wedge q)$}
+\begin{columns}
+
+
+\column{3.5cm}
+\begin{enumerate}
+\item <2->[]\footnotesize%
+\begin{tabular}{cc|c}
+$p$ & $q$ & $p\wedge q$\tabularnewline
+\hline 
+T & T & T\tabularnewline
+T & F & F\tabularnewline
+F & T & F\tabularnewline
+F & F & F\tabularnewline
+\end{tabular}
+\item <3->[]\footnotesize%
+\begin{tabular}{cc|c}
+ & \multicolumn{1}{c}{} & \tabularnewline
+$p$ & $q$ & $p\vee q$\tabularnewline
+\hline 
+T & T & T\tabularnewline
+T & F & T\tabularnewline
+F & T & T\tabularnewline
+F & F & F\tabularnewline
+\end{tabular}
+\end{enumerate}
+
+\column{7.5cm}
+\begin{itemize}
+\item []\only<4-7>{%
+\begin{tabular}{cc|c|c|c}
+ & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \tabularnewline
+$p$ & $q$ & $\sim p$ & $\sim p\wedge q$ & $\sim(\sim p\wedge q)$\tabularnewline
+\hline 
+T & T &  &  & \tabularnewline
+T & F &  &  & \tabularnewline
+F & T & \uT{5}{} & \uT{6}{} & \uF{7}{}\tabularnewline
+F & F &  &  & \tabularnewline
+\end{tabular}}\only<8->{%
+\begin{tabular}{l}
+\tabularnewline
+$\sim(\sim p\wedge q)$\tabularnewline
+\uncover<9->{$\sim(\sim\mbox{F}\wedge\mbox{T})$}\tabularnewline
+\uncover<10->{$\sim(\mbox{T}\wedge\mbox{T})$}\tabularnewline
+\uncover<11->{$\sim(\mbox{T})$}\tabularnewline
+\uF{12}{}\tabularnewline
+\tabularnewline
+\end{tabular}}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Compound Statements}
+
+\ex{1}{}{Let $p$ represent a true statement, and let $q$ and $r$ represent false statements. Find the truth value of the compound statement $(p \wedge r) \vee \sim q$}
+\begin{columns}
+
+
+\column{4.5cm}
+\begin{enumerate}
+\item <2->[]\footnotesize%
+\begin{tabular}{cc|c}
+$p$ & $q$ & $p\wedge q$\tabularnewline
+\hline 
+T & T & T\tabularnewline
+T & F & F\tabularnewline
+F & T & F\tabularnewline
+F & F & F\tabularnewline
+\end{tabular}
+\item <3->[]\footnotesize%
+\begin{tabular}{cc|c}
+ & \multicolumn{1}{c}{} & \tabularnewline
+$p$ & $q$ & $p\vee q$\tabularnewline
+\hline 
+T & T & T\tabularnewline
+T & F & T\tabularnewline
+F & T & T\tabularnewline
+F & F & F\tabularnewline
+\end{tabular}
+\end{enumerate}
+
+\column{6.5cm}
+\begin{itemize}
+\item []<4->$(p\wedge r)\vee\sim q$
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Finding the Truth Value: Compound Statements}
+
+\ex{1}{}{If $q$ is true, what is the truth value of $q \vee (q \wedge \sim p)$}
+\begin{columns}
+
+
+\column{4.5cm}
+\begin{enumerate}
+\item <2->[]\footnotesize%
+\begin{tabular}{cc|c}
+$p$ & $q$ & $p\wedge q$\tabularnewline
+\hline 
+T & T & T\tabularnewline
+T & F & F\tabularnewline
+F & T & F\tabularnewline
+F & F & F\tabularnewline
+\end{tabular}
+\item <3->[]\footnotesize%
+\begin{tabular}{cc|c}
+ & \multicolumn{1}{c}{} & \tabularnewline
+$p$ & $q$ & $p\vee q$\tabularnewline
+\hline 
+T & T & T\tabularnewline
+T & F & T\tabularnewline
+F & T & T\tabularnewline
+F & F & F\tabularnewline
+\end{tabular}
+\end{enumerate}
+
+\column{6.5cm}
+\begin{itemize}
+\item []<4->$q\vee(q\wedge\sim p)$
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Your Turn: Find the Truth Value}
+
+\prob{1}{1}{Let $p$ represent a false statement and $q$ represent a true statement. Find the truth value of each compound statement.}{$\sim p$} 
+
+\prob{2}{2}{Let $p$ represent a false statement and $q$ represent a true statement. Find the truth value of each compound statement.}{$p \vee \sim q$} 
+
+\prob{3}{3}{Let $p$ represent a false statement and $q$ represent a true statement. Find the truth value of each compound statement.}{$\sim (p \vee \sim q)$} 
+\end{frame}
+
+\begin{frame}{Your Turn: Find the Truth Value}
+
+\prob{1}{1}{Let $p$ represent a true statement, and $q$ and $r$  represent false statements. Find the truth value of each compound statement.}{$(q \vee \sim r) \wedge p$} 
+
+\prob{2}{2}{Let $p$ represent a true statement, and $q$ and $r$  represent false statements. Find the truth value of each compound statement.}{$(\sim p \wedge q) \vee \sim r$} 
+\end{frame}
+
+\begin{frame}{Your Turn: Find the Truth Value}
+
+\prob{1}{1}{Let $p$ be the statement``$2>7$'', $q$ be statement ``$8 \leq 6$,'' and $r$ be the statement ``$19 \leq 19$.'' Find the truth value of each compound statement.}{$\sim p \vee \sim r$}
+
+\prob{2}{2}{Let $p$ be the statement``$2>7$'', $q$ be statement ``$8 \leq 6$,'' and $r$ be the statement ``$19 \leq 19$.'' Find the truth value of each compound statement.}{$(p \wedge q) \vee r$}
+
+\prob{3}{3}{Let $p$ be the statement``$2>7$'', $q$ be statement ``$8 \leq 6$,'' and $r$ be the statement ``$19 \leq 19$.'' Find the truth value of each compound statement.}{$(\sim r \wedge q) \vee \sim p$}
+\end{frame}
+
+\begin{frame}{Truth Tables: Conditional, i.e., ``if$\dots$then''}
+
+\ex{1}{}{Construct a truth table for the statement ``If you give me $\$50$ then I will give you a ticket''.}
+
+\vspace{-.75cm}
+\begin{columns}
+
+
+\column{11cm}
+\begin{itemize}
+\item []$p:$ You gave me $\$50$.
+\item []$q$: I gave you a ticket.
+\item []\only<2->{%
+\begin{tabular}{cc|cc}
+ & \multicolumn{1}{c}{} &  & \tabularnewline
+\textbf{$p$} & \textbf{$q$} & \textbf{$p\rightarrow q$} & \tabularnewline
+\cline{1-3}
+\uT{3}{} & \uT{3}{} & \uT{4}{} & \tabularnewline
+\uT{3}{} & \uF{3}{} & \uF{5}{} & \tabularnewline
+\uF{3}{} & \uT{3}{} & \uT{6}{} & \uncover<7->{Because $p\rightarrow q$ is not false}\tabularnewline
+\uF{3}{} & \uF{3}{} & \uT{8}{} & \uncover<9->{Because $p\rightarrow q$ is not false}\tabularnewline
+\end{tabular}}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problems}
+
+\prob{1}{1}{Translate the compound statement into symbolic form and the construct the truth table for the expression.}{If it is raining then the streets are wet.}
+
+\prob{2}{2}{Translate the compound statement into symbolic form and the construct the truth table for the expression.}{The water supply is rationned if it does not rain.}\prob{3}{3}{Translate the compound statement into symbolic form and the construct the truth table for the expression.}{All triangles are polygons.}\prob{4}{4}{Translate the compound statement into symbolic form and the construct the truth table for the expression.}{No hexagon is a triangle.}\prob{5}{5}{Translate the compound statement into symbolic form and the construct the truth table for the expression.}{Being a triangle is sufficient for not being a square.}\prob{6}{6}{Translate the compound statement into symbolic form and the construct the truth table for the expression.}{Not being a triangle is necessary for being a square.}
+
+\prob{7}{7}{Translate the compound statement into symbolic form and the construct the truth table for the expression.}{If he does not go to jail, then he is innocent or has an alibi.}\prob{8}{8}{Translate the compound statement into symbolic form and the construct the truth table for the expression.}{If proposition A passes and Proposition B does not, jobs are lost or taxes will be raised.}
+\end{frame}
+
+\begin{frame}{Equivalent Statements}
+
+\ex{1}{}{\center
+\begin{enumerate}
+\item The streets are wet, or it is not raining. \uncover<3->{$p\vee\sim q$}
+\item If it is raining, then the streets are wet. \uncover<4->{$p\rightarrow q$} 
+\end{enumerate}
+}
+\begin{columns}
+
+
+\column{5cm}
+\begin{itemize}
+\item []<2->$p$: The streets are wet
+\item []<2->$q:$ it is raining
+\end{itemize}
+
+\column{6cm}
+\begin{itemize}
+\item []\only<5->{%
+\begin{tabular}{cc|c|c}
+ & \multicolumn{1}{c}{} & \multicolumn{1}{c}{\circled{1}} & \circled{2}\tabularnewline
+\textbf{$p$} & \textbf{$q$} & $p\vee\sim q$ & \textbf{$q\rightarrow p$}\tabularnewline
+\hline 
+\uT{6}{} & \uT{6}{} & \uT{7}{} & \uT{9}{}\tabularnewline
+\uT{6}{} & \uF{6}{} & \uT{7}{} & \uT{10}{}\tabularnewline
+\uF{6}{} & \uT{6}{} & \uF{7}{} & \uF{11}{}\tabularnewline
+\uF{6}{} & \uF{6}{} & \uT{8}{} & \uT{10}{}\tabularnewline
+\end{tabular}}
+\end{itemize}
+\end{columns}
+\begin{block}<12->{}
+We say that $p\vee\sim q$ and $q\rightarrow p$ are \emph{equivalent}
+\emph{expressions}, written $p\vee\sim q\equiv q\rightarrow p$.
+\end{block}
+\end{frame}
+
+\begin{frame}{Equivalent expressions}
+
+\begin{block}{Equivalence}
+Symbolic expressions that have identical truth values are called
+\emph{equivalent expressions}, notated using ``$\equiv$''.
+\end{block}
+\begin{itemize}
+\item [ex.]<2->$p\vee\sim q\equiv p\rightarrow q$
+\item [ex.]<3->''It is raining''\\
+``It is not the case, that it is not raining''
+
+\begin{itemize}
+\item []<4->$q\equiv\sim(\sim q)$
+\end{itemize}
+\item [ex.]<4->''If the streets are wet then it is raining''\\
+``If it is not raining then the streets are not wet.''
+
+\begin{itemize}
+\item []<5->$q\rightarrow p\equiv\sim p\rightarrow\sim q$
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Equivalent expressions}
+
+\prob{1}{}{Determine whether the two statements are equivalent.}{\center
+\begin{itemize}
+\item She is unemployed or she does not have a high school diploma. 
+\item If she is employed then she does not have a high school diploma. 
+\end{itemize}
+}
+\begin{columns}
+
+
+\column{5cm}
+\begin{itemize}
+\item []<2->$p$: She is employed.
+\item []<2->$q:$ She has a HS diploma.
+\end{itemize}
+
+\column{6cm}
+\begin{itemize}
+\item []\only<5->{%
+\begin{tabular}{cc|c|cc}
+ & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} &  & \tabularnewline
+\textbf{$p$} & \textbf{$q$} & \hspace{1cm} & \hspace{1cm} & \tabularnewline
+\cline{1-4}
+\uT{6}{} & \uT{6}{} &  & \hspace{1cm} & \tabularnewline
+\uT{6}{} & \uF{6}{} &  &  & \tabularnewline
+\uF{6}{} & \uT{6}{} &  &  & \tabularnewline
+\uF{6}{} & \uF{6}{} &  &  & \tabularnewline
+\end{tabular}}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Equivalent expressions}
+
+\prob{1}{}{Determine whether the two statements are equivalent.}{\center
+\begin{itemize}
+\item If the spotted owl is on the endangered list, then lumber jobs are
+lost.
+\item If lumber jobs are not lost, then the spotted owl is not on the endangered
+list.
+\end{itemize}
+}
+\begin{columns}
+
+
+\column{5cm}
+\begin{itemize}
+\item []<2->$p$: 
+\item []<2->$q:$ 
+\end{itemize}
+
+\column{6cm}
+\begin{itemize}
+\item []\only<5->{%
+\begin{tabular}{cc|c|cc}
+ & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} &  & \tabularnewline
+\textbf{$p$} & \textbf{$q$} & \hspace{1cm} & \hspace{1cm} & \tabularnewline
+\cline{1-4}
+\uT{6}{} & \uT{6}{} &  & \hspace{1cm} & \tabularnewline
+\uT{6}{} & \uF{6}{} &  &  & \tabularnewline
+\uF{6}{} & \uT{6}{} &  &  & \tabularnewline
+\uF{6}{} & \uF{6}{} &  &  & \tabularnewline
+\end{tabular}}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{De Morgan's Law}
+
+\begin{block}{De Morgan's Law}
+
+\begin{itemize}
+\item []<2->$\sim(p\wedge q)\equiv\sim p\vee\sim q$
+\item []<3->$\sim(p\vee q)\equiv\sim p\wedge\sim q$
+\end{itemize}
+\end{block}
+\ex{4}{}{Negate the following statements
+\begin{itemize}
+\item []I have a college degree, and I am not employed.
+\end{itemize}
+}
+\begin{columns}
+
+
+\column{4cm}
+\begin{itemize}
+\item []<5->$p$: I have a college degree.
+\item []<5->$q$: I am not employed.
+\end{itemize}
+
+\column{7cm}
+\begin{itemize}
+\item []<6->Negate, $p\wedge q$.
+\item []<7->$\sim(p\wedge q)$
+\item []<8->$\equiv\sim p$\_$\sim q$
+\item []<9->$\equiv\sim p$$\vee\sim q$
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{De Morgan's Law}
+
+\begin{block}{Negation}
+
+\begin{itemize}
+\item []<2->Negation of \emph{negation}: $\sim(\sim p)\equiv p$
+\item []<2->Negation of \emph{conjunction}: $\sim(p\wedge q)\equiv\sim p\vee\sim q$
+\item []<3->Negation of \emph{disjunction}: $\sim(p\vee q)\equiv\sim p\wedge\sim q$
+\item []<4->Negation of \emph{conditional}: $\sim(p\rightarrow q)\equiv p\wedge\sim q$
+\end{itemize}
+\end{block}
+\vspace{-.5cm}
+\begin{columns}
+
+
+\column{4.5cm}
+\begin{itemize}
+\item [] \only<5->{%
+\begin{tabular}{cc|c|c}
+\textbf{$p$} & \textbf{$q$} & $p\rightarrow q$ & \textbf{$\sim p\vee q$}\tabularnewline
+\hline 
+\uT{5}{} & \uT{5}{} & \uT{6}{} & \uT{10}{}\tabularnewline
+\uT{5}{} & \uF{5}{} & \uF{7}{} & \uF{11}{}\tabularnewline
+\uF{5}{} & \uT{5}{} & \uT{8}{} & \uT{12}{}\tabularnewline
+\uF{5}{} & \uF{5}{} & \uT{9}{} & \uT{13}{}\tabularnewline
+\end{tabular}}
+\end{itemize}
+
+\column{6.5cm}
+\begin{itemize}
+\item []<14-> So, $p\rightarrow q\equiv\sim p\vee q$.
+\item []<15-> So then $\sim(p\rightarrow q)\equiv\sim(\sim p\vee q)$.
+\item []<16-> By De Morgan's Law,
+\item []<16->\textrm{ $\sim(\sim p\vee q)\equiv\sim(\sim p)\wedge\sim q\equiv p\wedge\sim q$.}
+\item []<17->$\therefore$ $\sim(p\rightarrow q)\equiv p\wedge\sim q$
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problems}
+
+\prob{1}{1}{Write the statement in symbolic form, and find the symbolic negation of the statement.}{The TV is broken, or there is a power outage.}
+
+\prob{2}{2}{Write the statement in symbolic form, and find the symbolic negation of the statement.}{If the building contains asbestos, then the original contractor is responsible.}
+
+\prob{3}{3}{Determine which statements are equivalent}{ \center
+\begin{itemize}
+\item [1.] Knowing Morse code is sufficient for operating a telegraph.
+\item [2.] Knowing Morse code is necessary for operating a telegraph.
+\item [3.] Not knowing Morse code is sufficient for not operating a telegraph.
+\item [4.] Not knowing Morse code is necessary for not operating a telegraph.
+\end{itemize}
+}
+
+\prob{4}{4}{Translate the compound statement into symbolic form and the construct the truth table for the expression.}{If proposition A passes and Proposition B does not, jobs are lost or taxes will be raised.}
+\end{frame}
+
+\end{document}

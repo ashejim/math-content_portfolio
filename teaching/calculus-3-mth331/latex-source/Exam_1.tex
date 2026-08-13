@@ -1,0 +1,130 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{331}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\examType}{EXAM}
+
+\renewcommand{\date}{October 12, 2012}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{Name:}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{Name:}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Justify your answers and show your work. All questions are
+of equal value.}
+\begin{enumerate}[resume]
+\item Find an explicit formula for the general $n^{\mbox{th}}$ term of
+the sequence, $\left\{ a_{n}\right\} _{n=0}^{\infty}=\{1,2,4,8,16,\dots\}$.
+\vspace{1in}
+\item Write the infinite series, $0.3+0.03+0.003+\cdots$, using sigma notation
+(i.e. using $\Sigma$) . \vspace{1in}
+\item Write the first 3 terms of the sequence of partial sums of the series
+${\displaystyle \sum_{k=1}^{\infty}\frac{3^{k}}{2}}$.\vfill
+\end{enumerate}
+\emph{Evaluate the geometric series or state that it diverges. }
+\begin{enumerate}[resume]
+\item ${\displaystyle \sum_{k=0}^{\infty}\frac{2^{k}}{7^{k}}}$.\vfill
+\item ${\displaystyle \sum_{m=2}^{\infty}\left(\frac{1}{3}\right)^{m}}$.\vfill\newpage{}
+\end{enumerate}
+\emph{Find the limit of the following sequences or determine that
+the limit does not exist. }
+\begin{enumerate}[resume]
+\item ${\displaystyle \lim_{n\rightarrow\infty}\left\{ \frac{n^{4}-1}{n^{4}+10}\right\} }$.\vfill
+\item ${\displaystyle \lim_{n\rightarrow\infty}\left\{ \frac{n^{0.01}}{\ln n}\right\} }$.\vfill
+\end{enumerate}
+\emph{Use the Divergence Test to determine whether the following series
+diverge, or state that the test is inconclusive (use your results
+from above).}
+\begin{enumerate}[resume]
+\item ${\displaystyle \sum_{k=1}^{\infty}\frac{k^{4}-1}{k^{4}+10}}$.\vfill
+\item ${\displaystyle \sum_{k=1}^{\infty}\frac{k^{0.01}}{\ln k}}$.\vfill\newpage{}
+\end{enumerate}
+\emph{Using the Squeeze Theorem, find the limit of the following sequence
+or determine that the limit does not exist.}
+\begin{enumerate}[resume]
+\item ${\displaystyle \lim_{n\rightarrow\infty}\left\{ \frac{\sin^{2}n}{2^{n}}\right\} }$.\vfill
+\end{enumerate}
+\emph{Use the Integral Test to determine whether the series converge,
+diverge, or state why the test cannot be used. Check that the conditions
+of the test are satisfied.}
+\begin{enumerate}[resume]
+\item ${\displaystyle \sum_{k=1}^{\infty}\frac{k}{e^{k}}}$. For $f(x)=\frac{x}{e^{x}}$,
+$f'(x)=\left(1-x\right)e^{-1}$ and $\int f(x)\,dx=2xe^{-1}$.\vfill
+\item ${\displaystyle \sum_{k=2}^{\infty}\frac{1}{(2x-3)^{2}}}$. For $f(x)=\frac{1}{(2x-3)^{2}}$,
+$f'(x)=\frac{-4}{(2x-3)^{2}}$ and $\int f(x)\,dx=\frac{-1}{2(2x-3)}$.\vfill
+\end{enumerate}
+\emph{Use the Ratio Test to determine whether the following series
+converges.}
+\begin{enumerate}[resume]
+\item ${\displaystyle \sum_{k=1}^{\infty}\frac{3}{k!}}$.\vfill\newpage{}
+\end{enumerate}
+\emph{Use the Root Test to determine whether the following series
+converges. }
+\begin{enumerate}[resume]
+\item ${\displaystyle \sum_{k=1}^{\infty}\left(\frac{k-1}{3k}\right)^{k}}$.\vfill
+\end{enumerate}
+\emph{Use the Comparison Test or Limit Comparison Test to determine
+whether the following series converge. HINT: ${\displaystyle \sum\frac{1}{k^{p}}}$
+converges for $p>1$ and diverges for $p\leq1$.}
+\begin{enumerate}[resume]
+\item ${\displaystyle \sum_{k=1}^{\infty}\frac{1}{k^{2}+4}}$.\vfill
+\end{enumerate}
+\emph{BONUS: Use the formal definition of the limit of a sequence
+to prove that ${\displaystyle \lim_{n\rightarrow\infty}\left(3+\frac{1}{n}\right)}=3$.\vfill}
+\end{document}
