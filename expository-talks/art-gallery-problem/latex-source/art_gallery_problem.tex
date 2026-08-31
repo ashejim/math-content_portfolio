@@ -19,7 +19,7 @@
   \pgfmathparse{#1/\wd\measure@tikzpicture}%
   \edef\tikzscale{\pgfmathresult}%
   \BODY
-}
+}%
 \makeatother
 
 %%%%Chapter and Section numbers%%%%% 
@@ -58,7 +58,7 @@
 \begin{frame}{How many guards to guard the gallery? Easy case} \label{slide-backstory}
     \def\scalePoly{2}
     \begin{center}
-        \only<1>{
+        \only<1>{%
             \begin{tikzpicture}[scale=\scalePoly]
                 % create the node
                 \node[ultra thick,draw,minimum size=6cm,regular polygon,regular polygon sides=10] (a) {};
@@ -70,9 +70,9 @@
                 %   \draw[dashed,<-,red,thick] (a.corner \x) to (a.corner 1);
             
                 % \draw[fill=red] (a.corner 1) circle(.05cm) ;
-            \end{tikzpicture}
-        }
-        \only<2>{
+            \end{tikzpicture}%
+        }%
+        \only<2>{%
             \begin{tikzpicture}[scale=\scalePoly]
                 % create the node
                 \node[ultra thick,draw,minimum size=6cm,regular polygon,regular polygon sides=10] (a) {};
@@ -84,9 +84,9 @@
                 %   \draw[dashed,<-,red,thick] (a.corner \x) to (a.corner 1);
             
                 \draw[fill=red] (a.corner 1) circle(.05cm) ;
-            \end{tikzpicture}
-        }
-        \only<3>{
+            \end{tikzpicture}%
+        }%
+        \only<3>{%
             \begin{tikzpicture}[scale=\scalePoly]
                 % create the node
                 \node[ultra thick,draw,minimum size=6cm,regular polygon,regular polygon sides=10] (a) {};
@@ -98,8 +98,8 @@
                   \draw[dashed,<-,red,thick] (a.corner \x) to (a.corner 1);
             
                 \draw[fill=red] (a.corner 1) circle(.05cm) ;
-            \end{tikzpicture}
-        }
+            \end{tikzpicture}%
+        }%
     \end{center}
 % No time for that\dots
 \end{frame}
@@ -137,7 +137,7 @@
 
     \begin{center}
     
-    \only<1>{
+    \only<1>{%
         \begin{tikzpicture}[scale=\scaleGraph,shorten >=0pt, auto, node distance=3cm, ultra thick,
        node_styleG/.style={circle, draw=black,fill=black,font=\sffamily\scriptsize\bfseries},
        node_styleB/.style={circle, draw=black,fill=black,font=\sffamily\scriptsize\bfseries},
@@ -156,28 +156,28 @@
             \nodeK;
             \draw[ultra thick,black] (A) -- (B) -- (C) -- (D) -- (E) -- (F) -- (G) -- (H) -- (I) -- (J) -- (K) -- (A);
         % \draw[ultra thick, draw black] (A)-(B)
-        \end{tikzpicture}
-    }
+        \end{tikzpicture}%
+    }%
     
-    \only<2>{
+    \only<2>{%
     Original proof by V.\ Chvital (1975)
     \begin{figure}
         \centering
         \includegraphics[width=.45\textwidth]{images/original_art_gallery_proof-1.png}
     \end{figure}
     
-    }
+    }%
     
-    \only<3>{
+    \only<3>{%
     Original proof by V.\ Chvital (1975)
     \begin{figure}
         \centering
         \includegraphics[width=.45\textwidth]{images/original_art_gallery_proof-2.png}
     \end{figure}
     
-    }
+    }%
     
-    \only<4>{
+    \only<4>{%
         \begin{tikzpicture}[scale=\scaleGraph,shorten >=0pt, auto, node distance=3cm, ultra thick,
        node_styleG/.style={circle, draw=black,fill=black,font=\sffamily\scriptsize\bfseries},
        node_styleB/.style={circle, draw=black,fill=black,font=\sffamily\scriptsize\bfseries},
@@ -204,10 +204,10 @@
             \draw[thick,dashed,black] (H) -- (E);
             \draw[thick,dashed,black] (E) -- (G);
         % \draw[ultra thick, draw black] (A)-(B)
-        \end{tikzpicture}
-    }
+        \end{tikzpicture}%
+    }%
     
-    \only<5->{
+    \only<5->{%
         \begin{tikzpicture}[scale=\scaleGraph,shorten >=0pt, auto, node distance=3cm, ultra thick,
        node_styleG/.style={circle,draw=green,fill=green!20!,font=\sffamily\scriptsize\bfseries},
        node_styleB/.style={circle,draw=blue,fill=blue!20!,font=\sffamily\scriptsize\bfseries},
@@ -236,16 +236,16 @@
             \draw[thick,dashed,black] (H) -- (E);
             \draw[thick,dashed,black] (E) -- (G);
         % \draw[ultra thick, draw black] (A)-(B)
-        \end{tikzpicture}
-    }
-    \uncover<6->{
+        \end{tikzpicture}%
+    }%
+    \uncover<6->{%
         \vspace{-1cm}
         
         \begin{equation*}
             \hspace{1cm} \text{At most }\lfloor {\frac{n}{3}} \rfloor \text{ guards.} 
         \end{equation*}
         -Fisk's short proof (1978)
-    }
+    }%
     \end{center}
 
 \end{frame}
@@ -276,7 +276,7 @@
 %             \draw  (v8) edge (v3);
 %             \draw  (v3) edge (v11);
 %             \draw  (v5) edge (v7);
-%         \end{tikzpicture}
+%         \end{tikzpicture}%
 %     \end{column}
 % \end{columns}
 % \end{frame}

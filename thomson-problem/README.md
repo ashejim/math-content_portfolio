@@ -8,11 +8,11 @@ to a classical optimization problem.
 The **Thomson problem** asks for the configuration of $N$ electrons on the unit sphere
 that minimizes the electrostatic (Coulomb) energy
 
-$$E = \sum_{i<j} \frac{1}{\lvert p_i - p_j \rvert}.$$
+$$E = \sum_{i \lt j} \frac{1}{\lvert p_i - p_j \rvert}.$$
 
 It is **number 7 on Smale's list** of problems for the 21st century. Exact solutions
 are known only for a few special values of $N$; in general the problem is **NP-hard**,
-so progress relies on computational methods. The best known minima for most $N < 1000$
+so progress relies on computational methods. The best known minima for most $N \lt 1000$
 have been found numerically.
 
 ## Our approach
