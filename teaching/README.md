@@ -35,6 +35,12 @@ material can be edited, recompiled, or adapted.
 
 ## Highlights
 
+- The **gateway sequence — Precalculus through Calculus III** — is exam-complete:
+  Precalculus (MTH 137) ships four exams *with full worked-solution sets*, three
+  final-exam forms, and review sheets; Calculus II (MTH 232) includes 28 exam,
+  review, and solution documents across multiple sections. All with editable
+  LaTeX source.
+
 - **Topics in Algebra (MTH 439)** contains textbook-style lecture notes developing
   ring theory from scratch — *Rings*, *Ideals*, *Factor Rings*, and *Homomorphisms
   and Isomorphisms* — each provided as a compiled PDF and editable LaTeX source. Two

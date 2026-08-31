@@ -31,7 +31,8 @@ ability to produce polished, reproducible content.
 
 Nine courses I taught at **Johnson C. Smith University** (JCSU, 2012–2014) and
 **Mars Hill University** (MHU, 2014), from introductory to advanced. Each folder is
-organized into `lecture-notes/`, `assignments/`, `exams-and-reviews/`, and a syllabus.
+organized into `lecture-notes/`, `assignments/`, `exams-and-reviews/`, and a syllabus,
+and **every course includes its editable LaTeX source** in `latex-source/`.
 
 | Course | Level | Highlights |
 |---|---|---|
@@ -39,11 +40,11 @@ organized into `lecture-notes/`, `assignments/`, `exams-and-reviews/`, and a syl
 | [Abstract Algebra (MTH 335)](teaching/abstract-algebra-mth335/) | Advanced undergrad | Full course: groups through rings, with LaTeX-source notes. |
 | [Linear Algebra (MTH 336)](teaching/linear-algebra-mth336/) | Undergrad | Complete exam/solution sets and lecture notes. |
 | [Calculus III (MTH 331)](teaching/calculus-3-mth331/) | Undergrad | Multivariable calculus slides and worksheets. |
-| [Calculus II (MTH 232)](teaching/calculus-2-mth232/) | Undergrad | Techniques of integration, series. |
-| [Precalculus (MTH 137)](teaching/precalculus-mth137/) | Intro | |
-| [College Algebra (MTH 131)](teaching/college-algebra-mth131/) | Intro | Large worksheet and practice-exam bank. |
+| [Calculus II (MTH 232)](teaching/calculus-2-mth232/) | Undergrad | Techniques of integration, series — 28 exam, review, and worked-solution documents across multiple sections. |
+| [Precalculus (MTH 137)](teaching/precalculus-mth137/) | Intro | Complete exam sequence: 4 exams **with full worked-solution sets**, three final-exam forms, and review sheets. |
+| [College Algebra (MTH 131)](teaching/college-algebra-mth131/) | Intro | Large worksheet and practice-exam bank — 37 exam and review documents, 26 assignments. |
 | [Finite Math (MTH 107, MHU)](teaching/finite-math-mth107-mhu/) | Intro | Logic, sets, combinatorics, probability — full slide decks. |
-| [Finite Math (MTH 132, JCSU)](teaching/finite-math-mth132-jcsu/) | Intro | |
+| [Finite Math (MTH 132, JCSU)](teaching/finite-math-mth132-jcsu/) | Intro | Full course: lecture notes, 14 assignments, and exams with solutions. |
 
 See [`teaching/README.md`](teaching/) for a fuller description.
 
@@ -117,10 +118,10 @@ combinatorially.
 
 ## About the source material
 
-All documents were authored in **LaTeX** (via LyX). Where useful, the editable
-`.tex` source is included alongside the compiled PDF (see the `latex-source/` folders
-and the research/Thomson `.tex` files). The advanced-algebra lecture notes are
-structured so they can be developed further into **Jupyter Books**.
+All documents were authored in **LaTeX** (via LyX). Every teaching course, the
+expository talks, and the research/Thomson materials include editable `.tex` source
+alongside the compiled PDFs (see the `latex-source/` folders). The advanced-algebra
+lecture notes are structured so they can be developed further into **Jupyter Books**.
 
 ## Author
 
