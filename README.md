@@ -7,9 +7,10 @@ presentations, and a grant-funded undergraduate research project.
 
 The material spans **college-algebra through graduate-level abstract algebra**, plus
 **research in circle packing / discrete conformal geometry** and an
-**NP-hard optimization project** (the Thomson problem). It is meant to demonstrate
-mathematical range, clarity of technical exposition, and the ability to produce
-polished, reproducible content.
+**NP-hard optimization project** (the Thomson problem) — from full university course
+archives to **recent (2023) activity-style practice materials** authored at WGU. It
+is meant to demonstrate mathematical range, clarity of technical exposition, and the
+ability to produce polished, reproducible content.
 
 ---
 
@@ -17,6 +18,7 @@ polished, reproducible content.
 
 | Section | What's inside |
 |---|---|
+| [`recent-work/`](recent-work/) | **Recent (2023) practice sets and reference sheets** authored at WGU — concise, activity-style materials with answer keys, all with `.tex` source and a shared house style file. |
 | [`teaching/`](teaching/) | Full materials for 9 university courses — notes, slides, worksheets, exams, and worked solutions. |
 | [`research/`](research/) | Talks on my research in **generalized branching for circle packings** (thesis defense, AMS Sectional, invited colloquium). |
 | [`thomson-problem/`](thomson-problem/) | A grant-funded computational project modeling the **Thomson problem** with circle packings, including data and the conference poster. |
@@ -42,6 +44,33 @@ organized into `lecture-notes/`, `assignments/`, `exams-and-reviews/`, and a syl
 | [Finite Math (MTH 132, JCSU)](teaching/finite-math-mth132-jcsu/) | Intro | |
 
 See [`teaching/README.md`](teaching/) for a fuller description.
+
+## Recent work (2023) — WGU practice materials
+
+Concise, self-study worksheets and reference sheets authored as a course
+instructor at **Western Governors University** (competency-based, online):
+targeted practice sets with answer keys for discrete mathematics and
+algorithms, designed for students preparing for objective competency
+assessments. All include editable LaTeX source and share a house style file
+for a consistent worksheet format. See [`recent-work/`](recent-work/).
+
+## Professional assessment authoring
+
+Beyond the classroom materials in this repository, I have authored and revised
+assessment content professionally (the content itself is proprietary and not
+reproduced here):
+
+- **Standardized exam item writing** — authored full rewrites/parallel forms
+  of official standardized mathematics exams, including the **ETS Praxis 5003**
+  (elementary mathematics) and the **NES II** exam series, in LaTeX with
+  complete answer keys — item writing, distractor design, and form parallelism
+  to specification.
+- **Competency-based performance assessments** at WGU, including assessments
+  with objective quality gates for the **BS in AI Engineering** program.
+- **Original evaluation design for AI systems** — a
+  [math-reasoning benchmark](https://github.com/ashejim/eval-benchmark)
+  pairing objective answer keys with step-level rubrics for grading
+  mathematical reasoning.
 
 ## Research
 

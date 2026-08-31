@@ -1,0 +1,296 @@
+%%% Jim Ashe (jim.ashe@wgu.edu; x4209)%%%%
+\documentclass{exam}
+\usepackage{WGU_worksheet_preamble}
+\usepackage{footnote}
+\usepackage[symbol]{footmisc}
+
+%%header%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headrule
+\header{ 
+    \href{mailto:jim.ashe@wgu.edu;cemal.tepe@wgu.edu?subject=C949: Big-O worksheet}{Dr.\,Jim Ashe \& Dr.\,Cemal Tepe}
+    \\ \textbf{C949 Data Structures \& Algorithms}}
+{Big-$\mathcal{O}$ Worksheet}
+{\href{https://timetrade.com/app/wgu-mentoring/workflows/WGU200/schedule/?locationId=course_mentoring&appointmentTypeGroupId=C949&resourceId=any&attendee_person_firstName=&attendee_person_lastName=&attendee_email=&attendee_mobile_phoneNumber=&attendee_customField0=&questionId__course_code=C949}{\includegraphics[scale=.65]{timetradeMC.png}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lfoot{\footnotesize Suggestions or errors? Contact: \href{mailto:jim.ashe@wgu.edu?subject=C949: Big-O worksheet}{Dr.\,Jim Ashe}.}
+\cfoot[]{Page \thepage\ of \numpages}
+\rfoot{\today}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\itemSpace}{36pt} %adjusts spacing between questions
+
+% \printanswers
+\shadedsolutions
+\colorlet{SolutionColor}{lightBlueWGU!15!white}
+
+\begin{document}
+
+\subsection*{Basic Properties of Big-$\mathcal{O}$}
+    \vspace{-.1cm}
+    \begin{multicols}{2}
+        Time complexity describes the amount of computational time an algorithm takes. As this can vary and run times are fast for small $n$, we describe the behavior as $n$ gets large for best, average, and worst-case scenarios -mainly, we focus on worst, i.e., Big-$O$. Here's a list of some functions listed from fast to slow\footnote[1]{You don't need to know these for the C949 assessment! But any computer science major should be familiar with them.}:
+        \begin{itemize}
+            \item[] $\mathcal{O}(1)$ \textbf{Constant}
+            \item[] $\mathcal{O}(\log(n))$ \textbf{Logarithmic}. 
+            \begin{itemize}
+                \item[] Ignore Log bases: $\log_{10}(n)=\log(n)$
+                \item[] Same growth as $\log(n^{k})=k\log(n)$ 
+            \end{itemize}
+            
+            \item[] $\mathcal{O}(\log^{c}(n))$ \textbf{Polylogarithmic}
+            \begin{itemize}
+                \item[] Don't forget that: $\log^{c}x=(\log x)^{c}$.
+            \end{itemize}
+            \item[] $\mathcal{O}(n)$ \textbf{Linear}
+            \item[] $\mathcal{O}(n\log(n))$ \textbf{Linearithmic/Loglinear}
+            \item[] $\mathcal{O}(n^{2})$ \textbf{Quadratic}
+            \item[] $\mathcal{O}(n^{2}\log(n))$
+            \item[] $\mathcal{O}(n^{3})$ \textbf{Polynomial}
+            \item[] $\mathcal{O}(2^{n})$ \textbf{Exponential} 
+            \item[] $\mathcal{O}(n!)$ \textbf{Factorial}
+        \end{itemize}
+        \columnbreak
+        \begin{tikzpicture} 
+            \begin{axis}[height=6cm, 
+            	width=6cm,scale=1.0,
+            	axis lines=middle,
+            	xticklabels={,,}, yticklabels={,,},
+            	axis line style={-latex}, 
+            	xlabel={$n\rightarrow \infty$},
+            	ylabel={$f(n)$},             	
+            	x label style={at={(axis description cs:0.5,-0.05)},anchor=north},
+            	y label style={at={(axis description cs:-0.125,.5)},anchor=south},
+            	clip=false, %doesn't clip outside graph
+            	%domain=0:100,
+            	ymin=0,xmin=0,
+            	ymax = 150,xmax=150
+            	]
+            	\addplot[teal, thick, samples=10, domain=0:18.835]{1.3^x} node[above]{$c^{n}$};
+            	\addplot[Magenta, thick, domain=0:52.1936]{.25*x^1.6} node[above]{$c\cdot n^{10}$};
+            	\addplot[blue, thick, domain=0:91.8315]{.25*x^1.4} node[right]{$c\cdot n^{2}$};
+            	\addplot[RedOrange, thick, domain=0:140]{.13*(x+1)*ln(x+1)/ln(2)} node[right]{$n\log_{c}n$};
+            	\addplot[red, thick, domain=0:140] {.5*x} node[right]{$c\cdot n$};
+            	\addplot[purple, thick, domain=0:140]{3.5*ln(x)/ln(2)} node[right]{$\log_{c}n$};
+            	\addplot[OliveGreen, thick, domain=0:140]{10} node[right]{$c$};
+            \end{axis}
+        \end{tikzpicture}
+        \\ \textbf{Some properties} \\
+            We ignore coefficients and log bases. 
+                \begin{itemize}
+                    \item [\textbf{ex.}] $7x^{2}$ is $\mathcal{O}(x^{2})$ and $3\log_{20}{x}$ is $\mathcal{O}(\log{x})$ 
+                        \footnote[7]{\textbf{Clarification of notation: }The following statements all mean the same thing:
+                            \begin{itemize}
+                                \item[] “$f(x)$ is $\mathcal{O}(g(x))$” OR  
+                                \item[] “$f(x)$ is of $\mathcal{O}(g(x))$” OR 
+                                \item[] “$f(x)=\mathcal{O}(g(x))$” OR
+                                \item[] “$f(x)\in \mathcal{O}(g(x))$” 
+                            \end{itemize}
+                        $\mathcal{O}(g(x))$ is a collection of functions (i.e. a set) so we should write "$f(x)\in \mathcal{O}(g(x))$", but "$f(x)=\mathcal{O}(g(x))$” is commonly used and what you'll see on the assessment. This can be confusing since $\mathcal{O}(n)=\mathcal{O}(n^{2})$ but $\mathcal{O}(n^{2})\neq \mathcal{O}(n)$!! See this interesting thread on StackExchange \href{https://math.stackexchange.com/questions/2066004/big-o-notation-is-element-of-or-is-equal}{Big O Notation “is element of” or “is equal”}. Note the Wiki cites \href{https://en.wikipedia.org/wiki/Donald_Knuth}{Donald Knuth}.
+                        } 
+                \end{itemize}
+        
+            When adding functions, we only take the slowest function's Big-$\mathcal{O}$.
+            \begin{itemize}
+                \item[\textbf{ex.}] $0.01x^3+12x^{2}-2\log{37x}$ is $\mathcal{O}(n^{3})$
+            \end{itemize}
+            
+            When multiplying functions, we take take the product of the functions' Big-$\mathcal{O}$. 
+            \begin{itemize}
+                \item[\textbf{ex.}] $x^{2}+2\in \mathcal{O}(n^{2})$ and $\log_{10}(x)\in \mathcal{O}(\log{n})$ so then \\
+                $(x^{2}+2)(\log_{10}(x)) \text{ is } \mathcal{O}(n^{2} \log(n))$
+            \end{itemize}
+    \end{multicols}
+    
+\vspace{-.4cm}
+%%use \footnotemark and footnote[n]{} if not in myThm enviro. 
+\begin{figure}[H]
+    \begin{myThm}
+        \centering
+            \rowcolors{2}{white}{lightBlueWGU!25}
+            % \resizebox{.5\textwidth}{!}{
+            \begin{tabular}{cccc}
+                \rowcolor{blueWGU!50}
+                \textcolor{white}{Sort function} & 
+                \textcolor{white}{Average/Typical} &
+                \textcolor{white}{Big-$\mathcal{O}$/worst} &
+                \textcolor{white}{Fast?}\\
+                Bubble sort & $\Theta(n^{2})$ & $\mathcal{O}(n^{2})$ & No\\
+                Selection sort & $\Theta(n^{2})$ & $\mathcal{O}(n^{2})$ & No\\
+                Insertion sort & $\Theta(n^{2})$ & $\mathcal{O}(n^{2})$ & No\\
+                Quick sort & $\Theta(n\log(n))$ & \textcolor{red}{$\mathcal{O}(n^{2})$} & Yes\\
+                Bucket sort & $\Theta(n)$ & \textcolor{red}{$\mathcal{O}(n^{2})$} & Yes\\
+                Heap sort & $\Theta(n\log(n))$ & $\mathcal{O}(n\log(n))$ & Yes\\
+                Merge sort & $\Theta(n\log(n))$ & $\mathcal{O}(n\log(n))$ & Yes\\
+                Radix sort\footnote{Actually, as shown in most examples Radix is $\mathcal{O}(\left \lfloor\log_{b}(k) \right \rfloor (n+b))$ where $b$ is the base (or bucket size) and $k$ is the max possible value, but this can be reduced to $\mathcal{O}(n)$ by increasing $b$ to $n$ -\emph{use $\mathcal{O}(n)$ for the assessments}.} & $\Theta(n)$ & $\mathcal{O}(n)$ & Yes 
+            \end{tabular}
+            % }
+        \caption*{Sorting algorithms time complexities to memorize.\footnote{The assessments ask about both worst and average time complexities. They also mistakenly use Big-$\mathcal{O}$ notation for both average and worst time complexities. However, for this list, they  only differ for \textit{Quicksort} and \textit{Bucket}.}}
+    \end{myThm}
+\end{figure}
+
+\begin{figure}
+    \begin{myThm}
+        \centering
+            \rowcolors{2}{white}{lightBlueWGU!25}
+            % \resizebox{.5\textwidth}{!}{
+            \begin{tabular}{cc}
+                \rowcolor{blueWGU!50}
+                \textcolor{white}{Sort function} & \textcolor{white}{Characteristic}\\
+                Bubble sort & values are swapped\\
+                Bucket sort & values are distributed into sets or "buckets"\\
+                Quicksort & look for keywords "pivot"\\
+                Merge sort & the list is continually "split"\\
+                Radix sort & sorting by least/most significant digits
+            \end{tabular}
+            % }
+        \caption*{Sorting algorithms characteristics \\to identify from code}
+    \end{myThm}
+\end{figure}
+
+% \footnotetext[4]{The pre-assessment and presumably the assessment ask about both worst and average time complexities. They also mistakenly use Big-$\mathcal{O}$ notation for both average and worst time complexities. However, for this list they  only differ for \textit{Quicksort} and \textit{Bucket}.}
+
+% \footnotetext[3]{Actually Radix is $\Theta(n)$ and $\mathcal{O}(n)$ where $k$ is dependent on the number of bits required to store each key, but the assessment will not make this distinction.}
+
+\newpage
+\subsection*{Big-$\mathcal{O}$ problems}
+
+\begin{myThm}
+    On the assessment, you will need to determine the Big-$\mathcal{O}$ time-complexity from psuedocode. \footnote{Pseudocode on the assessment won't be written as nicely as it is here! Furthermore, it may be given in the form of Java, C, or Python.} Answers seem to mainly be limited to $\mathcal{O}(1)$, $\mathcal{O}(n)$, $\mathcal{O}(n^{2})$, and $\mathcal{O}(n^3)$. A nutshell summary for the assessment:
+    \begin{itemize}
+        \item If the number of steps stays the same no matter how large, then it’s constant time: $\mathcal{O}(1)$
+        \item If you go through a $n$ long list (linearly; say a loop), then you’ll take at most $n$ steps: $\mathcal{O}(n)$.
+        \item A loop in a loop will be $\mathcal{O}(n^{2})$. A loop in a loop in a loop will be $\mathcal{O}(n^{3})$. Often you simply need to count the number of \texttt{for} and \texttt{while} loops.
+    \end{itemize}
+\end{myThm}
+
+\begin{questions}
+\setlength\itemsep{\itemSpace} %set length above question. Needs to be set for each question environment
+
+\question Using the provided pseudo-code, find the worst case performance in Big-$\mathcal{O}$ notation.
+        \begin{algorithm}[H]
+        \caption{Some messy pseudo-code}\label{algor1}
+            \begin{algorithmic}[1]
+                \Procedure{SomeProcedure}{}
+                    \For{i=1 and 1$<$=n}
+                        \State j=1
+                        \While{j$<$n}
+                            \State j=j+2
+                        \EndWhile
+                    \EndFor
+                \EndProcedure
+            \end{algorithmic}
+        \end{algorithm}
+    \begin{oneparchoices}
+        \choice $\mathcal{O}(\log n)$
+        \choice $\mathcal{O}(n\log n)$
+        \CorrectChoice $\mathcal{O}(n^{2})$
+        \choice $\mathcal{O}(n)$
+    \end{oneparchoices}
+    
+\question Using the provided pseudo-code, find the worst case performance in Big-$\mathcal{O}$ notation.
+        \begin{algorithm}[H]
+        \caption{Some more messy pseudocode}\label{algor2}
+            \begin{algorithmic}[1]
+                \Procedure{PrintHello}{}
+                    \State n=100,000,000
+                    \For{i=0; i$<$n}
+                        \State Output "Hello"
+                        \State i=i+1
+                    \EndFor
+                \EndProcedure
+            \end{algorithmic}
+        \end{algorithm}
+    \begin{oneparchoices}
+        \choice $\mathcal{O}(100,000,000)$
+        \choice $\mathcal{O}(n\log n)$
+        \choice $\mathcal{O}(n^{2})$
+        \CorrectChoice $\mathcal{O}(1)$
+    \end{oneparchoices}
+
+\question Using the provided pseudo-code, find the worst case performance in Big-$\mathcal{O}$ notation.
+        \begin{algorithm}[H]
+        \caption{Some more messy pseudocode}\label{algor2}
+            \begin{algorithmic}[1]
+                \Procedure{SomeProcedure2}{}
+                    \State j=0
+                    \For{i=0; i$<$n; i++}
+                        \State j=i+j
+                    \EndFor
+                \EndProcedure
+            \end{algorithmic}
+        \end{algorithm}
+    \begin{oneparchoices}
+        \choice $\mathcal{O}(\log n)$
+        \choice $\mathcal{O}(n\log n)$
+        \choice $\mathcal{O}(n^{2})$
+        \CorrectChoice $\mathcal{O}(n)$
+    \end{oneparchoices}
+
+
+\question Using the provided pseudo-code, find the worst case performance in Big-$\mathcal{O}$ notation. Assume we know that \textbf{someMethod(n)} is $\mathcal{O}(\log n)$.
+        \begin{algorithm}[H]
+        \caption{Some pseudocode with a method in it}\label{algor3}
+            \begin{algorithmic}[1] % The number tells where the line numbering should start
+                \Procedure{SomeProcedure3}{}
+                    \State j=0
+                    \For{i=0; i$<$n; i++}
+                        \State j=someMethod(n)
+                    \EndFor
+                \EndProcedure
+            \end{algorithmic}
+        \end{algorithm}
+    \begin{oneparchoices}
+        \choice $\mathcal{O}(\log n)$
+        \CorrectChoice $\mathcal{O}(n\log n)$
+        \choice $\mathcal{O}(n^{2})$
+        \choice $\mathcal{O}(n)$
+    \end{oneparchoices}
+
+
+\question Using the provided pseudo-code, find the worst case performance in Big-$\mathcal{O}$ notation.
+        \begin{algorithm}[H]
+        \caption{Some more messy pseudocode}\label{algor4}
+            \begin{algorithmic}[1]
+                \Procedure{SomeProcedure4}{}
+                    \While {n$>1$}
+                        \State n=n/2
+                    \EndWhile
+                \EndProcedure
+            \end{algorithmic}
+        \end{algorithm}
+    \begin{oneparchoices}
+        \CorrectChoice $\mathcal{O}(\log n)$
+        \choice $\mathcal{O}(n\log n)$
+        \choice $\mathcal{O}(n^{2})$
+        \choice $\mathcal{O}(n)$
+    \end{oneparchoices}
+
+
+% \question Using the provided pseudo-code, find the worst case performance in Big-$\mathcal{O}$ notation.
+%     \begin{algorithm}[H]
+%     \caption{Euclid’s algorithm}
+%         \label{euclid}
+%         \begin{algorithmic}[1] % The number tells where the line numbering should start
+%             \Procedure{Euclid}{$a,b$} \Comment{The g.c.d. of a and b}
+%                 \State $r\gets a \bmod b$
+%                 \While{$r\not=0$} \Comment{We have the answer if r is 0}
+%                     \State $a \gets b$
+%                     \State $b \gets r$
+%                     \State $r \gets a \bmod b$
+%                 \EndWhile\label{euclidendwhile}
+%                 \State \textbf{return} $b$\Comment{The gcd is b}
+%             \EndProcedure
+%         \end{algorithmic}
+%     \end{algorithm}
+%     \begin{oneparchoices}
+%         \choice $\mathcal{O}(\log n)$
+%         \choice $\mathcal{O}(n\log n)$
+%         \choice $\mathcal{O}(n^{2})$
+%         \CorrectChoice $\mathcal{O}(n)$
+%     \end{oneparchoices}
+\end{questions}
+
+\vfill
+\subsection*{Key}
+C, D, D, B, A
+
+\end{document}
