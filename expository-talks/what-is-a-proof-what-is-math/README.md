@@ -28,6 +28,8 @@ The diagonal argument — building a real number that escapes every list:
 
 ## Source
 
-[`latex-source/`](latex-source/) contains the modular Beamer source
-(`what_is_math_MAIN.tex` inputs the `part_*.tex` files) and all images. Compile
-with two passes of `pdflatex what_is_math_MAIN.tex`.
+[`latex-source/`](latex-source/) contains the modular Beamer source and all
+images: `what_is_math_MAIN.tex` inputs `part_1b.tex` through `part_4.tex`
+(`part_1.tex` and `part_5.tex` are earlier/optional sections, kept but not
+compiled into the deck). Compile with two passes of
+`pdflatex what_is_math_MAIN.tex`.
