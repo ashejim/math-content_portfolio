@@ -1,0 +1,165 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{shapes,snakes}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\lhead{MTH 331(A) Dr.\,James Ashe}
+\chead{\textbf{Helpful Results}}
+\cfoot{\thepage{}~of~\pageref{LastPage}}
+%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+
+\textbf{Dot Product. }Given two vectors $\mathbf{u}=\left\langle u_{1},u_{2},u_{3}\right\rangle $
+and $\mathbf{v}=\left\langle v_{1},v_{2},v_{3}\right\rangle $, 
+\begin{eqnarray*}
+\mathbf{u\cdot v} & = & u_{1}v_{1}+u_{2}v_{2}+u_{3}v_{3}\\
+ & = & |\mathbf{u}||\mathbf{v}|\cos\theta
+\end{eqnarray*}
+\vfill
+
+\textbf{Orthogonal Projection of u onto v},\textbf{ 
+\begin{eqnarray*}
+\mbox{proj}_{\mathbf{v}}\mathbf{u} & = & \left|\mathbf{u}\right|\cos\theta\left(\frac{\mathbf{v}}{\left|\mathbf{v}\right|}\right)\\
+ & = & \mbox{scal}_{\mathbf{v}}\mathbf{u}\left(\frac{\mathbf{v}}{\left|\mathbf{v}\right|}\right)\\
+ & = & \left(\frac{\mathbf{u\cdot v}}{\mathbf{v\cdot v}}\right)\mathbf{v\mbox{.}}
+\end{eqnarray*}
+\vfill}
+
+\textbf{Scalar component of u in the direction of v},
+\[
+\mbox{scal}_{\mathbf{v}}\mathbf{u}=\left|\mathbf{u}\right|\cos\theta=\frac{\mathbf{u\cdot v}}{\left|\mathbf{v}\right|}\mbox{.}
+\]
+\vfill
+
+\textbf{Work. }Let \textbf{F }be a constant force applied to object,
+producing a displacement \textbf{d}. If the angle between \textbf{F
+}and \textbf{d} is $\theta$, then the \textbf{work }done by the force
+is 
+\[
+W=\left|\mathbf{F}\right|\left|\mathbf{d}\right|\cos\theta=\mathbf{F\cdot d}.
+\]
+
+\textbf{Cross product}, of two nonzero vectors \textbf{u} and \textbf{v
+}in $\mathbb{R}^{3}$, 
+\[
+\left|\mathbf{u\times v}\right|=\left|\mathbf{u}\right|\left|\mathbf{v}\right|\sin\theta
+\]
+\[
+\left|\tau\right|=\left|\mathbf{r}\right|\left|\mathbf{F}\right|\sin\theta
+\]
+\[
+\mathbf{u\times v}=\mbox{\ensuremath{\det}}\left|\begin{array}{ccc}
+\mathbf{i} & \mathbf{j} & \mathbf{k}\\
+u_{1} & u_{2} & u_{3}\\
+v_{1} & v_{2} & v_{3}
+\end{array}\right|=\det\left|\begin{array}{cc}
+u_{2} & u_{3}\\
+v_{2} & v_{3}
+\end{array}\right|\mathbf{i}-\det\left|\begin{array}{cc}
+u_{1} & u_{3}\\
+v_{1} & v_{3}
+\end{array}\right|\mathbf{j}+\det\left|\begin{array}{cc}
+u_{1} & u_{2}\\
+v_{1} & v_{2}
+\end{array}\right|\mathbf{k}\mbox{.}
+\]
+
+\vfill
+
+\begin{multicols}{2}
+
+\subsection*{Helpful formulas}
+\begin{enumerate}
+\item $\frac{d}{dx}\left(x^{n}\right)=nx^{n-1}$
+\item $\frac{d}{dx}\left[f\left(g(x)\right)\right]=f'\left(g(x)\right)\cdot g'(x)$
+(Chain rule)
+\item $\frac{d}{dx}\left(f(x)g(x)\right)=f'(x)g(x)+f(x)g'(x)$
+\item $\frac{d}{dx}e^{x}=e^{x}$
+\item $\frac{d}{dx}\sin ax=a\cos ax$
+\item $\frac{d}{dx}\cos ax=-a\sin ax$
+\item $\int x^{n}\,dx=\frac{1}{n+1}x^{n+1}+C$; $n\neq1$ 
+\item $\int\cos ax\,dx=\frac{1}{a}\sin ax+C$
+\item $\int\sin ax\,dx=-\frac{1}{a}\cos ax+C$
+\item $\int\cos^{2}x\,dx=\frac{x}{2}+\frac{\sin2x}{4}+C$
+\item $\int\sin^{2}x\,dx=\frac{x}{2}-\frac{\sin2x}{4}+C$%\vfill
+\columnbreak
+\end{enumerate}
+\footnotesize
+
+\begin{tikzpicture}[scale=3.0,cap=round,>=latex]         %scale=5,3 % draw the coordinates         
+	\draw[->] (-1.5cm,0cm) -- (1.5cm,0cm) node[right,fill=white] {$x$};         
+	\draw[->] (0cm,-1.5cm) -- (0cm,1.5cm) node[above,fill=white] {$y$};
+        % draw the unit circle         
+	\draw[thick] (0cm,0cm) circle(1cm);
+    \foreach \x in {0,30,...,360} {                 % lines from center to point                 
+			\draw[gray] (0cm,0cm) -- (\x:1cm);                 % dots at each point                 
+			\filldraw[black] (\x:1cm) circle(0.4pt);                 % draw each angle in degrees                 
+			\draw (\x:0.6cm) node[fill=white] {$\x^\circ$};         
+			}
+        % draw each angle in radians         
+	\foreach \x/\xtext in {
+		30/\frac{\pi}{6},             
+		45/\frac{\pi}{4},             
+		60/\frac{\pi}{3},             			
+		90/\frac{\pi}{2},             
+		120/\frac{2\pi}{3},             
+		135/\frac{3\pi}{4},             
+		150/\frac{5\pi}{6},             
+		180/\pi,             	
+		210/\frac{7\pi}{6},             
+		225/\frac{5\pi}{4},             
+		240/\frac{4\pi}{3},             
+		270/\frac{3\pi}{2},             			
+		300/\frac{5\pi}{3},             		
+		315/\frac{7\pi}{4},            
+		330/\frac{11\pi}{6},             
+		360/2\pi}                 
+			\draw (\x:0.85cm) node[fill=white] {$\xtext$};
+	\foreach \x/\xtext/\y in {             % the coordinates for the first quadrant             
+		30/\frac{\sqrt{3}}{2}/\frac{1}{2},             			
+		45/\frac{\sqrt{2}}{2}/\frac{\sqrt{2}}{2},             
+		60/\frac{1}{2}/\frac{\sqrt{3}}{2},             % the coordinates for the second quadrant             
+		150/-\frac{\sqrt{3}}{2}/\frac{1}{2},             
+		135/-\frac{\sqrt{2}}{2}/\frac{\sqrt{2}}{2},             			
+		120/-\frac{1}{2}/\frac{\sqrt{3}}{2},             % the coordinates for the third quadrant             
+		210/-\frac{\sqrt{3}}{2}/-\frac{1}{2},             
+		225/-\frac{\sqrt{2}}{2}/-\frac{\sqrt{2}}{2},             
+		240/-\frac{1}{2}/-\frac{\sqrt{3}}{2},             % the coordinates for the fourth quadrant             
+		330/\frac{\sqrt{3}}{2}/-\frac{1}{2},             				
+		315/\frac{\sqrt{2}}{2}/-\frac{\sqrt{2}}{2},             
+		300/\frac{1}{2}/-\frac{\sqrt{3}}{2}}                 
+			\draw (\x:1.261cm) node[fill=white] {$\left(\xtext,\y\right)$};
+        % draw the horizontal and vertical coordinates         % the placement is better this way         
+	\draw (-1.25cm,0cm) node[above=1pt] {$(-1,0)$}               
+		  (1.25cm,0cm)  node[above=1pt] {$(1,0)$}               
+		  (0cm,-1.25cm) node[fill=white] {$(0,-1)$}               
+          (0cm,1.25cm)  node[fill=white] {$(0,1)$};     
+\end{tikzpicture}
+
+\end{multicols}
+\end{document}

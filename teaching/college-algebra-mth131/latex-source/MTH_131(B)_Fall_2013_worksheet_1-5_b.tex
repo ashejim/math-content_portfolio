@@ -1,0 +1,145 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{131}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{Examples}
+
+\newcommand{\examType}{Worksheet 1.5}
+
+\renewcommand{\date}{\formatdate{9}{9}{2013}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\xmax}{10}
+\newcommand{\xmin}{-10}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{10}
+\newcommand{\ymin}{-10}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcommand{\Dspace}{\vspace{1cm}}\textbf{You must show your work to receive credit.}
+\begin{enumerate}[resume]
+\item Solve the equation using the the square root property. $(5x)^{2}-10=0$.
+
+\begin{enumerate}[resume]
+\item []
+\begin{eqnarray*}
+(5x)^{2} & = & 10\\
+\sqrt{(5x)^{2}} & = & \pm\sqrt{10}\\
+5x & = & \pm\sqrt{10}\\
+x & = & \nicefrac{\pm\sqrt{10}}{5}
+\end{eqnarray*}
+\vfill
+\end{enumerate}
+\item Solve the equation by factoring. $2x^{2}-6x-20=0$.
+
+\begin{enumerate}[resume]
+\item []
+\begin{eqnarray*}
+2(x^{2}-3x-10) & = & 0\\
+2(x-5)(x+2) & = & 0\\
+ &  & x=5\mbox{ and }x=-2
+\end{eqnarray*}
+\vfill
+\end{enumerate}
+\item Solve the equation by completing the square. $x^{2}+4x+1=0$.
+
+\begin{enumerate}[resume]
+\item []$b=4$ so $\left(\frac{b}{2}\right)^{2}=\left(\frac{4}{2}\right)^{2}=4$
+\begin{eqnarray*}
+x^{2}+4x & = & -1\\
+x^{2}+4x+4 & = & -1+4\\
+(x+2)^{2} & = & 3\\
+\sqrt{(x+2)^{2}} & = & \pm\sqrt{3}\\
+x+2 & = & \pm\sqrt{3}\\
+x & = & -2\pm\sqrt{3}
+\end{eqnarray*}
+\vfill
+\end{enumerate}
+\item Solve the equation using the quadratic formula. $3x^{2}-3x=4$.
+
+\begin{enumerate}[resume]
+\item []First write the equation as, $3x^{2}-3x-4=0$. So$a=3$, $b=-3$,
+and $c=-4$.
+\begin{eqnarray*}
+x & = & \frac{-(-3)\pm\sqrt{(-3)^{2}-4(3)(-4)}}{2(3)}\\
+ & = & \frac{3\pm\sqrt{57}}{6}\mbox{ (NOT }\frac{1\pm\sqrt{57}}{2}\mbox{)}
+\end{eqnarray*}
+\vfill
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

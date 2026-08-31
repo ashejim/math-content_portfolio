@@ -12,8 +12,12 @@ Each course folder follows the same layout:
 ├── lecture-notes/        notes and slide decks
 ├── assignments/          homework, quizzes, worksheets (+ worked solutions)
 ├── exams-and-reviews/    exams, midterms, finals, review sheets (+ solutions)
-└── latex-source/         editable .tex source (advanced-algebra courses)
+└── latex-source/         editable .tex source for the course's documents
 ```
+
+Every course includes a `latex-source/` folder with the original **LaTeX** for its
+notes, assignments, and exams (converted faithfully from my LyX sources), so the
+material can be edited, recompiled, or adapted.
 
 ## Courses
 

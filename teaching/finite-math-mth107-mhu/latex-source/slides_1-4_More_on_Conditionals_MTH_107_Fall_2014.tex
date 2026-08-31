@@ -1,0 +1,365 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,t]{beamer}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amssymb}
+\usepackage{cancel}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% this default might be overridden by plain title style
+\newcommand\makebeamertitle{\frame{\maketitle}}%
+% (ERT) argument for the TOC
+\AtBeginDocument{%
+  \let\origtableofcontents=\tableofcontents
+  \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+  \def\gobbletableofcontents#1{\origtableofcontents}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usetheme{Warsaw}
+% or ...
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+\setbeamercovered{invisible} %makes overlays invisible
+
+%gets rid of navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%\usepackage{hyperref}
+%\usepackage[usenames,dvipsnames,table]{xcolor} %adds additional color options
+\definecolor{links}{HTML}{2A1B81}
+%\hypersetup{colorlinks,linkcolor=blue,urlcolor=links}
+
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{shapes}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{forest} %%for tree diagram
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+%\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+%\usepackage{datenumber} % Counters for dates
+
+\usepackage[super]{nth}
+
+\usepackage{etex}
+
+\usepackage{fancybox}
+
+%%table colors
+%\usepackage[table]{xcolor}
+\usepackage{colortbl}
+
+\usepackage[outline]{contour}  %allows text halos
+\contourlength{1pt} %sets halo width
+%%example: \node at (0.75,0.5) {\contour{white}{\Large Text!}};
+%%example:  \node [fill=white,inner sep=1pt] at (2.25,0.5) {\Large 			Text!};
+%%example:  \node [fill=white,rounded corners=2pt,inner sep=1pt] at 			(3.75,0.5) {\Large Text!};
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\formatdateny{\csname noyear\languagename\expandafter\endcsname\formatdate}
+\def\noyearenglish#1, \the\@year{#1}
+\let\noyearamerican\noyearenglish
+\let\noyearbritish\noyearenglish
+
+%%allows uncover with forest diagrams
+\tikzset{
+    invisible/.style={opacity=0,text opacity=0},
+    visible on/.style={alt=#1{}{invisible}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+    },
+}
+\forestset{
+  visible on/.style={
+    for tree={
+      /tikz/visible on={#1},
+      edge={/tikz/visible on={#1}}}}}
+
+%%%redefines column alignment to match vertically
+%\define@key{beamerframe}{t}[true]{% top
+  %\beamer@frametopskip=.2cm plus .5\paperheight\relax%
+  %\beamer@framebottomskip=0pt plus 1fill\relax%
+ % \beamer@frametopskipautobreak=\beamer@frametopskip\relax%
+  %\beamer@framebottomskipautobreak=\beamer@framebottomskip\relax%
+  %\def\beamer@initfirstlineunskip{}%
+%}
+
+%%provides pdf with 4 slides per page; don't forget to add 'handout' to remove overlays
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{4 on 1}[a4paper, landscape, border shrink=7mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{3}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{4}{border code=\pgfusepath{stroke}}
+%%%Don't forget to add 'handout'
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\newcommand{\xmax}{2000}
+\newcommand{\xmin}{0}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{500}
+\newcommand{\ymin}{0}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcounter{countEx} \setcounter{countEx}{0}
+\newcounter{countProb} \setcounter{countProb}{0}
+\resetcounteronoverlays{countEx} \resetcounteronoverlays{countProb}
+
+\newcommand{\ex}[3]{
+	\addtocounter{countEx}{1}
+	\only<#1-#2>{\begin{exampleblock} {Example \chNum.\secNum.\arabic{countEx}.} #3	\end{exampleblock}}
+}
+
+\newcommand{\prob}[4]{
+	\addtocounter{countProb}{1}
+	\only<#1-#2>{\begin{exampleblock} {Problem  \chNum.\secNum.\arabic{countProb}.\,#3} #4	\end{exampleblock}}
+}
+
+\newcommand{\yline}[4]{
+	(#2 - #4)/(#1 - #3)*(x - #1) + #2
+}
+
+\beamerdefaultoverlayspecification{<+->}
+
+%%%%Chapter and Section numbers%%%%%
+\newcommand{\chNum}{1}
+\newcommand{\secNum}{4}
+\newcommand{\secTitle}{More on Conditionals}
+\date{\formatdate{22}{9}{2014}}
+
+\title[Section \chNum.\secNum: \secTitle]{Section \chNum.\secNum: \secTitle}
+
+\subtitle{Finite Mathematics~~MTH 107~~Fall 2014}
+
+\author{Dr.\,James Ashe}
+
+\titlegraphic{\includegraphics[height=2.75cm]{/home/jim/JamesAshe/MHU/images/MarsHilUniversityLogo-Virtical.png}}
+
+\institute{Mars Hill University}
+
+\makebeamertitle 
+
+%%True false command
+\newcommand{\T}{\textcolor{green}{\contour{black}{T}}}
+\newcommand{\F}{\textcolor{red}{\contour{black}{F}}}
+\newcommand{\uT}[2]{\uncover<#1-#2>{\T}}
+\newcommand{\uF}[2]{\uncover<#1-#2>{\F}}
+
+%tkiz ball item 
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]
+	{\node[circle,ball color=green!50!black!100, shade,   color=white,inner sep=1.2pt] (char) {\tiny #1};
+	}
+}
+\begin{frame}{Variations of a Conditional}
+
+\vspace{-.25cm}
+\begin{block}{Variations of $p\rightarrow q$}
+
+\begin{itemize}
+\item [] \center%
+\begin{tabular}{|c|c|c|}
+\hline 
+\rowcolor{blue!50}\textbf{Name} & \textbf{Symbol} & \textbf{Read as...}\tabularnewline
+\hline 
+\only<2->{\emph{Conditional}} & \only<2->{$p\rightarrow q$} & \only<2->{If $p$ then $q$}\tabularnewline
+\hline 
+\only<3->{\emph{Converse }(of $p\rightarrow q$)} & \only<4-4>{$p\leftarrow q$}\only<5->{$q\rightarrow p$} & \only<6->{if $q$ then $p$}\tabularnewline
+\hline 
+\only<7->{\emph{Inverse }(of $p\rightarrow q$)} & \uncover<8->{$\sim p\rightarrow\sim q$} & \uncover<9->{If not $p$ then not $q$}\tabularnewline
+\hline 
+\uncover<10->{\emph{Contrapositive }(of $p\rightarrow q$)} & \only<11->{$\sim q\rightarrow\sim p$} & \uncover<12->{If not $q$ then not $p$}\tabularnewline
+\hline 
+\end{tabular}
+\end{itemize}
+\end{block}
+\vspace{-.5cm}
+\begin{itemize}
+\item [] \only<13-31>{%
+\begin{tabular}{cc|c|c|c|c|c|c}
+ & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{\textbf{Cond.}} & \multicolumn{1}{c}{\textbf{Contra.}} & \multicolumn{1}{c}{\textbf{Conv.}} & \textbf{Inv.}\tabularnewline
+\textbf{$p$} & \textbf{$q$} & $\sim p$ & $\sim q$ & $p\rightarrow q$ & $\sim q\rightarrow\sim p$ & $q\rightarrow p$ & $\sim p\rightarrow\sim q$\tabularnewline
+\hline 
+\uT{13}{} & \uT{13}{} & \uF{14}{} & \uF{15}{} & \uT{16}{} & \uT{20}{} & \uT{24}{} & \uT{28}{}\tabularnewline
+\uT{13}{} & \uF{13}{} & \uF{14}{} & \uT{15}{} & \uF{17}{} & \uF{21}{} & \uT{25}{} & \uT{29}{}\tabularnewline
+\uF{13}{} & \uT{13}{} & \uT{14}{} & \uF{15}{} & \uT{18}{} & \uT{22}{} & \uF{26}{} & \uF{30}{}\tabularnewline
+\uF{13}{} & \uF{13}{} & \uT{14}{} & \uT{15}{} & \uT{19}{} & \uT{23}{} & \uT{27}{} & \uT{31}{}\tabularnewline
+\end{tabular}}\only<32-32>{%
+\begin{tabular}{cc|c|c|c|c|c|c}
+ & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{\cellcolor{blue!35}\textbf{Cond.}} & \multicolumn{1}{c}{\cellcolor{blue!35}\textbf{Contra.}} & \multicolumn{1}{c}{\textbf{Conv.}} & \textbf{Inv.}\tabularnewline
+\textbf{$p$} & \textbf{$q$} & $\sim p$ & $\sim q$ & \cellcolor{blue!35}$p\rightarrow q$ & \cellcolor{blue!35}$\sim q\rightarrow\sim p$ & $q\rightarrow p$ & $\sim p\rightarrow\sim q$\tabularnewline
+\hline 
+\uT{13}{} & \uT{13}{} & \uF{14}{} & \uF{15}{} & \cellcolor{blue!35}\uT{16}{} & \cellcolor{blue!35}\uT{20}{} & \uT{24}{} & \uT{28}{}\tabularnewline
+\uT{13}{} & \uF{13}{} & \uF{14}{} & \uT{15}{} & \cellcolor{blue!35}\uF{17}{} & \cellcolor{blue!35}\uF{21}{} & \uT{25}{} & \uT{29}{}\tabularnewline
+\uF{13}{} & \uT{13}{} & \uT{14}{} & \uF{15}{} & \cellcolor{blue!35}\uT{18}{} & \cellcolor{blue!35}\uT{22}{} & \uF{26}{} & \uF{30}{}\tabularnewline
+\uF{13}{} & \uF{13}{} & \uT{14}{} & \uT{15}{} & \cellcolor{blue!35}\uT{19}{} & \cellcolor{blue!35}\uT{23}{} & \uT{27}{} & \uT{31}{}\tabularnewline
+\end{tabular}}\only<33->{%
+\begin{tabular}{cc|c|c|c|c|c|c}
+ & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{\cellcolor{blue!35}\textbf{Cond.}} & \multicolumn{1}{c}{\cellcolor{blue!35}\textbf{Contra.}} & \multicolumn{1}{c}{\cellcolor{red!35}\textbf{Conv.}} & \cellcolor{red!35}\textbf{Inv.}\tabularnewline
+\textbf{$p$} & \textbf{$q$} & $\sim p$ & $\sim q$ & \cellcolor{blue!35}$p\rightarrow q$ & \cellcolor{blue!35}$\sim q\rightarrow\sim p$ & \cellcolor{red!35}$q\rightarrow p$ & \cellcolor{red!35}$\sim p\rightarrow\sim q$\tabularnewline
+\hline 
+\uT{13}{} & \uT{13}{} & \uF{14}{} & \uF{15}{} & \cellcolor{blue!35}\uT{16}{} & \cellcolor{blue!35}\uT{20}{} & \cellcolor{red!35}\uT{24}{} & \cellcolor{red!35}\uT{28}{}\tabularnewline
+\uT{13}{} & \uF{13}{} & \uF{14}{} & \uT{15}{} & \cellcolor{blue!35}\uF{17}{} & \cellcolor{blue!35}\uF{21}{} & \cellcolor{red!35}\uT{25}{} & \cellcolor{red!35}\uT{29}{}\tabularnewline
+\uF{13}{} & \uT{13}{} & \uT{14}{} & \uF{15}{} & \cellcolor{blue!35}\uT{18}{} & \cellcolor{blue!35}\uT{22}{} & \cellcolor{red!35}\uF{26}{} & \cellcolor{red!35}\uF{30}{}\tabularnewline
+\uF{13}{} & \uF{13}{} & \uT{14}{} & \uT{15}{} & \cellcolor{blue!35}\uT{19}{} & \cellcolor{blue!35}\uT{23}{} & \cellcolor{red!35}\uT{27}{} & \cellcolor{red!35}\uT{31}{}\tabularnewline
+\end{tabular}}
+\item <13->Some are equivalent, and some are \textbf{not}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Variations of a Conditional}
+
+\vspace{-.25cm}
+\begin{block}{Variations of $p\rightarrow q$}
+
+\begin{itemize}
+\item [] \center%
+\begin{tabular}{|c|c|c|}
+\hline 
+\rowcolor{blue!50}\textbf{Name} & \textbf{Symbol} & \textbf{Read as...}\tabularnewline
+\hline 
+\emph{Conditional} & $p\rightarrow q$ & If $p$ then $q$\tabularnewline
+\hline 
+\emph{Converse }(of $p\rightarrow q$) & $q\rightarrow p$ & if $q$ then $p$\tabularnewline
+\hline 
+\emph{Inverse }(of $p\rightarrow q$) & $\sim p\rightarrow\sim q$ & If not $p$ then not $q$\tabularnewline
+\hline 
+\emph{Contrapositive }(of $p\rightarrow q$) & $\sim q\rightarrow\sim p$ & If not $q$ then not $p$\tabularnewline
+\hline 
+\end{tabular}
+\end{itemize}
+\end{block}
+\vspace{0cm}
+
+\ex{2}{8}{If you pass this course, then you do graduate.
+\begin{itemize}
+\item []<3->\textbf{Converse:} \uncover<4->{''If you graduate then you
+pass the course.''}
+\item []<5->\textbf{Inverse: }\uncover<6->{''If you do not pass this
+course then you do not graduate.''}
+\item []<7->\textbf{Contrapositive:} \uncover<8->{''If you do not graduate
+then you do not pass the course.''}
+\end{itemize}
+}
+
+\ex{10}{17}{You are an orthodontist \only<10-10>{\emph{only if}}\only<11->{$\underset{\longrightarrow}{\underbrace{\mbox{\emph{only\ensuremath{} if}}}}$}\emph{
+}you are a dentist.
+\begin{itemize}
+\item []<12->\textbf{Converse:} \uncover<13->{''If you are a dentist
+then you are an orthodontist.''}
+\item []<14->\textbf{Inverse:} \uncover<15->{''If you are not an orthodontist
+then you are not a dentist.''}
+\item []<16->\textbf{Contrapositive:} \uncover<17->{''If you are not
+a dentist then you are not an orthodontist.''}
+\end{itemize}
+}
+
+\ex{18}{}{
+
+The TV does not work if the electricity is turned off.
+\begin{itemize}
+\item []<19->''If the TV does work then the electricity is turned on''.
+\uncover<20->{\textbf{Contrapostive}}
+\item []<19->''If the electricity is turned on then the TV does work''.
+\uncover<21->{\textbf{Inverse}}
+\item []<19->''If the TV does not work then the electricity is turned
+off''. \uncover<22->{\textbf{Converse}}
+\end{itemize}
+}
+\end{frame}
+
+\begin{frame}{Writing a Contrapositive}
+
+Writing a contrapositive of a given statement in terms of:
+\begin{itemize}
+\item <1->\emph{sufficient condition}
+\item <16->\emph{necessary condition}
+\end{itemize}
+\ex{1}{}{Being alive is sufficient for running for office.\footnotesize \center
+
+\begin{tabular}{ccc}
+\only<2->{If \Ovalbox{a person is alive}} & \only<3->{then} & \only<4->{\Ovalbox{the person can run for office.}} \tabularnewline
+\only<5->{\textcolor{red}{$p$: premise}} & \only<6->{\textcolor{red}{$\longrightarrow$}} & \only<7->{\textcolor{red}{$q$: conclusion}}\tabularnewline
+\only<10->{If \Ovalbox{she can \emph{not} run for office} & \only<11->{then} & \only<12->{\Ovalbox{she is \emph{not} alive}.}} \tabularnewline
+\only<9->{\textcolor{red}{$\sim q$: premise}} & \only<9->{\textcolor{red}{$\longrightarrow$}} & \only<9->{\textcolor{red}{$\sim p$: conclusion}}\tabularnewline
+\only<13-16>{\Ovalbox{\emph{Not} running for office}} \only<17->{\Ovalbox{\emph{Not} being alive}} & \only<14-16>{is sufficient} \only<17->{is necessary} & \only<15-16>{\Ovalbox{for \emph{not} being alive.}} \only<17->{\Ovalbox{for \emph{not} running for office.}}\tabularnewline
+\end{tabular}
+
+}
+\end{frame}
+
+\begin{frame}{Biconditional }
+
+\ex{1}{}{
+\begin{itemize}
+\item []<1->You get a refund if you have a receipt.
+\item []<5->You get a refund only if you have a receipt.
+\item []<7->You get a refund \emph{if and only if} you have a receipt.
+\end{itemize}
+}
+\begin{columns}
+
+
+\column{5cm}
+\begin{itemize}
+\item []<2->$p$: You get a refund.
+\item []<3->$q:$ You have a receipt
+\end{itemize}
+
+\column{6cm}
+\begin{itemize}
+\item []<4->$q\rightarrow p$
+\item []<6->$p\rightarrow q$
+\item []<8->\Ovalbox{$p\leftrightarrow q$}
+\end{itemize}
+\end{columns}
+\vspace{0cm}
+\begin{itemize}
+\item []<9->%
+\begin{tabular}{c|c|c|c|c}
+\textbf{$p$} & \textbf{$q$} & $p\rightarrow q$ & $q\rightarrow p$ & $(p\rightarrow q)\wedge(q\rightarrow q)$\tabularnewline
+\hline 
+\uT{9}{} & \uT{9}{} & \uT{10}{} & \uT{14}{} & \uT{18}{}\tabularnewline
+\uT{9}{} & \uF{9}{} & \uF{11}{} & \uT{15}{} & \uF{19}{}\tabularnewline
+\uF{9}{} & \uT{9}{} & \uT{12}{} & \uF{16}{} & \uF{20}{}\tabularnewline
+\uF{9}{} & \uF{9}{} & \uT{13}{} & \uT{17}{} & \uT{21}{}\tabularnewline
+\end{tabular}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Problems}
+
+\prob{1}{1}{Express the given biconditional statement as the conjuction of two conditionals}{A polygon is a triangle if and only if the polygon has three sides.}
+
+\prob{2}{2}{Translate the two statements into symbolic form and use truth tables to determine whether the statements are equivalent.}{
+\begin{itemize}
+\item [1.] I watch TV only if the program is educational.
+\item [2.] I do not watch TV if the program is not educational.
+\end{itemize}
+}
+
+\prob{3}{3}{Express the contrapositive of the conditional in terms of a sufficient and necessary condition.}{Knowing
+Morse code is necessary for operating a telegraph.}
+\end{frame}
+
+\end{document}

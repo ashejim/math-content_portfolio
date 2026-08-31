@@ -1,0 +1,227 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% A simple dot to overcome graphicx limitations
+\newcommand{\lyxdot}{.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{shapes,snakes}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\lhead{MTH 331(A) Dr.\,James Ashe}
+\chead{\textbf{Helpful Results}}
+\cfoot{\thepage{}~of~\pageref{LastPage}}
+%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+
+\textbf{Squeeze Theorem for Sequences. }Let $\{a_{n}\}$, $\{b_{n}\}$,
+and $\{c_{n}\}$ with $a_{n}\leq b_{n}\leq c_{n}$ for all integers
+\emph{n }greater than some index $N$. If ${\displaystyle \lim_{n\rightarrow\infty}a_{n}}={\displaystyle \lim_{n\rightarrow\infty}b_{n}=L}$,
+then $\lim_{n\rightarrow\infty}c_{n}=L$.\vfill
+
+\textbf{Geometric Series. }Let $r,a\in\mathbb{R}$. If $|r|<1$, then
+${\displaystyle \sum_{k=0}^{\infty}}ar^{k}=\frac{a}{1-r}$. If $|r|\geq1$,
+then the series diverges. \vfill
+
+\textbf{Divergence Test. }If $\sum a_{k}$ converges, then ${\displaystyle \lim_{n\rightarrow\infty}a_{k}=0}.$
+Equivalently, if ${\displaystyle \lim_{n\rightarrow\infty}a_{k}\neq0}$,
+then the series diverges. \vfill
+
+\textbf{Ratio Test. }Let $\sum a_{k}$ be an infinite series with
+positive terms and let $r={\displaystyle \lim_{n\rightarrow\infty}\frac{a_{k+1}}{a_{k}}}$.\vspace{-.25cm}
+\begin{enumerate}
+\item If $0\leq r<1$ then the series converges.
+\item If $r>1$ (including $r=\infty$) then the series diverges.
+\item If $r=1$ then the test is inconclusive.\vfill
+\end{enumerate}
+\textbf{Taylor's Polynomials. }Let $f$ be a function with $f',f'',\dots f^{(n)}$
+defined at $a$. The \textbf{\emph{n}}\textbf{th-order Taylor Polynomial
+}for $f$ with its \textbf{center }at $a$ denoted $p_{n}$, has the
+property that it matches $f$ in value, slope, and all derivatives
+up to the \emph{n}th derivative at $a$; that is,
+\[
+p_{n}(a)=f(a)\mbox{ and }p'_{n}(a)=f'(a),\dots,p_{n}^{(n)}(a)=f^{(n)}(a)\mbox{.}
+\]
+
+The \emph{n}th-order Taylor polynomial centered at $a$ is 
+\[
+p_{n}(x)=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^{2}+\dots+\frac{f^{(n)}(a)}{n!}(x-a)^{n}\mbox{.}
+\]
+
+More compactly, 
+\[
+p_{n}(x)={\displaystyle \sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^{k}\mbox{ for }k=0,1,2,\dots,n\mbox{.}}
+\]
+\vfill\newpage
+
+\textbf{Slope of a Tangent Line. }Let $f$ be differentiable function
+at $\theta_{0}$. The slope of the line tangent to the curve $r=f(\theta)$
+at the point $\left(f(\theta),\theta_{0}\right)$ is 
+\[
+\frac{dy}{dx}=\frac{f'(\theta_{0})\sin\theta_{0}+f(\theta_{0})\cos\theta_{0}}{f'(\theta_{0})\cos\theta_{0}-f(\theta_{0})\sin\theta_{0}}\mbox{,}
+\]
+ provided the denominator is nonzero at the point. At angles $\theta_{0}$
+for which $f(\theta_{0})=0$ and $f'(\theta_{0})\neq0$, the tangent
+line is $\theta=\theta_{0}$ with slope $\tan\theta_{0}$.\vfill
+
+\textbf{Dot Product. }Given two vectors $\mathbf{u}=\left\langle u_{1},u_{2},u_{3}\right\rangle $
+and $\mathbf{v}=\left\langle v_{1},v_{2},v_{3}\right\rangle $, 
+\begin{eqnarray*}
+\mathbf{u\cdot v} & = & u_{1}v_{1}+u_{2}v_{2}+u_{3}v_{3}\\
+ & = & |\mathbf{u}||\mathbf{v}|\cos\theta
+\end{eqnarray*}
+
+and 
+\[
+\cos\theta=\frac{\mathbf{u\cdot v}}{|\mathbf{u}||\mathbf{v}|}
+\]
+
+\textbf{Scalar component of u in the direction of v},
+\[
+\mbox{scal}_{\mathbf{v}}\mathbf{u}=\left|\mathbf{u}\right|\cos\theta=\frac{\mathbf{u\cdot v}}{\left|\mathbf{v}\right|}\mbox{.}
+\]
+\vfill
+
+\textbf{Work. }Let \textbf{F }be a constant force applied to object,
+producing a displacement \textbf{d}. If the angle between \textbf{F
+}and \textbf{d} is $\theta$, then the \textbf{work }done by the force
+is 
+\[
+W=\left|\mathbf{F}\right|\left|\mathbf{d}\right|\cos\theta=\mathbf{F\cdot d}.
+\]
+
+\vfill
+
+\textbf{Cross product}, of two nonzero vectors \textbf{u} and \textbf{v
+}in $\mathbb{R}^{3}$, 
+\[
+\left|\mathbf{u\times v}\right|=\left|\mathbf{u}\right|\left|\mathbf{v}\right|\sin\theta
+\]
+\[
+\left|\tau\right|=\left|\mathbf{r}\right|\left|\mathbf{F}\right|\sin\theta
+\]
+\[
+\mathbf{u\times v}=\left|\begin{array}{ccc}
+\mathbf{i} & \mathbf{j} & \mathbf{k}\\
+u_{1} & u_{2} & u_{3}\\
+v_{1} & v_{2} & v_{3}
+\end{array}\right|=\left|\begin{array}{cc}
+u_{2} & u_{3}\\
+v_{2} & v_{3}
+\end{array}\right|\mathbf{i}-\left|\begin{array}{cc}
+u_{1} & u_{3}\\
+v_{1} & v_{3}
+\end{array}\right|\mathbf{j}+\left|\begin{array}{cc}
+u_{1} & u_{2}\\
+v_{1} & v_{2}
+\end{array}\right|\mathbf{k}\mbox{.}
+\]
+
+\vfill
+
+\newpage
+
+\textbf{Chain Rule (Two Independent Variables). }Let $z$ be a differentiable
+function of $x$ and $y,$ where $x$ and $y$ are differentiable
+functions of $s$ and $t$. Then 
+\[
+\frac{dz}{dt}=\frac{dz}{dx}\frac{dx}{dt}+\frac{dz}{dy}\frac{dy}{dt}\mbox{.}
+\]
+\vfill
+
+\textbf{Gradient (Two Dimensions). }Let $f$ be differentiable at
+the point $(x,y)$. The \textbf{gradient} of $f$ at $(x,y)$ is the
+vector-valued function 
+\[
+\nabla f(x,y)=\left\langle f_{x}(x,y),f_{y}(x,y)\right\rangle =f_{x}(x,y)\mathbf{i}+f_{y}(x,y)\mathbf{j}\mbox{.}
+\]
+\vfill
+
+\textbf{Directional Derivative. }Let $f$ be differentiable at $(a,b)$
+and let $\mathbf{u}=\left\langle u_{1},u_{2}\right\rangle $ be a
+unit vector in the \emph{xy-}plane, the \textbf{directional derivative
+of $f$ at $\left(a,b\right)$ in the direction of u }is 
+\[
+D_{\mathbf{u}}f(a,b)=\left\langle f_{x}(a,b),f_{y}(a,b)\right\rangle \cdot\left\langle u_{1},u_{2}\right\rangle 
+\]
+
+\[
+D_{\mathbf{u}}f(a,b)=\nabla f(a,b)\cdot\mathbf{u}\mbox{.}
+\]
+\vfill
+
+\textbf{Second Derivative Test. }Suppose that the second partial derivatives
+of $f$ are continuous throughout an open disk centered at the point
+$(a,b)$, where $f_{x}(a,b)=f_{y}(a,b)=0$. Let $D(x,y)=f_{xx}f_{yy}-f_{xy}^{2}$.
+\begin{enumerate}
+\item If $D(a,b)>0$ and $f_{xx}(a,b)<0$, then $f$ has a local maximum
+value at $(a,b)$.
+\item If $D(a,b)>0$ and $f_{xx}(a,b)>0$, then $f$ has a local minimum
+value at $(a,b)$.
+\item If $D(a,b)<0$, then $f$ has a saddle point at $(a,b)$.
+\item If $D(a,b)=0$, then the test is inconclusive.\vfill
+\end{enumerate}
+\begin{multicols}{2}
+
+\subsubsection*{Formulas for Derivatives}
+\begin{enumerate}
+\item $\frac{d}{dx}\left(x^{n}\right)=nx^{n-1}$
+\item $\frac{d}{dx}\left[f\left(g(x)\right)\right]=f'\left(g(x)\right)\cdot g'(x)$
+(Chain rule)
+\item $\frac{d}{dx}\left(f(x)g(x)\right)=f'(x)g(x)+f(x)g'(x)$
+\item $\frac{d}{dx}\left(\frac{f(x)}{g(x)}\right)=\frac{g(x)f'(x)-f(x)g'(x)}{\left(g(x)\right)^{2}}$
+\item $\frac{d}{dx}(\sin ax)=a\cos ax$
+\item $\frac{d}{dx}(\cos ax)=-a\sin a$
+\item $\frac{d}{dx}e^{x}=e^{x}$
+\item $\frac{d}{dx}e^{u(x)}=u'(x)e^{u(x)}$
+\item $\frac{d}{dx}\left(b^{x}\right)=b^{x}\ln b$
+\item $\frac{d}{dx}\left(b^{u(x)}\right)=b^{u(x)}\left(\ln b\right)u'(x)$
+\item $\frac{d}{dx}\ln x=\frac{1}{x}$
+\item $\frac{d}{dx}\left(\log_{b}x\right)=\frac{1}{x\ln b}$, for $x>0$\columnbreak
+\end{enumerate}
+
+\subsubsection*{Formulas for Integration}
+\begin{enumerate}
+\item $\int x^{n}\,dx=\frac{1}{n+1}x^{n+1}+C$; $n\neq-1$
+\item $\int\cos ax\,dx=\frac{1}{a}\sin ax+C$
+\item $\int\sin ax\,dx=-\frac{1}{a}\cos ax+C$
+\item $\int e^{ax}\,dx=\frac{1}{a}e^{ax}+C$
+\item $\int\frac{1}{x}\,dx=\ln\left|x\right|+C$
+\item $\int b^{x}\,dx=\frac{1}{\ln b}b^{x}+C$ for $b>0$ and $b\neq1$
+\item $\int\ln x\,dx=x\ln x-x+C$
+\item $\int\tan x\,dx=\ln\left|\cos x\right|+C$
+\item $\int\sec x\,dx=\ln\left|\sec x+\tan x\right|+C$
+\item $\int f(g(x))g'(x)\,dx=\int f(u)\,du$ (Substitution rule)
+\item $\int u\,dv=uv-\int v\,du$ (Integration by parts)
+\end{enumerate}
+\end{multicols}\vfill
+
+\includegraphics[width=3in]{slides_Calc3/images/Unit_circle_angles_color.svg.png}\vfill
+\end{document}

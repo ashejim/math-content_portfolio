@@ -1,0 +1,89 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usepackage{pgfplots}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{232}
+
+\newcommand{\classSec}{A and B}
+
+\newcommand{\nameType}{Name:}
+
+\newcommand{\examType}{Extra 
+Credit}
+
+\renewcommand{\date}{Februrary 11, 2013} %%\today
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\xmax}{0}
+\newcommand{\xmin}{-\xmax}
+\newcommand{\xstep}{0}
+\newcommand{\ymax}{0}
+\newcommand{\ymin}{-\ymax}
+\newcommand{\ystep}{0} 
+
+\emph{This extra credit will replace your lowest homework grade at
+the end of the semester.}
+
+Sign your name and give this to me after the talk. 
+\end{document}

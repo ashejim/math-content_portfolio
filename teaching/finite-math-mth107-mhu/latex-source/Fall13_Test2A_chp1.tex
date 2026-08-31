@@ -1,0 +1,361 @@
+\documentclass[12pt]{article}
+
+\usepackage{amssymb, amsmath, fullpage, amsthm, fancybox}
+\usepackage[demo]{graphicx}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{corollary}{Corollary}
+
+%\newenvironment{proof}[1][Proof]{\begin{trivlist}
+%\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{example}[1][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{remark}[1][Remark]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newcommand{\dfdx}{\frac{\partial f}{\partial x}}
+\newcommand{\QED}{\nobreak \ifvmode \relax \else
+     \ifdim\lastskip<1.5em \hskip-\lastskip
+    \hskip1.5em plus0em minus0.5em \fi \nobreak
+   \vrule height0.75em width0.5em depth0.25em\fi}
+\renewcommand{\qedsymbol}{\QED}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\limsupf}{\limsup_{\x \rightarrow \x_0; \x \in E} f\left(\x\right)}
+\newcommand{\supf}{\sup_{\x \in B'\left(\x_0;\delta\right)\cap E} f\left(\x\right)}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\convm}{\overset{m}{\longrightarrow}}
+\newcommand{\w}{\omega}
+\newcommand{\al}{\alpha}
+\newcommand{\eps}{\epsilon}
+\newcommand{\ph}{\varphi}
+\newcommand{\tab}{\hspace*{2em}}
+\newcommand{\bigsp}{\vspace{1 in}}
+\newcommand{\smallsp}{\vspace{.5 in}}
+
+\begin{document}
+\pagestyle{empty}
+
+
+\begin{center}
+\begin{large}
+Math 107-01\\
+Test 2A: October 9, 2013
+\end{large}
+\end{center}
+
+\begin{small} Answer all of the following questions.  You will have 50 minutes to complete the
+test. You may not use any outside assistance on this test.  You may use a
+calculator, but the use of
+electronic equipment such as mp3 players, ipods, cell phones and any
+electronic devices other than your calculator during the test is
+prohibited.  If you have time, check your answers for accuracy.
+
+\textbf{Be sure to show all work. Unsupported answers may not
+receive credit.}
+
+Good luck!\end{small}
+
+
+\vspace{ .15 in}
+Name: \underline{\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad}\\
+
+
+\begin{enumerate}
+\item
+Let $c$ represent the statement ``It is cold outside."
+\\Let $s$ represent the statement ``It is snowing outside."
+\\Let $g$ represent the statement ``I wear gloves."
+\\Using these letters symbolize the following statements (3 points each):
+\begin{enumerate}
+\item It is cold and snowing outside.
+\vspace{.7 in}
+\item I will wear gloves if it is cold outside.
+\vspace{.7 in}
+\item If I do not wear gloves, then it is not cold and it is not snowing outside.
+\vspace{.7 in}
+
+\end{enumerate}
+
+\item
+Let $p$ represent the statement ``It is sunny."
+\\Let $q$ represent the statement ``The game is at MHU."
+\\Let $r$ represent the statement ``I will go to the game."
+\\Rewrite the following statements in words (3 points each):
+\begin{enumerate}
+\item r$\rightarrow$(p$\bigwedge$ q)
+\vspace{1.5 in}
+\item $\sim$ p$\bigvee$ q
+\vspace{1.5 in}
+
+\end{enumerate}
+
+\item Let p be the statement ``I am invited." and q the statement ``I will attend.''  Consider the statement p$\rightarrow$q: ``If I am invited, then I will attend.''  Symbolize the each of the following statements and then identify as the converse, inverse, contrapositive, negation, or none. (4 points each statement-2 points each answer)
+
+\begin{tabular}{lll}
+Symbols & Relationship & \\
+&&\\
+\underline{\hspace{1.5 in}}&\underline{\hspace{1.5 in}}& ``If I will attend, then I am invited."\\
+&&\\
+\underline{\hspace{1.5 in}}&\underline{\hspace{1.5 in}}& ``If I will not attend, then I am not invited."\\
+&&\\
+\underline{\hspace{1.5 in}}&\underline{\hspace{1.5 in}}& ``If I am not invited, then I will not attend."\\
+&&\\
+\underline{\hspace{1.5 in}}&\underline{\hspace{1.5 in}}& ``I am not invited or I will not attend."\\
+&&\\
+\underline{\hspace{1.5 in}}&\underline{\hspace{1.5 in}}& ``I am invited and I will not attend."\\
+\end{tabular}
+
+\noindent Identify the negation of each statement (3 points each).  Write the letter of your answer choice on the line provided:
+
+\item You are not from North Carolina and you play soccer.
+
+\tab a)  You are from North Carolina or you do not play soccer.
+
+\tab b) You are not from North Carolina or you play soccer.
+
+\tab c) You are not from North Carolina and you play soccer.
+
+\tab d) You are not from North Carolina or you do not play soccer.
+
+Negation: \underline{\hspace{1.0 in}}
+
+
+\item If you are a Business major, then you take Math 107.
+
+\tab a) You are a Business major and you take Math 107.
+
+\tab b) You are a Business major and you do not take Math 107.
+
+\tab c) If you are not a Business major, then you do not take Math 107.
+
+\tab d) If you are a Business major, then you do not take Math 107.
+
+Negation: \underline{\hspace{1.0 in}}
+
+\item No speaker will receive a parking ticket.
+
+\tab a) All speakers will receive a parking ticket.
+
+\tab b) Some speakers will not receive a parking ticket.
+
+\tab c) Some speakers will receive a parking ticket.
+
+\tab d) None of the above.
+
+Negation: \underline{\hspace{1.0 in}}
+
+\item All participants will register early.
+
+\tab a) No participants will register early.
+
+\tab b) Some participants will not register early.
+
+\tab c) All participants will not register early.
+
+\tab d) None of the above.
+
+Negation: \underline{\hspace{1.0 in}}
+
+\item Some participants will get a discount.
+
+\tab a) Some participants will not get a discount.
+
+\tab b) No participants will get a discount.
+
+\tab c) All participants will get a discount.
+
+\tab d) None of the above.
+
+Negation: \underline{\hspace{1.0 in}}
+
+\item Identify the converse, inverse, and contrapositive of the statement (3 points each);
+
+If I do not take Finite Mathematics, then I take Calculus.
+
+\tab a) If I take Finite Mathematics, then I do not take Calculus.
+
+\tab b) If I take Calculus, then I do not take Finite Mathematics.
+
+\tab c) I take Calculus if I do not take Finite Mathematics.
+
+\tab d) If I don't take Calculus, then I take Finite Mathematics.
+
+Converse: \underline{\hspace{1.0 in}}
+
+Inverse: \underline{\hspace{1.0 in}}
+
+Contrapositive: \underline{\hspace{1.0 in}}
+
+\newpage
+
+\item Determine whether the following are true (T) or false (F) (2 points each):
+
+\begin{tabular}{l r}
+
+a) T$\rightarrow$F=\underline{\hspace{.5 in}} &\quad\quad\quad\quad\quad\quad\quad\quad
+\quad\quad\quad b) F$\bigvee$F=\underline{\hspace{.5 in}}\\
+ &\\
+ &\\
+c) F$\rightarrow$F=\underline{\hspace{.5 in}} &d) T$\bigwedge$T=\underline{\hspace{.5 in}} \\
+ &\\
+ &\\
+e) T$\rightarrow$T=\underline{\hspace{.5 in}} &  f) F$\bigwedge$T=\underline{\hspace{.5 in}}
+\end{tabular}
+
+
+\item (5 points) Make a truth table for the following statement: $(a\bigwedge \sim b)\rightarrow\sim c$
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+
+a & b & c &  & & &\\
+\hline
+ \qquad \qquad &  \qquad \qquad &  \qquad \qquad& \qquad \qquad \qquad \qquad& \qquad \qquad \qquad \qquad& \qquad \qquad \qquad \qquad& \qquad \qquad \qquad \qquad\\
+T & T& T& & & &\\
+\hline
+& & & & & &\\
+T &T &F & & & &\\
+\hline
+& & & & & &\\
+T &F &T & & & &\\
+\hline
+& & & & & &\\
+T &F &F & & & &\\
+\hline
+& & & & & &\\
+F &T &T & & & &\\
+\hline
+& & & & & &\\
+ F&T & F& & & &\\
+\hline
+& & & & & &\\
+F &F &T & & & &\\
+\hline
+& & & & & &\\
+ F&F &F & & & &\\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+\item Use a Venn diagram to determine whether the following arguments are valid or invalid (5 points each):
+\begin{enumerate}
+
+
+\item
+\begin{tabular}{l}
+1. All triangles are polygons.\\
+2. Some polygons are regular. \\
+\hline
+Therefore, all triangles are regular.
+\end{tabular}
+
+ \includegraphics{venn1test2.jpg}
+
+Valid or Invalid?\underline{\hspace{1.0 in}}
+
+\vspace{1 in}
+\item
+\begin{tabular}{l}
+1. All professors wear watches \\
+2. Kate is a professor. \\
+\hline
+Therefore, Kate wears a watch.
+\end{tabular}
+
+ \includegraphics{venn1test2.jpg}
+
+Valid or Invalid?\underline{\hspace{1.0 in}}
+\end{enumerate}
+
+\newpage
+\item
+Use a truth table to determine whether the following arguments are valid or invalid:
+\begin{enumerate}
+\item (6 points)
+
+\begin{center}
+\begin{tabular}{l}
+1. $p\bigvee q$ \\
+2. $\sim p$  \\
+\hline
+$\therefore q$
+\end{tabular}
+\end{center}
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+ & & 1& 2 & &c &\textrm{Argument}\\
+\hline
+
+p & q  &  &  & &&\\
+\hline
+\qquad\qquad \qquad&  \qquad \qquad \qquad &  \qquad \qquad \qquad&  \qquad \qquad \qquad&  \qquad \qquad \qquad&  \qquad \qquad \qquad&  \qquad \qquad \qquad\\
+T &T & & && &\\
+\hline
+& & & & &&\\
+T &F & & & &&\\
+\hline
+& & & & &&\\
+F &T & & & &&\\
+\hline
+& & & & &&\\
+F &F & & & &&\\
+\hline
+\end{tabular}
+\vspace{.4 in}
+\\Valid or Invalid?\underline{\hspace{1.5 in}}
+
+\newpage
+\item (8 points)
+
+\begin{center}
+\begin{tabular}{l}
+1. $f\rightarrow \sim g$ \\
+2. $g\bigvee\sim r$  \\
+\hline
+$\therefore  f\rightarrow r$
+\end{tabular}
+\end{center}
+\end{enumerate}
+
+\noindent \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+ & &  & & & 1&2& &c&\textrm{Argument}\\
+\hline
+f & g & r  & & & & & & &\\
+\hline
+ \qquad \qquad &  \qquad \qquad& \qquad \qquad&  \qquad \qquad&  \qquad \qquad&  \qquad \qquad\qquad &\qquad\qquad \qquad&\qquad\qquad \qquad&\qquad \qquad\qquad&\qquad \qquad\qquad\\
+T & T& T& & & & & & & \\
+\hline
+& & & & & & & & & \\
+T &T &F & & & & & & &\\
+\hline
+& & & & & & & & & \\
+T &F &T & & & & & & & \\
+\hline
+& & & & & & & & &\\
+T &F &F & & & & & & &\\
+\hline
+& & & & & & & & &  \\
+F &T &T & & & & & &   &\\
+\hline
+& & & & & & & & & \\
+ F&T & F& & & & & &  &\\
+\hline
+& & & & & & & &&\\
+F &F &T & & & & &  & &\\
+\hline
+& & & & & & & & & \\
+ F&F &F & & & & & &  &\\
+\hline
+\end{tabular}
+
+\vspace{.4 in}
+
+Valid or Invalid?\underline{\hspace{1.5 in}}
+
+
+\vspace{1.0 in}
+On my honor, I have neither given nor received any academic aid or information that would violate the Honor Code of Mars Hill University. \underline{\hspace{2.0 in}} (please sign)
+\end{enumerate}
+\end{document} 

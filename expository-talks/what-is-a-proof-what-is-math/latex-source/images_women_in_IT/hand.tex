@@ -1,0 +1,60 @@
+\documentclass[multi, crop, border=2]{standalone}
+\usepackage[dvipsnames]{xcolor}
+% \documentclass[usenames,dvipsnames]{beamer} %for beamer
+\usepackage{tikz}
+\usetikzlibrary{calc, positioning}
+\usepackage{wasysym}
+ 
+\standaloneenv{newpic}
+\newcommand{\hide}[]{}
+\begin{document}
+
+\begin{newpic}
+\begin{tikzpicture}
+    % Include the image in a node
+    \node [above right,inner sep=0] (hand) at (0,0) {\includegraphics[width=3cm]{Math_presentations/lunch_and_learn/images_5-20-2022/hand5.png}};
+    \node [above = .5cm of hand] {\{\sun\textcolor{white}{,} \phone, \smiley, \twonotes, \frownie\} };
+    
+    % \draw[above right,help lines,step=5mm,gray!20] (0,0) grid (5,7);
+    
+    %thumb
+    \draw[latex-, very thick, Green] (.5, 4.25) -- (.25, 1.95);
+    %index
+    \draw[latex-, very thick, Green] (1.05, 4.25) -- (.9, 3.325);
+    %middle
+    \draw[latex-, very thick, Green] (1.625, 4.25) -- (1.6125, 3.55);
+    %ring
+    \draw[latex-, very thick, Green] (2.05, 4.25) -- (2.25, 3.325);
+    %pinky
+    \draw[latex-, very thick, red] (2.55, 4.25) -- (2.85, 2.6) 
+    node[above, pos=0.1,red]{X};
+\end{tikzpicture}
+\end{newpic}
+
+\begin{newpic}
+\begin{tikzpicture}
+    % Include the image in a node
+    \node [above right,inner sep=0] (hand) at (0,0) {\includegraphics[width=3cm]{Math_presentations/lunch_and_learn/images_5-20-2022/hand5.png}};
+    \node [above = .5cm of hand] {\{\sun, \phone, \smiley, \twonotes, \frownie\} };
+    
+    % \draw[above right,help lines,step=5mm,gray!20] (0,0) grid (5,7);
+    
+    %thumb
+    \draw[latex-, very thick, Green] (.5, 4.25) -- (.25, 2.0);
+    %index
+    \draw[latex-, very thick, Green] (1.05, 4.25) -- (.875, 3.35);
+    %middle
+    \draw[latex-, very thick, Green] (1.625, 4.25) -- (1.6125, 3.6);
+    %ring
+    \draw[latex-, very thick, Green] (2.05, 4.25) -- (2.125, 3.25);
+    %pinky
+    \draw[latex-, very thick, red] (2.55, 4.25) -- (2.75, 2.6) 
+    node[above, pos=0.1,red]{X};
+\end{tikzpicture}
+\end{newpic}
+
+
+ 
+\end{document}
+
+% END { system('convert -density 600 -background white -flatten output.pdf[1] page2.png'); }

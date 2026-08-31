@@ -1,0 +1,158 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{float}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{331}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{Name:}
+
+\newcommand{\examType}{Exam 2 Make-up}
+
+\renewcommand{\date}{November 19, 2012}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{enumerate}[resume]
+\item Let $f(x)=2e^{x}$.
+
+\begin{enumerate}[resume]
+\item Find the Taylor polynomial of order $n=3$ for $f(x)$ centered at
+$0$.
+\item Use the Taylor polynomial from above to approximate $2e^{-0.06}$.
+\item Compute the absolute error in the approximation assuming the exact
+value is given by a calculator.\vspace{3cm}\vfill
+\end{enumerate}
+\end{enumerate}
+\emph{Determine the radius of convergence of the following power series. }
+\begin{enumerate}[resume]
+\item ${\displaystyle \sum\frac{x^{k}}{0.7^{k}}}$\vfill
+\end{enumerate}
+\emph{Use the geometric series ${\displaystyle \sum_{k=0}^{\infty}x^{k}=\frac{1}{1-x}}$,
+for $\left|x\right|<1$ to find a power series representations for
+the following functions, and determine the interval of convergence.}
+\begin{enumerate}[resume]
+\item $f(x)=\frac{5}{1+x}$.\vfill
+\item $f(x)=\frac{2x}{1-x^{2}}$.\vfill\newpage
+\end{enumerate}
+\emph{Eliminate the parameter in following equations to obtain a single
+equation in terms of $x$ and $y$. }
+\begin{enumerate}[resume]
+\item $x=(t+1)^{2}$, $y=t+2$.\vfill
+\end{enumerate}
+\emph{Find an equation of the line tangent to the following curve
+at the given point $t$. }
+\begin{enumerate}[resume]
+\item $x=3\sin t$, $y=3\cos t$; $t=\nicefrac{\pi}{2}$.\vfill
+\end{enumerate}
+\emph{Give a set of parametric equations that describes the curve.}
+\begin{enumerate}[resume]
+\item A bicyclist rides clockwise with a constant speed around a cricular
+track with radius 50 meters, completing one lap in 30 seconds.\vfill\newpage
+\end{enumerate}
+\emph{Locate the following polar coordinates on the graph. }
+\begin{enumerate}[resume]
+\item A:$\left(1.5,\frac{\pi}{6}\right)$, B:$\left(-1.5,\frac{\pi}{6}\right)$,
+C:$\left(1.5,\frac{\pi}{6}+3\pi\right)$, D:$\left(1.5,\frac{\pi}{6}-8\pi\right)$
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=2in]{D:/home/jim/JamesAshe/JCSU/Calc_3/slides_Calc3/images/polar_graph_-2-2a.png}
+\par\end{centering}
+\caption{Use this graph to plot the polar coordinates.}
+\end{figure}
+\end{enumerate}
+\emph{Express the following }\textbf{\emph{polar}}\emph{ coordinates
+in }\textbf{\emph{Cartesian}}\emph{ coordinates.}
+\begin{enumerate}[resume]
+\item $\left(4,5\pi\right)$\vfill
+\end{enumerate}
+\emph{Express the following }\textbf{\emph{Cartesian}}\emph{ coordinates
+in }\textbf{\emph{polar}}\emph{ coordinates in at least }\textbf{\emph{two}}\emph{
+different ways. }
+\begin{enumerate}[resume]
+\item $\left(-1,\sqrt{3}\right)$\vfill\newpage
+\end{enumerate}
+\emph{Multiple Choice: Identify which set of parametric curves describe
+the graph.}
+\begin{enumerate}[resume]
+\item Parametric equations that describe the curve are
+
+\begin{enumerate}[resume]
+\item [(A)]$x=\cos t$, $y=\sin t$, $0\leq t\leq2\pi$.
+\item [(B)]$x=\cos t$, $y=\sin2t$, $-\pi\leq t\leq\pi$.
+\item [(C)]$x=\cos2t$, $y=\sin t$, $-\pi\leq t\leq\pi$.
+\begin{figure}[H]
+\centering{}\includegraphics[width=3cm]{slides_Calc3/images/cos2t_sint.png}
+\end{figure}
+\end{enumerate}
+\end{enumerate}
+\emph{Find the slope of the line tangent to the following polar curves
+at the given point using calculus. }
+\begin{enumerate}[resume]
+\item $r=2\cos2\theta$; $\left(2,\frac{\pi}{2}\right)$.\vfill
+\end{enumerate}
+\emph{Find the area of the region using calculus. }
+\begin{enumerate}[resume]
+\item The region enclosed by $r=2+\cos4\theta$.\vfill
+\end{enumerate}
+
+\end{document}

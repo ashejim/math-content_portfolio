@@ -1,0 +1,173 @@
+%preamble{
+\usepackage{beamer-JA}
+\usepackage{tikz,calc}
+\usetikzlibrary{calc,positioning,arrows,arrows.meta,shapes, shapes.geometric,fit}
+\usepackage{adjustbox}
+\usepackage{wasysym} %for symbols
+% \usepackage{venndiagram}
+\usepackage{caption}
+%\usepackage{booktabs}
+%\usepackage{caption,subcaption}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+\SetMathAlphabet{\mathcal}{bold}{OMS}{cmsy}{b}{n} %for big-O
+% \setbeamertemplate{footline}[page number] %for coding
+% \setbeamertemplate{footline}[totalframenumber]
+% \beamerdefaultoverlayspecification{<+->}
+\newcounter{num}
+\setcounter{num}{1}
+\newcounter{numTemp}
+\setcounter{numTemp}{1}
+%%%%Chapter and Section numbers%%%%% 
+% \newcommand{\chNum}{}
+% \newcommand{\secNum}{}
+\newcommand{\secTitle}{C964 section title}
+\date{}
+%\date{\formatdate{29}{9}{2015}}
+
+%tikz settings{
+%}
+\definecolor{blueWGU}{RGB}{0,48,87}
+\definecolor{lightBlueWGU}{RGB}{73,134,160}
+
+\definecolor{uablue}{RGB}{0,61,100}
+\colorlet{uablue100}{uablue}
+\colorlet{uablue75} {uablue!75!white}
+\colorlet{uablue50} {uablue!50!white}
+\colorlet{uablue25} {uablue!25!white}
+\colorlet{uablue10} {uablue!10!white}
+\colorlet{uablue5}  {uablue!5!white}
+
+\definecolor{uared}{RGB}{126,0,47}
+\colorlet{uared100}{uared}
+\colorlet{uared75} {uared!75!white}
+\colorlet{uared50} {uared!50!white}
+\colorlet{uared25} {uared!25!white}
+\colorlet{uared10} {uared!10!white}
+\colorlet{uared5}  {uared!5!white}
+
+\tikzset{onslide/.code args={<#1>#2}{%
+  \only<#1>{\pgfkeysalso{#2}} % \pgfkeysalso doesn't change the path
+}}
+\tikzset{alt/.code args={<#1>#2#3}{%
+  \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+}}
+\tikzset{temporal/.code args={<#1>#2#3#4}{%
+  \temporal<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}{\pgfkeysalso{#4}} % \pgfkeysalso doesn't change the path
+}}
+%for fancy arrows
+\tikzset{
+node distance = 9em and 4em,
+%sloped,
+   box/.style = {%
+    shape=rectangle,
+    rounded corners,
+    draw=blue!40,
+    fill=blue!15,
+    align=center,
+    font=\fontsize{12}{12}\selectfont},
+    double -latex/.style args={#1 colored by #2 and #3}{
+        -latex,line width=#1,#2,
+        postaction={draw,-latex,#3,line width=(#1)/3,shorten <=(#1)/4,shorten >=4.5*(#1)/3},
+    },
+    arrow/.style args= {#1}{%
+        draw=black,
+        line width=2mm,% <-- select desired width
+        -{Triangle[length=3.25mm]},
+        shorten >=1mm, shorten <=1mm,
+        font=\fontsize{8}{8}\selectfont,
+        postaction={draw=#1!35,line width=1.75mm,-{Triangle[length=2.75mm]},shorten >=1.25mm,shorten <=1.25mm}
+        },
+    arrow/.default={blue} %arrow2/.default={blue}{yellow}
+}
+
+\tikzstyle{block} = [rectangle, draw, fill=uablue25,
+    text width=4.5em, text centered, rounded corners, minimum height=3.25em, line width=1pt ]
+\tikzstyle{block2} = [rectangle, draw, fill=uablue25,
+    text width=3.0em, text centered, rounded corners, minimum height=4.0em, line width=1pt ]
+\tikzstyle{block3} = [rectangle, rounded corners, line width = 1pt, draw, fill=uablue25, text centered, minimum width=6em, minimum height = 2em, inner sep =0em]
+
+\tikzstyle{mysquare} =[rectangle, draw, text width=4em, text centered, rounded corners, minimum height=2cm, minimum width=2cm, line width=2pt,fill=red!50!white]
+\tikzstyle{mydiamond} =[diamond, draw, text width=4em, text centered, rounded corners, minimum height=2cm, minimum width=2cm, line width=2pt,fill=blue!50!white]
+\tikzstyle{mycircle} =[circle, draw, text width=4em, rounded corners, line width=2pt]
+%\tikzstyle{subsetset} = [thick,aspect=0.7,minimum height=1.7cm,minimum
+%                            width=1.5cm, align = center]
+\tikzstyle{cylinderl} = [
+    minimum width=1.5 cm, minimum height=1.75 cm,
+    inner sep=0pt,
+    align=center]
+
+% cylinder node
+\tikzset{
+  pics/myCylinder/.style args = {#1}{ %#1/#2/#3.. for multiple args
+    code = {
+%    \pgfsize{\mywidth}{\myheight} %can use \mywidth to direcly get box value
+    \node[name=origin] at (0,0) { }; %places one box corner at 0,0
+    \useasboundingbox (origin);
+    \def\cTop{.2}; %1cm = 28.3464567 pt
+%    \coordinate (UR) at (\mywidth/2,\myheight/2-\cTop);
+    \coordinate[below=\cTop of current bounding box.north east] (UR);
+    \coordinate[above=\cTop of current bounding box.south east] (LR);
+    \coordinate[above=\cTop of current bounding box.south west] (LL); %correct
+    \coordinate[below=\cTop of current bounding box.north west] (UL);
+    \coordinate[below=\cTop of current bounding box.north] (top);
+
+%    \draw[thick, green] let \p1 = (UR), \p2 = (UL) in (\x1-\x2,0) -- (LR) -- (LL) -- (UL) -- cycle;
+    \draw[fill = #1,draw] let \p1 =(UR), \p2 = (UL) in (LL) arc[start angle=180, end angle = 360, radius =\x1/2-\x2/2, y radius = \cTop cm] -- (UR) -- (UL) -- (LL) -- cycle;
+    \draw [fill =#1!75!black] let \p1 =(UR), \p2 = (UL) in (top) ellipse (\x1/2-\x2/2 and \cTop cm); %top
+    \draw (LL)--(UL); %left
+    \draw (UR)--(LR); %right
+    \draw let \p1 =(UR), \p2 = (UL) in (LL) arc (180:360:\x1/2-\x2/2 and \cTop cm); %bottom front base
+    \node[font=\Large] at (0,-\cTop/2) {\tikzpictext}; %[block] to see outline for placement
+    }
+  }
+}
+\tikzstyle{line} = [line width=1pt, -triangle 45]
+\tikzset{
+  mycustomnode/.style={
+    draw,
+    single arrow,
+    single arrow head extend=0,
+    shape border uses incircle,
+    shape border rotate=-90,
+  }
+}
+% \tikzstyle{alert} = [text=uared100, fill=uared25, draw=uared100]
+\tikzstyle{dim} = [text=uablue25, fill=uablue5, draw=uablue25]
+\tikzstyle{highlight} = [fill=green!50!white, line width =2pt]
+\tikzstyle{off} = [text=white, fill=white, draw=white,line width =2pt]
+\tikzstyle{dim} = [opacity=.25]
+\tikzstyle{myframe} = [line width=4pt, draw=green!65!blue,inner sep=.5em,rounded corners]
+
+
+% %%for counting slides and frames when debugging
+% \newcounter{slidenumber}
+% \defbeamertemplate*{footline}{infolines theme frame plus slide}{
+%     \setcounter{slidenumber}{\insertpagenumber}%
+%     \addtocounter{slidenumber}{-\insertframestartpage}%
+%     \addtocounter{slidenumber}{1}%
+%     \leavevmode%
+%     \hbox{%
+%         \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+%           \ifthenelse{\insertframeendpage=\insertframestartpage}{
+%             \insertframenumber/ \inserttotalframenumber\hspace*{2ex}}{
+%             \insertframenumber(\arabic{slidenumber}{})/\inserttotalframenumber\hspace*{2ex}}
+%         \end{beamercolorbox}}%
+%         \vskip0pt%
+%     }
+% \setbeamertemplate{footline}[infolines theme frame plus slide]
+\usepackage{xcolor,soul}
+% \definecolor{lightblue}{rgb}{.90,.95,1}
+\sethlcolor{green}
+\renewcommand<>{\hl}[1]{\only#2{\beameroriginal{\hl}}{#1}}
+
+%%higlighting tex wiht overlays
+\makeatletter
+\newcommand\SoulColor{%
+  \let\set@color\beamerorig@set@color
+  \let\reset@color\beamerorig@reset@color}
+\makeatother
+\SoulColor
+%}

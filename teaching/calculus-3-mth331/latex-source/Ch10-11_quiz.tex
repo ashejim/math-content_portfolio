@@ -1,0 +1,187 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{float}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{331}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{Name:}
+
+\newcommand{\examType}{Take home quiz}
+
+\renewcommand{\date}{Due November 11, 2012}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{10.1: Approximations with Taylor Polynomials. }
+
+\textbf{HW problems 21-22 and 33-36.}\emph{ Approximate the given
+quantities using Taylor polynomials with $n=3$, and compute the absolute
+error in the approximation assuming the exact value is given by a
+calculator.}
+\begin{enumerate}
+\item $e^{0.2}$\vfill
+\item $\ln(1.01)$\vfill
+\item $\sin(\frac{\pi+.02}{2})$ use center $\frac{\pi}{2}$.\vfill
+\end{enumerate}
+
+\section*{10.2: Find the Interval of Convergence. }
+
+\textbf{HW problems 9-10 and 21-24}\textbf{\emph{.}}\emph{ Determine
+the radius of convergence of the following power series. The test
+the endpoints to determine the interval of convergence. }
+\begin{enumerate}[resume]
+\item ${\displaystyle \sum\left(\frac{3x}{2}\right)^{k}}$\vfill
+\item $\sum\frac{k^{2}x^{2k}}{k!}$ (use the Ratio test) \vfill\newpage
+\end{enumerate}
+\textbf{HW problems 21-24. }\emph{Find the power series representations
+centered at $0$ for the following functions using known power series.
+Give the interval of convergence for the resulting series. }
+\begin{enumerate}[resume]
+\item $f(x)=\frac{1}{1-2x}$\vfill
+\item $f(x)=\frac{2x^{3}}{3-3x}$\vfill
+\end{enumerate}
+
+\section*{11.1: Working with Parametric Equations.}
+
+\textbf{HW problems 7-8. }\emph{Plot the parametric points for the
+given values of $t$, and eliminate the parameter to an equation in
+terms of $x$ and $y$. }
+\begin{enumerate}[resume]
+\item $x=-t+6$, $y=3t-3$; for $t=-5,-1,0,1,5$
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=2in]{slides_Calc3/images/empty_graph_-10-10_-20-20.png}
+\par\end{centering}
+\caption{Use the graph to complete the preceding problem.}
+
+\end{figure}
+\end{enumerate}
+\textbf{HW problems 23-24 and 35-36. }\emph{Give a set of parametric
+equations that describes the curves.}
+\begin{enumerate}[resume]
+\item The complete curve $x=y^{2}-2y$.\vfill
+\item A man jogs clockwise at a constant speed around a circular track of
+radius 50 yards completing one lap in 2.5 minutes.\vfill\newpage
+\end{enumerate}
+\textbf{HW problems 45-48. }\emph{Determine $\nicefrac{dy}{dx}$ in
+terms of $t$ and evaluate it at the given value of $t$. }
+\begin{enumerate}[resume]
+\item $x=2t$, $y=t^{3}$; $t=-1$\vfill
+\end{enumerate}
+
+\section*{11.2: Working with Polar Coordinates.}
+
+\textbf{HW problems 9-11. }\emph{Graph the points in the following
+polar coordinates. }
+\begin{enumerate}[resume]
+\item $\left(1.5,\frac{7\pi}{4}\right)$, $\left(-1.5,\frac{7\pi}{4}\right)$,
+$\left(1.5,-\frac{7\pi}{4}\right)$, $\left(1.5,\frac{7\pi}{4}+2\pi\right)$,
+$\left(-1.5,\frac{7\pi}{4}+\pi\right)$ 
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=2in]{slides_Calc3/images/polar_graph_-2-2a.png}
+\par\end{centering}
+\caption{Use this graph to plot the polar coordinates}
+
+\end{figure}
+\end{enumerate}
+\textbf{HW problems 15-17. }\emph{Express the following polar coordinates
+in Cartesian coordinates.}
+\begin{enumerate}[resume]
+\item $\left(2,\frac{7\pi}{4}\right)$\vfill
+\end{enumerate}
+\textbf{HW problems 21-24. }\emph{Express the following Cartesian
+coordinates in polar coordinates in at least two different ways. }
+\begin{enumerate}[resume]
+\item $\left(4,\sqrt{3}\right)$\vfill\newpage
+\end{enumerate}
+\textbf{HW problems 45. }\emph{Mark the points on the polar graph
+that corresponds to the points shown on the Cartesian graph.}
+\begin{enumerate}[resume]
+\item 
+\begin{figure}[H]
+\begin{centering}
+\emph{\includegraphics[width=2in]{slides_Calc3/images/graph_cos(t)+sin(2t).png}\includegraphics[width=2in]{slides_Calc3/images/polar_graph_cos(t)+sin(2t).png}}
+\par\end{centering}
+\caption{$r=\cos(\theta)+\sin(2\theta)$}
+
+\end{figure}
+Mark the following points: A, B, C, D, E, G, H, I, J
+\end{enumerate}
+
+\section*{11.3: Finding Derivatives and Integral in Polar Coordinates.}
+
+\textbf{HW problems 5-11. }\emph{Find the slope of the line tangent
+to the following polar curves at the given points. }
+\begin{enumerate}[resume]
+\item $1+\cos\theta$; $\left(1+\frac{\sqrt{3}}{2},\frac{\pi}{6}\right)$,
+$\left(1,2\pi\right)$\vfill
+\end{enumerate}
+\textbf{HW problems 21-25 (odd). }\emph{Find the area of the region. }
+\begin{enumerate}[resume]
+\item The region inside the limacon $r=2+\cos\theta$.\vfill
+\item The region inside one leaf of the rose $r=\cos5\theta$.\vfill
+\end{enumerate}
+
+\end{document}

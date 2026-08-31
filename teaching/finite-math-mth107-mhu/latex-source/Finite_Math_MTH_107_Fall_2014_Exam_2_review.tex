@@ -1,0 +1,374 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames,table]{xcolor} %adds additional color options
+\hypersetup{colorlinks=true, urlcolor=black}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+
+\usepackage{fancybox} %%ovalbox and fancy box settings
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{107}
+
+\newcommand{\classSec}{7 and 10}
+
+\newcommand{\nameType}{}
+
+\newcommand{\examType}{Exam 2 Review: sections 1.1-1.5}
+
+\renewcommand{\date}{\hfill Exam 2 is on \formatdate{1}{10}{2014}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+%\setlist{nolistsep}
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+%\setlist[2]{noitemsep}
+%\setlist{nosep}
+\setlist{itemsep=-3pt,topsep=-2pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\xmax}{10}
+\newcommand{\xmin}{-10}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{10}
+\newcommand{\ymin}{-10}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcommand{\xspace}{\hspace*{40pt}}
+\newcommand{\yspace}{\vspace*{.75cm}}
+\newcommand{\rowColor}{gray!40}
+\begin{enumerate}[resume]
+\item Construct a Venn diagram to determine the validity of the given argument.
+
+\begin{enumerate}
+\item \vspace{-25pt}%
+\begin{tabular}{l}
+\tabularnewline
+\tabularnewline
+1. All basketball players are well conditioned.\tabularnewline
+2. Bill is well-conditioned.\tabularnewline
+\hline 
+Therefore, Bill is a basketball player. \tabularnewline
+\end{tabular}\yspace
+\item \vspace{-25pt}%
+\begin{tabular}{l}
+\tabularnewline
+\tabularnewline
+1. All pilots must take a drug test.\tabularnewline
+2. Some people who take drug tests get false positives.\tabularnewline
+\hline 
+Therefore, some pilots get false-positives. \tabularnewline
+\end{tabular}\yspace
+\item \vspace{-25pt}%
+\begin{tabular}{l}
+\tabularnewline
+\tabularnewline
+1. All squares are rectangles.\tabularnewline
+2. Some quadrilaterals are squares.\tabularnewline
+\hline 
+Therefore, some quadrilaterals are rectangles. \tabularnewline
+\end{tabular}\yspace
+\end{enumerate}
+\item Using the symbolic representations\\
+\begin{tabular}{rl}
+$b$: & I ride a bicycle to school.\tabularnewline
+$s$: & It is snowing.\tabularnewline
+$r$: & It is raining. \tabularnewline
+\end{tabular}\\
+express the following statements in symbolic form.
+
+\begin{enumerate}
+\item It is raining and I rode my bicycle to school.\yspace
+\item If it is raining or snowing, then I will not ride my bicycle to school.\yspace
+\end{enumerate}
+\item Let $x$ be an integer. Using the symbolic representations\\
+\begin{tabular}{rl}
+$p$: & $x$ is a prime number.\tabularnewline
+$o$: & $x$ is odd.\tabularnewline
+$t$: & $x$ is equal to $2$.\tabularnewline
+$e$: & $x$ is divisible by $8$.\tabularnewline
+\end{tabular}\\
+express the following in words.
+
+\begin{enumerate}
+\item $p\rightarrow(o\vee t)$\yspace
+\item $e\rightarrow\sim p$\yspace
+\item $\sim o\vee\sim e$\yspace
+\item $\sim(o\wedge e)\wedge t$\yspace
+\end{enumerate}
+\item Construct a truth table for the symbolic expression.\begin{multicols}{2}
+
+\begin{enumerate}
+\item $p\wedge(q\rightarrow\sim p)$\\
+\rowcolors{1}{white}{gray!50}%
+\begin{tabular}{c|c|c|c|c}
+$p$ & $q$ & \xspace & \xspace & \xspace\tabularnewline
+\hline 
+\hline 
+T & T &  &  & \tabularnewline
+\hline 
+T & F &  &  & \tabularnewline
+\hline 
+F & T &  &  & \tabularnewline
+\hline 
+F & F &  &  & \tabularnewline
+\end{tabular}\yspace
+\item $(x\rightarrow y)\vee\sim x$\\
+\rowcolors{1}{white}{gray!50}%
+\begin{tabular}{c|c|c|c|c}
+$x$ & $y$ & \xspace & \xspace & \xspace\tabularnewline
+\hline 
+\hline 
+T & T &  &  & \tabularnewline
+\hline 
+T & F &  &  & \tabularnewline
+\hline 
+F & T &  &  & \tabularnewline
+\hline 
+F & F &  &  & \tabularnewline
+\end{tabular}\yspace
+\end{enumerate}
+\end{multicols}
+\begin{enumerate}[resume]
+\item [\textbf{c.}]$\sim a\wedge(b\rightarrow c)$\\
+\rowcolors{1}{white}{gray!50}%
+\begin{tabular}{c|c|c|c|c|c}
+$a$ & $b$ & \textbf{$c$} & \xspace & \xspace & \xspace\tabularnewline
+\hline 
+\hline 
+T & T & T &  &  & \tabularnewline
+\hline 
+T & T & F &  &  & \tabularnewline
+\hline 
+T & F & T &  &  & \tabularnewline
+\hline 
+T & F & F &  &  & \tabularnewline
+\hline 
+F & T & T &  &  & \tabularnewline
+\hline 
+F & T & F &  &  & \tabularnewline
+\hline 
+F & F & T &  &  & \tabularnewline
+\hline 
+F & F & F &  &  & \tabularnewline
+\end{tabular}\yspace
+\end{enumerate}
+\item Symbolically write the negation of the following statements.
+
+\begin{enumerate}
+\item The grass is not greener.\yspace\yspace
+\item It is not the case that, if our car is not fixed then we cannot drive
+to Asheville. \yspace\yspace
+\end{enumerate}
+\item Write the negation of the following statements.
+
+\begin{enumerate}
+\item Some freshmen are taking Math 107.\yspace\yspace
+\item Some seniors are not taking Math 107.\yspace\yspace
+\item All football players need to attend practice.\yspace\yspace
+\item No professors attend football practice. \yspace\yspace
+\end{enumerate}
+\item Using the statement, ``If your order is over \$50, then you will
+not have to pay shipping fees.'' write the following:
+
+\begin{enumerate}
+\item \textbf{Converse}:\yspace\yspace
+\item \textbf{Inverse}:\yspace\yspace
+\item \textbf{Contrapositive:}\yspace\yspace
+\item \textbf{Contrapositive }in terms of a sufficient condition\textbf{:}\yspace\yspace
+\item \textbf{Negation:}\yspace\yspace
+\end{enumerate}
+\item Using the statement, ``If the sun is going down, then the cows are
+coming home.'' write the following:
+
+\begin{enumerate}
+\item \textbf{Converse}:\yspace\yspace
+\item \textbf{Inverse}:\yspace\yspace
+\item \textbf{Contrapositive:}\yspace\yspace
+\item \textbf{Contrapositive }in terms of a necessary condition\textbf{:}\yspace\yspace
+\item \textbf{Negation }using conjunction\textbf{:}\yspace\yspace
+\end{enumerate}
+\item Use a truth table to determine if the following arguments are valid.
+
+\begin{enumerate}
+\item \vspace{-25pt}%
+\begin{tabular}{rll}
+ &  & \tabularnewline
+ &  & \tabularnewline
+$b$: & You buy the bike. & 1. You buy the bike or the tent.\tabularnewline
+$t$: & You buy the tent. & 2. You buy the bike.\tabularnewline
+\cline{3-3}
+ &  & Therefore, you do not buy the tent.\tabularnewline
+\end{tabular}\\
+\begin{tabular}{c|c|c|c|c|c|c}
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \tabularnewline
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{\ovalbox{$1$}} & \multicolumn{1}{c}{\ovalbox{$2$}} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{\ovalbox{$c$}} & \ovalbox{Argument}\tabularnewline
+$b$ & $t$ & \xspace & \xspace & \xspace & \xspace & \xspace\tabularnewline
+\hline 
+\hline 
+\rowcolor{\rowColor}T & T &  &  &  &  & \tabularnewline
+\hline 
+T & F &  &  &  &  & \tabularnewline
+\hline 
+\rowcolor{\rowColor}F & T &  &  &  &  & \tabularnewline
+\hline 
+F & F &  &  &  &  & \tabularnewline
+\end{tabular}\yspace\yspace
+\item \vspace{-25pt} %
+\begin{tabular}{rll}
+ &  & \tabularnewline
+ &  & \tabularnewline
+$r$: & You register early. & 1. If you register early, then you will receive a discount.\tabularnewline
+$d$: & You receive a discount. & 2. You register early.\tabularnewline
+\cline{3-3}
+ &  & Therefore, you will receive a discount.\tabularnewline
+\end{tabular}\\
+\begin{tabular}{c|c|c|c|c|c|c}
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \tabularnewline
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{\ovalbox{$1$}} & \multicolumn{1}{c}{\ovalbox{$2$}} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{\ovalbox{$c$}} & \ovalbox{Argument}\tabularnewline
+$r$ & $d$ & \xspace & \xspace & \xspace & \xspace & \xspace\tabularnewline
+\hline 
+\hline 
+\rowcolor{\rowColor}T & T &  &  &  &  & \tabularnewline
+\hline 
+T & F &  &  &  &  & \tabularnewline
+\hline 
+\rowcolor{\rowColor}F & T &  &  &  &  & \tabularnewline
+\hline 
+F & F &  &  &  &  & \tabularnewline
+\end{tabular}\yspace
+\item \vspace{-25pt}%
+\begin{tabular}{rll}
+ &  & \tabularnewline
+ &  & \tabularnewline
+$b$: & You buy the property. & 1. If you buy the property, then you will need a loan.\tabularnewline
+$n$: & You need a loan. & 2. If you need a loan, then you will pay 8\%.\tabularnewline
+\cline{3-3}
+$p$: & You will pay 8\%. & Therefore, if you buy the property then you will pay 8\%.\tabularnewline
+\end{tabular}\\
+\begin{tabular}{c|c|c|c|c|c|c|c}
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \tabularnewline
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{\ovalbox{$1$}} & \multicolumn{1}{c}{\ovalbox{$2$}} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{\ovalbox{$c$}} & \ovalbox{Argument}\tabularnewline
+$b$ & $n$ & $p$ & \xspace & \xspace & \xspace & \xspace & \xspace\tabularnewline
+\hline 
+\hline 
+\rowcolor{\rowColor}T & T & T &  &  &  &  & \tabularnewline
+\hline 
+T & T & F &  &  &  &  & \tabularnewline
+\hline 
+\rowcolor{\rowColor}T & F & T &  &  &  &  & \tabularnewline
+\hline 
+T & F & F &  &  &  &  & \tabularnewline
+\hline 
+\rowcolor{\rowColor}F & T & T &  &  &  &  & \tabularnewline
+\hline 
+F & T & F &  &  &  &  & \tabularnewline
+\hline 
+\rowcolor{\rowColor}F & F & T &  &  &  &  & \tabularnewline
+\hline 
+F & F & F &  &  &  &  & \tabularnewline
+\end{tabular}\yspace
+\item \vspace{-25pt}%
+\begin{tabular}{l}
+\tabularnewline
+\tabularnewline
+1. Nothing intelligible ever puzzles me.\tabularnewline
+2. Logic puzzles me.\tabularnewline
+\hline 
+Therefore, logic is unintelligible. \tabularnewline
+\end{tabular}\\
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c}
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \tabularnewline
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \ovalbox{Argument}\tabularnewline
+ &  &  & \xspace & \xspace & \xspace & \xspace & \xspace & \xspace & \xspace\tabularnewline
+\hline 
+\hline 
+\rowcolor{\rowColor}T & T & T &  &  &  &  &  &  & \tabularnewline
+\hline 
+T & T & F &  &  &  &  &  &  & \tabularnewline
+\hline 
+\rowcolor{\rowColor}T & F & T &  &  &  &  &  &  & \tabularnewline
+\hline 
+T & F & F &  &  &  &  &  &  & \tabularnewline
+\hline 
+\rowcolor{\rowColor}F & T & T &  &  &  &  &  &  & \tabularnewline
+\hline 
+F & T & F &  &  &  &  &  &  & \tabularnewline
+\hline 
+\rowcolor{\rowColor}F & F & T &  &  &  &  &  &  & \tabularnewline
+\hline 
+F & F & F &  &  &  &  &  &  & \tabularnewline
+\end{tabular}\yspace
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

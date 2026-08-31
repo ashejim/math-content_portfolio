@@ -1,0 +1,226 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{331}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\examType}{Exam 1}
+
+\renewcommand{\date}{\formatdate{11}{9}{2013}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} ~\date{}}
+	\fancyhead[C]{\textbf{Name: Solutions}}
+	%\fancyhead[R]{\textbf{Name:\hspace{5cm}}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{Name:}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\setlist{topsep=.5pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\xmax}{0}
+\newcommand{\xmin}{-\xmax}
+\newcommand{\xstep}{0}
+\newcommand{\ymax}{0}
+\newcommand{\ymin}{-\ymax}
+\newcommand{\ystep}{0} 
+\newcommand{\dspace}{\vspace{1cm}}
+\newcommand{\xa}{0}
+\newcommand{\xb}{0}
+\newcommand{\ya}{1}
+\newcommand{\yb}{1}
+
+\newcommand{\xspace}{\vspace{1cm}}
+
+\textbf{Justify your answers and show your work. Unless stated otherwise,
+all questions worth 5pts.}
+\begin{enumerate}[resume]
+\item {[}2 pts each{]} Answer each question.
+
+\begin{enumerate}[resume]
+\item Write the infinite series, $2+4+6+8\cdots$, using sigma notation
+(i.e. using $\Sigma$) . 
+
+\begin{enumerate}[resume]
+\item []${\displaystyle \sum_{k=1}^{\infty}2k}$\vfill
+\end{enumerate}
+\item Evaluate the series ${\displaystyle \sum_{k=2}^{n}(2k+1)}$ for $n=4$.
+
+\begin{enumerate}[resume]
+\item []${\displaystyle \sum_{k=2}^{4}(2k+1)=5+7+9=21}$\vfill
+\end{enumerate}
+\item If $0<a_{n}<b_{n}$ and $\left\{ a_{n}\right\} $ diverges then what
+can be said about $\left\{ b_{n}\right\} $?
+
+\begin{enumerate}[resume]
+\item []$a_{n}<b_{n}\Rightarrow b_{n}$ must diverge.\vfill
+\end{enumerate}
+\item If ${\displaystyle \lim_{n\rightarrow\infty}\left\{ a_{n}\right\} =0}$
+then what does the Divergence Test say about${\displaystyle {\displaystyle \sum_{k=0}^{\infty}a_{k}}}$?
+
+\begin{enumerate}[resume]
+\item []The test is inconclusive.\vfill
+\end{enumerate}
+\item When approximating $\sqrt[3]{27.5}$ with a Taylor polynomial, what
+function and center should be used. 
+
+\begin{enumerate}[resume]
+\item []$f(x)=\sqrt[3]{x}$ and $a=27$.\vfill
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\emph{Evaluate the following sequences. }
+\begin{enumerate}[resume]
+\item ${\displaystyle \lim_{n\rightarrow\infty}\left\{ \frac{n^{3}-2n^{2}}{5n^{3}+2n}\right\} }$
+
+\begin{enumerate}[resume]
+\item []${\displaystyle \lim_{n\rightarrow\infty}\left\{ \frac{n^{3}-2n^{2}}{5n^{3}+2n}\right\} ={\displaystyle \lim_{n\rightarrow\infty}\left\{ \frac{\nicefrac{n^{3}}{n^{3}}-2\nicefrac{n^{2}}{n^{3}}}{5\nicefrac{n^{3}}{n^{3}}+2\nicefrac{n}{n^{3}}}\right\} =\lim_{n\rightarrow\infty}\left\{ \frac{1}{5}\right\} =\frac{1}{5}}}$\vfill
+\end{enumerate}
+\item ${\displaystyle \lim_{n\rightarrow\infty}\left\{ \frac{0.3^{n}}{n^{10}}\right\} }$
+
+\begin{enumerate}[resume]
+\item []$n^{10}\ll0.3^{n}\Rightarrow$the sequence diverges.\vfill
+\end{enumerate}
+\end{enumerate}
+\emph{Evaluate the geometric series or state that it diverges. }
+\begin{enumerate}[resume]
+\item ${\displaystyle \sum_{k=0}^{\infty}5\frac{4^{k}}{3^{k}}}$
+
+\begin{enumerate}[resume]
+\item []${\displaystyle \sum_{k=0}^{\infty}}5\frac{4^{k}}{3^{k}}=5{\displaystyle \sum_{k=0}^{\infty}}\left(\frac{4}{3}\right)^{k}\Rightarrow r=\frac{4}{3}>1$
+so the series diverges.\vfill
+\end{enumerate}
+\item ${\displaystyle \sum_{k=2}^{\infty}3\left(\frac{1}{2}\right)^{k}}$
+
+\begin{enumerate}[resume]
+\item []${\displaystyle 3\sum_{k=2}^{\infty}\left(\frac{1}{2}\right)^{k}}={\displaystyle 3\sum_{k=0}^{\infty}\left(\frac{1}{2}\right)^{k-2}={\displaystyle \frac{3}{4}\sum_{k=0}^{\infty}\left(\frac{1}{2}\right)^{k}}}=\frac{3}{4}\frac{1}{1-\nicefrac{1}{2}}=\frac{6}{4}=\frac{3}{2}$
+since $r=\nicefrac{1}{2}<1$.\vfill\newpage
+\end{enumerate}
+\end{enumerate}
+\emph{Use the Divergence Test to determine whether the following series
+diverge, or state that the test is inconclusive.}
+\begin{enumerate}[resume]
+\item ${\displaystyle \sum_{k=1}^{\infty}\frac{k^{2}-1}{3k^{2}+10}}$
+
+\begin{enumerate}[resume]
+\item []${\displaystyle \lim_{k\rightarrow\infty}\left\{ \frac{k^{2}-1}{3k^{2}+10}\right\} =\frac{1}{3}}$
+(similarly to number $2$) which is not $0$ so it diverges.\vfill
+\end{enumerate}
+\end{enumerate}
+\emph{Using the Squeeze Theorem, find the limit of the following sequence
+or determine that the limit does not exist.}
+\begin{enumerate}[resume]
+\item ${\displaystyle \lim_{n\rightarrow\infty}\left\{ \frac{(-1)^{n}}{n}\right\} }$.
+
+\begin{enumerate}[resume]
+\item []$0=\left\{ \frac{-1}{n}\right\} _{n=1}^{\infty}\leq\left\{ \frac{(-1)^{n}}{n}\right\} _{n=1}^{\infty}\leq\left\{ \frac{1}{n}\right\} _{n=1}^{\infty}=0$
+so then by the Squeeze Theorem, ${\displaystyle \lim_{n\rightarrow\infty}\left\{ \frac{(-1)^{n}}{n}\right\} }=0$.\vfill
+\end{enumerate}
+\end{enumerate}
+\emph{Use the Integral Test to determine whether the series converges,
+diverges, or state why the test cannot be used. }\emph{\uline{Check
+that the conditions of the test are satisfied}}\emph{.}
+\begin{enumerate}[resume]
+\item {[}10 pts{]} ${\displaystyle \sum_{k=1}^{\infty}\frac{1}{x^{\nicefrac{2}{3}}}}$.
+
+\begin{enumerate}[resume]
+\item []Let $f(x)=x^{-\nicefrac{2}{3}}$. $f(x)>0$ and $f'(x)=-\frac{2}{3}x^{-\nicefrac{5}{3}}<0$
+for $x\geq1$. So then we can use the integral test. \\
+${\displaystyle \int_{1}^{\infty}x^{-\nicefrac{2}{3}}\,dx={\displaystyle \lim_{b\rightarrow\infty}3x^{\nicefrac{1}{3}}|_{1}^{b}=\infty-3=\infty}}$.\vfill
+\end{enumerate}
+\end{enumerate}
+\emph{Use the function} $f(x)=\sqrt{x}$ \emph{to answer the following}.
+\begin{enumerate}[resume]
+\item Find the Taylor polynomial of order $n=3$ for $f(x)$ centered at
+$1$.
+
+\begin{enumerate}[resume]
+\item []$f'(x)=\frac{1}{2}x^{-\nicefrac{1}{2}}$, $f''(x)=-\frac{1}{4}x^{\nicefrac{-3}{2}}$,
+and $f'''(x)=\frac{3}{8}x^{-\nicefrac{5}{3}}$. So then when $a=1$,
+\[
+p_{3}(x)=1+\frac{1}{2}(x-1)-\frac{1}{8}(x-1)^{2}+\frac{1}{16}(x-1)^{3}
+\]
+\vfill
+\end{enumerate}
+\item Use the Taylor polynomial from above to approximate $\sqrt{1.05}$.
+
+\begin{enumerate}[resume]
+\item []$p_{3}(1.05)=1.024695$\vfill
+\end{enumerate}
+\item Compute the absolute error in the approximation assuming the exact
+value is given by a calculator.
+
+\begin{enumerate}[resume]
+\item []$\mbox{error}=\left|p_{3}(1.05)-\sqrt{1.05}\right|\approx0.0000000235$\vfill
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

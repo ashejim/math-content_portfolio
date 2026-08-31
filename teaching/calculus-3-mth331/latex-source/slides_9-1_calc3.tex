@@ -1,0 +1,238 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% this default might be overridden by plain title style
+\newcommand\makebeamertitle{\frame{\maketitle}}%
+% (ERT) argument for the TOC
+\AtBeginDocument{%
+  \let\origtableofcontents=\tableofcontents
+  \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+  \def\gobbletableofcontents#1{\origtableofcontents}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\beamertemplateshadingbackground{red!5}{structure!5}
+
+\usepackage{beamerthemeshadow}
+\usepackage{pgfnodes,pgfarrows,pgfheaps}
+\usepackage{caption}
+
+\beamertemplatetransparentcovereddynamicmedium
+
+\pgfdeclareimage[width=0.6cm]{icsi-logo}{beamer-icsi-logo}
+\logo{\pgfuseimage{icsi-logo}}
+
+\newcommand{\Class}[1]{\operatorname{\mathchoice
+  {\text{\small #1}}
+  {\text{\small #1}}
+  {\text{#1}}
+  {\text{#1}}}}
+
+\newcommand{\Lang}[1]{\operatorname{\text{\textsc{#1}}}}
+
+% This gets defined by beamerbasecolor.sty, but only at the beginning of
+% the document
+\colorlet{averagebackgroundcolor}{normal text.bg}
+
+\newcommand{\tape}[3]{%
+  \color{structure!30!averagebackgroundcolor}
+  \pgfmoveto{\pgfxy(-0.5,0)}
+  \pgflineto{\pgfxy(-0.6,0.1)}
+  \pgflineto{\pgfxy(-0.4,0.2)}
+  \pgflineto{\pgfxy(-0.6,0.3)}
+  \pgflineto{\pgfxy(-0.4,0.4)}
+  \pgflineto{\pgfxy(-0.5,0.5)}
+  \pgflineto{\pgfxy(4,0.5)}
+  \pgflineto{\pgfxy(4.1,0.4)}
+  \pgflineto{\pgfxy(3.9,0.3)}
+  \pgflineto{\pgfxy(4.1,0.2)}
+  \pgflineto{\pgfxy(3.9,0.1)}
+  \pgflineto{\pgfxy(4,0)}
+  \pgfclosepath
+  \pgffill
+
+  \color{structure}  
+  \pgfputat{\pgfxy(0,0.7)}{\pgfbox[left,base]{#1}}
+  \pgfputat{\pgfxy(0,-0.1)}{\pgfbox[left,top]{#2}}
+
+  \color{black}
+  \pgfputat{\pgfxy(-.1,0.25)}{\pgfbox[left,center]{\texttt{#3}}}%
+}
+
+\newcommand{\shorttape}[3]{%
+  \color{structure!30!averagebackgroundcolor}
+  \pgfmoveto{\pgfxy(-0.5,0)}
+  \pgflineto{\pgfxy(-0.6,0.1)}
+  \pgflineto{\pgfxy(-0.4,0.2)}
+  \pgflineto{\pgfxy(-0.6,0.3)}
+  \pgflineto{\pgfxy(-0.4,0.4)}
+  \pgflineto{\pgfxy(-0.5,0.5)}
+  \pgflineto{\pgfxy(1,0.5)}
+  \pgflineto{\pgfxy(1.1,0.4)}
+  \pgflineto{\pgfxy(0.9,0.3)}
+  \pgflineto{\pgfxy(1.1,0.2)}
+  \pgflineto{\pgfxy(0.9,0.1)}
+  \pgflineto{\pgfxy(1,0)}
+  \pgfclosepath
+  \pgffill
+
+  \color{structure}  
+  \pgfputat{\pgfxy(0.25,0.7)}{\pgfbox[center,base]{#1}}
+  \pgfputat{\pgfxy(0.25,-0.1)}{\pgfbox[center,top]{#2}}
+
+  \color{black}
+  \pgfputat{\pgfxy(-.1,0.25)}{\pgfbox[left,center]{\texttt{#3}}}%
+}
+
+\pgfdeclareverticalshading{heap1}{\the\paperwidth}%
+  {color(0pt)=(black); color(1cm)=(structure!65!white)}
+\pgfdeclareverticalshading{heap2}{\the\paperwidth}%
+  {color(0pt)=(black); color(1cm)=(structure!55!white)}
+\pgfdeclareverticalshading{heap3}{\the\paperwidth}%
+  {color(0pt)=(black); color(1cm)=(structure!45!white)}
+\pgfdeclareverticalshading{heap4}{\the\paperwidth}%
+  {color(0pt)=(black); color(1cm)=(structure!35!white)}
+\pgfdeclareverticalshading{heap5}{\the\paperwidth}%
+  {color(0pt)=(black); color(1cm)=(structure!25!white)}
+\pgfdeclareverticalshading{heap6}{\the\paperwidth}%
+  {color(0pt)=(black); color(1cm)=(red!35!white)}
+
+\newcommand{\heap}[5]{%
+  \begin{pgfscope}
+    \color{#4}
+    \pgfheappath{\pgfxy(0,#1)}{\pgfxy(-#2,0)}{\pgfxy(#2,0)}
+    \pgfclip
+    \begin{pgfmagnify}{1}{#1}
+      \pgfputat{\pgfpoint{-.5\paperwidth}{0pt}}{\pgfbox[left,base]{\pgfuseshading{heap#5}}}
+    \end{pgfmagnify}
+  \end{pgfscope}
+  %\pgffill
+  
+  \color{#4}
+  \pgfheappath{\pgfxy(0,#1)}{\pgfxy(-#2,0)}{\pgfxy(#2,0)}
+  \pgfstroke
+
+  \color{white}
+  \pgfheaplabel{\pgfxy(0,#1)}{#3}%
+}
+
+
+\pgfdeclareradialshading{graphnode}
+  {\pgfpoint{-3pt}{3.6pt}}%
+  {color(0cm)=(beamerexample!15);
+    color(2.63pt)=(beamerexample!75);
+    color(5.26pt)=(beamerexample!70!black);
+    color(7.6pt)=(beamerexample!50!black);
+    color(8pt)=(beamerexample!10!averagebackgroundcolor)}
+
+\newcommand{\graphnode}[2]{
+  \pgfnodecircle{#1}[virtual]{#2}{8pt}
+  \pgfputat{#2}{\pgfbox[center,center]{\pgfuseshading{graphnode}}}
+}
+
+%\setbeamerfont{author}{size=\Huge} 
+%\setbeamerfont{date}{size=\small} 
+%\setbeamerfont{exampletext}{series=\bfseries}
+%\setbeamerfont{frametitle}{series=\bfseries,size=\large}
+%\setbeamerfont{framesubtitle}{series=\mdseries,size=\large}
+%\setbeamerfont{section}{series=\bfseries} 
+\setbeamerfont{title}{series=\bfseries}
+
+\setbeamercovered{invisible}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\title{Calculus III}
+\subtitle{MTH 331~~|~~Section A~~|~~Fall 2012}
+\institute{{\Large\textbf{Johnson C. Smith }}}
+\author{Dr.\,James Ashe}
+\date{{}}
+
+\makebeamertitle
+%%suppress auto date
+\title{Calc III: 9.1 Sequences and Infinites Series}
+
+\author{}
+
+\institute{}
+
+\subtitle{}
+
+\makebeamertitle
+\begin{frame}{Sequences}
+
+\begin{definition}
+
+A \textbf{sequence }$\{a_{n}\}$ is an ordered list of numbers of
+the form $\{a_{0},a_{1},a_{2},\dots,a_{n},\dots\}$.
+\end{definition}
+
+\begin{exampleblock}<2->{The Fibonacci Sequence}
+
+$\{0,1,1,2,3,5,8,13,21,34,\dots\}$ where $a_{0}=0$, $a_{1}=1$,
+and $a_{n}=a_{n-1}+a_{n-2}$ for $n>2$.
+\end{exampleblock}
+\begin{itemize}
+\item <3->$a_{n}$\,is the $n^{th}$ term in the sequence; above the $4^{th}$
+term is $a_{4}=2$.
+\item <4->A sequence is generated by a \textbf{recurrence relation }if
+further terms are defined as a function of preceding terms (like in
+the Fibonacci sequence).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+
+A sequence may also be defined by an \textbf{explicit formula}. 
+\begin{itemize}
+\item <2->[]\textbf{ex) }$a_{n}=1+\sin(n\frac{\pi}{2})\Rightarrow$\uncover<3->{$\ensuremath{\{a_{n}\}_{n=1}^{\infty}}=\{2,1,0,1,2,1,0,\dots\}$}.
+\item <4->There is an explicit formula for the Fibonacci sequence....
+\item <5->[]...$a_{n}=\frac{1}{\sqrt{5}}\left((\varphi)^{n}-(1-\varphi)^{n}\right)$
+where $\varphi=\frac{1+\sqrt{5}}{2}$, the \emph{Golden Ratio!} 
+\item <6->More fun facts: ${\displaystyle \lim_{n\rightarrow\infty}\frac{a_{n}}{a_{n-1}}=\{\frac{a_{n}}{a_{n-1}}\}_{n=2}^{\infty}=\varphi}$
+where $\{a_{n}\}$ is the Fibonacci sequence!
+\item <7->We say that \textrm{if ${\displaystyle \lim_{n\rightarrow\infty}a_{n}=L}$
+for a unique number $L$ than $a_{n}$ }\textrm{\textbf{converges}}\textrm{.
+\uncover<8->{Otherwise we say that $a_{n}$ \textbf{diverges}}}
+\item <9->[]\textbf{ex) }$\{1,2,3,\dots\}\rightarrow$\uncover<10->{diverges.}
+\item <11->[]\textbf{ex) }$\{1,2,1,2,1\dots\}\rightarrow$\uncover<12->{diverges.}
+\item <13->Fun question. Is $\{0,1,2,3,\dots\}>\{1,2,3,\dots\}?$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Series}
+
+\begin{definition}
+
+An \textbf{infinite series }is the sum of an (infinite) sequence;
+It has the form: ${\displaystyle \sum_{k=1}^{\infty}a_{n}=a_{1}+a_{2}+\dots+a_{n\dots}}=S_{n}$.
+As before, if ${\displaystyle \lim_{n\rightarrow\infty}{\displaystyle \sum_{k=1}^{\infty}a_{n}={\displaystyle \lim_{n\rightarrow\infty}}S_{n}=L}}$
+then the series \textbf{converges}; otherwise it \textbf{diverges}.
+\end{definition}
+
+\begin{itemize}
+\item <2->[]\textbf{ex) }(see pg 52) Let $S_{n}={\displaystyle \sum_{k=1}^{n}}\frac{1}{2^{k}}$.
+\item <3->[]\hspace{1cm}So then $S_{3}=$\uncover<4->{$\frac{1}{2^{1}}+\frac{1}{2^{2}}+\frac{1}{2^{3}}=\frac{7}{8}$.}
+\item <5->[]\hspace{1cm}What is ${\displaystyle \lim_{n\rightarrow\infty}S_{n}}$?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+
+\textbf{HW 9.1: }21, 55, 60, 66, 68 
+
+\vspace{1cm}
+
+Next time, 9.2: Sequences
+\end{frame}
+
+\end{document}

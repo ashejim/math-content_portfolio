@@ -1,0 +1,265 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}[section]
+\theoremstyle{definition}
+\newtheorem{xca}[thm]{\protect\exercisename}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\exercisename}{Exercise}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{335}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{solutions}
+
+\newcommand{\examType}{Homework 4}
+
+\newcommand{\Date}{\formatdate{6}{2}{2014}} %%\AdvanceDate[12] \today
+
+%\newdate{my_date}{\day}{\month}{\year}%   
+%\AdvanceDate[-5] 
+%\displaydate{my_date}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}}} %\textbf{\examType{}} \Date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+%\setlist{nolistsep} %eliminates space between list items
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\null
+
+%\vspace{1cm}
+
+\setcounter{section}{3}
+
+\Large{\textbf{Chapter 3}} \large
+
+\textbf{\textbf{\examType} due: \formatdate{27}{3}{2014}}
+
+All non-starred exercises from sections 3.1 and 3.2 (3.1-3.11). 
+
+\setcounter{thm}{0}
+
+\null
+
+%\vspace{1cm}
+\begin{xca}
+Prove that If $a|b$ and $b|c$ then $a|c$.
+
+\begin{proof}
+$a|b\Rightarrow b=na$ for some $n\in\mathbb{Z}$, and $b|c\Rightarrow mb=m\left(na\right)=c$
+for some $m\in\mathbb{Z}$. Thus $a|c$ 
+\end{proof}
+\end{xca}
+
+\begin{xca}
+If $a|b$ and $a|c$ then $a|b\pm c$.
+
+\begin{proof}
+Let $a|b$ and $a|c$. So then $b=an$ and $c=am$ for some $n,m\in\mathbb{Z}$.
+Thus $b\pm c=an\pm am=a\left(n\pm m\right)$ which implies that $a|b\pm c$.
+\end{proof}
+\end{xca}
+
+\begin{xca}
+$\bigstar$ Prove that there are infinitely many prime numbers. 
+\end{xca}
+
+\begin{xca}
+Determine the following:
+\end{xca}
+
+\begin{enumerate}
+\item $\gcd(2^{4}3^{2}5\cdot7^{2},2\cdot3^{3}7\cdot11)$
+
+\begin{enumerate}[resume]
+\item []$=2\cdot3^{2}\cdot7$
+\end{enumerate}
+\item The lowest common multiple: $\mbox{lcm}(2^{4}3^{2}5\cdot7^{2},2\cdot3^{3}7\cdot11)$.
+
+\begin{enumerate}[resume]
+\item []$=2^{4}\cdot3^{3}\cdot5\cdot7^{2}\cdot11$
+\end{enumerate}
+\end{enumerate}
+
+\begin{xca}
+$\bigstar$ Suppose that $a\neq0$, $b\neq0$, and $\mbox{lcm}(a,b)=m$.
+Prove that if $n$ is a common multiple of $a$ and $b$ then $m|n$. 
+\end{xca}
+
+\begin{xca}
+$\bigstar$ Let $a\neq0$, $b\neq0$, and $d=\gcd\left(a,b\right)$.
+Prove that if $d'$ is any common divisor of $a$ and $b$ then $d'|d$.
+\end{xca}
+
+\begin{xca}
+Find integers $s$ and $t$ so that $1=7\cdot s+11\cdot t$. Show
+that $s$ and $t$ are not unique. 
+
+\begin{proof}
+Consider $s=-3$ and $t=2$. These can be found as follows:\begin{multicols}{2}
+
+$11=7\cdot1+4$
+
+$7=4\cdot1+3$
+
+$4=3\cdot1+1$
+
+$3=1\cdot3+0$ so $1=\gcd(11,7)$\columnbreak
+
+$1=3\cdot(-1)+4$
+
+$1=\left[7-4\cdot1\right](-1)+4=7(-1)+4(2)$
+
+$1=7(-1)+\left[11-7\right](2)$
+
+$1=7(-3)+11(2)$
+
+\end{multicols}
+
+To see that $s$ and $t$ are unique, consider $s=8$ and $t=-5$.
+Note that $as+bt=as+\left[abk-abk\right]+bt=a(s+bk)+b(t-ak)$ for
+any $k\in\mathbb{Z}$. Using the answer above, this gives us an infinite
+class of solutions. For $k=1$, $7(-3+11)+11(2-7)=7(8)+11(-5)=1$.
+\end{proof}
+\end{xca}
+
+Equations of the form $ax+by=d$ are called Diophantine equations
+(after Diophantus of Alexandria 200-284 AD). Diophantine equations
+have a solution if and only if the $\gcd(a,b)|d$, and if a solution
+exists then there are infinitely many of them.\vfill
+
+\begin{xca}
+Let $d=\gcd(a,b)$. If $a=da'$ and $b=db'$, show that $\gcd(a',b')=1$.
+
+\begin{proof}
+By the GCD is a linear combination theorem, $d=ax+by$ for some $x,y\in\mathbb{Z}$.
+This implies that $d=da'x+db'y$, and so dividing by $d$ gives $1=a'x+b'y$.
+Thus $1=\gcd(a',b')$
+\end{proof}
+\end{xca}
+
+\begin{xca}
+$\bigstar$ If $c^{2}=ab$ and $\gcd\left(a,b\right)=1$, prove that
+$a$ and $b$ are perfect squares (Hint: By the theorem above, $a$
+and $b$ can be written as the product of primes. They are perfect
+squares if and only if each prime in this prime factorization has
+an even power). 
+\end{xca}
+
+\begin{xca}
+Determine $51\mod 13$, $342\mod 85$, and $(82\cdot73)\mod 7$.
+
+\begin{itemize}
+\item []$51=3\cdot13+12$ so $12\equiv51\mod 13$
+\item []$342=4\cdot85+2$ so $2\equiv342\mod 85$
+\item []$82\cdot73=5986=855\cdot7+1$ so $1\equiv(82\cdot73)\mod 7$
+\end{itemize}
+\end{xca}
+
+\begin{xca}
+Let $n$ be a positive integer greater than $1$ and let $a$ and
+$b$ be positive integers. Prove that $a\mod n\equiv b\mod n$ if
+and only if $a\equiv b\mod n$. 
+
+To prove a ``\textbf{A} if and only if \textbf{B}'' statement, you
+must show that \textbf{A} implies \textbf{B }and \textbf{B }implies
+\textbf{A }(``if and only if''\textbf{ }is also written ``iff.''
+and $\iff$).
+
+We discussed two equivalent ways to define $a=b\bmod n$: \\
+$a=b\bmod n\iff n|b-a$, and \\
+$a=b\bmod n\iff a=qn+b$ for some $q\in\mathbb{Z}$. 
+\begin{proof}
+$(a\bmod n=b\bmod n\Rightarrow a=b\bmod n)$ If $a\bmod n=b\bmod n$
+then $n|\left(a-b\bmod n\right)$ and $n|\left(b-a\bmod n\right)$.
+So then $n|\left(\left[a-b\bmod n\right]-\left[b-a\bmod n\right]\right)$,
+and since $-b\bmod n+a\bmod n=0$ the two middle terms cancel out
+implying that $n|\left(a-b\right)$. Thus $a=b\bmod n$. 
+
+$\left(a=b\bmod n\Rightarrow a\bmod n=b\bmod n\right)$ Suppose that
+$a=b\bmod n$ so then $n|b-a$. Since $n|a-a$, $a=a\bmod n$. It
+follows that $n|b-a\Rightarrow n|b-a\bmod n\Rightarrow a\bmod n=b\bmod n$.
+\end{proof}
+(Alternatively) 
+\begin{proof}
+$(a\bmod n=b\bmod n\Rightarrow a=b\bmod n)$ If $a\bmod n=b\bmod n$
+then $a=nq_{1}+r$ and $b=nq_{2}+r$$\Rightarrow a-b=n(q_{1}-q_{2})\Rightarrow n|a-b\Rightarrow a=b\bmod n$. 
+
+$\left(a=b\bmod n\Rightarrow a\bmod n=b\bmod n\right)$ Suppose that
+$a=b\bmod n$ then $a=q_{1}n+r_{1}$ and $b=q_{2}n+r_{2}$. Since
+$a=b\bmod n\Rightarrow$$n|a-b\Rightarrow$$n|n\left(q_{1}-q_{2}\right)+\left(r_{1}+r_{2}\right)$.
+Thus $n$ divides $n\left(q_{1}-q_{2}\right)$and also divides $r_{1}+r_{2}$.
+Since $0\leq r_{1},r_{2}<n$ it follows that $r_{1}-r_{2}=0\Rightarrow r_{1}=r_{2}$.
+Thus $a\bmod n=b\bmod n$.\vfill
+\end{proof}
+\end{xca}
+
+
+\end{document}

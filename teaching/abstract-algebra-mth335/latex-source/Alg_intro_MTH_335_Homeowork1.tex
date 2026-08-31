@@ -1,0 +1,118 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+\usepackage{advdate}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{335}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{Name:}
+
+\newcommand{\examType}{Homework}
+
+\renewcommand{\date}{Due date: \AdvanceDate[14] \today} %%\today
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+%\setlist{nolistsep} %eliminates space between list items
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Homework Problems. }\emph{Solutions should be written/typed
+in numerical order and clearly labeled. Each page should have two
+problems (except the last page if there are an odd number of problems).
+Unsolved problems should be included but left blank.}
+\begin{enumerate}
+\item Write in tabular form:
+
+\begin{enumerate}
+\item $A=\{x\mid x\mbox{ is a letter in "correct"}\}$
+\item $B=\{x\mid x\mbox{ is positive and }x\mbox{ is negative}\}$
+\item $C=\{x\in\mathbb{Z}\mid x-2\leq5$\}
+\end{enumerate}
+\item Write these sets in a set-builder form:
+
+\begin{enumerate}
+\item Let $A=\{3,4,5,6,7,\dots\}$
+\item Let $B=\{3,5,7,9,\dots\}$
+\item Let $C$ be the US presidents elected after 1999. 
+\end{enumerate}
+\item Find all the subsets of $A=\{x,y,z\}$.
+\item Prove that every nonempty subset has a proper subset. 
+\item Prove that if $A$ is a subset of $\emptyset$, then $A=\emptyset$.
+\item Prove that $A=\{2,3,4,5\}$ is not a subset of $B=\{x\mid x\mbox{ is even}\}$.
+\item Prove that $A$ and $B$ are subsets of $A\cup B$.
+\item Prove that $A=A\cup A$ and $A=A\cap A$.
+\item Prove that $A\cap B$ is a subset of $A$ and of $B$.
+\item Prove that $A\cup B=\emptyset$ implies that $A=\emptyset$ and $B=\emptyset$.
+\end{enumerate}
+\vfill
+
+\textbf{Presentation problems.}
+\begin{enumerate}
+\item Prove that $A-B$ is a subset of $A\cup B$.
+\item Prove that if $A$ a subset of $B$ then $A\cap B=A$.
+\item Let $A\cap B=\emptyset$. Prove that $B\cap A'=B$.
+\item Prove that if $A$ is a subset of $B$ then $A\cup B=B$.
+\item Prove that $A'-B'=B-A$.
+\item Prove that if $A$ is a subset of $B$ then $B'$ is a subset of $A'$.
+\item Prove that if $A\cap B=\emptyset$ then $A\cup B'=B'$.
+\item Prove that $\left(A\cap B\right)'=A'\cup B'$.
+\item Prove that $A\subset B$ implies that $A\cup\left(B-A\right)=B$.
+\end{enumerate}
+\vfill
+\end{document}

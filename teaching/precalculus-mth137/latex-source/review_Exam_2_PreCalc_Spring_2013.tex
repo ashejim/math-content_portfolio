@@ -1,0 +1,168 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+\usdate
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{137}
+
+\newcommand{\classSec}{B}
+
+\newcommand{\nameType}{}
+
+\newcommand{\examType}{Exam 2}
+
+\renewcommand{\date}{will be be given on \formatdate{13}{3}{2013}} %%\currenttime, \today
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vfill$ $
+
+\subsection*{2.1 Functions}
+\begin{itemize}
+\item Determine if a given relation is a function.
+
+\begin{itemize}
+\item From a graph; \textbf{HW 3-4.}
+\item From a list of coordinates; \textbf{HW 5-6, 9-12}
+\item From an equation; \textbf{HW 7-8}
+\end{itemize}
+\item Determine the domain and range of a relation.
+
+\begin{itemize}
+\item From a graph. \emph{see the quiz}
+\item From a list; \textbf{HW 9-10}
+\end{itemize}
+\item Understanding and working with function notation, i.e., $f(x)$.
+
+\begin{itemize}
+\item From a list; \textbf{HW 11-12}
+\item From an equation; \textbf{HW 13-14}
+\end{itemize}
+\item Find the average rate of change; \textbf{HW 15-16}
+\item Find the difference quotient; \textbf{HW 17-19}
+\end{itemize}
+
+\subsection*{2.2: Graphing functions}
+\begin{itemize}
+\item Understand how to read and write interval notation, e.g., $1\leq x<5$
+means $x$ is in $[1,5)$.
+\item Sketch a relation from an equation, then give its domain and range.
+
+\begin{itemize}
+\item Common functions like lines, quadratics, and absolute values; \textbf{HW
+1-3, 5}
+\item Piecewise functions; \textbf{HW 6-8, 15-17}
+\end{itemize}
+\item Identify when a function is decreasing, increasing, or constant for
+all type of functions including piecewise functions; \textbf{HW 10-14}
+\end{itemize}
+
+\subsection*{2.3: Function transformations.}
+\begin{itemize}
+\item Understand and graph functions using the parent function and basic
+transformations. \textbf{HW 1-20}
+
+\begin{itemize}
+\item Parent functions include: $f(x)=x$, $f(x)=x^{2}$, $f(x)=\sqrt{x}$,
+and $f(x)=\left|x\right|$.
+\item Transformations:
+
+\begin{itemize}
+\item $f(x\pm h)$: $"+"\Rightarrow Left$ and $"-"\Rightarrow Right$
+\item $f(x)\pm k$: $"+"\Rightarrow Up$ and $"-"\Rightarrow Down$
+\item $a\cdot f(x)$: $a>0\Rightarrow normal$ and $a<0\Rightarrow"flip\mbox{ }upside\mbox{ }down"$
+\item $a\cdot f(x)$: $\left|a\right|>1\Rightarrow Narrow$ and $\left|a\right|<1\Rightarrow Wide$
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\subsection*{2.4 Function operations.}
+\begin{itemize}
+\item Add, subtract, multiply, and divide functions; \textbf{HW 1-8}
+
+\begin{itemize}
+\item This includes finding the general function and the value at specific
+points, e.g., $f-g$ and $(f-g)(2)$.
+\item You may also need to find the domain of the new function. 
+\end{itemize}
+\item Function compositions; $(f\circ g)(x)=f(g(x))$; \textbf{HW 8-10,
+12-13, 16-19}
+\end{itemize}
+
+\subsection*{2.5 Inverse function}
+\begin{itemize}
+\item Determine if a function is $1-1$/invertible, from a list or graph;
+\textbf{HW 1-9}
+\item Find the inverse function $f^{-1}$; \textbf{HW 10, 12, 16-20}
+\item Sketch an inverse function from a graph, or determine if two graphs
+are inverses of each other; \textbf{HW 13-16}
+\item Understand inverse function notation.\vfill
+\end{itemize}
+
+\end{document}

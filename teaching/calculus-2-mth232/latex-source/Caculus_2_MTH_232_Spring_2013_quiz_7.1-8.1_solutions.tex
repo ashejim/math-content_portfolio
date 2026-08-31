@@ -1,0 +1,202 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{232}
+
+\newcommand{\classSec}{A and B}
+
+\newcommand{\examType}{Quiz 3 7.1, 7.2, 7.3, 7.4 and 8.1}
+
+\renewcommand{\date}{Due: \formatdate{8}{4}{2013}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} ~\date{}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\textbf{Solutions}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{Name:}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\setlist{topsep=.5pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\xmax}{0}
+\newcommand{\xmin}{-\xmax}
+\newcommand{\xstep}{0}
+\newcommand{\ymax}{0}
+\newcommand{\ymin}{-\ymax}
+\newcommand{\ystep}{0} 
+
+\textbf{Justify your answers and show your work.}
+
+\textbf{(a)}\textbf{\emph{ }}\emph{Find the inverse on the specified
+interval express it in the form $y=f^{-1}(x)$. }\textbf{(b)}\emph{
+State the range and domain of $f^{-1}(x)$. }\textbf{(c)}\textbf{\emph{
+}}\emph{Graph $f(x)$ and $f^{-1}(x)$. {[}2 pts each{]}.}
+\begin{enumerate}[resume]
+\item $f(x)=x^{2}-6x+9$ for $x\geq3$
+
+\begin{enumerate}
+\item 
+\begin{eqnarray*}
+y & = & (x-3)^{2}\\
+\Rightarrow\sqrt{y} & = & x-3\\
+\Rightarrow f^{-1}(x) & = & \sqrt{x}+3
+\end{eqnarray*}
+\item for Domain: $[0,\infty)$ ($f$ has range $[0,\infty)$), and \\
+Range: $[3,\infty)$ ($f$ has domain $[3\infty))$.
+\item \vspace{0.0cm}
+\item []\renewcommand{\xmax}{10}
+\renewcommand{\xmin}{-1}
+\renewcommand{\xstep}{0} %must be xmin+n
+\renewcommand{\ymax}{10}
+\renewcommand{\ymin}{-1}
+\renewcommand{\ystep}{0} %must be ymin+n
+%%%%%%%
+\begin{tikzpicture}
+\begin{axis}[height=4cm, 
+	width=4cm, 
+	axis lines=middle,
+	%axis line style={-latex}, 
+	xmin=\xmin,xmax=\xmax, 
+	ymin=\ymin,ymax=\ymax,
+	%restrict y to domain=-1:10,
+	%no markers, 
+	xlabel={$x$},ylabel={$y$}, 
+	%every axis x label/.append style={anchor=north}, 
+	%every axis y label/.append style={anchor=east}, 
+	area style,tension=0.08]
+		
+	\addplot[domain=3:\xmax,thick,smooth,red,samples=100] {x^2-6*x+9}; 
+	\addplot[domain=0:\xmax,blue,smooth,thick,samples=100] {sqrt(x)+3} node[left] {$f^{-1}$}; 	
+	
+	%\node at (axis cs:5,7) {$f$};
+\end{axis}
+\end{tikzpicture}
+\end{enumerate}
+\end{enumerate}
+\emph{Find the derivative of the inverse of the following function
+at the specified point on the graph of the inverse function }\emph{\uline{without
+finding}}\emph{ $f^{-1}$. }
+\begin{enumerate}[resume]
+\item \textbf{$f(x)=3x^{5}-2x^{4}+1$}, at $(1,0)$ (point on $f^{-1})$.\\
+\emph{$f'(x)=15x^{4}-8x$ }and $f'(0)=0$\emph{}\\
+\emph{$\left(f^{-1}\right)'\left(0\right)=\frac{1}{f(1)}=\frac{1}{0}$
+}so the derivative does not exist at this point. The slope of the
+tangency line at this point is vertical. \vfill
+\end{enumerate}
+\emph{Use the information about $f(x)$ to answer the following questions.
+$f(3)=3$, $f(-4)=\sqrt{5}$, and $f(x)$ has the domain $(-\infty,\infty)$
+and range $[\sqrt{5},\infty)$ {[}2pts each{]}.}
+\begin{enumerate}[resume]
+\item Find $f^{-1}(3)$\\
+$=3$\vfill
+\item Find $f^{-1}(\sqrt{5})$\\
+$=-4$\vfill
+\item What is the domain of $f^{-1}(x)$\\
+Domain: $[\sqrt{5},\infty)$.\vfill
+\end{enumerate}
+\emph{Perform the indicated operation.}
+\begin{enumerate}[resume]
+\item $\frac{d}{dx}$$x^{2}e^{-x}$\\
+$=2x\cdot e^{-x}+\left(-e^{-x}\right)x^{2}=\left(2x-x^{2}\right)e^{-x}$\\
+Using the product rule.\vfill
+\item $\frac{d}{dx}$$\frac{e^{x}+3x}{2}$\\
+$=\frac{1}{2}\left(e^{x}+3\right)$\vfill
+\item $\frac{d}{dx}\left(2\ln x+\sqrt{2}\right)$\\
+$=2\frac{1}{x}+0=\frac{2}{x}$\vfill
+\item $\frac{d}{dx}\left(\ln(3x^{2})-\frac{x}{5}\right)$\\
+$=6x\frac{1}{3x^{2}}-\frac{1}{5}=\frac{2}{x}-\frac{1}{5}$\vfill
+\item ${\displaystyle \int\left(3e^{-3x}+\frac{1}{x}\right)\,dx}$\\
+$=-\frac{3}{3}e^{-3x}+\ln\left|x\right|+C=-e^{-3x}+\ln\left|x\right|+C$
+(Don't forget the absolute values,$\left|x\right|$)\vfill
+\item $\frac{d}{dx}5^{x}\,dx$\\
+$=\frac{d}{dx}e^{x\ln5}=\ln5\cdot e^{x\ln5}=5^{x}\ln5$ (or use the
+formula: $\frac{d}{dx}b^{x}=b^{x}\ln b$)\vfill
+\item $\frac{d}{dx}x^{\sqrt{8}}$\\
+$=\sqrt{8}x^{\sqrt{8}-1}=2\sqrt{2}x^{2\sqrt{2}-1}$ (Don't use $\sqrt{8}\approx2.8284$)\vfill
+\item $\frac{d}{dx}x^{\ln x}$ (use logarithmic differentiation)\\
+$f'(x)=f(x)\cdot\frac{d}{dx}\ln\left(f(x)\right)$; $\frac{d}{dx}\ln\left(x^{\ln x}\right)=\frac{d}{dx}\ln^{2}x=\frac{1}{x}\ln x+\frac{1}{x}\ln x=\frac{2\ln x}{x}$\\
+$\Rightarrow f'(x)=x^{\ln x}\frac{2\ln x}{x}=x^{\ln x}\ln x\cdot\ln x=x^{\ln x}\ln^{2}x$\vfill
+\end{enumerate}
+\emph{Perform the indicated operation.}
+\begin{enumerate}[resume]
+\item ${\displaystyle \int_{1}^{2}2^{x}\,dx=\int_{1}^{2}e^{2\ln x}\,dx}$
+{[}6 pts{]}\\
+$=\frac{1}{\ln2}e^{2\ln x}|_{1}^{2}=\frac{1}{\ln2}\left(2^{x}\right)|_{1}^{2}=\frac{1}{\ln2}\left(2^{2}-2\right)=\frac{2}{\ln2}$\vfill
+\item ${\displaystyle \int}3xe^{2x}\,dx$\\
+$u=3x$, $du=3\,dx$; $dv=e^{2x}\,dx,v=\frac{1}{2}e^{2x}$\\
+${\displaystyle =3x\cdot\frac{e^{2x}}{2}-{\displaystyle \int\frac{e^{2x}}{2}3\,dx}}=\frac{3xe^{2x}}{2}-\frac{3}{4}e^{2x}+C=\frac{3\left(2x-1\right)}{4}e^{2x}+C$\vfill
+\item ${\displaystyle \int x\ln2x\,dx}$\\
+$u=\ln2x$, $du=\frac{1}{x}\,dx$; $dv=x$, $v=\frac{x^{2}}{2}$\\
+$=\ln2x\cdot\frac{x^{2}}{2}-{\displaystyle \int\frac{x^{2}}{2}\frac{1}{x}\,dx}=\ln2x\cdot\frac{x^{2}}{2}-\frac{1}{4}x^{2}+C$\vfill
+\item ${\displaystyle \int x^{2}\cos4x\,dx}$\\
+$u=x^{2}$, $du=2x\,dx$; $dv=\cos4x$, $v=\frac{1}{4}\sin4x$\\
+$=\frac{x^{2}\sin4x}{4}-{\displaystyle \frac{2}{4}\int}x\sin4x\,dx$.
+Using integration by parts again, we get${\displaystyle \int}x\sin4x\,dx=\frac{\sin4x}{16}-\frac{x\cos4x}{4}$\\
+$\Rightarrow=\frac{x^{2}\sin4x}{4}-\frac{\sin4x}{32}-\frac{x\cos4x}{8}$\vfill
+\end{enumerate}
+
+\end{document}

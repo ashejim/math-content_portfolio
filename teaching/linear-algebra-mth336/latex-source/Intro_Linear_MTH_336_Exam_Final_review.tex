@@ -1,0 +1,256 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+\usepackage[super]{nth}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{336}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\examType}{Final Exam Review}
+
+\renewcommand{\date}{\formatdate{25}{11}{2013}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} ~\date{}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\textbf{}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\setlist{topsep=.5pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\xmax}{0}
+\newcommand{\xmin}{-\xmax}
+\newcommand{\xstep}{0}
+\newcommand{\ymax}{0}
+\newcommand{\ymin}{-\ymax}
+\newcommand{\ystep}{0} 
+\newcommand{\dspace}{\vspace{1cm}}
+\newcommand{\xa}{0}
+\newcommand{\xb}{0}
+\newcommand{\ya}{1}
+\newcommand{\yb}{1}
+
+\newcommand{\vectors}[2]{\textbf{#1}_{1},\textbf{#1}_{2},\dots,\textbf{#1}_{#2}}
+\newcommand{\vectorsN}[1]{\textbf{#1}_{1},\textbf{#1}_{2},\dots,\textbf{#1}_{n}}
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+
+\textbf{The final date/time: \formatdate{4}{12}{2013} from 10am--12pm.}
+\begin{itemize}
+\item Let $S={\vectors{v}{m}}$ be a set of $m$ vectors in $\R{n}$.
+
+\begin{itemize}
+\item $\mbox{Span}S$ is a subspace of $\R{n}$.
+
+\begin{itemize}
+\item $\dim(\mbox{Span}S)\leq m$. $\dim(\mbox{Span}S)$ (the \emph{dimension
+}of the span of $S$) is equal to the number of \uline{independent}
+vectors in $S$. 
+\item Note: $\mbox{Span}S\neq S$, $S$ is not necessarily a subspace (and
+usually is not). 
+\end{itemize}
+\item If $m<n$ then $\mbox{Span}S\neq\R{\mbox{n}}$ (too few vectors).
+\item If $m>n$ then $S$ is linearly dependent (more vectors than necessary).
+\item If $S$ is linearly independent \uline{and} $m=n$ then $S$ is a
+\emph{basis }for $\R{n}$. 
+\end{itemize}
+\item Let $R$ be the \emph{reduced row echelon form }of a $n\times n$
+matrix $A$.
+
+\begin{itemize}
+\item If $R$ (or $A$) has a row of zeros then $A$ is singular.
+\item If $R$ has a row of zeros then the system of linear equations $A\mathbf{x}=\mathbf{b}$
+has infinitely many solutions \uline{or} no solution ($A$ is singular).
+
+\begin{itemize}
+\item [\textbf{ex.}]$\begin{bmatrix}\begin{array}{rrr|r}
+1 & 0 & 4 & 5\\
+0 & 1 & 2 & 3\\
+0 & 0 & 0 & 0
+\end{array}\end{bmatrix}$ and $\begin{bmatrix}\begin{array}{rrr|r}
+1 & 0 & 4 & 0\\
+0 & 1 & 2 & 0\\
+0 & 0 & 0 & 0
+\end{array}\end{bmatrix}$ have infinitely many solutions.
+\item [\textbf{ex.}]$\begin{bmatrix}\begin{array}{rrr|r}
+1 & 0 & 4 & 5\\
+0 & 1 & 2 & 3\\
+0 & 0 & 0 & 2
+\end{array}\end{bmatrix}$ has no solution.
+\end{itemize}
+\item If $R$ reduces to the identity then $A\mathbf{x}=\mathbf{b}$ has
+a \uline{unique} solution ($A$ is nonsingular).
+
+\begin{itemize}
+\item [\textbf{ex.}]$\begin{bmatrix}\begin{array}{rrr|r}
+1 & 0 & 0 & 5\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 1
+\end{array}\end{bmatrix}$ and $\begin{bmatrix}\begin{array}{rrr|r}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0
+\end{array}\end{bmatrix}$ have unique solutions (a unique solution to $A\mathbf{x}=\mathbf{0}$
+is called a \emph{trivial} solution).
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\begin{multicols}{2}
+\begin{itemize}
+\item Let $A$ be an $n\times n$ matrix then $A$ is \emph{nonsingular}
+
+\begin{itemize}
+\item [$\iff$] $A$ reduces to the identity matrix
+\item [$\iff$] $A^{-1}$ exists ($A$ is invertible)
+\item [$\iff$]$A\mathbf{x}=\mathbf{b}$ has a unique solution.
+\item [$\iff$]$A\mathbf{x}=\mathbf{0}$ has a \emph{trivial solution} ($\mathbf{x}=\mathbf{0}$).
+\item [$\iff$] $\det A\neq0$\columnbreak
+\end{itemize}
+\item Let $A$ be an $n\times n$ matrix then $A$ is \emph{singular}
+
+\begin{itemize}
+\item [$\iff$] $A$ reduces to a matrix with a row of zeros.
+\item [$\iff$] $A^{-1}$ does not exists.
+\item [$\iff$]$A\mathbf{x}=\mathbf{b}$ has no or infinite solutions.
+\item [$\iff$]$A\mathbf{x}=\mathbf{0}$ has a \emph{non-trivial solution}
+($\mathbf{x}\neq\mathbf{0}$).
+\item [$\iff$] $\det A=0$
+\end{itemize}
+\end{itemize}
+\end{multicols}
+\begin{itemize}
+\item Let $A$ and $B$ be $n\times n$ matrices then
+
+\begin{itemize}
+\item $\det(AB)=\det(A)\det(B)$
+\item $\frac{1}{\det A}=\det(A^{-1})$ $\iff$ $\det A\neq0$ ($A^{-1}$
+is invertible)
+\item for an $A'$ obtained from $A$, $\det A=\lambda\det(A')$ for some
+nonzero $\lambda\in\mathbb{R}$ where the value of $\lambda$ can
+be found by using the properties of determinants.
+\item $\det A=\det B$ if $A$ and $B$ are similar. \newpage
+\end{itemize}
+\item Eigenvalues and Eigenvectors.
+
+\begin{itemize}
+\item $p_{A}(t)=\det(A-\lambda I_{n})=0$ $\iff$ $\lambda$ is an eigenvalue.
+\item $A$ and $B$ are \emph{similar} \emph{matrices} if $A=P^{-1}BP$.
+
+\begin{itemize}
+\item $\Rightarrow$ $\det A=\det B$. 
+\item $\Rightarrow$ $p_{A}(t)=p_{A}(t)$, i.e., similar matrices have the
+same eigenvalues.
+\end{itemize}
+\item $0$ is an eigenvalue of $A$ $\iff$$A$ is singular.
+\item If $A$ has distinct eigenvalues $\lambda_{1},\lambda_{2},\dots,\lambda_{n}$
+with corresponding eigenvectors $S=\vectors{v}{n}$, then $S$ is
+linearly independent and $A$ is diagonalizable (this is a sufficient
+but not necessary condition).
+\end{itemize}
+\item Linear transformations, $T\colon\R{\mbox{m}}\rightarrow\R{\mbox{n}}$.
+
+\begin{itemize}
+\item If $T$ is a linear transformation then there exists a \emph{standard
+}$m\times n$ \emph{matrix }$A$ such that $\mu_{A}\colon\R{\mbox{m}}\rightarrow\R{\mbox{n}}=T$.
+\item $T[\mathbf{x}]=\mathbf{y}$ is a function given by $A\mathbf{x}=\mathbf{y}$
+where $\mathbf{x}\in\R{\mbox{m}}$ and $\mathbf{y}\in\R{\mbox{n}}$.
+\item The $i^{\mbox{th}}$ column of a standard matrix will be $T\left[\mathbf{x}_{i}\right]$
+where $\mathbf{x}_{i}$ is the $i^{\mbox{th}}$vector in the standard
+basis for $\R{\mbox{m}}$.
+\end{itemize}
+\item Be able to compute the following:
+
+\begin{itemize}
+\item $\det A$ using cofactors and properties of matrices.
+\item $A^{-1}$.
+
+\begin{itemize}
+\item If $A=\begin{bmatrix}\begin{array}{rr}
+a & b\\
+c & d
+\end{array}\end{bmatrix}$ and $\det A\neq0$ then $A^{-1}=\begin{bmatrix}\begin{array}{rr}
+\frac{d}{ad-bc} & \frac{-b}{ad-bc}\\
+\frac{-c}{ad-bc} & \frac{a}{ad-bc}
+\end{array}\end{bmatrix}$.
+\item If $\det A\neq0$ and $\det B\neq0$ then $\left(\begin{bmatrix}\begin{array}{rr}
+A & \mathbf{0}\\
+\mathbf{0} & B
+\end{array}\end{bmatrix}\right)^{-1}=\begin{bmatrix}A^{-1} & \mathbf{0}\\
+\mathbf{0} & B^{-1}
+\end{bmatrix}$ (see ex 12 in section 2.3)
+\end{itemize}
+\item $p_{A}(t)$.
+\item the reduced row echelon form of $A$.
+\item the eigenvalues and eigenvectors for a given matrix.
+\end{itemize}
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,304 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,t]{beamer}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amssymb}
+\usepackage{cancel}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% this default might be overridden by plain title style
+\newcommand\makebeamertitle{\frame{\maketitle}}%
+% (ERT) argument for the TOC
+\AtBeginDocument{%
+  \let\origtableofcontents=\tableofcontents
+  \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+  \def\gobbletableofcontents#1{\origtableofcontents}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usetheme{Warsaw}
+% or ...
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+\setbeamercovered{invisible} %makes overlays invisible
+
+
+%gets rid of navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{4 on 1}[a4paper, landscape, border shrink=7mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{3}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{4}{border code=\pgfusepath{stroke}}
+%%%Don't forget to add 'handout'
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\newcommand{\xmax}{2000}
+\newcommand{\xmin}{0}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{500}
+\newcommand{\ymin}{0}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcounter{countEx} \setcounter{countEx}{0}
+\newcounter{countProb} \setcounter{countProb}{0}
+\resetcounteronoverlays{countEx} \resetcounteronoverlays{countProb}
+
+\newcommand{\ex}[3]{
+	\addtocounter{countEx}{1}
+	\only<#1-#2>{\begin{exampleblock} {Example \chNum.\secNum.\arabic{countEx}.} #3	\end{exampleblock}}
+}
+
+\newcommand{\prob}[4]{
+	\addtocounter{countProb}{1}
+	\only<#1-#2>{\begin{exampleblock} {Problem  \chNum.\secNum.\arabic{countProb}.\,#3} #4	\end{exampleblock}}
+}
+
+\beamerdefaultoverlayspecification{<+->}
+
+%%%%Chapter and Section numbers%%%%%
+\newcommand{\chNum}{1}
+\newcommand{\secNum}{2}
+\newcommand{\secTitle}{Linear Functons and Applications}
+
+\title[Section \chNum.\secNum: \secTitle]{Section \chNum.\secNum: \secTitle}
+
+\subtitle{Finite Mathematics~~MTH 132~~Spring 2014}
+
+\author{Dr.\,James Ashe}
+
+\titlegraphic{\includegraphics[height=1.5cm]{/home/jim/JamesAshe/JCSU/images/jcsu_bull}}
+
+\institute{Johnson C. Smith University}
+
+\date{{}}
+
+\makebeamertitle 
+\begin{frame}{Linear Functions and Applications}
+
+\begin{columns}
+
+
+\column{5.75cm}
+
+Linear functions are just linear equations.
+\begin{itemize}
+\item <2->Equations are functions.
+\item <3->Function notation is just substitution.
+\end{itemize}
+\ex{4}{}{Let $g(x)=-4x+2$. Find $g(2),g(-1),g(0),g(x+1)$.}
+
+\column{6cm}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}{Word Problems (Yay!)}
+
+\begin{block}{General Word Problem Strategies}
+
+\begin{enumerate}
+\item <2->Read the problem carefully. Identify a question (usually at the
+end).
+\item <3->Represent an \emph{unknown }with an $x$. 
+
+\begin{enumerate}
+\item <4->Write all other unknowns in terms of $x$.
+\end{enumerate}
+\item <5->Write an equation(s) relating $x$ to the \emph{known} values.
+\item <6->Solve the equation.
+\item <7->Use your solution to answer \emph{all }the questions.
+\item <8->Check!
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cost Function}
+
+\ex{1}{3}{The marginal cost of using a firm charges \$10 \textbf{per hour} plus a \textbf{flat rate} of \$50. Find the cost function, $C(x)$, of using this moving firm for $x$ hours.}
+
+\ex{4}{}{A moving firm charges \$10 \textbf{per hour } plus an additional \textbf{service charge} of \$50. Find the cost function, $C(x)$, of using this moving firm for $x$ hours.}
+\begin{itemize}
+\item <2->$C(x)=mx+b$, so find $m$ and $b$.
+\item <3->$m$ is the \emph{marginal cost}, and \emph{$b$ }is the \emph{fixed
+cost}.
+\item <4->\emph{maginal cost=cost per $x$=each $x$ costs}
+\end{itemize}
+\prob{5}{}{Find the cost function and identify all variables used.}{The internet site "Music.com" charges a \$10 registration fee plus 99 cents per song.}
+\end{frame}
+
+\begin{frame}{Revenue and Profit Function}
+
+A small publishing company has fixed costs of \$525, and can print
+a book for \$2. The same book sells for \$5 a piece.
+\begin{columns}
+
+
+\column{5.5cm}
+
+\ex{1}{1}{Find the cost function.}
+
+\ex{2}{2}{Find the revenue function.}
+
+\ex{3}{3}{Find the profit funciton.}
+
+\ex{4}{4}{How many books must be produced and sold in order to break even?}
+
+\ex{5}{5}{How many books must be produced and sold in order to make a profit of \$1,000?}
+\begin{block}<6->{Profit Funtion}
+$P(x)=R(x)-C(x)$
+\end{block}
+
+\column{6cm}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}{Revenue and Profit Function}
+
+A small publishing company has fixed costs of \$525, and can print
+a book for \$2. The same book sells for \$5 a piece.
+
+\renewcommand{\xmax}{600}
+\renewcommand{\xmin}{0}
+\renewcommand{\xstep}{0} %must be xmin+n
+\renewcommand{\ymax}{1200}
+\renewcommand{\ymin}{-600}
+\renewcommand{\ystep}{0} %must be ymin+n
+%%%%%%%
+\begin{tikzpicture} 
+\begin{axis}[height=5.5cm, width=5.5cm, axis lines=middle,minor x tick num={4},minor y tick num={4},grid=both,%xtick={0,50,...,250},%ytick={0,10,20,...,40},%axis line style={-latex}, 
+xmin=\xmin,xmax=\xmax, ymin=\ymin,ymax=\ymax,
+%restrict y to domain=-1:10,%no markers, 
+	xlabel={$q$},ylabel={$p$}, 
+	%every axis x label/.append style={anchor=north}, 
+	%every axis y label/.append style={anchor=east}
+	]
+  
+	\only<1-2>{\addplot[domain=\xmin:\xmax,thick,draw=red,->,color=red]{5*x} node[pos=.45,left] {$R(x)$};}
+	\only<2-2>{\addplot[domain=\xmin:\xmax,thick,draw=blue,color=blue,->]{525+2*x} node[pos=.75,above] {$C(x)$};}
+	\only<3->{\addplot[domain=\xmin:\xmax,thick,draw=blue,->]{5*x-525-2*x} node[pos=.7,above] {$P(x)$};}
+	%\only<9->{\addplot[color=blue,solid,mark=*,style={font=\footnotesize}] coordinates {(1,-1)} node[right] {$(1,-1)$};}
+	%\only<10->{\addplot[color=blue,solid,mark=*,style={font=\footnotesize}] coordinates {(2,1)} node[above,right] {$(2,1)$};}
+	
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Supply and Demand}
+
+\ex{1}{4}{Suppose that the demand and price for strawberries are related by \[ p=D(q)=5-0.25q \] Find the price at the level of demand of 0 and 400 quarts}
+
+\ex{5}{6}{Suppose that the supply and price for strawberries are related by \[ p=S(q)=0.25q \] Find the price at the level of supply of 0 and 400 quarts}
+\begin{itemize}
+\item <2-6>$p$ is the price (in dollars).
+\item <3-4>$q$ is the quantity \emph{demanded} (in hundereds of quarts).
+\item <4-4>$D(q)$ is price at which consumers will buy $q$ number of
+products.
+\item <5-6>$q$ is the quantity \emph{supplied }(in hundreds of quarts).
+\item <6-6>$S(q)$ is the price at which suppliers will produce $q$ number
+of products.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Supply and Demand}
+
+\ex{1}{}{Find the \emph{equilibrum quantity} for the supply, $S(q)=0.25q$, and demand, $D(q)=5-0.25q$ functions.}
+\begin{columns}
+
+
+\column{5.75cm}
+
+\vspace{-.5cm}
+%%%%%%%
+\begin{tikzpicture} 
+\begin{axis}[height=5.5cm, width=5.5cm, axis lines=middle,minor x tick num={4},minor y tick num={4},grid=both,%xtick={0,50,...,250},%ytick={0,10,20,...,40},%axis line style={-latex}, 
+xmin=\xmin,xmax=\xmax, ymin=\ymin,ymax=\ymax,
+%restrict y to domain=-1:10,%no markers, 
+	xlabel={$q$},ylabel={$p$}, 
+	%every axis x label/.append style={anchor=north}, 
+	%every axis y label/.append style={anchor=east}
+	]
+  
+	\only<2->{\addplot[domain=\xmin:\xmax,thick,draw=red,->]{.25*x} node[pos=.65,above] {$S(q)$};}
+	\only<3->{\addplot[domain=\xmin:\xmax,thick,draw=blue,->]{500-.25*x} node[pos=.65,above] {$D(q)$};}
+	%\only<9->{\addplot[color=blue,solid,mark=*,style={font=\footnotesize}] coordinates {(1,-1)} node[right] {$(1,-1)$};}
+	%\only<10->{\addplot[color=blue,solid,mark=*,style={font=\footnotesize}] coordinates {(2,1)} node[above,right] {$(2,1)$};}
+	
+\end{axis}
+\end{tikzpicture}
+
+\column{5.5cm}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}{Supply and Demand}
+
+\begin{columns}
+
+
+\column{5.5cm}
+
+\ex{1}{1}{Let the supply and demand functions for a gourmet choclate bar be $p=S(q)=\frac{5}{4}q$ and $p=D(q)=70-\frac{3}{4}q$, where $p$ is the price in dollars and $q$ is the number of bars. Find the equilibrium price and quantity.}
+
+\prob{2}{2}{}{Let the supply and demand functions for sugar be $p=S(q)=1.4q-0.6$ and $p=D(q)=-2q+3.2$, where $p$ is the price per pound in dollars and $q$ is quantity in thousands of pounds. Graph both functions on the same axes; find the equilibrium price and quantity.}
+
+\column{6cm}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}{Summary}
+
+\begin{block}{}
+
+\begin{enumerate}
+\item Cost function, $C(x)$.
+
+\begin{enumerate}
+\item Find the marginal and fixed cost.
+\item Find the cost function.
+\end{enumerate}
+\item Profit function, $P(x)=R(x)-C(x)$.
+
+\begin{enumerate}
+\item Find the profit function.
+\item Find the break even point.
+\item Find quantity needed to make a desired profit.
+\end{enumerate}
+\item Supply and Demand, $S(q)$ and $D(q)$.
+
+\begin{enumerate}
+\item Find the price for a given quantity of demand/supply.
+\item Find the equilibrium quantity.
+\item Find the equilibrium price.
+\end{enumerate}
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\end{document}

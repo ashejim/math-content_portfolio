@@ -1,0 +1,387 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{336}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\examType}{Exam 1}
+
+\renewcommand{\date}{\formatdate{20}{9}{2013}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} ~\date{}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\textbf{Name:\hspace{4cm}}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{Name:}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\setlist{topsep=.5pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\xmax}{0}
+\newcommand{\xmin}{-\xmax}
+\newcommand{\xstep}{0}
+\newcommand{\ymax}{0}
+\newcommand{\ymin}{-\ymax}
+\newcommand{\ystep}{0} 
+\newcommand{\dspace}{\vspace{1cm}}
+\newcommand{\xa}{0}
+\newcommand{\xb}{0}
+\newcommand{\ya}{1}
+\newcommand{\yb}{1}
+
+\newcommand{\xspace}{\vspace{1cm}}
+\newcommand{\width}{4cm}
+\newcommand{\height}{4cm}Show your work. 
+\begin{enumerate}
+\item {[}3 pts each{]} Let $\mathbf{x}=(1,2,2)$ and $\mathbf{y}=(3,0,2)$.
+
+\begin{enumerate}
+\item Find $\mathbf{x}-\mathbf{y}$.\xspace
+\item Find $\mathbf{x\cdot y}$.\xspace
+\item Find $\Vert\mathbf{y}\Vert$.\xspace
+\item Find a unit vector in the direction of $y$. \xspace
+\end{enumerate}
+\end{enumerate}
+\begin{enumerate}[resume]
+\item {[}3 pts each{]} Use the provided graph to sketch the following vectors.\begin{multicols}{3}
+
+\begin{enumerate}
+\item $-\frac{1}{2}\mathbf{y}$\\
+\renewcommand{\xa}{1}
+\renewcommand{\xb}{3}
+\renewcommand{\ya}{4}
+\renewcommand{\yb}{-1}\renewcommand{\xmax}{5}
+\renewcommand{\xmin}{-5}
+\renewcommand{\xstep}{0} %must be xmin+n
+\renewcommand{\ymax}{5}
+\renewcommand{\ymin}{-5}
+\renewcommand{\ystep}{0} %must be ymin+n
+%%%%%%%
+\begin{tikzpicture} 
+\begin{axis}[height=\height, 
+	width=\width, 
+	axis lines=middle,
+	%minor x tick num={0},
+	%minor y tick num={0},
+	%grid=both,
+	%xtick={0,50,...,250},
+	xtick=\empty,
+	%ytick={0,10,20,...,40},
+	ytick=\empty,
+	%axis line style={-latex}, 
+	xmin=\xmin,xmax=\xmax, 
+	ymin=\ymin,ymax=\ymax,
+	%restrict y to domain=-1:10,
+	%no markers, 
+	xlabel={$$},ylabel={$$}, 
+	%every axis x label/.append style={anchor=north}, 
+	%every axis y label/.append style={anchor=east}
+	]
+	
+	%\draw[red,thick,->] (axis cs:0,0) -- (axis cs:\ya,\yb);
+	\draw[blue,thick,->] (axis cs:0,0) -- (axis cs:\xa,\xb) node [right] {x};
+	\draw[blue,thick,->] (axis cs:0,0) -- (axis cs:\ya,\yb) node [below] {y};
+	
+	%%\addplot[color=red,solid,mark=*] coordinates {(-3,-4)};
+	%%\addplot[domain=\xmin:\xmax,thick,samples=100,draw=red,<->]{-(x-2)^2+5} [yshift=8pt] node[pos=0.7,right] {$g(x)$};
+	
+\end{axis}
+\end{tikzpicture}
+\end{enumerate}
+\begin{enumerate}[resume]
+\item $\mathbf{x}+\mathbf{y}$\\
+\renewcommand{\xa}{1}
+\renewcommand{\xb}{3}
+\renewcommand{\ya}{4}
+\renewcommand{\yb}{-1}\renewcommand{\xmax}{5}
+\renewcommand{\xmin}{-5}
+\renewcommand{\xstep}{0} %must be xmin+n
+\renewcommand{\ymax}{5}
+\renewcommand{\ymin}{-5}
+\renewcommand{\ystep}{0} %must be ymin+n
+%%%%%%%
+\begin{tikzpicture} 
+\begin{axis}[height=\height, 
+	width=\width, 
+	axis lines=middle,
+	%minor x tick num={0},
+	%minor y tick num={0},
+	%grid=both,
+	%xtick={0,50,...,250},
+	xtick=\empty,
+	%ytick={0,10,20,...,40},
+	ytick=\empty,
+	%axis line style={-latex}, 
+	xmin=\xmin,xmax=\xmax, 
+	ymin=\ymin,ymax=\ymax,
+	%restrict y to domain=-1:10,
+	%no markers, 
+	xlabel={$$},ylabel={$$}, 
+	%every axis x label/.append style={anchor=north}, 
+	%every axis y label/.append style={anchor=east}
+	]
+	
+	%\draw[red,thick,->] (axis cs:0,0) -- (axis cs:\ya,\yb);
+	\draw[blue,thick,->] (axis cs:0,0) -- (axis cs:\xa,\xb) node [right] {x};
+	\draw[blue,thick,->] (axis cs:0,0) -- (axis cs:\ya,\yb) node [below] {y};
+	
+	%%\addplot[color=red,solid,mark=*] coordinates {(-3,-4)};
+	%%\addplot[domain=\xmin:\xmax,thick,samples=100,draw=red,<->]{-(x-2)^2+5} [yshift=8pt] node[pos=0.7,right] {$g(x)$};
+	
+\end{axis}
+\end{tikzpicture}
+\item $\mathbf{x}-\mathbf{y}$\\
+\renewcommand{\xa}{1}
+\renewcommand{\xb}{3}
+\renewcommand{\ya}{4}
+\renewcommand{\yb}{-1}\renewcommand{\xmax}{5}
+\renewcommand{\xmin}{-5}
+\renewcommand{\xstep}{0} %must be xmin+n
+\renewcommand{\ymax}{5}
+\renewcommand{\ymin}{-5}
+\renewcommand{\ystep}{0} %must be ymin+n
+%%%%%%%
+\begin{tikzpicture} 
+\begin{axis}[height=\height, 
+	width=\width, 
+	axis lines=middle,
+	%minor x tick num={0},
+	%minor y tick num={0},
+	%grid=both,
+	%xtick={0,50,...,250},
+	xtick=\empty,
+	%ytick={0,10,20,...,40},
+	ytick=\empty,
+	%axis line style={-latex}, 
+	xmin=\xmin,xmax=\xmax, 
+	ymin=\ymin,ymax=\ymax,
+	%restrict y to domain=-1:10,
+	%no markers, 
+	xlabel={$$},ylabel={$$}, 
+	%every axis x label/.append style={anchor=north}, 
+	%every axis y label/.append style={anchor=east}
+	]
+	
+	%\draw[red,thick,->] (axis cs:0,0) -- (axis cs:\ya,\yb);
+	\draw[blue,thick,->] (axis cs:0,0) -- (axis cs:\xa,\xb) node [right] {x};
+	\draw[blue,thick,->] (axis cs:0,0) -- (axis cs:\ya,\yb) node [below] {y};
+	
+	%%\addplot[color=red,solid,mark=*] coordinates {(-3,-4)};
+	%%\addplot[domain=\xmin:\xmax,thick,samples=100,draw=red,<->]{-(x-2)^2+5} [yshift=8pt] node[pos=0.7,right] {$g(x)$};
+	
+\end{axis}
+\end{tikzpicture}
+\end{enumerate}
+\end{multicols}
+\item {[}5 pts each{]} Give Cartesian equations of the given hyperplanes.
+
+\begin{enumerate}
+\item The hyperplane in $\mathbb{R^{\mbox{2}}}$ passing through $(1,1)$
+and orthogonal to the line $\mathbf{x}=(0,2)+t(2,1)$\vfill
+\end{enumerate}
+\begin{enumerate}[resume]
+\item The hyperplane in $\mathbb{R}^{\mbox{3}}$ which contains the point
+$(0,1,0)$ and has normal vector $(1,2,1)$.\vfill\newpage
+\end{enumerate}
+\item Consider the matrix,
+\[
+A=\begin{bmatrix}\begin{array}{rrrr}
+0 & 1 & 0 & 2\\
+2 & 0 & 0 & 2\\
+0 & 1 & 2 & 1
+\end{array}\end{bmatrix}
+\]
+
+\begin{enumerate}
+\item {[}4 pts{]} Find the reduced echelon form of $A$.
+\end{enumerate}
+\begin{enumerate}[resume]
+\item {[}4pts{]} Give the general solution of $A\mathbf{x}=\mathbf{0}$
+in \emph{standard }form.
+\item {[}2 pts{]} Is the reduced echelon form of any matrix unique? i.e.,
+if two different people compute the reduced echelon form of the same
+matrix, will they always arrive at the exact same result?\newpage
+\end{enumerate}
+\item Consider the system of equations 
+\[
+\begin{array}{rrrr}
+x_{1} &  & +x_{3} & =3\\
+ & x_{2} & +2x_{3} & =1\\
+ & 2x_{2} & +4x_{3} & =2
+\end{array}
+\]
+
+\begin{enumerate}
+\item {[}2 pts{]} Express the system as an augmented matrix.
+\item {[}4 pts{]} Find the reduced echelon form of this augmented matrix.
+\item {[}4 pts{]} Give the general solution to the system of equations.
+\newpage
+\end{enumerate}
+\item {[}3 pts each{]} Consider the matrices 
+\[
+A=\begin{bmatrix}2 & 0 & -2\\
+0 & 0 & 0\\
+0 & 1 & 0
+\end{bmatrix}\mbox{ and }\mathbf{b}=\begin{bmatrix}\begin{array}{r}
+1\\
+1\\
+1
+\end{array}\end{bmatrix}
+\]
+
+\begin{enumerate}
+\item How many solutions does the system of equations represented by $A\mathbf{x}=\mathbf{b}$
+have?\xspace\xspace
+\end{enumerate}
+\begin{enumerate}[resume]
+\item What is the \emph{rank }of $A$?\xspace
+\item How many constraints does the solutions of $A\mathbf{x}=\mathbf{b_{1}}$
+have if 
+\[
+\mathbf{b_{1}}=\begin{bmatrix}\begin{array}{r}
+b_{1}\\
+b_{2}\\
+b_{3}
+\end{array}\end{bmatrix}
+\]
+\end{enumerate}
+\item Complete the following
+
+\begin{enumerate}
+\item {[}2 pts{]} Suppose that the vectors $\mathbf{v_{1}}$, $\mathbf{v_{2}}$,
+and $\mathbf{v_{3}}$ span the hyperplane $\mathcal{H}$, and $\mathbf{w}=2\mathbf{v_{1}}-\mathbf{v_{2}}+3\mathbf{v_{3}}$.
+Is $\mathbf{w}$ in $\mathcal{H}$? \xspace
+\end{enumerate}
+\begin{enumerate}[resume]
+\item {[}2 pts{]} Suppose that the $n\times n$ matrix $A$ is nonsingular.
+Does $A\mathbf{x}=\mathbf{b}$ have a solution? If so, is it unique?
+(Recall that nonsingular means that the reduced echelon form of the
+matrix does not have a row with all zeros.) \xspace
+\item {[}2 pts{]} Let $\mathbf{x}$ and $\mathbf{y}$ be vectors shown in
+the figure below. Does $\mathbf{x}=\mathbf{y}$?\\
+\renewcommand{\xa}{1}
+\renewcommand{\xb}{3}
+\renewcommand{\ya}{3}
+\renewcommand{\yb}{5}\renewcommand{\xmax}{6}
+\renewcommand{\xmin}{-1}
+\renewcommand{\xstep}{0} %must be xmin+n
+\renewcommand{\ymax}{6}
+\renewcommand{\ymin}{-1}
+\renewcommand{\ystep}{0} %must be ymin+n
+%%%%%%%
+\begin{tikzpicture} 
+\begin{axis}[height=\height, 
+	width=\width, 
+	axis lines=middle,
+	%minor x tick num={0},
+	%minor y tick num={0},
+	%grid=both,
+	%xtick={0,50,...,250},
+	xtick=\empty,
+	%ytick={0,10,20,...,40},
+	ytick=\empty,
+	%axis line style={-latex}, 
+	xmin=\xmin,xmax=\xmax, 
+	ymin=\ymin,ymax=\ymax,
+	%restrict y to domain=-1:10,
+	%no markers, 
+	xlabel={$$},ylabel={$$}, 
+	%every axis x label/.append style={anchor=north}, 
+	%every axis y label/.append style={anchor=east}
+	]
+	
+	%\draw[red,thick,<-] (axis cs:0,0) -- (axis cs:\ya,\yb);
+	\draw[red,thick,->] (axis cs:0,0) -- (axis cs:\xa,\xb) node [right] {x};
+	\draw[blue,thick,->] (axis cs:2,2) -- (axis cs:\ya,\yb) node [right] {y};
+	
+	%%\addplot[color=red,solid,mark=*] coordinates {(-3,-4)};
+	%%\addplot[domain=\xmin:\xmax,thick,samples=100,draw=red,<->]{-(x-2)^2+5} [yshift=8pt] node[pos=0.7,right] {$g(x)$};
+	
+\end{axis}
+\end{tikzpicture}
+\item {[}4 pts{]} Let 
+\[
+A=\begin{bmatrix}\begin{array}{rr}
+0 & 1\\
+2 & 3
+\end{array}\end{bmatrix}\mbox{ and }B=\begin{bmatrix}\begin{array}{rr}
+2 & 2\\
+2 & 2
+\end{array}\end{bmatrix}\mbox{.}
+\]
+Find $A+B$.\xspace\xspace
+\end{enumerate}
+\item {[}Bonus{]} Prove that $n\times n$ matrices have an identity element
+under matrix addition and multiplication, i.e., that given any $n\times n$
+matrix $A$ there exists a matrix $B$ and $C$ such that $A+B=A$
+and $AC=A$. \vfill
+\end{enumerate}
+
+\end{document}

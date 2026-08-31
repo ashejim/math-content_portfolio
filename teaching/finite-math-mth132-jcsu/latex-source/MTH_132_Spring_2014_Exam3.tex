@@ -1,0 +1,245 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{calc}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{132}
+
+\newcommand{\classSec}{C and K}
+
+\newcommand{\nameType}{Name:}
+
+\newcommand{\examType}{Practice Exam 3}
+
+\renewcommand{\date}{\formatdate{1}{4}{2014}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\xmax}{10}
+\newcommand{\xmin}{-10}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{10}
+\newcommand{\ymin}{-10}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcommand{\xspace}{\vspace{1.5cm}}
+
+\textbf{\xspace}
+
+\subsection*{\center{Formula Sheet}}
+
+\noindent\begin{minipage}[t]{1\columnwidth}%
+\begin{center}
+\begin{tabular}{llll}
+$P=$principal/present value & $r=$annual interest rate & $m=$compoundings per year & $n=tm$\tabularnewline
+$A=$future/maturity value & $t=$number of years & $i=\nicefrac{r}{m}=$rate per period & $r_{E}=$effective rate\tabularnewline
+\end{tabular}
+\par\end{center}%
+\end{minipage}
+
+\noindent\fcolorbox{black}{white}{\begin{minipage}[t]{1\columnwidth - 2\fboxsep - 2\fboxrule}%
+\begin{center}
+\begin{tabular}{lclcl}
+\textbf{Simple Interest} &  & \textbf{Compound Interest} &  & \textbf{Continuous Compounding}\tabularnewline
+\midrule
+$A=P(1+rt)$ &  & $A=P(1+i)^{n}$ &  & $A=Pe^{rt}$\tabularnewline
+$P=\frac{A}{1+rt}$ &  & $P=A(1+i)^{-n}$ &  & $P=Ae^{-rt}$\tabularnewline
+ &  & $r_{E}=\left(1+\frac{r}{m}\right)^{m}-1$ &  & $r_{E}=e^{r}-1$\tabularnewline
+\end{tabular}
+\par\end{center}%
+\end{minipage}}
+
+\xspace%
+\noindent\begin{minipage}[t]{1\columnwidth}%
+\begin{center}
+\begin{tabular}{lll}
+$R=$periodic payment & $P=$present value of annuity & $n=$number of periods\tabularnewline
+$S=$future value &  & $i=$rate per period\tabularnewline
+\end{tabular}
+\par\end{center}%
+\end{minipage}
+
+\noindent\fcolorbox{black}{white}{\begin{minipage}[t]{1\columnwidth - 2\fboxsep - 2\fboxrule}%
+\begin{center}
+\begin{tabular}{lcl}
+\textbf{Future Value of an Annuity} &  & \textbf{Sinking Fund Payment}\tabularnewline
+\midrule
+$S=R\left[\frac{\left(1+i\right)^{n}-1}{i}\right]$ &  & $R=\frac{S\cdot i}{(1+i)^{n}-1}$\tabularnewline
+\end{tabular}
+\par\end{center}%
+\end{minipage}}
+
+\noindent\fcolorbox{black}{white}{\begin{minipage}[t]{1\columnwidth - 2\fboxsep - 2\fboxrule}%
+\begin{center}
+\begin{tabular}{ll}
+\textbf{Present Value of an Annuity} & \textbf{Amortization Payments}\tabularnewline
+\midrule
+$P=R\left[\frac{1-\left(1+i\right)^{-n}}{i}\right]$ & $R=\frac{P}{\left[1-(1+i)^{-n}\right]}$\tabularnewline
+\end{tabular}
+\par\end{center}%
+\end{minipage}}
+
+\xspace
+
+\begin{center}
+\textbf{Ti-83/84 }
+\par\end{center}
+
+\begin{center}
+\begin{tabular}{rl}
+\textbf{N} & : number of payments\tabularnewline
+${\tt I\%}$ & : interest rate\tabularnewline
+${\tt PV}$ & : present value\tabularnewline
+${\tt PMT}$ & : payment size\tabularnewline
+${\tt FV}$ & : future value\tabularnewline
+${\tt P/Y}$ & : payments per year\tabularnewline
+${\tt C/Y}$ & : compoundings per year\tabularnewline
+\end{tabular}
+\par\end{center}
+
+\emph{\newpage}
+
+\emph{You must show work to receive credit.}
+
+\textbf{Find the simple interest AND the future value of the loan. }
+\begin{enumerate}[resume]
+\item \$1000 at 4.25\% for 6 months.\vfill
+\end{enumerate}
+\textbf{Find the compound amount for the given deposit and the amount
+of interest earned.}
+\begin{enumerate}[resume]
+\item \$2500 at 6.01\% compounded monthly for 38 months.\vfill
+\end{enumerate}
+\textbf{Find the amount that should be invested now to accumulate
+the following amount, if the money is compounded as indicated.}
+\begin{enumerate}[resume]
+\item \$6200 at $9.5\%$ compounded quarterly for 29 months.\vfill
+\end{enumerate}
+\textbf{Solve}
+\begin{enumerate}[resume]
+\item A company will need \$100,000 in 9 years for a new building. To meet
+this goal the CFO will invest money into an account paying 9\% annual
+interest rate compounded quarterly. How much money needs to be invested
+into the account?\vfill
+\item You place \$1500 into an account which pays 5\% compounded daily.
+How much money will be in the account after 800 days? Assume that
+there are 360 days in a year and 30 days in a month.\vfill\newpage
+\end{enumerate}
+\textbf{Find the future value of each ordinary annuity, if payments
+are made and interest is compounded as given. Then determine how much
+of this value is from interest.}
+\begin{enumerate}[resume]
+\item $R=\$3,250$ (payments); $11\%$ interest compounded semi-annually
+for 7 years.\vfill
+\end{enumerate}
+\textbf{Determine the interest rate needed to accumulate the following
+amounts in a sinking fund, with payments as given. }
+\begin{enumerate}[resume]
+\item Accumulate \$56,000, monthly payments of \$300 over 12 years.\vfill
+\end{enumerate}
+\textbf{Find the periodic payment that will amount to each given sum
+under the given conditions. }
+\begin{enumerate}[resume]
+\item $S=\$100,000$; interest is 5\% compounded annually; payments are
+made at the end of each year for 12 years. \vfill
+\end{enumerate}
+\textbf{Find the future value of each ordinary annuity, if payments
+are made and interest is compounded as given. Then determine how much
+of this value is from interest.}
+\begin{enumerate}[resume]
+\item Payments of $\$800$ into an account paying 6.51\% interest compounded
+quarterly for 12 years. \vfill
+\end{enumerate}
+\textbf{Determine the interest rate needed to accumulate the following
+amounts in a sinking fund, with payments as given. }
+\begin{enumerate}[resume]
+\item Accumulate \$56,000, monthly payments of \$300 over 12 years.\vfill
+\end{enumerate}
+\textbf{Find the present value of each ordinary annuity.}
+\begin{enumerate}[resume]
+\item Payments of \$100 each month for 10 years at 8.5\%.\vfill
+\end{enumerate}
+\textbf{Find the monthly house payments necessary to amortize each
+loan. Then calculate the total payments and the total amount of interest
+paid. }
+\begin{enumerate}[resume]
+\item \$175,000 at 6.24\% for 30 years.\vfill
+\end{enumerate}
+
+\end{document}

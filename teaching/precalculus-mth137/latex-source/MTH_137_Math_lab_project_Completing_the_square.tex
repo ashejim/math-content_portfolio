@@ -1,0 +1,146 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,english]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsthm}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{enumitem}
+\usepackage{ifthen}
+\usepackage{lastpage}
+%sets math fonts to be more readable
+%\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{titlepic}
+\usepackage{graphicx}
+\usepackage{lineno}
+\usepackage{hyperref}
+%allows header and footer on titlepage by redefining the plain pagestyle issued by \maketitle to be fancy
+%\makeatletter
+%\let\ps@plain\ps@fancy
+%\makeatother
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{xcolor} %adds additional color options
+\hypersetup{colorlinks=true, urlcolor=Blue, linkcolor=Blue, citecolor=Blue}
+\usepackage{url}
+% Added by lyx2lyx
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{137}
+
+\newcommand{\classSec}{all sections}
+
+\newcommand{\nameType}{Math Lab Project}
+
+\newcommand{\examType}{}
+
+\renewcommand{\date}{}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{} \textbf{\examType{}} \date{}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\textbf{\nameType}}
+	\setlength{\headsep}{5pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\setlist{itemsep=2pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\renewcommand{\labelenumiii}{\textbf{\roman{enumiii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\*
+
+\section*{Completing the Square}
+\begin{enumerate}
+\item Using cardboard or poster board, construct a square.
+
+\begin{enumerate}
+\item The square should be large enough for a presentation.
+\item Label each side $x$. 
+\item Write $x^{2}$ in the center. This is the area of the square.\vfill
+\end{enumerate}
+\item Construct a rectangle with length $x$ (same as the square from step
+1) and width $b$. 
+
+\begin{enumerate}
+\item $b$ can be any width you like, but it would be best if $b$ was between
+a third to one-half of $x$.
+\item Write $bx$ in the center of the rectangle. This is the area of the
+rectangle.\vfill
+\end{enumerate}
+\item Explain how the square and rectangle represent $x^{2}+bx$.\vfill
+\item Make an exact copy of the rectangle ``$bx$'' (from step 2).
+
+\begin{enumerate}
+\item Cut this rectangle in half.
+\item Label the sides of both of these rectangles with $\nicefrac{b}{2}$
+and $x$ appropriately. \vfill
+\end{enumerate}
+\item Arrange the ``$x^{2}$'' square and the two ``$\nicefrac{b}{2}$''
+rectangles as follows:
+
+\begin{enumerate}
+\item Place one of the ``$\nicefrac{b}{2}$'' rectangles so that its side
+of length $x$ is paired with a side of the ``$x^{2}$'' square
+(this will form a rectangle).
+\item Next place the other ``$\nicefrac{b}{2}$'' rectangle so that it
+is orthogonal to the other ``$\nicefrac{b}{2}$'' rectangle and
+also paired with a side of the ``$x^{2}$'' square (this will look
+like a big square with a little square corner missing).\vfill
+\end{enumerate}
+\item Make a little square that will fit into the missing corner in the
+above step. 
+
+\begin{enumerate}
+\item Place this little square into the above step to ``complete the square''.
+The result should be a big square.
+\item This little square has an area of $\left(\nicefrac{b}{2}\right)^{2}$;
+explain.\vfill
+\end{enumerate}
+\item Determine the area of the big square from the above step.\vfill
+\item Explain how the steps above relate to the equation: $x^{2}+bx+\left(\nicefrac{b}{2}\right)^{2}=\left(x+\nicefrac{b}{2}\right)^{2}$.\vfill
+\item Relate how the concepts in the above steps can be used to write $x^{2}+6x+7$
+in the form $\left(x+3\right)^{2}-2$.\vfill
+\item Write an essay or prepare a presentation explaining the steps above.
+Show all your work and include the shapes from steps 1-4.\vfill
+\end{enumerate}
+
+\end{document}

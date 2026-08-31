@@ -1,0 +1,263 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{336}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\examType}{Final Exam}
+
+\newcommand{\nameType}{Name:}
+
+\renewcommand{\date}{\formatdate{4}{12}{2013}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} ~\date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\fancyhead[R]{}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\setlist{topsep=.5pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\xmax}{0}
+\newcommand{\xmin}{-\xmax}
+\newcommand{\xstep}{0}
+\newcommand{\ymax}{0}
+\newcommand{\ymin}{-\ymax}
+\newcommand{\ystep}{0} 
+\newcommand{\dspace}{\vspace{1cm}}
+\newcommand{\xa}{0}
+\newcommand{\xb}{0}
+\newcommand{\ya}{1}
+\newcommand{\yb}{1}
+
+\newcommand{\xspace}{\vspace{.5cm}}
+\newcommand{\Xspace}{\vspace{1cm}}
+
+\newcommand{\vectors}[2]{\textbf{#1}_{1},\textbf{#1}_{2},\dots,\textbf{#1}_{#2}}
+\newcommand{\vectorsN}[1]{\textbf{#1}_{1},\textbf{#1}_{2},\dots,\textbf{#1}_{n}}
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+\newcommand{\mc}[1]{[\textbf{(#1.)}]}
+
+%\newcounter{probs}
+
+%%for multiple choice
+%\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{(\Alph{enumii}})}
+
+\textbf{Work must be shown to receive credit. All problems are of
+equal value.}
+\begin{enumerate}[resume]
+\item Let ${\vectors{v}{n+1}}$ be a set of $n+1$ vectors in $\mathbb{R^{\mbox{n}}}$.
+The which of the following is true? Explain.
+
+\begin{enumerate}[resume]
+\item ${\vectors{v}{n+1}}$ is a basis for $\mathbb{R}^{\mbox{n}}$.
+\item ${\vectors{v}{n+1}}$ is linearly independent.
+\item ${\vectors{v}{n+1}}$ is linearly dependent .
+\item The Span$(\vectors{v}{n+1})$ is not a subspace of $\mathbb{R}^{\mbox{n}}$.\Xspace
+\end{enumerate}
+\item If the reduced row echelon form of a system is $\begin{bmatrix}\begin{array}{rrr|r}
+1 & 0 & 3 & 29\\
+0 & 1 & 1 & 8\\
+0 & 0 & 0 & 0
+\end{array}\end{bmatrix}$. Then the system has,
+
+\begin{enumerate}
+\item a unique solution.
+\end{enumerate}
+\begin{enumerate}[resume]
+\item no solution.
+\item infinitely many solutions.
+\item two solutions.\xspace
+\end{enumerate}
+\item If the \emph{reduced row echelon form} of the augmented matrix of
+a system of linear equations has a leading coefficient 1 in the last
+column then the system has:
+
+\begin{enumerate}
+\item a unique solution.
+\end{enumerate}
+\begin{enumerate}[resume]
+\item no solution.
+\item infinitely many solutions.
+\item none of the above.\xspace
+\end{enumerate}
+\item If $\det A=6$ and $AB=\begin{bmatrix}\begin{array}{rrr}
+-2 & 0 & 0\\
+3 & -1 & 0\\
+1 & 5 & 1
+\end{array}\end{bmatrix}$ find $\det B$.\vfill
+\item Let $A=\begin{bmatrix}\begin{array}{rrr}
+1 & 2 & -1\\
+-1 & 3 & 2\\
+0 & 2 & 1
+\end{array}\end{bmatrix}.$ Find the characteristic polynomial of $A$.\vfill
+\end{enumerate}
+\newpage
+\begin{enumerate}[resume]
+\item Let $A'$ be the reduced row echelon form of a matrix $A$. Then which
+of the following is true.
+
+\begin{enumerate}
+\item $\det A=\det A'$
+\end{enumerate}
+\begin{enumerate}[resume]
+\item $\det A=\pm\det A'$
+\item $\det A=\lambda\det A'$ for some nonzero scalar $\lambda$.
+\item $\det A$ and $\det A'$ are unrelated.\xspace
+\end{enumerate}
+\item Let $A$, $B$, and $C$ be three matrices such that $AB=CA$ and
+$A$ is invertible. Then,
+
+\begin{enumerate}
+\item $\det B=\det C$
+\end{enumerate}
+\begin{enumerate}[resume]
+\item $\det B=\pm\det C$
+\item $\det B=-\det C$
+\item $\det B$ and $\det C$ are unrelated. \xspace
+\end{enumerate}
+\item Let $A$ be an $m\times n$ real matrix. Then the function $T[\mathbf{x}]=A\mathbf{x}$
+is 
+
+\begin{enumerate}
+\item a linear map from $\R{m}$ to $\R{n}$.
+\end{enumerate}
+\begin{enumerate}[resume]
+\item a non-linear map from $\R{m}$ to $\R{n}$.
+\item a linear map from $\R{n}$ to $\R{m}$.
+\item not a function.\xspace
+\end{enumerate}
+\item Let $A=\begin{bmatrix}\begin{array}{rrr}
+1 & 4 & 7\\
+2 & 5 & 8\\
+3 & 6 & 9
+\end{array}\end{bmatrix}.$ Then which of the following is true.
+
+\begin{enumerate}
+\item $A$ is singular.
+\end{enumerate}
+\begin{enumerate}[resume]
+\item $A$ is invertible and $A^{-1}=\begin{bmatrix}\begin{array}{rrr}
+1 & \nicefrac{1}{4} & \nicefrac{1}{7}\\
+\nicefrac{1}{2} & \nicefrac{1}{5} & \nicefrac{1}{8}\\
+\nicefrac{1}{3} & \nicefrac{1}{6} & \nicefrac{1}{9}
+\end{array}\end{bmatrix}$.
+\item $\det A=1$.
+\item $\det A=9$.\vfill
+\end{enumerate}
+\item Let $\mathbf{v}=(3,-2,4)$, $\mathbf{w}=(-3,2,-4)$, and $\mathbf{u}=(-6,4-8)$
+be three vectors in $\R{n}$. Find the dimension of $\mbox{Span}(\mathbf{v},\mathbf{w},\mathbf{u})$
+and explain your answer.\vfill
+\end{enumerate}
+\newpage
+\begin{enumerate}[resume]
+\item Let $A$ be an $n\times n$ real matrix. If the equation $A\mathbf{x}=\mathbf{0}$
+has a trivial solution then, 
+
+\begin{enumerate}
+\item $A$ is invertible.
+\end{enumerate}
+\begin{enumerate}[resume]
+\item $A$ is singular.
+\item the system has infinitely many solutions.
+\item none of the above.\xspace
+\end{enumerate}
+\item Let $A$ be a matrix with $\det A=3$. 
+
+\begin{enumerate}
+\item $\det(A^{-1})=\nicefrac{1}{3}$
+\end{enumerate}
+\begin{enumerate}[resume]
+\item $\det(A^{-1})=\nicefrac{1}{3^{2}}$
+\item $\det(A^{-1})$ is undefined because $A^{-1}$ might not exist.
+\item $\det(A^{-1})$ and $\det A$ are unrelated.\xspace
+\end{enumerate}
+\item Let $A=\begin{bmatrix}\begin{array}{rrrr}
+1 & 0 & 0 & 0\\
+10 & 2 & 0 & 0\\
+-7 & -1 & 3 & 0\\
+25 & 5 & 11 & 5
+\end{array}\end{bmatrix}$ find $\det A$.\vfill
+\item Let $A=\begin{bmatrix}\begin{array}{rr}
+5 & 2\\
+7 & 3
+\end{array}\end{bmatrix}$. Find $A^{-1}$ if it exists.\vfill
+\item Find the inverse of the matrix $A=\begin{bmatrix}\begin{array}{rrrr}
+4 & -3 & 0 & 0\\
+-5 & 4 & 0 & 0\\
+0 & 0 & 3 & -2\\
+0 & 0 & 5 & -3
+\end{array}\end{bmatrix}$ if it exists. \vfill
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,277 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}[section]
+\theoremstyle{definition}
+\newtheorem{xca}[thm]{\protect\exercisename}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\exercisename}{Exercise}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{439}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{solutions}
+
+\newcommand{\examType}{Homework 5}
+
+\newcommand{\Date}{\formatdate{6}{2}{2014}} %%\AdvanceDate[12] \today
+
+%\newdate{my_date}{\day}{\month}{\year}%   
+%\AdvanceDate[-5] 
+%\displaydate{my_date}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \Date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+%\setlist{nolistsep} %eliminates space between list items
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\null
+
+\vspace{1cm}
+
+\setcounter{section}{3}
+
+\Large{\textbf{Chapter 3}} \large
+
+\textbf{\textbf{\examType} due: \formatdate{10}{4}{2014}}
+
+\setcounter{thm}{13}
+
+All problems \uline{without }a $\bigstar$ from section 4.1; exercises
+3.14-3.19. 
+\begin{xca}
+$\bigstar$
+\end{xca}
+
+\begin{xca}
+Give two examples of elements in $\mbox{\ensuremath{\mathbb{Z}}}/4\mathbb{Z}=\mathbb{Z}/\left\langle 4\right\rangle $,
+and add and multiply them.
+
+\begin{proof}
+Possible elements are $0+\left\langle 4\right\rangle =\left\langle 4\right\rangle $,
+$1+\left\langle 4\right\rangle $, $2+\left\langle 4\right\rangle $,
+$3+\left\langle 4\right\rangle $. 
+
+\begin{itemize}
+\item $a+\left\langle 4\right\rangle =\left\{ \dots,a-4,0+a,4+a,8+a,\dots\right\} $ 
+\end{itemize}
+\end{proof}
+Take $1+\left\langle 4\right\rangle $ and $2+\left\langle 4\right\rangle $.
+\[
+\left(1+\left\langle 4\right\rangle \right)\oplus\left(2+\left\langle 4\right\rangle \right)=\left(1+2\right)+\left\langle 4\right\rangle =3+\left\langle 4\right\rangle =1+\left\langle 4\right\rangle 
+\]
+\[
+\left(1+\left\langle 4\right\rangle \right)\otimes\left(2+\left\langle 4\right\rangle \right)=2+\left\langle 4\right\rangle 
+\]
+
+\end{xca}
+
+\begin{xca}
+Find all the distinct cosets of $\mbox{\ensuremath{\mathbb{Z}}}/4\mathbb{Z}$.
+
+\begin{proof}
+Recall that $\mathbb{Z}/\left\langle 4\right\rangle \cong\mathbb{Z}_{4}$
+so it has $4$ elements. From above they are $0+\left\langle 4\right\rangle =\left\langle 4\right\rangle $,
+$1+\left\langle 4\right\rangle $, $2+\left\langle 4\right\rangle $,
+$3+\left\langle 4\right\rangle $. 
+
+To see that they are distinct note that $4\nmid a-b$ for any $0\leq a,b\leq3$
+since then $a-b<4$. 
+\end{proof}
+\end{xca}
+
+\begin{xca}
+Let $S=\left\{ a+bi\colon b\in2\mathbb{Z}\right\} $ ($b$ is even
+and $i=\sqrt{-i}$). Prove that $S$ is a subring of $\mathbb{Z}[i]$
+but that $S$ is not an ideal of $\mathbb{Z}[i]$. 
+
+\begin{proof}
+Let $a+2ni,a'+2mi\in S$ for some $a,a',n,m\in\mathbb{Z}$. Using
+the subring test, 
+\[
+(a+2ni)-(a'+2mi)=(a-a')+2(n-m)i\in S
+\]
+ and 
+\[
+(a+2ni)(a'+2mi)=aa'+2ami+2ani-2nm=(aa'-2nm)+2(m+n)i\in S
+\]
+so $S$ is a ring.
+
+To show that $S$ is not an ideal in $\mathbb{Z}[x]$ consider $1+2i\in S$
+and $1+i\in\mathbb{Z}[x]$. 
+\[
+\left(1+2i\right)\left(1+i\right)=2+2i+i-2=0+3i\notin S\mbox{.}
+\]
+\end{proof}
+\end{xca}
+
+-
+
+\begin{xca}
+Let $S=\left\{ a+bi\colon b\in2\mathbb{Z}\right\} $ ($b$ is even
+and $i=\sqrt{-i}$). Prove that $\mathbb{Z}[i]/S$ is not a ring.
+
+\begin{proof}
+By exercise 3.4 $S$ is not an ideal. So by theorem 4.3 $\mathbb{Z}[i]/S$
+is not a ring. 
+\end{proof}
+\end{xca}
+
+\begin{xca}
+Prove that $\mathbb{R}[x]/\left\langle x^{2}+1\right\rangle $ is
+a ring. (We know that the ring of polynomials with integer coefficients,
+$\mathbb{R}[x]$, is a ring).
+
+\begin{proof}
+By theorem 3.4 we need only show that $\left\langle x^{2}+1\right\rangle $
+is an ideal. If $g_{1}(x),g_{2}(x)\in\left\langle x^{2}+1\right\rangle $
+then $g_{1}(x)=(x^{2}+1)f_{1}(x)$ and $g_{2}(x)=(x^{2}+1)f_{2}(x)$
+for some $f_{1}(x),f_{2}(x)\in\mathbb{R}[x]$. Using the ideal test,
+\begin{eqnarray*}
+g_{1}(x)-g_{2}(x) & = & (x^{2}+1)f_{1}(x)-(x^{2}+1)f_{2}(x)\\
+ & = & (x^{2}+1)\left(f_{1}(x)-f_{2}(x)\right)\in\left\langle x^{2}-1\right\rangle 
+\end{eqnarray*}
+and for any $h(x)\in\mathbb{R}[x]$,
+\[
+h(x)g_{1}(x)=g_{1}(x)h(x)=h(x)\left((x^{2}+1\right)f_{1}(x)=h(x)f_{1}(x)(x^{2}+1)\in\left\langle x^{2}+1\right\rangle 
+\]
+so $\left\langle x^{2}+1\right\rangle $ is an ideal which implies
+that $\mathbb{R}[x]/\left\langle x^{2}+1\right\rangle $ is a ring
+by the theorem. 
+\end{proof}
+\end{xca}
+
+\begin{xca}
+Give two examples of elements in $\mbox{\ensuremath{\mathbb{Z}}}[i]/\left\langle 2-i\right\rangle $,
+and add and multiply them.
+
+\begin{proof}
+$1+\left\langle 2-i\right\rangle $ and $(2+i)+\left\langle 2-i\right\rangle $
+are two elements in the factor ring $\mathbb{Z}[i]/\left\langle 2-i\right\rangle $.
+\[
+\left[1+\left\langle 2-i\right\rangle \right]\oplus\left[(2+i)+\left\langle 2-i\right\rangle \right]=(3+i)+\left\langle 2-i\right\rangle 
+\]
+and 
+\[
+\left[1+\left\langle 2-i\right\rangle \right]\left[(2+i)+\left\langle 2-i\right\rangle \right]=(2+i)+\left\langle 2-i\right\rangle .
+\]
+\end{proof}
+\begin{itemize}
+\item Note that $2-i\equiv0\bmod\left\langle 2-i\right\rangle $ so then
+$2\equiv i$, and $(2+i)+\left\langle 2-i\right\rangle \equiv4+\left\langle 2-i\right\rangle $.
+We can easily check this: $(2+i)-4=-2+i=-1(2-i)\in\left\langle 2-i\right\rangle $. 
+\end{itemize}
+\end{xca}
+
+\begin{xca}
+Find all the distinct cosets of $\mbox{\ensuremath{\mathbb{Z}}}[i]/\left\langle 2-i\right\rangle $.
+
+\begin{proof}
+Let $\left\langle 2-i\right\rangle \in\mathbb{Z}[i]$. $\mathbb{Z}[i]=\left\{ x+yi\colon x,y\in\mathbb{Z}\right\} $,
+called the \emph{Gaussian integers. }For any two Gaussian integers
+$z$ and $z'$ we have \emph{. $(2-1i)z-(2-i)z'=(2-i)(z-z')\in\left\langle 4-i\right\rangle $},
+and $z_{1}\left(z_{2}(2-i)\right)=\left(z_{2}\left(2-i\right)\right)z_{1}=z_{1}z_{2}\left(2-i\right)\in\left\langle 2-i\right\rangle $.
+So $\left\langle 2-i\right\rangle $ is an ideal of $\mathbb{Z}[i]$. 
+
+By the theorem, $\mathbb{Z}[i]/\left\langle 4-i\right\rangle $ is
+a ring with elements (cosets) of the form $x+yi+\left\langle 2-i\right\rangle $
+for $x,y\in\mathbb{Z}$. When dealing with cosets in $\mathbb{Z}[x]/\left\langle 2-i\right\rangle $
+we can treat $2-i$ as $0$ since $2-i+\left\langle 2-i\right\rangle =0+\left\langle 2-i\right\rangle $.
+This allows us to simplify the set of \emph{distinct }cosets. For
+example, since $2-i\equiv0$ we also know that $2\equiv i$ since
+$2-i+i=2$. So then 
+\[
+6+3i+\left\langle 2-i\right\rangle =6+3(2)+\left\langle 2-i\right\rangle =12+\left\langle 2-i\right\rangle 
+\]
+
+$2\equiv i\Rightarrow4\equiv-1$ and $4+1=5\equiv0$. So we should
+expect there to be $5$ distinct cosets, and
+
+\[
+\mathbb{Z}[i]/\left\langle 4-i\right\rangle =\left\{ 0+\left\langle 4-i\right\rangle ,1+\left\langle 4-i\right\rangle ,\dots,4+\left\langle 4-i\right\rangle \right\} 
+\]
+To see that this is the case, note that any other coset will be some
+integer multiple of $1+\left\langle 2-i\right\rangle $. Since $5\left(1+\left\langle 2-i\right\rangle \right)=0+\left\langle 2-i\right\rangle $,
+$5\left(1+\left\langle 2-i\right\rangle \right)$ has order $1$ or
+$5$. If it is $1$, then $1+\left\langle 2-i\right\rangle =0+\left\langle 2-i\right\rangle $
+and $1\in\left\langle 2-i\right\rangle $ so $1=\left(x+yi\right)\left(2-i\right)=2x-ix+2yi+y=2x+y+i(-x+2y)$
+for some integers $x$ and $y$. Since $1\in\mathbb{R}$ this implies
+that $1=2x+y$ and $0=-x+2y$. Solving this system gives $y=\nicefrac{1}{5}\notin\mathbb{Z}$,
+a contradiction. So the order of $\mathbb{Z}[x]/\left\langle 2-i\right\rangle $
+is $5$. From the operations we can also see that this ring is essentially
+the same as $\mathbb{Z}_{5}$, a field. 
+\end{proof}
+\end{xca}
+
+
+\end{document}

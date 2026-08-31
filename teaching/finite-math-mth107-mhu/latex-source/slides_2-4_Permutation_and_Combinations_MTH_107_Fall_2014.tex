@@ -1,0 +1,388 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,t]{beamer}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amssymb}
+\usepackage{cancel}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% this default might be overridden by plain title style
+\newcommand\makebeamertitle{\frame{\maketitle}}%
+% (ERT) argument for the TOC
+\AtBeginDocument{%
+  \let\origtableofcontents=\tableofcontents
+  \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+  \def\gobbletableofcontents#1{\origtableofcontents}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usetheme{Warsaw}
+% or ...
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+\setbeamercovered{invisible} %makes overlays invisible
+
+%gets rid of navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%\usepackage{hyperref}
+%\usepackage[usenames,dvipsnames,table]{xcolor} %adds additional color options
+\definecolor{links}{HTML}{2A1B81}
+%\hypersetup{colorlinks,linkcolor=blue,urlcolor=links}
+
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{shapes}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{forest} %%for tree diagram
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+%\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+%\usepackage{datenumber} % Counters for dates
+
+\usepackage[super]{nth}
+
+\usepackage{etex}
+
+\usepackage[outline]{contour}  %allows text halos
+\contourlength{1pt} %sets halo width
+%%example: \node at (0.75,0.5) {\contour{white}{\Large Text!}};
+%%example:  \node [fill=white,inner sep=1pt] at (2.25,0.5) {\Large 			Text!};
+%%example:  \node [fill=white,rounded corners=2pt,inner sep=1pt] at 			(3.75,0.5) {\Large Text!};
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\formatdateny{\csname noyear\languagename\expandafter\endcsname\formatdate}
+\def\noyearenglish#1, \the\@year{#1}
+\let\noyearamerican\noyearenglish
+\let\noyearbritish\noyearenglish
+
+%%allows uncover with forest diagrams
+\tikzset{
+    invisible/.style={opacity=0,text opacity=0},
+    visible on/.style={alt=#1{}{invisible}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+    },
+}
+\forestset{
+  visible on/.style={
+    for tree={
+      /tikz/visible on={#1},
+      edge={/tikz/visible on={#1}}}}}
+
+%%%redefines column alignment to match vertically
+%\define@key{beamerframe}{t}[true]{% top
+  %\beamer@frametopskip=.2cm plus .5\paperheight\relax%
+  %\beamer@framebottomskip=0pt plus 1fill\relax%
+ % \beamer@frametopskipautobreak=\beamer@frametopskip\relax%
+  %\beamer@framebottomskipautobreak=\beamer@framebottomskip\relax%
+  %\def\beamer@initfirstlineunskip{}%
+%}
+
+%%provides pdf with 4 slides per page; don't forget to add 'handout' to remove overlays
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{4 on 1}[a4paper, landscape, border shrink=7mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{3}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{4}{border code=\pgfusepath{stroke}}
+%%%Don't forget to add 'handout'
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\newcommand{\xmax}{2000}
+\newcommand{\xmin}{0}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{500}
+\newcommand{\ymin}{0}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcounter{countEx} \setcounter{countEx}{0}
+\newcounter{countProb} \setcounter{countProb}{0}
+\resetcounteronoverlays{countEx} \resetcounteronoverlays{countProb}
+
+\newcommand{\ex}[3]{
+	\addtocounter{countEx}{1}
+	\only<#1-#2>{\begin{exampleblock} {Example \chNum.\secNum.\arabic{countEx}.} #3	\end{exampleblock}}
+}
+
+\newcommand{\prob}[4]{
+	\addtocounter{countProb}{1}
+	\only<#1-#2>{\begin{exampleblock} {Problem  \chNum.\secNum.\arabic{countProb}.\,#3} #4	\end{exampleblock}}
+}
+
+\newcommand{\yline}[4]{
+	(#2 - #4)/(#1 - #3)*(x - #1) + #2
+}
+
+\beamerdefaultoverlayspecification{<+->}
+
+%%%%Chapter and Section numbers%%%%%
+\newcommand{\chNum}{2}
+\newcommand{\secNum}{4}
+\newcommand{\secTitle}{Permutations and Combinations}
+
+\title[Section \chNum.\secNum: \secTitle]{Section \chNum.\secNum: \secTitle}
+
+\subtitle{Finite Mathematics~~MTH 107~~Fall 2014}
+
+\author{Dr.\,James Ashe}
+
+\titlegraphic{\includegraphics[height=2.75cm]{/home/jim/JamesAshe/MHU/images/MarsHilUniversityLogo-Virtical.png}}
+
+\date{\formatdate{1}{9}{2014} and \formatdate{3}{9}{2014}}
+
+\institute{Mars Hill University}
+
+\makebeamertitle 
+\begin{frame}{Permutations and Combinations}
+
+\begin{block}{}
+In section $2.3$, we selected \emph{one item each }from each category.
+\end{block}
+\begin{itemize}
+\item [ex.]<2->Choose $1$ out of $6$ vegetables toppings and $1$ out
+of $4$ meat toppings. How many different pizzas are possible?
+\end{itemize}
+\begin{block}<3->{}
+In this section, we select 
+
+\begin{itemize}
+\item []<4->\emph{more than one item }from a category without replacement.
+\item []<5->where \emph{order }does or does not matter,
+\end{itemize}
+\end{block}
+\begin{itemize}
+\item [ex.]<5->Choose $2$ out of $10$ people for president and vice president?
+\item [ex.]<7->Choose $3$ out of $6$ vegetable toppings. How many different
+pizzas are possible?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Permutations}
+
+\begin{itemize}
+\item \ex{1}{}{$5$ students are giving presentations. How many different
+lineups are possible?}
+
+\begin{itemize}
+\item []<2->$5\times4\times3\times2\times1=$ \only<3->{$=5!$}
+\end{itemize}
+\end{itemize}
+\begin{block}<4->{When to use permutations?}
+
+\begin{itemize}
+\item <5->Items are selected from a single category.
+\item <6->The \emph{order }is important
+\item <7->Count using factorials, $n!$
+\end{itemize}
+\end{block}
+\begin{itemize}
+\item []<8->What if there is only time for $3$ out of the $5$ students
+to give a presentation?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Permutations}
+
+\ex{1}{}{$3$ out of $5$ students are giving presentations. How
+many different lineups are possible?}
+\begin{itemize}
+\item <2->There are no repeats.
+\item []<3->$5$ 
+\only<4->{$\times 4$} 
+\only<5->{$\times 3$} 
+\only<6->{$=60$}
+\item []<7->Using factorials,
+\item []<7->\only<8->{$\frac{5!}{2!}$} 
+\only<9->{$=\frac{5\times4\times3\times2\times1}{2\times1}$} 
+\only<10->{$=5\times4\times3=60$}
+\end{itemize}
+\begin{block}{Permutation Formula}
+The number or \emph{permutations}, or arrangements, of $r$ items
+selected \uline{without replacement} from a pool of $n$ items ($r\leq n$)
+is,
+
+\begin{itemize}
+\item $_{n}P_{r}=\frac{n!}{(n-r)!}$
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Permutations}
+
+\ex{1}{2}{A baseball team has $11$ players. How many different $9$ player lineups are possible?}
+\begin{itemize}
+\item []
+\end{itemize}
+\ex{2}{2}{At the end of the season, the team will award an "MVP", "most improved", and "LVP" awards. How many ways can the awards be given?}
+\begin{itemize}
+\item []
+\end{itemize}
+\ex{3}{}{The baseball league has $6$ teams. In how ways can they be ranked at the end of the season?}
+\begin{itemize}
+\item <4->[]Recall: $0!=1$
+\item <5->No replacement, \uline{order matters}, and selected from $1$
+category. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Combinations}
+
+\begin{itemize}
+\item <1->No replacement.
+\item <2->Order matters \only<3->{$\Rightarrow$\emph{Permutations}, $_{n}P_{r}=\frac{n!}{(n-r)!}$}
+\item []<4->What if order does not matter?
+
+\begin{itemize}
+\item [ex.]<5->How many $2$ element subsets can be selected from $A=\{a,b,c\}$?
+\item []<6->$\{a,b\},\{a,c\},\{b,a\},\{b,c\},\{c,a\},\{c,b\}$
+
+\begin{itemize}
+\item []<7->$_{3}P_{2}=\frac{3!}{1!}=6$
+\end{itemize}
+\item []<8->Removing the repeats, $\frac{6}{2}=3$.
+\item []<9->$\left(\frac{3!}{(3-2)!2!}\right)$
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Combinations}
+
+\begin{block}{Combination Formula}
+The number of distinct \emph{combinations} of $r$ items selected
+without replacement from a pool of $n$ items $(r\leq n)$, 
+\[
+_{n}C_{r}=\frac{n!}{(n-r)!r!}
+\]
+Combinations are used whenever one or more items are selected (without
+replacement) from a category and the order of selection is not important. 
+\end{block}
+\end{frame}
+
+\begin{frame}{Combinations}
+
+\ex{1}{}{A pizza place has $8$ toppings. If you choose $3$ different toppings, how many different pizzas are possible?}
+\begin{itemize}
+\item <2->[]Order does not matter.
+\item <3->[]If order did matter, there would be 
+
+\begin{itemize}
+\item []<4->$_{8}P_{3}=\frac{8!}{(8-3)!}=\frac{8!}{5!}=$
+\end{itemize}
+\item <5->[]For each pizza with $3$ of the same toppings, there are $3!$
+ways to place the order.
+
+\begin{itemize}
+\item [ex.]<6->$\{Pep_{1},Ham,Pep_{2}\}=\{Ham,Pep_{1},Pep_{2}\}=\{Ham,Pep_{2},Pep_{1}\},\dots$
+\end{itemize}
+\item <7->[]So, there are \only<8->{$\frac{8!}{(8-3)!}\frac{1}{3!}=56$
+different pizzas.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Permutation or Combination?}
+
+\prob{1}{1}{Find the indicated value.}{$11$ people try out for a baseball team, but there are only $9$ spots. How many different teams are possible?}
+
+\prob{2}{2}{Find the indicated value.}{A committee of $3$ students must be selected for student council from a pool of $6$. How many different student councils are possible?}
+
+\prob{3}{4}{Find the indicated value.}{A committee of $3$ students must be selected for student council from a pool of $6$. One will be president, one vice pressident, and one will be janitor. How many different student councils are possible?}
+
+\prob{4}{4}{Find the indicated value.}{A committee of $3$ students must be selected for student council from a pool of $6$. One will be president and two will be vice pressidents. How many different student councils are possible?}
+
+\prob{5}{5}{Find the indicated value}{A baseball league has $6$ teams. If every team must play every other team once in the first round of league play, how many games must be played?}
+\end{frame}
+
+\begin{frame}{When there is more than one category}
+
+\ex{1}{}{A pool of $6$ seniors, $5$ juniors, $4$ sophomores, and
+$3$ freshmen must select a committee of $4$. How many committees
+are possible if the committee must contain
+\begin{itemize}
+\item [a.]<2->one person from each class
+\item [b.]<3->any mixture of the classes
+\item [c.]<4->$2$ seniors and $2$ juniors
+\end{itemize}
+}
+
+\only<5-5>{We have $4$ categories\\
+\hspace{2cm}$\underline{\,\,\,\,}\times\underline{\,\,\,\,}\times\underline{\,\,\,\,}\times\underline{\,\,\,\,}$}
+
+\only<6-8>{No repeats and order does not matter}
+
+\only<7-8>{ $\Rightarrow$ Combinations}
+
+\only<8-8>{ \center $_{18}C_{4}=\frac{18!}{(18-4)!4!}$}
+
+\only<9->{Now we have two categories}
+
+\only<10-10>{\hspace{2cm} $\underline{\,\,\,\,\,\,\,}\times\underline{\,\,\,\,\,\,\,}$}
+
+\only<11->{\hspace{2cm} $\underline{_{6}C_{2}}\times\underline{_{5}C_{2}}$}
+\end{frame}
+
+\begin{frame}{Distinguishable Permutations}
+
+\ex{1}{1}{Find the number of \emph{distinguishable} permutations
+of the letters of the work ``TRAIN''}
+
+\ex{2}{}{Find the number of \emph{distinguishable} permutations of
+the letters of the work ``TENNESSEE''}
+\begin{itemize}
+\item []<2->There are $9!$ ways to arrange $9$ items, but ``TENNESS\textcolor{blue}{E}\textcolor{red}{E}''
+is not distinguishable from ``TENNESS\textcolor{red}{E}\textcolor{blue}{E}''.
+\item <3->There are $4!$ ways to arrange $4$ ``E'''s,
+\item <4->$2!$ ways to arrange $2$ ``N'''s,
+\item <5->and $2!$ ways to arrange $2$ ``S'''s.
+\item []<6->So there are $\frac{9!}{4!2!2!}=\frac{9\cdot8\cdot7\cdot6\cdot5}{4}=3,780$
+\emph{distinguishable }arrangements.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Problems}
+
+\prob{1}{}{Refer to a standard 52 card deck (no jokers).}{How many five-card hands consisting of all hearts are possible?}
+\begin{itemize}
+\item []<2->One category, ``ways to get one suit'' $\Rightarrow\,\,\underline{\,\,\,\,\;}$.
+\item []<3->No repeats; order does not matter $\Rightarrow$ combination
+\item []<4->$_{13}C_{4}$\prob{5}{}{Refer to a standard 52 card deck (no jokers).}{How many five-card hands consisting of all the same suit are possible?}
+\item []<6->No repeats; order does not matter $\Rightarrow$ combination
+\item []<7->Two categories, ``ways to get a suit'' and ``ways to get
+one suit'', $\underline{\,4\,}\times\underline{\,_{13}C_{4}\,}$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+
+\prob{1}{}{Refer to a standard 52 card deck (no jokers).}{How many five-card hands consisting of 4 aces are possible?}
+\begin{itemize}
+\item []<2->Two categories: ``ways to get $4$ aces'' and ``ways to
+get a non-ace'', $\underline{\;_{4}C_{4}\,}\times\underline{\;_{48}C_{1}\,}$.
+\item []<3->No repeats; order does not matter $\Rightarrow$ combination
+\end{itemize}
+\prob{4}{}{Refer to a standard 52 card deck (no jokers).}{How many five-card hands consisting of 3 kings and 2 queens are possible?}
+\begin{itemize}
+\item []<5->Two categories: ``ways to get $3$ kings'' and ``ways to
+get $2$ queens, $\underline{\;_{4}C_{3}\,}\times\underline{\;_{4}C_{2}\,}$.
+\item []<6->No repeats; order does not matter $\Rightarrow$ combination
+\end{itemize}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,232 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.~James Ashe}
+
+\newcommand{\classNum}{137}
+
+\newcommand{\classSec}{B}
+
+\newcommand{\nameType}{Name:}
+
+\newcommand{\examType}{Exam 1}
+
+\renewcommand{\date}{\formatdate{12}{2}{2013}} %%\today
+
+\usdate
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\xmax}{0}
+\newcommand{\xmin}{-\xmax}
+\newcommand{\xstep}{0}
+\newcommand{\ymax}{0}
+\newcommand{\ymin}{-\ymax}
+\newcommand{\ystep}{0} 
+
+\textbf{No credit will be given unless you show your work.} Unless
+stated otherwise, each question is worth 5 pts. 
+
+\emph{Solve the following equations.}
+\begin{enumerate}[resume]
+\item $\frac{7x}{8}-2=3-\frac{15x}{16}$\vfill
+\item $4|x+1|-7=6$\vfill
+\end{enumerate}
+\emph{Use the provide graph to answer the question.}
+\begin{enumerate}[resume]
+\item The manufacturing cost per vehicle for production of $x$ vehicles
+is shown in the graph. Use the graph to estimate the number of vehicles
+that must be produced so that the cost per vehicle is \$9,000.\\
+\renewcommand{\xmax}{300}
+\renewcommand{\xmin}{0}
+\renewcommand{\xstep}{0} %must be xmin+n
+\renewcommand{\ymax}{40}
+\renewcommand{\ymin}{0}
+\renewcommand{\ystep}{4} %must be ymin+n
+%%%%%%%
+\begin{tikzpicture}
+	\begin{axis}[
+		axis x line=bottom, axis y line=left,     		
+		%minor x tick num={0},
+		%minor y tick num={0},
+		xtick={0,50,...,250},
+		ytick={0,10,20,...,40},
+		grid=both,,
+		%y label style={at={(-0.1,0.65)}},
+		xlabel={$x$ Vehicles (thousands)},
+		ylabel={Cost each (thousands of \$)},
+		xmin=\xmin,xmax=\xmax,
+		ymin=\ymin,ymax=\ymax,     		
+		width=6cm, height=6cm] 
+		\addplot[mark=noner,smooth,red,thick,domain=0:300]{(10^4*x+5*10^8)/(1000000*x)+5}; 
+	\end{axis}
+\end{tikzpicture}
+\end{enumerate}
+\emph{Solve the following equation for the provided variable.}
+\begin{enumerate}[resume]
+\item $G=Q+(M-7)P$ for $M$.\vfill\newpage
+\end{enumerate}
+\emph{Solve the following word problems}
+\begin{enumerate}[resume]
+\item Joe bought a pair of high heels for \$322.5 including tax. If the
+sales tax is 7.5\% then what was the cost of the high heels before
+tax?\vfill
+\item Pavlos, the Athenian executioner, needs to make some hemlock poison.
+How many gallons of a 80\% hemlock solution must be mixed with 10
+gallons of 35\% hemlock to get a mixture that is 65\% hemlock. \vfill
+\item John can clean the house in 45 minutes. John can clean the same house
+in 15 minutes. How long would it take them to clean the house if they
+work together?\vfill\newpage
+\end{enumerate}
+\emph{Perform the indicated operation(s).}
+\begin{enumerate}[resume]
+\item Find the center and the radius of the circle. Then graph the circle$(x-2)^{2}+(y+4)^{2}=16$.\\
+\renewcommand{\xmax}{10} \renewcommand{\xstep}{5}
+\renewcommand{\ymax}{\xmax} \renewcommand{\ystep}{5}
+%%%%%%%
+\begin{tikzpicture} 
+	\begin{axis}[
+		axis x line=middle, axis y line=middle,     		
+		xtick={-\xmax,-\xstep,...,\xmax},
+		ytick={-\ymax,-\ystep,...,\ymax},
+		minor x tick num={4},
+		minor y tick num={4},
+		grid=both,
+		xlabel={$$},     
+		ylabel={$$},
+		xmin=-\xmax.25,xmax=\xmax.25,
+		ymin=-\ymax.25,ymax=\ymax.25,     		width=6cm,     		height=6cm] 		%\addplot[mark=noner,smooth,domain=-1:1]{}; 
+	\end{axis}
+\end{tikzpicture}
+\item Write the standard equation for the circle centered at $(9,4)$ and
+passing through the origin.\vfill
+\item Find the slope, if it exists, of the line passing through the points
+$\left(5,0\right)$ and $\left(-2,1\right)$.\vfill
+\item Write an equation for the line shown in the graph. \\
+\renewcommand{\xmax}{8} \renewcommand{\xstep}{4}
+\renewcommand{\ymax}{\xmax} \renewcommand{\ystep}{4}
+%%%%%%%
+\begin{tikzpicture} 
+	\begin{axis}[
+		axis x line=middle, axis y line=middle,     		
+		xtick={-\xmax,-\xstep,...,\xmax},
+		ytick={-\ymax,-\ystep,...,\ymax},
+		minor x tick num={3},
+		minor y tick num={3},
+		grid=both,
+		xlabel=$x$,     
+		ylabel={$x^2$},
+		xmin=-\xmax.25,xmax=\xmax.25,
+		ymin=-\ymax.25,ymax=\ymax.25,     		width=6cm,     		height=6cm] 		%\addplot[mark=noner,smooth,domain=-1:1]{}; 
+		\addplot[color=red,thick, domain=-\xmax:\xmax] {4/1*(x)-2};
+	\end{axis}
+\end{tikzpicture}
+\item Find an equation for the line which passes through the point $\left(0,1\right)$
+and is perpendicular to $y=3x+4$.\vfill\newpage
+\end{enumerate}
+\emph{Perform the indicated operations and write your answers in the
+form $a+bi$.}
+\begin{enumerate}[resume]
+\item $(2-i)(4+8i)$\vfill
+\item $\frac{4}{5+i}$\vfill
+\item {[}2 pts{]} $i^{5}$\vspace{1cm}
+\item {[}3 pts{]} $i^{24}$\vspace{1cm}
+\end{enumerate}
+\emph{Use the square root property to find all real or imaginary solutions. }
+\begin{enumerate}[resume]
+\item $x^{2}-17=0$\vfill
+\end{enumerate}
+\emph{Solve for $x$.}
+\begin{enumerate}[resume]
+\item $2x^{2}-36=6x$\vfill
+\end{enumerate}
+\emph{Solve for $x$. }
+\begin{enumerate}[resume]
+\item $x^{2}+x-6=0$\\
+\renewcommand{\xmax}{8} \renewcommand{\xstep}{4}
+\renewcommand{\ymax}{\xmax} \renewcommand{\ystep}{4}
+%%%%%%%
+\begin{tikzpicture} 
+	\begin{axis}[
+		axis x line=middle, axis y line=middle,     		
+		xtick={-\xmax,-\xstep,...,\xmax},
+		ytick={-\ymax,-\ystep,...,\ymax},
+		minor x tick num={3},
+		minor y tick num={3},
+		grid=both,
+		xlabel=$x$,     
+		ylabel={$x^2+x-6$},
+		xmin=-\xmax.25,xmax=\xmax.25,
+		ymin=-\ymax.25,ymax=\ymax.25,     		width=6cm,     		height=6cm] 		%\addplot[mark=noner,smooth,domain=-1:1]{}; 
+		\addplot[color=red,thick, domain=-\xmax:\xmax] {(x-2)*(x+3)};
+	\end{axis}
+\end{tikzpicture}
+\end{enumerate}
+
+\end{document}

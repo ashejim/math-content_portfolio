@@ -1,0 +1,235 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}[section]
+\theoremstyle{definition}
+\newtheorem{xca}[thm]{\protect\exercisename}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\exercisename}{Exercise}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{439}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{solutions}
+
+\newcommand{\examType}{Homework 4}
+
+\newcommand{\Date}{\formatdate{6}{2}{2014}} %%\AdvanceDate[12] \today
+
+%\newdate{my_date}{\day}{\month}{\year}%   
+%\AdvanceDate[-5] 
+%\displaydate{my_date}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \Date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+%\setlist{nolistsep} %eliminates space between list items
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\null
+
+\vspace{1cm}
+
+\setcounter{section}{3}
+
+\Large{\textbf{Chapter 3}} \large
+
+\textbf{\textbf{\examType} due: \formatdate{25}{3}{2014}}
+
+\setcounter{thm}{13}
+
+All problems \uline{without }a $\bigstar$ from section 3.2 and 3.3;
+exercises 3.14-3.19. 
+\begin{xca}
+Find the distinct ideals of $\mathbb{Z}_{12}$. 
+
+\begin{proof}
+All of the ideals of $\mathbb{Z}_{12}$ are principal. It is easy
+to directly check that the distinct ideals of $\mathbb{Z}_{12}$ are:
+\begin{eqnarray*}
+\left\langle 0\right\rangle  & = & \left\{ 0\right\} \\
+\left\langle 1\right\rangle  & = & \left\{ 1,2,3,4,\dots,11,0\right\} \\
+\left\langle 2\right\rangle  & = & \left\{ 2,4,6,8,10,0\right\} \\
+\left\langle 3\right\rangle  & = & \left\{ 3,6,9,0\right\} \\
+\left\langle 4\right\rangle  & = & \left\{ 4,8,0\right\} \\
+\left\langle 6\right\rangle  & = & \left\{ 6,0\right\} 
+\end{eqnarray*}
+
+In general, the distinct ideals of $\mathbb{Z}_{n}$ will be all the
+divisors of $n$ and $\left\langle 0\right\rangle $. To see this
+suppose that $\gcd(n,m)=1$. Then $\left\langle m\right\rangle =\left\{ m,2m,3m,\dots km\right\} $.
+Since $n$ and $m$ are relatively prime, $m(k-1)\not\equiv0\bmod(nm)$,
+and $k=n$ since $\left|\left\langle m\right\rangle \right|\leq n$.
+So $\gcd(m,n)=1$ implies that $\left\langle m\right\rangle =\left\langle 1\right\rangle $. 
+
+Suppose $\mbox{lcm}(m,n)=k$. Then $\left\langle m\right\rangle =\left\{ m,2m,\dots,km\right\} $
+where $m(k-1)\not\equiv0\bmod n$ since then $n|k-1$ and $k-1$ would
+be the lowest common multiple. Also $n\nmid(am-bm)$ for any distinct
+$0\leq a,b\leq k$ since then $m(a-b)$ would be the lowest common
+multiple not $k$. So $\left\langle m\right\rangle $ has $k$ distinct
+elements, and it follows that the distinct ideals of $\mathbb{Z}_{n}$
+are the distinct divisors of $n$ and $0$. 
+\end{proof}
+\end{xca}
+
+\begin{xca}
+$\bigstar$%3.15
+\end{xca}
+
+\begin{xca}
+$\bigstar$%3.16
+\end{xca}
+
+\begin{xca}
+%3.17Let $R$ be a ring with zero element $0_{r}$. Determine the
+elements of $R/0_{R}$ and $R/R$\@.
+
+\begin{proof}
+$(R/0_{R}):$ Let $a+0_{R}\in R/0_{R}$. For any $r\in R$, $a\equiv r\bmod0_{R}$
+iff $a-r\in0_{R}\iff a=r$. So then $a+0_{R}=a$ for any $a\in R$.
+Recall that $R/0_{R}=R$.
+
+$(R/R):$ Let $a+R\in R/R$. For any $r\in R$, $a\equiv r\bmod R$
+iff $a-r\in R$. $R$ is a ring so then $a-r\in R$ for all $a$ and
+$r\in R$. This is true for $0_{R}$, i.e., $a-0_{R}\in R$ implying
+that $a+R\equiv0+R$ for all $a\in R$. Thus $R/R$ has only $1$
+coset, $0+R=R$. Recall that $R/R=0$. 
+\end{proof}
+\end{xca}
+
+\newpage
+\begin{xca}
+%3.18Let $D$ be the ring of rational numbers (in reduced terms)
+with odd denominators, and let $E$ be the set of elements in $D$
+with even numerators. 
+
+\begin{enumerate}
+\item Prove that $E$ is an ideal in $D$.
+\item Prove that $D/E$ has exactly two distinct cosets.
+\end{enumerate}
+\begin{proof}
+Part 1: Note that any two rational numbers can be written so that
+they have the same denominators. Let $\frac{2x}{2n+1},\frac{2y}{2n+1}\in E$
+and $\frac{r}{2n+1}\in D$ for integers $x,y,n,r\in\mathbb{Z}$. $\frac{2x}{2n+1}-\frac{2y}{2n+1}=\frac{2(x-y)}{2n+1}$
+and $\frac{2x}{2n+1}\frac{r}{2n+1}=\frac{2xr}{4n^{2}+4n+1}=\frac{2\left(xr\right)}{2(2n^{2}+2n)+1}\in E$.
+So $E$ is an ideal in $D$ by the ideal test.
+
+Part 2: Let $\frac{x}{2n+1}\in D$ then $x$ is either even or odd.
+If it is even then $\frac{x}{2n+1}+E=0+E=E$ since $\frac{x}{2n+1}\in E$.
+If it is odd then we can write $\frac{2m+1}{2n+1}$ for some $m\in\mathbb{Z}$.
+Now let $\frac{2m'+1}{2n+1}$ for some $m'\in\mathbb{Z}$. $\frac{2m+1}{2n+1}-\frac{2m'+1}{2n+1}=\frac{2(m-m')}{2n+1}$
+which has an even denominator thus $\frac{2m+1}{2n+1}+E=\frac{2m'+1}{2n+1}+E$.
+So there are exactly 2 distinct cosets. 
+\end{proof}
+\end{xca}
+
+\begin{itemize}
+\item Note that since $1=\frac{1}{1}$, $\frac{2m+1}{2n+1}+E=1+E$. So the
+two cosets can written as $0+E$ and $1+E$.
+\end{itemize}
+
+\begin{xca}
+%3.19Let $C$ be the set of all polynomials with zero constant term
+in $\mathbb{Z}[x]$.
+
+\begin{enumerate}
+\item Show that $C$ is the principal ideal $\left\langle x\right\rangle $. 
+\item Show that $\mathbb{Z}[x]/C$ consists of an infinite number of distinct
+cosets, one for each $n\in\mathbb{Z}$.
+\end{enumerate}
+\begin{proof}
+Part 1: If $g(x)\in C$ then 
+\[
+g(x)=a_{n}x^{n}+a_{n-1}x^{n}+\cdots+a_{1}x=(x)(a_{n}x^{n-1}+a_{n-1}x^{n}+\cdots+a_{1})=x\cdot f(x)
+\]
+for some $f(x)\in\mathbb{Z}[x]$.
+
+Part 2: Let $f_{1}(x)+C,f_{2}(x)+C\in\mathbb{Z}[x]/C$ for $f_{1}(x),f_{2}(x)\in\mathbb{Z}[x]$.
+From part one, $f_{1}(x)+C=f_{1}(x)+\left\langle x\right\rangle $
+and $f_{2}(x)+C=f_{2}(x)+\left\langle x\right\rangle $. If $f_{1}(x)-f_{2}(x)\in\left\langle x\right\rangle $
+then $f_{1}(x)-f_{2}(x)$ must have a zero constant term ($x\cdot g(x)=f_{1}(x)-f_{2}(x)$
+for some $g(x)\in\mathbb{Z}[x]$). 
+\begin{eqnarray*}
+f_{1}(x)-f_{2}(x) & = & \left[a_{n}x^{n}+a_{n-1}x^{n}+\cdots+a_{1}x+a_{0}\right]-\left[b_{n}x^{n}+b_{n-1}x^{n}+\cdots+b_{1}x+b_{0}\right]\\
+ & = & (a_{n}-b_{n})x^{n}+(a_{n-1}-b_{n-1})x^{n}+\cdots+(a_{1}-b_{1})x+(a_{0}-b_{0})\\
+ & = & (a_{n}-b_{n})x^{n}+(a_{n-1}-b_{n-1})x^{n}+\cdots+(a_{1}-b_{1})x+0
+\end{eqnarray*}
+Thus $a_{0}-b_{0}=0\Rightarrow a_{0}=b_{0}$. So $f_{1}(x)$ and $f_{2}(x)$
+have the same constant term. So two cosets $f_{1}(x)+\left\langle x\right\rangle $
+and $f_{2}(x)+\left\langle x\right\rangle $ are equivalent if and
+only if $f_{1}(x)$ and $f_{2}(x)$ have the same constant terms.
+These are polynomials with integer coefficients so there is a distinct
+coset for each integer. 
+\end{proof}
+\end{xca}
+
+
+\end{document}

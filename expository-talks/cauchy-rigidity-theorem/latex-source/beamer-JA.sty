@@ -1,0 +1,195 @@
+%%%preamble for jim's beamer files%%%
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+% \usepackage[latin9,utf8]{inputenc} %only UTF supported on overleaf.com
+\usepackage[english]{babel}
+\usepackage{tikz}
+\usefonttheme[onlymath]{serif}
+\usetikzlibrary{shadows}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[thicklines]{cancel}
+% \usepackage{enumitem} conflict with bemaer packages?
+\usepackage{array, mathtools}
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+\SetMathAlphabet{\mathcal}{bold}{OMS}{cmsy}{b}{n} %for big-O
+\usepackage{tikz,calc}
+\usetikzlibrary{fit, ,overlay-beamer-styles, matrix, shapes.geometric,calc}
+\usepackage{wasysym} %%for emoticons
+% \usepackage{fontspec} %%fonts and emoticons
+% \newfontfamily\DejaSans{DejaVu Sans} %%more emoticons
+%\usepackage{tipfr-JA} %%http://www.ctan.org/pkg/tipfr %%add for calculator button support
+% \usepackage[usenames, dvipsnames]{color}
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+ % this default might be overridden by plain title style
+ \newcommand\makebeamertitle{\frame{\maketitle}}%
+ % (ERT) argument for the TOC
+ \AtBeginDocument{%
+   \let\origtableofcontents=\tableofcontents
+   \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+   \def\gobbletableofcontents#1{\origtableofcontents}
+ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usetheme{Warsaw}
+% or ...
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+\setbeamercovered{invisible} %makes overlays invisible
+
+%gets rid of navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%\usepackage{hyperref}
+% \usepackage[usenames,dvipsnames,table]{xcolor} %adds additional color options
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=white,urlcolor=links}
+
+%%%%%%%%%%%%%%%color changes%%%%%%%%%%%
+
+\definecolor{purple}{HTML}{13153e} %%WGU Purple
+\definecolor{gold}{RGB}{175,128,6} %%WGU gold
+\setbeamercolor{structure}{fg=purple} 
+
+%\setbeamercolor{title}{fg=white}
+%\setbeamercolor{title}{bg=purple}
+%\setbeamercolor{frametitle}{fg=white}
+%\setbeamercolor{frametitle}{bg=purple!85!white}
+\setbeamercolor{section in head/foot}{fg=white,bg=purple!65!white} %%left blend top
+\setbeamercolor{subsection in head/foot}{fg=white,bg=purple} %%right
+% Set Color ==============================
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{shapes}
+\usepackage{pgfplots} %\usepackage{pgfplots, pgfplotstable}
+\pgfplotsset{compat=newest}
+\usepackage{filecontents}  %allows in file data
+\usepgfplotslibrary{statistics} %allows histogram stuff
+
+\usepackage{forest} %%for tree diagram
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage[super]{nth} %easy 1st, 2nd, etc
+
+%\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+%\usepackage{datenumber} % Counters for dates
+
+\usepackage[super]{nth}
+
+% \usepackage{etex}%etex is already in use by Overleaf
+
+\usepackage{fancybox}
+
+%%table colors
+% \usepackage[table]{xcolor}
+\usepackage{color, colortbl}
+\usepackage[outline]{contour}  %allows text halos
+\usepackage[normalem]{ulem}
+\usepackage{xfrac} %%like nicefrac. Works in text mode \sfrac{1}{2} and in math mode $\sfrac{1}{2}$.
+%%other colors
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+
+% \usepackage{epsdice} %%dice font
+\usepackage[misc]{ifsym}
+% \newfont\dice{dice3d} %%3d dice font
+
+\contourlength{1pt} %sets halo width
+%%example: \node at (0.75,0.5) {\contour{white}{\Large Text!}};
+%%example:  \node [fill=white,inner sep=1pt] at (2.25,0.5) {\Large 			Text!};
+%%example:  \node [fill=white,rounded corners=2pt,inner sep=1pt] at 			(3.75,0.5) {\Large Text!};
+%\usepackage{babel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\formatdateny{\csname noyear\languagename\expandafter\endcsname\formatdate}
+\def\noyearenglish#1, \the\@year{#1}
+\let\noyearamerican\noyearenglish
+\let\noyearbritish\noyearenglish
+
+%%allows uncover with forest diagrams
+\tikzset{
+    invisible/.style={opacity=0,text opacity=0},
+    visible on/.style={alt=#1{}{invisible}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+    },
+}
+\forestset{
+  visible on/.style={
+    for tree={
+      /tikz/visible on={#1},
+      edge={/tikz/visible on={#1}}}}}
+
+%%%redefines column alignment to match vertically
+%\define@key{beamerframe}{t}[true]{% top
+  %\beamer@frametopskip=.2cm plus .5\paperheight\relax%
+  %\beamer@framebottomskip=0pt plus 1fill\relax%
+ % \beamer@frametopskipautobreak=\beamer@frametopskip\relax%
+  %\beamer@framebottomskipautobreak=\beamer@framebottomskip\relax%
+  %\def\beamer@initfirstlineunskip{}%
+%}
+
+%%provides pdf with 4 slides per page; don't forget to add 'handout' to remove overlays
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{4 on 1}[a4paper, landscape, border shrink=7mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{3}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{4}{border code=\pgfusepath{stroke}}
+%%%Don't forget to add 'handout'
+
+%%%macros and settings%%%
+%%keystroke%%
+\newcommand*\keystroke[1]{%
+  \tikz[baseline=(key.base)]
+    \node[%
+      draw,
+      fill=white,
+      drop shadow={shadow xshift=0.25ex,shadow yshift=-0.25ex,fill=black,opacity=0.75},
+      rectangle,
+      rounded corners=2pt,
+      inner sep=1pt,
+      line width=0.5pt,
+      font=\scriptsize\sffamily
+    ](key) {#1\strut}
+  ;
+}
+%%%%%
+\newcommand{\gauss}[2]{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}
+
+\newcommand{\Gauss}[2]{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))} %third value is x variable
+
+\newcommand{\xmax}{2000}
+\newcommand{\xmin}{0}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{500}
+\newcommand{\ymin}{0}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcounter{countEx} \setcounter{countEx}{0}
+\newcounter{countProb} \setcounter{countProb}{0}
+\resetcounteronoverlays{countEx} \resetcounteronoverlays{countProb}
+
+\newcommand{\ex}[3]{ 
+	\addtocounter{countEx}{1}
+	\only<#1-#2>{\begin{exampleblock} {Example \arabic{countEx}.} #3	\end{exampleblock}}
+}
+
+\newcommand{\prob}[4]{
+	\addtocounter{countProb}{1}
+	\only<#1-#2>{\begin{exampleblock} {Problem \arabic{countProb}.\,#3} #4	\end{exampleblock}}
+}
+
+\newcommand{\yline}[4]{
+	(#2 - #4)/(#1 - #3)*(x - #1) + #2
+}
+\makeatother

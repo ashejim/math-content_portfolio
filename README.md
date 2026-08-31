@@ -1,9 +1,10 @@
 # Mathematics Content Portfolio — James Ashe
 
-A curated collection of my mathematics teaching materials, research talks, and a
-computational research project. Everything here I authored: lecture notes, course
-materials, slides, exams and worked solutions (all typeset in LaTeX/LyX), research
-presentations, and a grant-funded undergraduate research project.
+A curated collection of my mathematics teaching materials, research talks, expository
+talks for general audiences, and a computational research project. Everything here I
+authored: lecture notes, course materials, slides, exams and worked solutions (all
+typeset in LaTeX/LyX), research presentations, and a grant-funded undergraduate
+research project.
 
 The material spans **college-algebra through graduate-level abstract algebra**, plus
 **research in circle packing / discrete conformal geometry** and an
@@ -21,6 +22,7 @@ ability to produce polished, reproducible content.
 | [`recent-work/`](recent-work/) | **Recent (2023) practice sets and reference sheets** authored at WGU — concise, activity-style materials with answer keys, all with `.tex` source and a shared house style file. |
 | [`teaching/`](teaching/) | Full materials for 9 university courses — notes, slides, worksheets, exams, and worked solutions. |
 | [`research/`](research/) | Talks on my research in **generalized branching for circle packings** (thesis defense, AMS Sectional, invited colloquium). |
+| [`expository-talks/`](expository-talks/) | **Deep mathematics for general audiences** — Cauchy rigidity, the Art Gallery Theorem, circle packing, Cantor's infinities — with animated slide sequences. |
 | [`thomson-problem/`](thomson-problem/) | A grant-funded computational project modeling the **Thomson problem** with circle packings, including data and the conference poster. |
 
 ---
@@ -84,6 +86,20 @@ and is unique up to Möbius transformation. My work develops the theory of
 - [`research/ams-sectional-2014/`](research/ams-sectional-2014/) — talk at the AMS Sectional Meeting, Knoxville, 2014 (LaTeX/Beamer source included).
 - [`research/unca-colloquium-2014/`](research/unca-colloquium-2014/) — invited junior colloquium, UNC Asheville.
 - [`research/jcsu-math-club-2013/`](research/jcsu-math-club-2013/) — expository talk for the JCSU math club.
+
+## Expository talks
+
+Four talks that bring real mathematics to general audiences — faculty seminars and
+student outreach events. Each folder has the full slide deck (PDF), **animated GIFs of
+the key overlay sequences** (the arguments unfold visually, one move at a time), and
+self-contained LaTeX/Beamer source.
+
+| Talk | One-line pitch |
+|---|---|
+| [Cauchy's Rigidity Theorem](expository-talks/cauchy-rigidity-theorem/) | Why a convex polyhedron cannot flex — a 200-year-old proof with a famous bug in it. |
+| [The Art Gallery Problem](expository-talks/art-gallery-problem/) | How many guards does a gallery need? Fisk's one-slide triangulation + 3-coloring proof. |
+| [Circle Packing: A Visual Introduction](expository-talks/circle-packing/) | My research area with no prerequisites — every idea shown as a picture. |
+| [What is a Proof? …What is Math?](expository-talks/what-is-a-proof-what-is-math/) | Proof, infinity, and Cantor's diagonal argument, for people who don't think they like math. |
 
 ## Computational project — the Thomson problem
 

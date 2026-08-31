@@ -1,0 +1,304 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{336}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\examType}{HW 3.3}
+
+\renewcommand{\date}{\formatdate{21}{10}{2013}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} ~\date{}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\textbf{Solutions}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{Solutions}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\setlist{topsep=.5pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\xmax}{0}
+\newcommand{\xmin}{-\xmax}
+\newcommand{\xstep}{0}
+\newcommand{\ymax}{0}
+\newcommand{\ymin}{-\ymax}
+\newcommand{\ystep}{0} 
+\newcommand{\dspace}{\vspace{1cm}}
+\newcommand{\xa}{0}
+\newcommand{\xb}{0}
+\newcommand{\ya}{1}
+\newcommand{\yb}{1}
+\begin{enumerate}[resume]
+\item \vspace{0cm}
+
+\begin{enumerate}[resume]
+\item Correct.
+\[
+\begin{bmatrix}\begin{array}{rrr}
+1 & 2 & 2\\
+2 & 4 & 4\\
+3 & 5 & 6
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rrr}
+1 & 0 & 2\\
+0 & 1 & 0\\
+0 & 0 & 0
+\end{array}\end{bmatrix}
+\]
+so $2(1,2,3)=(2,4,6)$, meaning that $\mathbf{v}_{2}$ can be written
+as a linear combination of $\mathbf{v}_{1}.$ Thus $2\mathbf{v}_{1}-\mathbf{v}_{3}=\mathbf{0}$
+is a nontrivial linear combination that equals $\mathbf{0}$.
+\item Incorrect. $\mathbf{v}_{2}$ cannot be written as a combination of
+$\mathbf{v}_{1}$ and $\mathbf{v}_{3}$. To see this solve the augmented
+matrix, 
+\[
+\begin{bmatrix}\begin{array}{rr|r}
+1 & 2 & 2\\
+2 & 4 & 4\\
+3 & 6 & 5
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rr|r}
+1 & 2 & 0\\
+0 & 0 & 1\\
+0 & 0 & 0
+\end{array}\end{bmatrix}
+\]
+ which is inconsistent. 
+\end{enumerate}
+\item \vspace{0cm}
+
+\begin{enumerate}
+\item Yes. Suppose that $c_{1}\begin{bmatrix}\begin{array}{r}
+1\\
+4
+\end{array}\end{bmatrix}+c_{2}\begin{bmatrix}\begin{array}{r}
+2\\
+9
+\end{array}\end{bmatrix}=\mathbf{0}$
+\[
+\begin{bmatrix}\begin{array}{rr}
+1 & 2\\
+4 & 9
+\end{array}\end{bmatrix}\rightsquigarrow\begin{array}{c}
+\\\mbox{R2-4R1}
+\end{array}\begin{bmatrix}\begin{array}{rr}
+1 & 2\\
+0 & 1
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rr}
+1 & 0\\
+0 & 1
+\end{array}\end{bmatrix}
+\]
+ implies that $c_{1}=c_{2}=0$. Thus the vectors are linearly independent.
+\end{enumerate}
+\begin{enumerate}[resume]
+\item [\textbf{d.}]As above we need to put the associated column matrix
+into reduced echelon form.
+\[
+\begin{bmatrix}\begin{array}{rrr}
+1 & 2 & 0\\
+1 & 3 & 1\\
+1 & 3 & 2
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rrr}
+1 & 2 & 0\\
+1 & 3 & 1\\
+0 & 0 & 1
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rrr}
+1 & 2 & 0\\
+1 & 3 & 0\\
+0 & 0 & 1
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rrr}
+1 & 2 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rrr}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{array}\end{bmatrix}
+\]
+so the vectors are linearly independent. Note that you only need to
+reduce the matrix to 
+\[
+\begin{bmatrix}\begin{array}{rrr}
+a_{11} & a_{12} & a_{13}\\
+0 & a_{22} & a_{23}\\
+0 & 0 & a_{33}
+\end{array}\end{bmatrix}
+\]
+where it is clear the matrix has three pivots and thus a rank of $3$.
+\end{enumerate}
+\item The span of the vectors need to be equal to the given set, and the
+set needs to be linearly independent. 
+
+\begin{enumerate}[resume]
+\item [\textbf{b.}]No.\\
+\[
+\begin{bmatrix}\begin{array}{rrrr}
+1 & 1 & 2 & 2\\
+0 & 2 & 2 & 2\\
+1 & 4 & 5 & -1
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rrrr}
+1 & 0 & 1 & 0\\
+0 & 1 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{array}\end{bmatrix}
+\]
+So there is a non-trivial $c_{1},c_{2},c_{3},c_{4}$ such that $c_{1}(1,0,1)+c_{2}(1,2,4)+c_{3}(2,2,5)+c_{4}(2,2,-1)=\mathbf{0}$.
+\\
+To find it, $c_{1}=-c_{3}$, $c_{2}=-c_{3}$, and $c_{4}=0$. For
+$c_{3}=-1$ then $1(1,0,1)+1(1,2,4)-(2,2,5)+0(2,2,-1)=\mathbf{0}$.\\
+Alternatively, by proposition 3.4 if the column vectors from $\begin{bmatrix}\begin{array}{rrrr}
+1 & 1 & 2 & 2\\
+0 & 2 & 2 & 2\\
+1 & 4 & 5 & -1
+\end{array}\end{bmatrix}$ are a basis of $\mathbb{R}^{3}$ then it is a $3\times3$ nonsingular
+matirx but it is a $3\times4$.
+
+\begin{enumerate}[resume]
+\item []Any four vectors in $\mathbb{R}^{3}$ form a linearly dependent
+set. In general, any $n$ vectors in $\mathbb{R}^{n-1}$ (for $n>1$)
+form a linearly dependent set. This is a result of proposition 4.1
+or 3.4, but you can see this by evaluating the possible reduced echelon
+forms of the augmented column matrix, 
+\[
+A\mathbf{x}=\mathbf{b}=\begin{bmatrix}\begin{array}{rrr|r}
+a_{11} & \cdots & a_{1n} & a_{1,n+1}\\
+\vdots &  & \vdots & \vdots\\
+a_{n1} & \cdots & a_{nn} & a_{n,n+1}
+\end{array}\end{bmatrix}\mbox{.}
+\]
+An inconsistent matrix means the vectors composing $A$ are linearly
+dependent, but a solvable matrix means that $\mathbf{b}$ can be written
+as a linear combination of the vectors composing $A$. Either way
+the set of vectors is linearly dependent.
+\end{enumerate}
+\item [\textbf{c.}]No. 
+\[
+\begin{bmatrix}\begin{array}{rrr}
+1 & 0 & 1\\
+0 & 1 & 1\\
+2 & 1 & 4\\
+3 & 1 & 4
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rrr}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1\\
+0 & 0 & 0
+\end{array}\end{bmatrix}
+\]
+Although these vectors are linearly independent. The span of $3$
+vectors has a dimension of at most $3$. For example, $(0,0,0,1)$
+is not in the span of these vectors since 
+\[
+\begin{bmatrix}\begin{array}{rrr|}
+1 & 0 & 1\\
+0 & 1 & 1\\
+2 & 1 & 4\\
+3 & 1 & 4
+\end{array}\begin{array}{r}
+0\\
+0\\
+0\\
+1
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rrr}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1\\
+0 & 0 & 0
+\end{array}\begin{array}{|r}
+0\\
+0\\
+0\\
+1
+\end{array}\end{bmatrix}
+\]
+is inconsistent. 
+\end{enumerate}
+\item [\textbf{8.}]Let $c_{1}(\mathbf{v}-\mathbf{w})+c_{2}(2\mathbf{v}+\mathbf{w})=\mathbf{0}$.
+(We need to show that $c_{1}=c_{2}=0$ which implies that the vectors
+are linearly independent).
+\begin{eqnarray*}
+c_{1}(\mathbf{v}-\mathbf{w})+c_{2}(2\mathbf{v}+\mathbf{w}) & = & \mathbf{0}\\
+\Rightarrow\mathbf{v}(c_{1}+2c_{2})+\mathbf{w}(c_{2}-c_{1}) & = & \mathbf{0}
+\end{eqnarray*}
+Since $\{\mathbf{v},\mathbf{w}\}$ is linearly independent, $c_{1}+2c_{2}=0$
+and $c_{2}-c_{1}=0$. This gives the homogeneous system of equations,
+\[
+\begin{bmatrix}\begin{array}{rr}
+1 & 2\\
+-1 & 1
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rr}
+1 & 0\\
+0 & 1
+\end{array}\end{bmatrix}
+\]
+ which implies that $c_{1}=c_{2}=0$ as needed,
+\end{enumerate}
+
+\end{document}

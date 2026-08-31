@@ -1,0 +1,280 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+\theoremstyle{plain}
+\newtheorem*{thm*}{\protect\theoremname}
+\theoremstyle{definition}
+\newtheorem*{defn*}{\protect\definitionname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+\usepackage{needspace}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\definitionname}{Definition}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{335}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{Solutions}
+
+\newcommand{\examType}{Homework 4}
+
+\newcommand{\Date}{Due date: \formatdate{19}{4}{2013}} %%\AdvanceDate[12] \today
+
+%\newdate{my_date}{\day}{\month}{\year}%   
+%\AdvanceDate[-5] 
+%\displaydate{my_date}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \Date{}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+%\setlist{nolistsep} %eliminates space between list items
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\small\textbf{Homework Problems. }\emph{Solutions should be written/typed
+in numerical order and clearly labeled. Unsolved problems should be
+included but left blank.}
+\begin{enumerate}[resume]
+\item Let $a,b,c\in\mathbb{Z}$. Prove the following:
+
+\begin{enumerate}[resume]
+\item If $a|b$ and $b|c$ then $a|c$.
+
+\begin{proof}
+$a|b\Rightarrow b=na$ for some $n\in\mathbb{Z}$, and $b|c\Rightarrow mb=m\left(na\right)=c$
+for some $m\in\mathbb{Z}$. Thus $a|c$ 
+\end{proof}
+\item If $a|b$ and $a|c$ then $a|b\pm c$.
+
+\begin{proof}
+Let $a|b$ and $a|c$. So then $b=an$ and $c=am$ for some $n,m\in\mathbb{Z}$.
+Thus $b\pm c=an\pm am=a\left(n\pm m\right)$ which implies that $a|b\pm c$.
+\end{proof}
+\end{enumerate}
+\item Show that the set of integers, $\mathbb{Z}$, is a group under addition.
+
+\begin{proof}
+Let $a,b,c\in\mathbb{Z}$. Then $a+b\in\mathbb{Z}$ (closure); $a+0=0+a=a$
+so $a=e$ (identity); $a-a=0$ so $a^{-1}=-a\in\mathbb{Z}$ (inverses),
+and $\left(a+b\right)+c=a+\left(b+c\right)$ by associativity of real
+numbers (associativity). So then $\mathbb{Z}$ is a group under addition.
+\end{proof}
+\item Prove that the set of even integers is a group under addition.
+
+\begin{proof}
+Let $a,b\in2\mathbb{Z}$ then $a=2n$ and $b=2m$ for some $m,n\in\mathbb{Z}$.
+$a+b=2n+2m=2\left(n+m\right)\in2\mathbb{Z}$ so it is closed. The
+identity is $0=2\cdot0\in2\mathbb{Z}$, $a^{-1}=-a=-2n\in2\mathbb{Z}$,
+and it is associative by the associativity of $\mathbb{Z}$. 
+\end{proof}
+\item Show that the following are \emph{not} groups under the given operation.
+
+\begin{enumerate}
+\item $\mathbb{Z}$ under multiplication.
+
+\begin{proof}
+$2\in\mathbb{Z}$, but $2^{-1}\notin\mathbb{Z}$ since $2^{-1}2=1\Rightarrow2^{-1}=\frac{1}{2}$. 
+\end{proof}
+\item $S=\left\{ z|z\in\mathbb{Z}\mbox{ and }z=\sqrt{5}\right\} $ under
+any operation.
+
+\begin{proof}
+$\sqrt{5}\notin\mathbb{Z}$ so then $S=\emptyset$. So $S$ is not
+a group.
+\end{proof}
+\item $\mathbb{Q}$, the set of rationals under multiplication.
+
+\begin{proof}
+$0\in\mathbb{Q}$, but $0$ has no multiplicative inverse. 
+\end{proof}
+\item The set of odd integers under addition.
+
+\begin{proof}
+$3$ and $5$ are odd, but $3+5=8=2\cdot4$ which is not odd. So it
+is not closed.
+\end{proof}
+\end{enumerate}
+\item Show that $\left\{ 1,2,3\right\} $ under multiplication modulo $4$
+is \emph{not }a group but that $\left\{ 1,2,3,4\right\} $ under multiplication
+modulo $5$ is a group. (Example: $2\cdot3=6$ and $6=2\bmod4$ so
+$[6]=[2]$ and thus $2\cdot3$ \emph{is} in $\left\{ 1,2,3\right\} $).
+
+\begin{proof}
+$2\cdot2=0\bmod4$ and $0\notin\left\{ 1,2,3\right\} $ so it is not
+a group. 
+
+$\left\{ 1,2,3,4\right\} $: %
+\begin{tabular}{c|cccc}
+ & 1 & 2 & 3 & 4\tabularnewline
+\hline 
+1 & 1 & 2 & 3 & 4\tabularnewline
+2 & 2 & 4 & 1 & 3\tabularnewline
+3 & 3 & 1 & 4 & 2\tabularnewline
+4 & 4 & 1 & 2 & 3\tabularnewline
+\end{tabular} \\
+So it is closed, the identity is $1$, each element has an inverse,
+and associativity follows by the associativity of modular multiplication.
+\end{proof}
+\item Prove that the set of even integers is a group under addition. (I
+mistakenly repeated problem 3. For a more challenging problem you
+might try showing that integers of $n$ multiples for $n\in\mathbb{Z}^{+}$
+are a group under addition)
+
+\begin{proof}
+Let $n\mathbb{Z}=\left\{ x\in\mathbb{Z}\mbox{ such that }n|x\right\} $
+for some integer $n$. Let $a,b\in n\mathbb{Z}$. Then $a=nx$ and
+$b=ny$ for some $x,y\in\mathbb{Z}$. $a+b=nx+ny=n\left(x+y\right)$
+so $n|a+b$, and $n\mathbb{Z}$ is closed. The identity is $0$, $a^{-1}=-a=-nx$
+which is divisible by $n$, and associativity follows from associativity
+of $\mathbb{Z}$.
+\end{proof}
+\item Let $S=\left\{ a+b\sqrt{5}|\,a,b\mbox{ are not both zero and }a,b\in\mathbb{Q}\right\} $.
+Prove that $S$ is a group under multiplication. (Hint: rationalize
+the denominator to show that the inverse of $a+b\sqrt{5}$ is in $S$.)
+
+\begin{proof}
+Let $x,y\in S$ so then $x=a+b\sqrt{5}$ and $y=c+d\sqrt{5}$ for
+some $a,b,c,d\in\mathbb{Q}$. $xy=ac+\left(b+d\right)\sqrt{5}+5bd=ab+5bd+\left(a+b\right)\sqrt{5}$
+which is in $S$ as $\mathbb{Q}$ is closed under multiplication and
+addition. $1$ is the identity. $x^{-1}=\frac{1}{a+b\sqrt{5}}\frac{\left(a-b\sqrt{5}\right)}{\left(a-b\sqrt{5}\right)}=\frac{a-b\sqrt{5}}{a^{2}-5b}=\frac{a}{a^{2}-5b}+\frac{-b}{a^{2}-5b}\sqrt{5}\in S$.
+Associativity follows by the associativity of $\mathbb{R}$. 
+\end{proof}
+\item Prove that the set of all $2\times2$ matrices with determinant $1$
+and entries from $\mathbb{R}$ is a group under matrix multiplication.
+
+\begin{proof}
+Call this set $SL$. Let $A,B\in SL$. The product $AB$ will be a
+$2\times2$ matrix and$\det(A)\det(B)=\det(AB)$. Thus $AB\in SL$.
+The identity matrix has determinant $1$ so it is in $SL$. Since
+$\det(A)\neq0$ there exists an inverse matrix $A^{-1}$ and $\det(A^{-1})=\frac{1}{\det(A)}=1$.
+Thus $A^{-1}\in SL$. Matrix multiplication is associative. So $SL$
+is a group.
+
+This group is called the special linear group of degree $2$, denoted
+$\mbox{SL}(2,\mathbb{R})$. In general $n\times n$ matrices with
+determinants of $1$ are groups called the special linear group of
+degree $n$, denoted $\mbox{SL}(n,\mathbb{R})$.
+\end{proof}
+\item Suppose that if $G$ is a group such that if $a,b,c\in G$ and $ab=ca$
+then $b=c$. Prove that $G$ is an abelian group, i.e., that $ab=ba$
+for all $a,b\in G$. Hint: consider the element $aba=aba$.
+
+\begin{proof}
+Let $a,b,c\in G$ and suppose that $ab=ca$ implies $b=c$. $G$ is
+a group so then $a(ba)=(ab)a$ by associativity. By the assumption
+$a(ba)=(ab)a$ implies that $ab=ba$ so then $G$ is abelian.
+\end{proof}
+\item \Needspace{3\baselineskip}Prove that $G$ is an abelian group if
+and only is $\left(ab\right)^{-1}=a^{-1}b^{-1}$ for all $a,b\in G$.
+
+\begin{proof}
+$(\Rightarrow)$ Suppose that $G$ is abelian. Then $(ab)^{-1}=(ba)^{-1}$.
+$(ba)^{-1}ba=e\Rightarrow(ba)^{-1}=a^{-1}b^{-1}$ as required.
+
+$(\Leftarrow)$ Suppose that $(ab)^{-1}=a^{-1}b^{-1}$. Similarly
+to above $(ab)^{-1}=b^{-1}a^{-1}$ So then $ab(ab)^{-1}=e\Rightarrow ab(a^{-1}b^{-1})=e\Rightarrow abab^{-1}ba=ba\Rightarrow ab=ba$
+\end{proof}
+\end{enumerate}
+\vfill\footnotesize
+\begin{thm*}
+\textbf{\emph{The Fundamental Theorem of Arithmetic. }}Every integer
+greater than 1 is either a prime or the unique product of primes. 
+\end{thm*}
+\begin{defn*}
+Let $a$ and $n$ be integers with $n>0$. The \emph{congruence class
+of a modulo n }(denoted $[a]$) is the set of integers that are congruent
+to $a$ modulo $n$, i.e., 
+\[
+[a]=\left\{ b|b\in\mathbb{Z}\mbox{ and }b=a\bmod n\right\} 
+\]
+\end{defn*}
+For example, the congruence class of $3$ modulo $5$ is $[3]=\left\{ \dots,-2,3,8,13,\dots\right\} $.
+
+\vspace{0cm}
+\begin{defn*}
+The set of all congruence classes modulo $n$ is denoted $\mathbb{Z}_{n}$
+(read ``$Z$ mod $n$''). 
+
+\begin{itemize}
+\item $\left|\mathbb{Z}_{n}\right|=n$. 
+\item Addition in $\mathbb{Z}_{n}$ is defined as $\left[a\right]+\left[b\right]=\left[a+b\right]$.
+\item Multiplication in $\mathbb{Z}_{n}$ is defined as $\left[a\right]\cdot\left[b\right]=\left[a\cdot b\right]$.
+\end{itemize}
+\end{defn*}
+For example, $\mathbb{Z}_{4}=\left\{ \left[0\right],\left[1\right],\left[2\right],\left[3\right]\right\} $
+for convenience we write $\mathbb{Z}_{4}=\left\{ 0,1,2,3\right\} $.
+$2+3=5$ and $5=1\bmod4$ so $\left[5\right]=\left[1\right]$.
+\begin{defn*}
+A subset $H$ of a group $G$ is a \emph{subgroup }of $G$ is $H$
+is also a group under the operation in $G$.
+\end{defn*}
+
+\end{document}

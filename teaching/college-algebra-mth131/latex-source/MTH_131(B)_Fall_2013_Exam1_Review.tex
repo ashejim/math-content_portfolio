@@ -1,0 +1,300 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{131}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{}
+
+\newcommand{\examType}{Exam 1 Review}
+
+\renewcommand{\date}{\formatdate{11}{9}{2013}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\xmax}{10}
+\newcommand{\xmin}{-10}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{10}
+\newcommand{\ymin}{-10}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcommand{\Dspace}{\vspace{1cm}}\textbf{Plotting point on the graph and reading points from the graph}
+\begin{enumerate}
+\item Given a point $(x,y)$ count $x$ \emph{horizontally }in the direction
+of the sign and count $y$ \emph{vertically }in the direction of the
+sign.
+\end{enumerate}
+\textbf{Find the $x$ and $y$ intercepts from a graph. }(See the
+midterm review for examples)
+\begin{enumerate}
+\item Find all the times the graph intersects the $x-$axis. These are your
+$x-$intercepts.
+\item Find all the times the graph intersects the $y-$axis. These are your
+$y-$intercepts.
+\item [\textbf{ex.}]\vspace{0cm}\renewcommand{\xmax}{10}
+\renewcommand{\xmin}{-10}
+\renewcommand{\xstep}{0} %must be xmin+n
+\renewcommand{\ymax}{10}
+\renewcommand{\ymin}{-10}
+\renewcommand{\ystep}{0} %must be ymin+n
+%%%%%%%
+\begin{tikzpicture} 
+\begin{axis}[height=5.5cm, 
+	width=5.5cm, 
+	axis lines=middle,
+	minor x tick num={4},
+	minor y tick num={4},
+	grid=both,
+	%xtick={0,50,...,250},
+	%ytick={0,10,20,...,40},
+	%axis line style={-latex}, 
+	xmin=\xmin,xmax=\xmax, 
+	ymin=\ymin,ymax=\ymax,
+	%restrict y to domain=-1:10,
+	%no markers, 
+	xlabel={$x$},ylabel={$y$}, 
+	%every axis x label/.append style={anchor=north}, 
+	%every axis y label/.append style={anchor=east}
+	]
+	
+	\addplot[color=blue,solid,mark=*] coordinates {(-3,-5)} node[pos=.65,above] {$(-3,5)$};
+	\addplot[domain=\xmin:\xmax,thick,samples=100,draw=red,<->]{-1/2*x+3} node[pos=.65,above] {$f(x)$};
+	
+\end{axis}
+\end{tikzpicture}
+\end{enumerate}
+
+\subsubsection*{Solve an equation. ex. $3(x+8)-2=-(x+3)-4x$.}
+\begin{enumerate}
+\item Simplify, distribute, and then simplfiy. Note that $-(x+3)=-1(x+3)$.
+\begin{eqnarray*}
+3x+24-2 & = & -x-3\\
+3x+22 & = & -x-3
+\end{eqnarray*}
+\item Combine like terms and solve, i.e., put ``$x's$'' on one side and
+numbers on the other..
+\begin{eqnarray*}
+4x & = & -25\\
+x & = & \frac{-25}{4}
+\end{eqnarray*}
+\end{enumerate}
+
+\subsubsection*{Solve an equation with fractions. ex. $\frac{2x}{6}+2=\frac{3x}{9}$}
+\begin{enumerate}
+\item Multiply by the Lowest Common Denominator (LCD). In this case, $18$.
+Note BOTH terms on the left got multiplied by $18$.
+\begin{eqnarray*}
+18\left(\frac{2x}{6}+2\right) & = & \left(\frac{x}{9}\right)18\\
+\frac{36x}{6}+36 & = & \frac{18x}{9}\\
+6x+36 & = & 2x
+\end{eqnarray*}
+\item Now just solve.
+\begin{eqnarray*}
+4x & = & -36\\
+x & = & -\frac{36}{4}=-9
+\end{eqnarray*}
+\end{enumerate}
+
+\subsubsection*{Write the value(s) that make the denominator(s) zero. Then solve
+an equation. ex. $\frac{5}{x-2}+\frac{2}{x+7}=\frac{10}{(x+7)(x-2)}$}
+\begin{enumerate}
+\item First note that $x\neq2,-7$.
+\item Multiply by the LCD. In this case $(x-2)(x+7)$.
+\begin{eqnarray*}
+(x+7)(x-2)\left(\frac{5}{x-2}+\frac{2}{x+7}\right) & = & \left(\frac{10}{(x+7)(x-2)}\right)(x+7)(x-2)\\
+5(x+7)+2(x-2) & = & 10
+\end{eqnarray*}
+\item Now solve. 
+\begin{eqnarray*}
+5(x+7)+2(x-2) & = & 10\\
+7x+31 & = & 10\\
+x & = & -3
+\end{eqnarray*}
+\end{enumerate}
+
+\subsubsection*{Solve a formula for a specified variable. ex. $P=2L+2W$ for $L$.}
+\begin{enumerate}
+\item Just solve like you do for an $x$, and treat the other letters like
+numbers. 
+\begin{eqnarray*}
+P & = & 2L+2W\\
+P-2W & = & 2L\\
+\frac{P-2W}{2} & = & L
+\end{eqnarray*}
+\item Note: The $2$ divides BOTH factors, and the you DO NOT cancel anything
+in $2W$.
+\end{enumerate}
+
+\paragraph{Solve using the square root property. ex. $(x-4)^{2}+1=2$.}
+\begin{enumerate}
+\item Get the squared part by itself:
+\[
+(x-4)^{2}=1
+\]
+\item Use a square root; Don't forget the $\pm$. 
+\begin{eqnarray*}
+\sqrt{(x-4)^{2}} & = & \pm\sqrt{1}\\
+x-4 & = & \pm1
+\end{eqnarray*}
+\item Solve.
+\begin{eqnarray*}
+x & = & \pm1+4\\
+x=5 & \mbox{ and } & x=3
+\end{eqnarray*}
+\end{enumerate}
+
+\subsubsection*{Solve by factoring. ex. $3x^{2}=-3x+6$}
+\begin{enumerate}
+\item Set the equation equal to $0$. 
+\[
+3x^{2}+x-2=0
+\]
+\item Factor any common multiples.
+\[
+3(x^{2}+x-2)=0
+\]
+\item Factor and solve.
+\begin{eqnarray*}
+3(x+2)(x-1) & = & 0\\
+x=-2 & \mbox{ and } & x=1
+\end{eqnarray*}
+\newpage
+\end{enumerate}
+
+\subsubsection*{Solve the equation using the quadratic formula. ex. $3x^{2}=-2x+2$.}
+\begin{enumerate}
+\item Set the equation equal to $0$.
+\[
+3x^{2}+2x-2=0
+\]
+\item Identify the $a,b,c$ in $ax^{2}+bx+c=0$
+\[
+a=3,\,b=2,\,c=-2
+\]
+\item Use the quadratic formula, $x=\frac{-b\pm\sqrt{b^{2}-4ac}}{2a}$,
+and simplify.
+\[
+x=\frac{-2\pm\sqrt{(2)^{2}-4(3)(-2)}}{2(3)}=\frac{-2\pm\sqrt{28}}{6}=\frac{-1\pm\sqrt{7}}{3}
+\]
+\end{enumerate}
+
+\subsubsection*{Solve the equation by completing the square. ex. $x^{2}=-4x+2$.}
+\begin{enumerate}
+\item Set the equation eqaul to ``$c$'', in this case $2$, and divide
+by the ``$a$''.
+\begin{eqnarray*}
+x^{2}+4x & = & 2\\
+x^{2}+4x & = & 2
+\end{eqnarray*}
+\item Add $\left(\frac{b}{2}\right)^{2}$ to both sides; in our example
+$b=4$ so add $\left(\frac{4}{2}\right)^{2}=\left(2\right)^{2}=4$.
+\[
+x^{2}+4x+4=2+4
+\]
+\item Factor, and solve (note it will always be $(x+\frac{b}{2})^{2}$)
+\begin{eqnarray*}
+(x+2)^{2} & = & 6\\
+x+2 & =\pm & \sqrt{6}\\
+x & =-2\pm & \sqrt{6}
+\end{eqnarray*}
+\end{enumerate}
+
+\subsubsection*{Use the 5 step strategy for solving the word problem. When 3 times
+the number is subtracted 7 times the number, the result is 44.}
+\begin{enumerate}
+\item Summarize: ``3 times a number'' means, $3x$. ``7 times a number'',
+means $7x$. ``Subtracted from'' means, $7x-3x$. ``Result is 44''
+means, $=44$.
+\item Write an equation: $7x-3x=44$
+\item Solve: $x=11$.
+\item Check: $7(11)-3(11)=44\checkmark$
+\item State your answer as a sentence (this isn't applicable here).
+\end{enumerate}
+\textbf{Solve the word problem. ex. }A car rental place charges \$300
+a week to rent a car plus an additional \$0.50 per mile. How many
+miles can you drive in a week for \$400.
+\begin{enumerate}
+\item Write as an equation.
+\[
+300+0.50x=400
+\]
+\item Solve. 
+\begin{eqnarray*}
+0.50x & = & 100\\
+x & = & \frac{100}{0.50}=200\mbox{ miles}
+\end{eqnarray*}
+\end{enumerate}
+
+\end{document}

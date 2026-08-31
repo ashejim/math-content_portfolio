@@ -1,0 +1,739 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames,table]{xcolor} %adds additional color options
+\hypersetup{colorlinks=true, urlcolor=black,linkcolor=black}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+%\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+%\usepackage{datenumber} % Counters for dates
+\newdateformat{MD}{\monthname[\THEMONTH] \ordinal{DAY}}
+
+\def\formatdateny{\csname noyear\languagename\expandafter\endcsname\formatdate}
+\def\noyearenglish#1, \the\@year{#1}
+\let\noyearamerican\noyearenglish
+\let\noyearbritish\noyearenglish
+
+\usepackage{fancybox} %%ovalbox and fancy box settings
+
+\usepackage[outline]{contour}  %allows text halos
+\usepackage{colortbl}
+
+
+\usepackage[super]{nth} %easy 1st, 2nd, etc
+
+\usepackage{forest} %%for tree diagram
+
+%%data for histogram%%
+\begin{filecontents}{hist1_data.csv} 
+dist 
+3
+1
+0
+4
+1
+3
+2
+2
+0
+2
+0
+2
+2
+1
+4
+3
+1
+1
+3
+4
+2
+1
+3
+0
+1
+0
+2
+5
+1
+2
+3
+0
+0
+1
+2
+3
+1
+2
+0
+2
+\end{filecontents}
+
+%%data for histogra: cal per cereal%%
+\begin{filecontents}{hist_data_cereal.csv} 
+dist 
+3.7
+3.6
+3.6
+4.0
+4.0
+3.6
+3.8
+3.7
+4.1
+3.9
+3.9
+3.3
+3.5
+3.6
+3.9
+4.0
+\end{filecontents}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{107}
+
+\newcommand{\classSec}{10}
+
+\newcommand{\nameType}{}
+
+\newcommand{\examType}{Final Exam Review}
+
+\renewcommand{\date}{Section 07 Final: \formatdateny{5}{12}{2014} from 8:00am-10:00am\\ Section 10 Final: \formatdateny{3}{12}{2014} from 2:30pm-4:30pm}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}}}
+	\fancyhead[R]{ \date{}}
+	%\fancyhead[R]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+%\setlist{nolistsep}
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+%\setlist[2]{noitemsep}
+%\setlist{nosep}
+\setlist{itemsep=0pt,topsep=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\xmax}{10}
+\newcommand{\xmin}{-10}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{10}
+\newcommand{\ymin}{-10}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcommand{\xspace}{\hspace*{40pt}}
+\newcommand{\yspace}{\vspace*{.25cm}} %1.4cm
+\newcommand{\rowColor}{gray!35}
+\large\newcommand{\T}{}
+\newcommand{\F}{}
+
+\newcommand{\gauss}[2]{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}
+
+\newcommand{\normalcdf}[4]{ %mean,std,z-left,z-right
+\begin{tikzpicture}[scale=1.25]
+
+\pgfmathsetmacro{\mn}{#1}
+\pgfmathsetmacro{\sd}{#2}
+\pgfmathsetmacro{\za}{#1+#2*1}
+\pgfmathsetmacro{\zb}{#1+#2*2}
+\pgfmathsetmacro{\zc}{#1+#2*3}
+
+\pgfmathsetmacro{\zna}{#1-#2*1}
+\pgfmathsetmacro{\znb}{#1-#2*2}
+\pgfmathsetmacro{\znc}{#1-#2*3}
+
+\pgfmathsetmacro{\zleft}{#3}
+\pgfmathsetmacro{\zright}{#4}
+\pgfmathsetmacro{\zsL}{(#3-#1)/#2} %z-score
+\pgfmathsetmacro{\zsR}{(#4-#1)/#2} %z-score
+\pgfmathsetmacro{\xCenter}{\zsL/2.5+\zsR/2.5} %center using z-score
+\pgfmathsetmacro{\yCenter}{((1/(1*sqrt(2*pi))*exp(-((\xCenter-0)^2)/(2*1^2)))/2}
+\pgfkeys{/pgf/fpu} %for large numbers
+\pgfmathparse{100*(1/(1 + exp(-0.07056*((\zsR-0)/1)^3 - 1.5976*(\zsR-0)/1))-1/(1 + exp(-0.07056*((\zsL-0)/1)^3 - 1.5976*(\zsL-0)/1)))} %area from z-left to z-right
+\edef\area{\pgfmathresult} 
+\pgfkeys{/pgf/fpu=false}
+
+\scriptsize
+\begin{axis}[ 
+	no markers, 
+	domain=0:10, 
+	%samples=100, 
+	axis lines*=left, 
+	%xlabel=Standard deviations, 
+	%ylabel=Frequency, 
+	height=2.5cm, %change/remove this scaling to get 1:1 pic
+	width=5.5cm, 
+	hide y axis,
+	%ticks=none,
+	xtick={-3,-2,-1,0,1,2,3},
+	xticklabels={\pgfmathprintnumber[precision=0]{\znc},\pgfmathprintnumber[precision=2]{\znb},\pgfmathprintnumber[precision=2]{\zna},#1,\pgfmathprintnumber[precision=0]{\za},\pgfmathprintnumber[precision=2]{\zb},\pgfmathprintnumber[precision=2]{\zc}},
+	%xticklabels={-25, -15, -5, 5, 15, 25, 35},
+	%ytick=empty, 
+	enlargelimits=false, 
+	clip=false, 
+	axis on top, 
+	%grid = major
+	]
+
+	\addplot [fill=blue!35, draw=red,  domain=\zsL:\zsR] {\gauss{0}{1}} \closedcycle;
+		\node (arrowEnd) at (axis cs: \xCenter, \yCenter) {};
+	\addplot [draw, thick, smooth, domain=-3:3] {\gauss{0}{1}} \closedcycle;
+		\node[anchor=south east] (arrowStart) at (current bounding box.east) {\pgfmathprintnumber[fixed,precision=1]{\area}\%};
+	\draw[->,thick,black] (arrowStart) to (arrowEnd);
+	
+	%\addplot [fill=orange!20, draw=none, domain=2:3] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=-2:-1] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=1:2] {\gauss{0}{1}} \closedcycle; 
+	%\only<1->{\node[above] at (axis cs: -0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: 0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: -1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 2.5, 0.05) {$2.1\%$};}
+	%\only<1->{\node[above] at (axis cs: -2.5, 0.05) {$2.1\%$};}
+	%\only<1->{ \addplot[<->,black,very thick] coordinates {(-1,0.4) (1,0.4)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.4) {$68.2\%$};} 
+	%\only<1->{\addplot[<->,black,very thick] coordinates {(-2,0.3) (2,0.3)};}
+	%\only<1->{\node[above] at (axis cs: 0, 0.3) {$95.4\%$};}
+	%\only<1->{\addplot[<->,black, very thick] coordinates {(-3,0.2) (3,0.2)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.2) {$99.7\%$};}
+	\end{axis} 
+\end{tikzpicture}
+}
+
+\newcommand{\normalpdf}[5]{ %mean,std,z-left,z-right
+\begin{tikzpicture}[scale=1.25]
+
+\pgfmathsetmacro{\mn}{#1}
+\pgfmathsetmacro{\sd}{#2}
+\pgfmathsetmacro{\za}{#1+#2*1}
+\pgfmathsetmacro{\zb}{#1+#2*2}
+\pgfmathsetmacro{\zc}{#1+#2*3}
+
+\pgfmathsetmacro{\zna}{#1-#2*1}
+\pgfmathsetmacro{\znb}{#1-#2*2}
+\pgfmathsetmacro{\znc}{#1-#2*3}
+
+\pgfmathsetmacro{\zleft}{#3}
+\pgfmathsetmacro{\zright}{#4}
+\pgfmathsetmacro{\zsL}{(#3-#1)/#2} %z-score
+\pgfmathsetmacro{\zsR}{(#4-#1)/#2} %z-score
+\pgfmathsetmacro{\zsV}{(#5-#1)/#2} %z-score
+\pgfmathsetmacro{\xCenter}{\zsL/2.5+\zsR/2.5} %center using z-score
+\pgfmathsetmacro{\yCenter}{((1/(1*sqrt(2*pi))*exp(-((\xCenter-0)^2)/(2*1^2)))/2}
+\pgfkeys{/pgf/fpu} %for large numbers
+\pgfmathparse{100*(1/(1 + exp(-0.07056*((\zsR-0)/1)^3 - 1.5976*(\zsR-0)/1))-1/(1 + exp(-0.07056*((\zsL-0)/1)^3 - 1.5976*(\zsL-0)/1)))} %area from z-left to z-right
+\edef\area{\pgfmathresult} 
+\pgfkeys{/pgf/fpu=false}
+
+\scriptsize
+\begin{axis}[ 
+	no markers, 
+	domain=0:10, 
+	%samples=100, 
+	axis lines*=left, 
+	%xlabel=Standard deviations, 
+	%ylabel=Frequency, 
+	height=2.5cm, %change/remove this scaling to get 1:1 pic
+	width=5.5cm, 
+	hide y axis,
+	%ticks=none,
+	xtick={\zsV},
+	xticklabels={\pgfmathprintnumber[precision=2]{#5}},
+	%xticklabels={-25, -15, -5, 5, 15, 25, 35},
+	%ytick=empty, 
+	enlargelimits=false, 
+	clip=false, 
+	axis on top, 
+	%grid = major
+	]
+
+	\addplot [fill=blue!35, draw=red,  domain=\zsL:\zsR] {\gauss{0}{1}} \closedcycle;
+		\node (arrowEnd) at (axis cs: \xCenter, \yCenter) {};
+	\addplot [draw, thick, smooth, domain=-3:3] {\gauss{0}{1}} \closedcycle;
+		\node[anchor=south east] (arrowStart) at (current bounding box.east) {\pgfmathprintnumber[fixed,precision=1]{\area}\%};
+	\draw[->,thick,black] (arrowStart) to (arrowEnd);
+	
+	%\addplot [fill=orange!20, draw=none, domain=2:3] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=-2:-1] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=1:2] {\gauss{0}{1}} \closedcycle; 
+	%\only<1->{\node[above] at (axis cs: -0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: 0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: -1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 2.5, 0.05) {$2.1\%$};}
+	%\only<1->{\node[above] at (axis cs: -2.5, 0.05) {$2.1\%$};}
+	%\only<1->{ \addplot[<->,black,very thick] coordinates {(-1,0.4) (1,0.4)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.4) {$68.2\%$};} 
+	%\only<1->{\addplot[<->,black,very thick] coordinates {(-2,0.3) (2,0.3)};}
+	%\only<1->{\node[above] at (axis cs: 0, 0.3) {$95.4\%$};}
+	%\only<1->{\addplot[<->,black, very thick] coordinates {(-3,0.2) (3,0.2)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.2) {$99.7\%$};}
+	\end{axis} 
+\end{tikzpicture}
+}\newcommand{\normalpdfB}[4]{ %mean,std,z-left,z-right
+\begin{tikzpicture}[scale=1.25]
+
+\pgfmathsetmacro{\mn}{#1}
+\pgfmathsetmacro{\sd}{#2}
+\pgfmathsetmacro{\za}{#1+#2*1}
+\pgfmathsetmacro{\zb}{#1+#2*2}
+\pgfmathsetmacro{\zc}{#1+#2*3}
+
+\pgfmathsetmacro{\zna}{#1-#2*1}
+\pgfmathsetmacro{\znb}{#1-#2*2}
+\pgfmathsetmacro{\znc}{#1-#2*3}
+
+\pgfmathsetmacro{\zleft}{#3}
+\pgfmathsetmacro{\zright}{#4}
+\pgfmathsetmacro{\zsL}{(#3-#1)/#2} %z-score
+\pgfmathsetmacro{\zsR}{(#4-#1)/#2} %z-score
+\pgfmathsetmacro{\xCenter}{\zsL/2.5+\zsR/2.5} %center using z-score
+\pgfmathsetmacro{\yCenter}{((1/(1*sqrt(2*pi))*exp(-((\xCenter-0)^2)/(2*1^2)))/2}
+\pgfkeys{/pgf/fpu} %for large numbers
+\pgfmathparse{100*(1/(1 + exp(-0.07056*((\zsR-0)/1)^3 - 1.5976*(\zsR-0)/1))-1/(1 + exp(-0.07056*((\zsL-0)/1)^3 - 1.5976*(\zsL-0)/1)))} %area from z-left to z-right
+\edef\area{\pgfmathresult} 
+\pgfkeys{/pgf/fpu=false}
+
+\scriptsize
+\begin{axis}[ 
+	no markers, 
+	domain=0:10, 
+	%samples=100, 
+	axis lines*=left, 
+	%xlabel=Standard deviations, 
+	%ylabel=Frequency, 
+	height=2.5cm, %change/remove this scaling to get 1:1 pic
+	width=5.5cm, 
+	hide y axis,
+	%ticks=none,
+	xtick={\zsL,\zsR},
+	xticklabels={\pgfmathprintnumber[precision=2]{\zsL},\pgfmathprintnumber[precision=2]{\zsR}},
+	%xticklabels={-25, -15, -5, 5, 15, 25, 35},
+	%ytick=empty, 
+	enlargelimits=false, 
+	clip=false, 
+	axis on top, 
+	%grid = major
+	]
+
+	\addplot [fill=blue!35, draw=red,  domain=\zsL:\zsR] {\gauss{0}{1}} \closedcycle;
+		\node (arrowEnd) at (axis cs: \xCenter, \yCenter) {};
+	\addplot [draw, thick, smooth, domain=-3:3] {\gauss{0}{1}} \closedcycle;
+		\node[anchor=south east] (arrowStart) at (current bounding box.east) {\pgfmathprintnumber[fixed,precision=1]{\area}\%};
+	\draw[->,thick,black] (arrowStart) to (arrowEnd);
+	
+	%\addplot [fill=orange!20, draw=none, domain=2:3] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=-2:-1] {\gauss{0}{1}} \closedcycle; 
+	%\addplot [fill=blue!20, draw=none, domain=1:2] {\gauss{0}{1}} \closedcycle; 
+	%\only<1->{\node[above] at (axis cs: -0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: 0.5, 0.025) {$34.1\%$};} 
+	%\only<1->{\node[above] at (axis cs: -1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 1.5, 0.025) {$13.6\%$};}
+	%\only<1->{\node[above] at (axis cs: 2.5, 0.05) {$2.1\%$};}
+	%\only<1->{\node[above] at (axis cs: -2.5, 0.05) {$2.1\%$};}
+	%\only<1->{ \addplot[<->,black,very thick] coordinates {(-1,0.4) (1,0.4)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.4) {$68.2\%$};} 
+	%\only<1->{\addplot[<->,black,very thick] coordinates {(-2,0.3) (2,0.3)};}
+	%\only<1->{\node[above] at (axis cs: 0, 0.3) {$95.4\%$};}
+	%\only<1->{\addplot[<->,black, very thick] coordinates {(-3,0.2) (3,0.2)};} 
+	%\only<1->{\node[above] at (axis cs: 0, 0.2) {$99.7\%$};}
+	\end{axis} 
+\end{tikzpicture}
+}\small
+\begin{enumerate}[resume]
+\item Using the symbolic representations\\
+\begin{tabular}{rl}
+$b$: & I ride a bicycle to school.\tabularnewline
+$s$: & It is snowing.\tabularnewline
+$r$: & It is raining. \tabularnewline
+\end{tabular}\\
+express the following statements in symbolic form.
+
+\begin{enumerate}
+\item It is raining and I rode my bicycle to school.
+
+\begin{enumerate}
+\item []$r\wedge b$\yspace\vfill
+\end{enumerate}
+\item If it is raining or snowing, then I will not ride my bicycle to school.
+
+\begin{enumerate}
+\item []$(r\vee s)\rightarrow\sim b$\yspace\vfill
+\end{enumerate}
+\end{enumerate}
+\item Using the statement, ``If your order is over \$50, then you will
+not have to pay shipping fees.'' and parts (a), (b), and (c) below,
+complete the following:\emph{}\\
+\emph{}
+
+\begin{enumerate}
+\item If $\mbox{you do not have to pay shipping fees}$ then $\mbox{your order is over \$50}$.
+\item If $\mbox{your order is not over \$50}$ then $\mbox{you have to pay shipping fees}$.
+\item If $\mbox{you have to pay shipping fees}$ then $\mbox{your order is not over \$50}$.
+\item []Identify the converse of the statement. \underline{\hphantom{part a}}
+\item []Identify the inverse of the statement. \underline{\hphantom{part a}}
+\item []Identify the contrapositive of the statement. \underline{\hphantom{part a}}\vfill
+\end{enumerate}
+\item For parts \ref{enu:one}-\ref{enu:last}, identify the negation of
+the provided statement.\newcommand{\negate}{students~}\begin{multicols}{2}
+
+\begin{enumerate}
+\item \label{enu:one}\renewcommand{\negate}{students~}Some \negate are
+taking Math 107.
+
+\begin{enumerate}
+\item [(a)]All \negate are taking Math 107.
+\item [(b)]No \negate are taking Math 107.
+\item [(c)]Some \negate are not taking Math 107.
+\item [(d)]Some \negate are taking Math 107.\vfill
+\end{enumerate}
+\item \renewcommand{\negate}{players~}All \negate need to attend practice.
+
+\begin{enumerate}
+\item [(a)]All \negate need to attend practice.
+\item [(b)]No \negate need to attend practice.
+\item [(c)]Some \negate do not need to attend practice.
+\item [(d)]Some \negate need to attend practice.\vfill\columnbreak
+\end{enumerate}
+\item \renewcommand{\negate}{professors~}No \negate know how to read.
+
+\begin{enumerate}
+\item [(a)]All \negate know how to read.
+\item [(b)]No \negate know how to read.
+\item [(c)]Some \negate do not know how to read.
+\item [(d)]Some \negate know how to read.\vfill
+\end{enumerate}
+\item \label{enu:last}\renewcommand{\negate}{students~}Some \negate are
+going to lunch.
+
+\begin{enumerate}
+\item [(a)]All \negate are going to lunch.
+\item [(b)]No \negate are going to lunch.
+\item [(c)]Some \negate are not going to lunch.
+\item [(d)]Some \negate are going to lunch.\vfill
+\end{enumerate}
+\end{enumerate}
+\end{multicols}\vfill
+\item Use a truth table to determine if the following arguments are valid.
+
+\begin{enumerate}
+\item \vspace{-25pt}%
+\begin{tabular}{rll}
+ &  & \tabularnewline
+ &  & \tabularnewline
+$b$: & You buy the bike. & 1. You buy the bike or the tent.\tabularnewline
+$t$: & You buy the tent. & 2. You buy the bike.\tabularnewline
+\cline{3-3}
+ &  & Therefore, you do not buy the tent.\tabularnewline
+\end{tabular}\\
+\begin{tabular}{c|c|c|c|c|c|c}
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{\xspace} & \multicolumn{1}{c}{\xspace} & \multicolumn{1}{c}{\xspace} & \multicolumn{1}{c}{\xspace} & \xspace\tabularnewline
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{\ovalbox{$1$}} & \multicolumn{1}{c}{\ovalbox{$2$}} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{\ovalbox{$c$}} & \ovalbox{Argument}\tabularnewline
+$b$ & $t$ & $b\vee t$ & $b$ & $1 \wedge 2$ & $\sim t$ & $\left(1\wedge2\right)\rightarrow c$\tabularnewline
+\hline 
+\hline 
+\rowcolor{\rowColor}T & T & \T & \T & \T & \F & \F\tabularnewline
+\hline 
+T & F & \T & \T & \T & \T & \T\tabularnewline
+\hline 
+\rowcolor{\rowColor}F & T & \T & \F & \F & \F & \T\tabularnewline
+\hline 
+F & F & \F & \F & \F & \T & \T\tabularnewline
+\end{tabular}\vfill
+\item \vspace{-25pt} %
+\begin{tabular}{rll}
+ &  & \tabularnewline
+ &  & \tabularnewline
+$r$: & You register early. & 1. If you register early, then you will receive a discount.\tabularnewline
+$d$: & You receive a discount. & 2. You register early.\tabularnewline
+\cline{3-3}
+ &  & Therefore, you will receive a discount.\tabularnewline
+\end{tabular}\\
+\begin{tabular}{c|c|c|c|c|c|c}
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{\xspace} & \multicolumn{1}{c}{\xspace} & \multicolumn{1}{c}{\xspace} & \multicolumn{1}{c}{\xspace} & \xspace\tabularnewline
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{\ovalbox{$1$}} & \multicolumn{1}{c}{\ovalbox{$2$}} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{\ovalbox{$c$}} & \ovalbox{Argument}\tabularnewline
+$r$ & $d$ & $r\rightarrow d$ & $r$ & $1 \wedge 2$ & $r$ & $\left(1\wedge2\right)\rightarrow c$\tabularnewline
+\hline 
+\hline 
+\rowcolor{\rowColor}T & T & \T & \T & \T & \T & \T\tabularnewline
+\hline 
+T & F & \F & \T & \F & \T & \T\tabularnewline
+\hline 
+\rowcolor{\rowColor}F & T & \T & \F & \F & \F & \T\tabularnewline
+\hline 
+F & F & \T & \F & \F & \F & \T\tabularnewline
+\end{tabular}\vfill\newpage
+\end{enumerate}
+\item Let $U=\{1,2,3,4,5,6,7,8\}$ be the universal set, and $A=\{1,2,3,4\}$
+and $B=\{4,6,8\}$ be subsets of $U$. Find the indicated set, and
+draw a Venn diagram corresponding to the indicated set.\newcommand{\vennScale}{0.5}\begin{multicols}{2}
+
+\begin{enumerate}
+\item $A\cup B$\vfill
+\item $A\cap B$\vfill
+\item $A'$\vfill
+\item $B'$\vfill
+\item $A\cap B'$\vfill
+\item $A'\cup B$\vfill
+\item $(A\cap B)'$\vfill
+\item $(A\cup B)'$\vfill
+\end{enumerate}
+\end{multicols}
+\item A college has $1105$ students. This semester $320$ students are
+taking a math course, $405$ of the students are taking a history
+class, and $250$ of the students taking a math class are not enrolled
+in a history class.
+
+\begin{enumerate}
+\item Construct a Venn diagram, and write the appropriate numbers in the
+four regions
+\item How many of the students are taking math and history?
+\item How many students are taking history but not math?
+\item How many students are taking math or history?
+\item How many students are taking neither math nor history?\vfill
+\end{enumerate}
+\item \emph{Survivor} and \emph{CSI} belong to the Thursday night prime
+time lineup. A group of $600$ college students were surveyed. $350$
+students watch \emph{Survivor} and $280$ watch \emph{CSI}. $180$
+students watch both shows.
+
+\begin{enumerate}
+\item Construct a Venn diagram, and write the appropriate numbers in the
+eight regions.
+\item How many students watch only \emph{Survivor}?
+\item How many students watch \emph{CSI }or \emph{Survivor}?
+\item How many students watch only \emph{CSI}?\vfill
+\end{enumerate}
+\item Find the value of each of the following:\begin{multicols}{2}
+
+\begin{enumerate}
+\item $4!$\yspace\vfill
+\item $7!$\yspace\vfill
+\item $0!$\yspace\vfill
+\item $\frac{10!}{7!}$\yspace\vfill
+\item $\frac{27!}{4!25!}$\yspace\vfill
+\item $\frac{1000!}{998!}$\yspace\vfill
+\item $_{7}P_{2}$\yspace\vfill
+\item $_{6}C_{4}$\yspace\vfill
+\end{enumerate}
+\end{multicols}
+\item A certain model of pickup truck is available in five exterior colors,
+three interior colors, and three interior styles. In addition, the
+transmission can be either manual or automatic, and the truck can
+have either two-wheel or four-wheel drive. How many different versions
+of the pickup truck can be ordered?\vfill
+\item A certain fraternity must elect a president, vice president, and treasurer
+from its 30 members. How many ways can this be done?\vfill
+\item A three-person committee must be chosen from a group of ten men and
+twelve women. How many committees are possible if it must consist
+of the following?
+
+\begin{enumerate}
+\item Three men.
+\item Three women.
+\item One woman and two men.
+\item One man and two women.
+\item One man and two women, and one of these is selected as a spokesperson
+of the committee.\vfill\newpage
+\end{enumerate}
+\item A card is dealt from a well-shuffled, standard deck of $52$ cards.
+Find the probability of being dealt each of the following.\begin{multicols}{2}
+
+\begin{enumerate}
+\item A red card\vfill
+\item A queen\vfill
+\item A club\vfill
+\item The queen of clubs\vfill
+\item A queen or a club\vfill
+\item not a queen\vfill
+\end{enumerate}
+\end{multicols}\vfill
+\item Three coins are tossed. Find each of the following:\begin{multicols}{2}
+
+\begin{enumerate}
+\item the sample space\vfill
+\item the event, $E_{1}$, that exactly two are tails.\vfill
+\item the event, $E_{2}$, that at least two are tails.\vfill
+\item the probability of $E_{1}$.
+\item the probability $E_{2}$.
+\end{enumerate}
+\end{multicols}\vfill
+\item A drawer has $7$ socks. $4$ socks are black and $3$ are white socks.
+John randomly pulls out $4$ socks. Find the probability of the following:\begin{multicols}{2}
+
+\begin{enumerate}
+\item all $4$ socks are black.\vfill
+\item exactly $2$ are white.\vfill
+
+\columnbreak
+\item at least $3$ are white.\vfill\vfill
+\end{enumerate}
+\end{multicols}\vfill
+\item Of all the flashlights is a large shipment, $15\%$ have a defective
+bulb, $10\%$ have a defective battery, and $5\%$ have both defects.
+If you buy one of these flashlights, find the probability of the following:\begin{multicols}{2}
+
+\begin{enumerate}
+\item a defective bulb or a defective battery\vfill
+\item a good bulb or a good battery\vfill
+\item a defective bulb and a defective battery. \vfill
+\item just a defective bulb\vfill
+
+\begin{enumerate}
+\item []\columnbreak
+\end{enumerate}
+\end{enumerate}
+\end{multicols}\vfill
+\item Use the provided table to answer the following questions.
+
+\begin{tabular}{|c|c|c|c|}
+\hline 
+\textbf{Age} & \textbf{Obama} & \textbf{McCain} & \textbf{Other/NA}\tabularnewline
+\hline 
+18-29 & 11.9\% & 5.8\% & 0.4\%\tabularnewline
+\hline 
+30-44 & 15.1\% & 13.3\% & 0.6\%\tabularnewline
+\hline 
+45-64 & 18.5\% & 18.1\% & 0.4\%\tabularnewline
+\hline 
+65+ & 7.2\% & 8.5\% & 0.3\%\tabularnewline
+\hline 
+\end{tabular}
+\begin{enumerate}
+\item What is the probability that a voter under $45$ voted for McCain.
+\vfill
+\item What is the probability that a person who voted for McCain is $45$
+or older.\vfill
+\end{enumerate}
+\vfill
+\item Gregor's Garden Corner buys $40\%$ of its plants from the Green Growery
+and the rest from Herb's Herbs. Of the plants from the Green Growery,
+$20\%$ must be returned, and $10\%$ of those from Herb's Herbs must
+be returned. \begin{multicols}{2}
+
+\begin{enumerate}
+\item draw a tree diagram describing the probability\vfill
+\item find the probability that a plant must be returned and it is from
+Herb's Herbs.\vfill
+\item find the probability that a plant from the Green Growery must be returned.\vfill
+\item find the probability that a plant must be returned. \vfill
+\end{enumerate}
+\end{multicols}\vfill\newpage
+\item Sixteen randomly selected families were surveyed to determine the
+number of children in each family. The following results were found:
+
+\hfill%
+\begin{tabular}{cccccccc}
+3.7  & 3.6 & 4.0 & 3.8 & 4.1 & 3.9 & 3.5 & 3.9\tabularnewline
+3.6 & 4.0 & 3.6 & 3.7 & 3.9 & 3.3 & 3.6 & 4.0\tabularnewline
+\end{tabular}\hfill\hspace{0cm}\begin{multicols}{2}
+\begin{enumerate}
+\item Find the mean.\vfill
+\item Find the median.\vfill
+\item Find the standard deviation.\vfill
+\item Construct a histogram using 5 subintervals, beginning at 3.2, and
+ending at 4.2.\columnbreak
+\item []\vspace{4cm}
+\end{enumerate}
+\end{multicols}\vfill
+\item Find the following probabilities, 
+
+\begin{enumerate}
+\item $p(z<1.35)$\vfill
+\item $p(0<z<2.02)$\vfill
+\item $p(-.09<z<1.06)$\vfill
+\item $p(-1.1<z<-.08)$\vfill
+\end{enumerate}
+\item A population is normally distributed with a mean 78 and standard deviation
+7.5. Find the following probabilities. 
+
+\begin{enumerate}
+\item $p(x<70)$\vfill
+\item $p(70<x<85)$\vfill
+\item $p(80<x<95.5)$\vfill
+\item $p(95.5<x<108)$\vfill
+\end{enumerate}
+\item Find $c$ such that each of the following is true.
+
+\begin{enumerate}
+\item $p(z<c)=0.2776$\vfill
+\item $p(z>c)=.0351$\vfill
+\item Let $\mu=100$ and $\sigma=15$ find $c$ such that $p(x<c)=27.76\%$\vfill
+\end{enumerate}
+\item The time it takes latex paint to dry is normally distributed with
+$\mu=3.5$ hours and $\sigma=.75$ hours. Find the probability that
+drying time will be as follows.
+
+\begin{enumerate}
+\item less than $2.25$ hours.\vfill
+\end{enumerate}
+\item The average score on the ACT is $18$ with a standard deviation of
+$6$. If a college only wants to accept students with an ACT score
+at least in the top 25\%. What is the minimum score they should accept?
+What about the top 5\%?\vfill
+\end{enumerate}
+
+\end{document}

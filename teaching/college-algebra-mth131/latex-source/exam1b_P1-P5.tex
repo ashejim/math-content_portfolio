@@ -1,0 +1,111 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\DeclareMathSizes{10}{10}{10}{10}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{131}
+
+\newcommand{\classSec}{B}
+
+\newcommand{\examType}{EXAM 1}
+
+\renewcommand{\date}{October 8, 2012}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{Name:}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{MTH \classNum{} \classSec{}} 
+\chead{\textbf{Name:}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Justify your answers and show your work.}
+
+\emph{Evaluate each algebraic expression for the given value of the
+variable.}
+\begin{enumerate}[resume]
+\item $4-2(3+x)^{2},\mbox{ for \ensuremath{x=-5}}$\vspace{1.25in}
+\item $\frac{2x+y}{xy-2x}$, for $x=1$ and $y=-4$\vspace{1.5in}
+\end{enumerate}
+\emph{Simplify the algebraic expression. Write all exponents as positive. }
+\begin{enumerate}[resume]
+\item $7-6[-\frac{1}{2}(6-2)+1]$\vspace{1.5in}
+\item $\frac{5}{(7-12)^{2}}+\frac{1+3}{5}$\vspace{2.0in}
+\item $-\left(\frac{4}{y}\right)^{2}$\vspace{1.0in}
+\item $(4x^{2})^{\nicefrac{1}{2}}$\vspace{1.5in}
+\item $(x^{3}x^{2})^{-2}$\vspace{1.25in}
+\item $(-2x^{3}y)(-6x^{6}y^{10})$\vspace{1.5in}
+\item $\frac{6xy^{3}}{18x^{2}y^{-5}}$\vspace{2.25in}
+\item $\sqrt{\frac{1}{25}}$\vspace{1.0in}
+\end{enumerate}
+\newpage{}
+\begin{enumerate}[resume]
+\item $5\sqrt{12}-3\sqrt{3}$\vspace{1.0in}
+\end{enumerate}
+\emph{Perform the indicated operation and simplify.}
+\begin{enumerate}[resume]
+\item $(x^{5}-8x^{2}+5x)-(-2x^{5}+x^{2}+12)$\vspace{1.75in}
+\item $(2x^{2}y-2xy)+(3x^{2}y-xy)$\vspace{1.75in}
+\item $(6x-2)(x^{2}+x-3)$\vspace{2.0in}
+\item $(5x+3y)^{2}$\vspace{1.5in}\newpage{}
+\end{enumerate}
+\emph{Factor Completely.}
+\begin{enumerate}[resume]
+\item $x^{2}+3x-10$\vspace{1.25in}
+\item $3x^{3}-6x^{2}$\vspace{1.25in}
+\item $3x^{3}+9x^{2}-30x$\vspace{1.75in}
+\item $16y^{2}-25$\vspace{1.25in}
+\end{enumerate}
+\emph{Factor by grouping.}
+\begin{enumerate}[resume]
+\item $x^{3}-3x^{2}+4x-12$.
+\end{enumerate}
+
+\end{document}

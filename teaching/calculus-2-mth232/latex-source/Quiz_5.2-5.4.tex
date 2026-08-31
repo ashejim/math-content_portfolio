@@ -1,0 +1,81 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\DeclareMathSizes{10}{10}{10}{10}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{232}
+
+\newcommand{\classSec}{C}
+
+\newcommand{\examType}{QUIZ}
+
+\renewcommand{\date}{October 8, 2012}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{Name:}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{Name:}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Justify your answers and show your work.}
+\begin{enumerate}[resume]
+\item Let ${\displaystyle \int_{2}^{4}f(x)\,dx=3}$ and ${\displaystyle \int_{4}^{6}f(x)\,dx=-2}$.
+Find ${\displaystyle \int_{6}^{2}f(x)}\,dx$.\vspace{1.0in}
+\item Find the indefinite integral of ${\displaystyle f(x)=\frac{x^{2}+1}{x^{2}}}$.\vspace{1.5in}
+\item Evaluate ${\displaystyle \int_{0}^{\nicefrac{\pi}{2}}(\sin\theta+\cos\theta)\,d\theta}$.\vspace{1.5in}
+\item (\textbf{HW }5.4: 23) What is the average distance between the parabola
+$y=200x-10x^{2}$ and the $x$-axis on the interval $[0,20]$? (Your
+answer can be a decimal approximated to one-hundredths.)\vspace{1.5in}
+\item Use the substitution rule to evaluate $\int x(x^{2}+10)^{30}\,dx$.
+\end{enumerate}
+
+\end{document}

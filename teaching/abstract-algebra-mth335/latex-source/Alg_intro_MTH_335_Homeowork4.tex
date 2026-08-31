@@ -1,0 +1,250 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\usepackage{wasysym}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+\theoremstyle{plain}
+\newtheorem*{thm*}{\protect\theoremname}
+\theoremstyle{definition}
+\newtheorem*{defn*}{\protect\definitionname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\definitionname}{Definition}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{335}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{Name: \hspace{-4cm}}
+
+\newcommand{\examType}{Homework 4}
+
+\newcommand{\Date}{Due date: \formatdate{15}{4}{2013}} %%\AdvanceDate[12] \today
+
+%\newdate{my_date}{\day}{\month}{\year}%   
+%\AdvanceDate[-5] 
+%\displaydate{my_date}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \Date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+%\setlist{nolistsep} %eliminates space between list items
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Homework Problems. }\emph{Solutions should be written/typed
+in numerical order and clearly labeled. Unsolved problems should be
+included but left blank.}
+\begin{enumerate}[resume]
+\item Let $a,b,c\in\mathbb{Z}$. Prove the following:
+
+\begin{enumerate}[resume]
+\item If $a|b$ and $b|c$ then $a|c$.
+\item If $a|b$ and $a|c$ then $a|b\pm c$.\vfill
+\end{enumerate}
+\item Show that the set of integers, $\mathbb{Z}$, is a group under addition.
+\vfill
+\item Prove that the set of even integers is a group under addition. \vfill
+\item Show that the following are \emph{not} groups under the given operation.
+
+\begin{enumerate}
+\item $\mathbb{Z}$ under multiplication.
+\item $S=\left\{ z|z\in\mathbb{Z}\mbox{ and }z=\sqrt{5}\right\} $under
+addition.
+\item $\mathbb{Q}$, the set of rationals under multiplication.
+\item The set of odd integers under addition.\vfill
+\end{enumerate}
+\item Show that $\left\{ 1,2,3\right\} $ under multiplication modulo $4$
+is \emph{not }a group but that $\left\{ 1,2,3,4\right\} $ under multiplication
+modulo $5$ is a group. (Example: $2\cdot3=6$ and $6=2\bmod4$ so
+$[6]=[2]$ and thus $2\cdot3$ \emph{is} in $\left\{ 1,2,3\right\} $).
+\vfill
+\item Prove that the set of even integers is a group under addition. (I
+mistakenly repeated problem 3. For a more challenging problem you
+might try showing that integers of $n$ multiples for $n\in\mathbb{Z}^{+}$
+are a group under addition)\vfill
+\item Let $S=\left\{ a+b\sqrt{5}|\,a,b\mbox{ are not both zero and }a,b\in\mathbb{Q}\right\} $.
+Prove that $S$ is a group. (Hint: rationalize the denominator to
+show that the inverse of $a+b\sqrt{5}$ is in $S$.)\vfill
+\item Prove that the set of all $2\times2$ matrices with determinant $1$
+and entries from $\mathbb{R}$ is a group under matrix multiplication.
+\vfill
+\item Suppose that if $G$ is a group such that if $a,b,c\in G$ and $ab=ca$
+then $b=c$. Prove that $G$ is an Abelian group, i.e., that $ab=ba$
+for all $a,b\in G$. Hint: consider the element $aba=aba$.\vfill
+\item Prove that $G$ is an Abelian group if and only is $\left(ab\right)^{-1}=a^{-1}b^{-1}$
+for all $a,b\in G$. \vfill\newpage
+\end{enumerate}
+\textbf{Presentation problems.}
+\begin{enumerate}
+\item Suppose that $a\neq0$, $b\neq0$, and $\mbox{lcm}(a,b)=m$. Prove
+that if $n$ is a common multiple of $a$ and $b$ then $m|n$. 
+\end{enumerate}
+\begin{enumerate}[resume]
+\item Let $a\neq0$, $b\neq0$, and $d=\gcd\left(a,b\right)$. Prove that
+if $d'$ is any common divisor of $a$ and $b$ then $d'|d$.
+\end{enumerate}
+\begin{thm*}
+\textbf{\emph{The Fundamental Theorem of Arithmetic. }}Every integer
+greater than 1 is either a prime or the unique product of primes. 
+\end{thm*}
+\begin{enumerate}[resume]
+\item If $c^{2}=ab$ and $\gcd\left(a,b\right)=1$, prove that $a$ and
+$b$ are perfect squares (Hint: By the theorem above, $a$ and $b$
+can be written as the product of primes. They are perfect squares
+iff. each prime in this prime factorization has an even power). 
+\item Prove that if in a group $G$ that $\left(ab\right)^{2}=a^{2}b^{2}$
+then $G$ is Abelian. 
+\item Consider a square placed on Cartesian plane such that the square's
+center is at the origin and its corners are on the axes (like a diamond;
+see the figure below). Any motion of the square which keeps the center
+at the origin and corners on the axes has the same result as one of
+eight motions: $r_{0}\equiv\mbox{ rotation of }0^{\circ}$, $r_{1}\equiv\mbox{ rotation of }90^{\circ}$,
+$r_{3}\equiv\mbox{ rotation of }180^{\circ}$, $d_{x}\equiv\mbox{ }x-\mbox{axis reflection}$,
+$h_{+}\equiv\,y=x\mbox{ reflection}$, or $h_{-}\equiv y=-x\mbox{ reflection}$.
+\\
+\hspace*{.5cm}\newcommand{\xmax}{1.5}
+\newcommand{\xmin}{-1.5}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{1.5}
+\newcommand{\ymin}{-1.5}
+\newcommand{\ystep}{0} %must be ymin+n
+%%%%%%%
+\begin{tikzpicture} 
+\begin{axis}[height=3.5cm, 
+	width=3.5cm, 
+	axis lines=middle,
+	x axis line style={-},y axis line style={-}, 
+	grid=none,
+	%axis line style={-latex}, 
+	xmin=\xmin,xmax=\xmax, 
+	ymin=\ymin,ymax=\ymax,
+	%restrict y to domain=-1:10,
+	no markers, 
+	xlabel={$$},ylabel={$$},
+	ticks=none,
+	]
+	
+	\addplot[very thick,blue] coordinates{(1,0) (0,1)};
+	\addplot[very thick,blue] coordinates{(0,1) (-1,0)};
+	\addplot[very thick,blue] coordinates{(-1,0) (0,-1)};
+	\addplot[very thick,blue] coordinates{(0,-1) (1,0)};
+
+	\node at (axis cs:1.3,.3) {$1$};
+	\node at (axis cs:-.3,1.3) {$2$};
+	\node at (axis cs:-1.3,-.3) {$3$};
+	\node at (axis cs:.3,-1.3) {$4$};
+	
+\end{axis}
+\end{tikzpicture}\\
+Show that $D_{4}=\left\{ r_{0},r_{1},r_{3},d_{x},d_{y},h_{+},h_{-}\right\} $
+is a group under composition of these motions. The set $D_{4}$ is
+called the \emph{dihedral group of degree 4}. 
+\end{enumerate}
+\begin{defn*}
+Let $a$ and $n$ be integers with $n>0$. The \emph{congruence class
+of a modulo n }(denoted $[a]$) is the set of integers that are congruent
+to $a$ modulo $n$, i.e., 
+\[
+[a]=\left\{ b|b\in\mathbb{Z}\mbox{ and }b=a\bmod n\right\} 
+\]
+\end{defn*}
+For example, the congruence class of $3$ modulo $5$ is $[3]=\left\{ \dots,-2,3,8,13,\dots\right\} $.
+
+\vspace{0cm}
+\begin{defn*}
+The set of all congruence classes modulo $n$ is denoted $\mathbb{Z}_{n}$
+(read ``$Z$ mod $n$''). 
+
+\begin{itemize}
+\item $\left|\mathbb{Z}_{n}\right|=n$. 
+\item Addition in $\mathbb{Z}_{n}$ is defined as $\left[a\right]+\left[b\right]=\left[a+b\right]$.
+\item Multiplication in $\mathbb{Z}_{n}$ is defined as $\left[a\right]\cdot\left[b\right]=\left[a\cdot b\right]$.
+\end{itemize}
+\end{defn*}
+For example, $\mathbb{Z}_{4}=\left\{ \left[0\right],\left[1\right],\left[2\right],\left[3\right]\right\} $
+for convenience we write $\mathbb{Z}_{4}=\left\{ 0,1,2,3\right\} $.
+$2+3=5$ and $5=1\bmod4$ so $\left[5\right]=\left[1\right]$.
+\begin{enumerate}[resume]
+\item Show that $\mathbb{Z}_{2}\times\mathbb{Z}_{3}$ is a group under modular
+addition. 
+\end{enumerate}
+\begin{defn*}
+A subset $H$ of a group $G$ is a \emph{subgroup }of $G$ is $H$
+is also a group under the operation in $G$.
+\end{defn*}
+\begin{enumerate}[resume]
+\item Let $\mathbb{Z}_{6}=\left\{ 0,1,2,3,4,5\right\} $ and $\mathbb{Z}_{4}=\left\{ 0,1,2,3\right\} $.
+$\mathbb{Z}_{6}\times\mathbb{Z}_{4}$ is a group under modular addition.
+Show that $H=\left\{ \left(0,0\right),\left(3,0\right),\left(0,2\right),\left(3,2\right)\right\} $
+is a subgroup. 
+\item [$\smiley$\textbf{.}]Two sets are said to be \emph{equal }if there
+exists a bijective function between them; we write $\left|A\right|=\left|B\right|$.
+$B$ is said to have \emph{strictly greater cardinality} than $B$
+if there is a one-to-one function from $A$ into $B$, but there does
+not exist a bijective function from $A$ into $B$; we write$\left|A\right|<\left|B\right|$.
+Prove that $\left|\mathbb{N}\right|<\left|\mathbb{R}\right|$.
+\end{enumerate}
+
+\end{document}

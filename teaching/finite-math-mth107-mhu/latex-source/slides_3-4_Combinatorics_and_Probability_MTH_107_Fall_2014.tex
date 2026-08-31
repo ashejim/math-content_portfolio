@@ -1,0 +1,536 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,t]{beamer}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{amssymb}
+\usepackage{cancel}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% this default might be overridden by plain title style
+\newcommand\makebeamertitle{\frame{\maketitle}}%
+% (ERT) argument for the TOC
+\AtBeginDocument{%
+  \let\origtableofcontents=\tableofcontents
+  \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+  \def\gobbletableofcontents#1{\origtableofcontents}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usetheme{Warsaw}
+% or ...
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+\setbeamercovered{invisible} %makes overlays invisible
+
+%gets rid of navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%\usepackage{hyperref}
+%\usepackage[usenames,dvipsnames,table]{xcolor} %adds additional color options
+\definecolor{links}{HTML}{2A1B81}
+%\hypersetup{colorlinks,linkcolor=blue,urlcolor=links}
+
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{shapes}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{hyperref}
+
+\usepackage{forest} %%for tree diagram
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage[super]{nth} %easy 1st, 2nd, etc
+
+%\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+%\usepackage{datenumber} % Counters for dates
+
+\usepackage[super]{nth}
+
+\usepackage{etex}
+
+\usepackage{fancybox}
+
+%%table colors
+%\usepackage[table]{xcolor}
+\usepackage{colortbl}
+
+\usepackage[outline]{contour}  %allows text halos
+
+\usepackage{epsdice} %%dice font
+\usepackage[misc]{ifsym}
+\newfont\dice{dice3d} %%3d dice font
+
+\contourlength{1pt} %sets halo width
+%%example: \node at (0.75,0.5) {\contour{white}{\Large Text!}};
+%%example:  \node [fill=white,inner sep=1pt] at (2.25,0.5) {\Large 			Text!};
+%%example:  \node [fill=white,rounded corners=2pt,inner sep=1pt] at 			(3.75,0.5) {\Large Text!};
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\formatdateny{\csname noyear\languagename\expandafter\endcsname\formatdate}
+\def\noyearenglish#1, \the\@year{#1}
+\let\noyearamerican\noyearenglish
+\let\noyearbritish\noyearenglish
+
+%%allows uncover with forest diagrams
+\tikzset{
+    invisible/.style={opacity=0,text opacity=0},
+    visible on/.style={alt=#1{}{invisible}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+    },
+}
+\forestset{
+  visible on/.style={
+    for tree={
+      /tikz/visible on={#1},
+      edge={/tikz/visible on={#1}}}}}
+
+%%%redefines column alignment to match vertically
+%\define@key{beamerframe}{t}[true]{% top
+  %\beamer@frametopskip=.2cm plus .5\paperheight\relax%
+  %\beamer@framebottomskip=0pt plus 1fill\relax%
+ % \beamer@frametopskipautobreak=\beamer@frametopskip\relax%
+  %\beamer@framebottomskipautobreak=\beamer@framebottomskip\relax%
+  %\def\beamer@initfirstlineunskip{}%
+%}
+
+%%provides pdf with 4 slides per page; don't forget to add 'handout' to remove overlays
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{4 on 1}[a4paper, landscape, border shrink=7mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{3}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{4}{border code=\pgfusepath{stroke}}
+%%%Don't forget to add 'handout'
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\newcommand{\xmax}{2000}
+\newcommand{\xmin}{0}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{500}
+\newcommand{\ymin}{0}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcounter{countEx} \setcounter{countEx}{0}
+\newcounter{countProb} \setcounter{countProb}{0}
+\resetcounteronoverlays{countEx} \resetcounteronoverlays{countProb}
+
+\newcommand{\ex}[3]{
+	\addtocounter{countEx}{1}
+	\only<#1-#2>{\begin{exampleblock} {Example \chNum.\secNum.\arabic{countEx}.} #3	\end{exampleblock}}
+}
+
+\newcommand{\prob}[4]{
+	\addtocounter{countProb}{1}
+	\only<#1-#2>{\begin{exampleblock} {Problem  \chNum.\secNum.\arabic{countProb}.\,#3} #4	\end{exampleblock}}
+}
+
+\newcommand{\yline}[4]{
+	(#2 - #4)/(#1 - #3)*(x - #1) + #2
+}
+
+\beamerdefaultoverlayspecification{<+->}
+
+%%%%Chapter and Section numbers%%%%%
+\newcommand{\chNum}{3}
+\newcommand{\secNum}{4}
+\newcommand{\secTitle}{Combinatorics \& Probability}
+\date{\formatdate{13}{10}{2014} \& \formatdate{15}{10}{2014}}
+
+\title[Section \chNum.\secNum: \secTitle]{Section \chNum.\secNum: \secTitle}
+
+\subtitle{Finite Mathematics~~MTH 107~~Fall 2014}
+
+\author{Dr.\,James Ashe}
+
+\titlegraphic{\includegraphics[height=2.75cm]{/home/jim/JamesAshe/MHU/images/MarsHilUniversityLogo-Virtical.png}}
+
+\institute{Mars Hill University}
+
+\makebeamertitle 
+
+%%True false command
+\newcommand{\T}{\textcolor{green}{\contour{black}{T}}}
+\newcommand{\F}{\textcolor{red}{\contour{black}{F}}}
+\newcommand{\uT}[2]{\uncover<#1-#2>{\T}}
+\newcommand{\uF}[2]{\uncover<#1-#2>{\F}}
+
+%tkiz ball item 
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]
+	{\node[circle,ball color=green!50!black!100, shade,   color=white,inner sep=1.2pt] (char) {\tiny #1};
+	}
+}
+\begin{frame}{Combinatorics review/ 3 types of Questions}
+
+\vspace{-.75cm}
+\begin{columns}
+
+
+\column{3.75cm}
+
+\ex{1}{}{How many ways can you roll two 6 sided dice?}\vspace{-.25cm}
+\begin{itemize}
+\item <4->can repeat
+\item <4->[](replacement)
+\item []
+\item []
+\end{itemize}
+\begin{block}<5->{Fundamental Priniple of Counting}
+\end{block}
+\begin{itemize}
+\item <6->[]$6$\only<7->{$\times6$} \only<8->{$=36$}
+\end{itemize}
+
+\column{3.75cm}
+
+\ex{2}{}{How many ways can 3 people have different birthdays?}\vspace{-.25cm}
+\begin{itemize}
+\item <9->\textbf{cannot} repeat
+\item <10->[](\textbf{no }replacement)
+\item <11->Order \textbf{does }matter.
+\end{itemize}
+\begin{block}<12->{Permutation} \begin{center}$_{n}P_{r}=\frac{n!}{(n-r)!}$\end{center}
+\end{block}
+\only<13->{$_{365}P_{3}$\only<14->{ $=\frac{365!}{(365-3)!}$}
+
+\only<15->{ \hspace{0cm}\hphantom{X}$=\frac{365!}{362!}=\frac{365\cdot364\cdot362}{1}$}}
+
+\column{3.75cm}
+
+\ex{3}{}{How many ways can you select 5 numbers 1-40?}\vspace{-.25cm}
+\begin{itemize}
+\item <16->\textbf{cannot} repeat
+\item <16->[](\textbf{no }replacement)
+\item <17->Order \textbf{does not }matter.
+\end{itemize}
+\begin{block}<18->{Combination} \begin{center}$_{n}C_{r}=\frac{n!}{(n-r)!r!}$\end{center}
+\end{block}
+\only<19->{$_{40}C_{5}$\only<20->{ $=\frac{40!}{(40-5)!5!}$}
+
+\only<21->{\hspace{0cm}\hphantom{X}$=\frac{40!}{35!5!}=\frac{40\cdot39\cdot38\cdot37\cdot36}{120}$}}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Combinatorics \& Probability: 3 types of Questions}
+
+\vspace{-.75cm}
+\addtocounter{countEx}{-3} %sets ex counter for previous slide
+\begin{columns}
+
+
+\column{3.75cm}
+
+\ex{1}{}{How many ways can you roll two 6 sided dice?}
+
+\column{3.75cm}
+\begin{alertblock}<2->{Problem}
+ What is the probability that someone rolls a 3 then a 2? 
+\end{alertblock}
+
+\column{3.75cm}
+
+\end{columns}
+
+\begin{columns}
+
+
+\column{11cm}
+\begin{itemize}
+\item []
+\item <3->[]$p(3\mbox{ and }2)$\only<4->{ $=\dfrac{n(3\mbox{ and }2)}{n(S)}$}\only<5->{ $=\dfrac{1}{36}$}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Combinatorics \& Probability: 3 types of Questions}
+
+\vspace{-.75cm}
+\begin{columns}
+
+
+\column{3.75cm}
+
+\column{3.75cm}
+
+\ex{1}{}{How many ways can 3 people have different birthdays?}\vspace{-.25cm}
+
+\column{3.75cm}
+\begin{alertblock}<2->{Problem}
+ What is the probability at least 2 out of 3 people have the same
+birthday?
+\end{alertblock}
+\end{columns}
+
+\begin{itemize}
+\item <3->\textbf{Same as asking: }\emph{``What is the probability that
+3 people }\textbf{\emph{do not }}\emph{have different birthdays?''}\vspace{-.5cm}
+\end{itemize}
+\begin{columns}
+
+
+\column{6.5cm}
+\begin{itemize}
+\item <4->[$S:$] All possible birthdays for 3 people.
+\item <5->[$E:$] Of 3 people, some have the same birthday.
+\item <6->[$E':$] 3 people have different birthdays.
+\end{itemize}
+
+\column{5.5cm}
+\begin{itemize}
+\item []<7->$p(E')$\uncover<8->{ $=\dfrac{n(E')}{n(S)}$}\uncover<9->{ $=\dfrac{_{365}P_{5}}{365^{3}}$}
+\item []<10->$p(E)$\uncover<11->{ $=1-p(E')$}\\
+\vspace{5pt} \uncover<12->{\hspace{0cm}\hphantom{$p(E)$ }$=1-\dfrac{_{365}P_{5}}{365^{3}}$}\\
+\vspace{5pt} \uncover<13->{\hspace{0cm}\hphantom{$p(E)$ }$=0.008204\dots$}\\
+\uncover<14->{\hspace{0cm}\hphantom{$p(E)$ }$\approx0.8\%$}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Combinatorics \& Probability: 3 types of Questions}
+
+\vspace{-.75cm}
+\begin{columns}
+
+
+\column{3.75cm}
+
+\column{3.75cm}
+\begin{alertblock}<2->{Problem}
+ What is the probability that someone matches 5 randomly drawn numbers
+from 1-40?
+\end{alertblock}
+
+\column{3.75cm}
+
+\ex{1}{}{How many ways can you select 5 numbers 1-40?}\vspace{-.25cm}
+\end{columns}
+
+\begin{itemize}
+\item <3->A \textbf{5/40} lottery game.\vspace{-.5cm}
+\end{itemize}
+\begin{columns}
+
+
+\column{6.5cm}
+\begin{itemize}
+\item <4->[$S:$] All possible number selections. 
+\item <5->[$E:$] Selection matches the drawn number.
+
+\begin{itemize}
+\item <6->Order does not matter.
+\item <7->[ex.]If $\{10,11,20,40,1\}$ is the drawn then the selection
+$\{1,11,40,1,20\}$ wins \nth{1} prize. 
+\end{itemize}
+\end{itemize}
+
+\column{5.5cm}
+\begin{itemize}
+\item []<8->$p(E)$\uncover<9->{ $=\dfrac{n(E)}{n(S)}$}\uncover<10->{ $=\dfrac{1}{_{40}C_{5}}$}\\
+\vspace{5pt} \uncover<11->{\hspace{0cm}\hphantom{$p(E)$ }$=\dfrac{1}{\left(\nicefrac{40\cdot39\cdot38\cdot37\cdot36}{120}\right)}$}\\
+\vspace{5pt} \uncover<12->{\hspace{0cm}\hphantom{$p(E)$ }$=\dfrac{1}{7,059,052}$}\\
+\vspace{5pt} \uncover<13->{\hspace{0cm}\hphantom{$p(E)$ }$\approx0.00001417\%$}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problems}
+
+\prob{1}{}{A group of 30 people is selected at random}{What is the
+probability that at least two of them have the same birthday?}
+\begin{itemize}
+\item <2->[]$n(S)=365^{30}\approx7.39241\cdot10^{76}$ (very big) 
+\item <3->[]Let $E:$ At least two have the same birthday.
+\item <4->[]$n(E')=$\uncover<5->{$_{365}P_{30}\approx2.171103\cdot10^{76}$
+(also very big)}
+\item []
+\item <6->[]$p(E)=$\uncover<7->{$1-p(E')=1-\dfrac{n(E')}{n(S)}$}
+\item []<7->\hspace{0cm}\hphantom{$p(E)=$$1-p(E')$}$=1-\dfrac{_{365}P_{30}}{365^{30}}$
+\item []<8->\hspace{0cm}\hphantom{$p(E)=$$1-p(E')$}$\approx.7063$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Problems}
+
+\prob{1}{}{A group of 35 people is selected at random}{What is the
+probability that at least two of them have the same birthday?}
+\begin{itemize}
+\item <2->[]$n(S)=365^{35}$ 
+\item <3->[]Let $E:$ At least two have the same birthday.
+\item <4->[]$n(E')=$\uncover<5->{$_{365}P_{35}$}
+\item []
+\item <6->[]$p(E)=$\uncover<7->{$1-p(E')=1-\dfrac{n(E')}{n(S)}$}
+\item []<7->\hspace{0cm}\hphantom{$p(E)=$$1-p(E')$}$=1-\dfrac{_{365}P_{35}}{365^{35}}$
+\item []<8->\hspace{0cm}\hphantom{$p(E)=$$1-p(E')$}$\approx.8144$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Problems}
+
+\prob{1}{1}{}{What is the least number you would need in a group
+so that there is a probability of \emph{at least }$78\%$?}
+\begin{itemize}
+\item <2->[]From the last two problems we know the answer is between $30$
+and $35$
+\item <3->[]$p(E_{30})=$$1-p(E_{30}')=1-\dfrac{_{365}P_{30}}{365^{30}}\approx.7063$
+\item <5->[]$p(E_{31})=$$1-p(E_{31}')=1-\dfrac{_{365}P_{31}}{365^{31}}\approx.7305$
+\item <6->[]$p(E_{32})=$$1-p(E_{32}')=1-\dfrac{_{365}P_{32}}{365^{32}}\approx.7533$
+\item <7->[]$p(E_{33})=$$1-p(E_{33}')=1-\dfrac{_{365}P_{33}}{365^{33}}\approx.7749$
+\item []<8->$p(E_{34})=$$1-p(E_{34}')=1-\dfrac{_{365}P_{34}}{365^{34}}\approx.7953$\uncover<9->{ $\leftarrow$above
+$78\%$}
+\item []<4->$p(E_{35})=$$1-p(E_{35}')=1-\dfrac{_{365}P_{35}}{365^{35}}$$\approx.8144$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Problems}
+
+\prob{1}{1}{A state lottery has a 5/40 game (pick 5 different numbers
+from 1-40).}{
+\begin{enumerate}
+\item [a.]Find the probability of winning \nth{1} prize (selecting all
+the numbers correctly).
+\end{enumerate}
+\begin{itemize}
+\item [b.]Find the probability of winning \nth{2} prize (selecting all
+but one of the numbers correctly).
+\end{itemize}
+}
+\begin{itemize}
+\item []
+\item [a.]<2->$p(1^{\mbox{st}})=\dfrac{n(1^{\mbox{st}})}{n(S)}$\\
+\hspace{0cm}\hphantom{$p(1^{\mbox{st}})$}\textrm{$=\dfrac{_{5}C_{5}}{_{40}C_{5}}\begin{array}{l}
+\leftarrow\mbox{ways to choose 5 of 5 winning numbers}\\
+\leftarrow\mbox{ways to choose 40 of 5 numbers}
+\end{array}$}\\
+\hspace{0cm}\hphantom{$p(1^{\mbox{st}})$}$=\dfrac{1}{658008}\approx0.000002$
+\item []
+\item [b.]<3->$n(2^{\mbox{nd}})=(\mbox{ways to pick }4\mbox{ winners})\times(\mbox{ways to choose \ensuremath{1}loser})$\\
+\hspace{0cm}\hphantom{$n(E)$}$=_{5}C_{4}\times_{35}C_{1}=5\times35=175$\\
+$p(2^{\mbox{nd}})=\dfrac{n(2^{\mbox{nd}})}{n(S)}=\dfrac{175}{658008}\approx.000266$ 
+\item <4->Note: $_{35}C_{1}=35=(40-5)$, the non-winning numbers.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Problems}
+
+\prob{1}{}{5 cards are dealt (without replacement) from a standard
+52 card deck.}{Find the probability of being dealt $2$ aces, $2$
+queens, and a king?}
+\begin{itemize}
+\item []<2->Total number of hands, $n(S)=$\uncover<3->{ $_{52}C_{5}$
+(order doesn't matter)}
+\item []<4->Number of ways to get $2$ aces, $n(2\mbox{A})=$\uncover<5->{ $_{4}C_{2}$
+}
+\item []<6->Number of ways to get $2$ queens, $n(2\mbox{Q})=$\uncover<7->{ $_{4}C_{2}$
+}
+\item []<8->Number of ways to get a king, $n(1\mbox{K})=$\uncover<9->{ $_{4}C_{1}$
+}
+\item []
+\item []<10->$p(2\mbox{A}\cap2\mbox{Q}\cap1\mbox{K})=\dfrac{n(2\mbox{A}\cap2\mbox{Q}\cap1\mbox{K})}{n(S)}=$\uncover<11->{ $\dfrac{n(2\mbox{A})\times n(2\mbox{Q})\times n(1\mbox{K})}{n(S)}$}
+\item []<12->\hspace{0cm}\hphantom{$p(2\mbox{A}\cap2\mbox{Q}\cap1\mbox{K})$}$=\dfrac{_{4}C_{2}\times_{4}C_{2}\times_{4}C_{1}}{_{52}C_{5}}=\dfrac{6\times6\times4}{2598960}=\dfrac{3}{54145}$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Problems}
+
+\prob{1}{}{You order 12 burritos to go, 5 with peppers and 7 without
+peppers. However the restaurant did not label the burritos. If you
+pick 3 burritos at random find the probability of each of the follow:}{None
+have peppers.}
+\begin{itemize}
+\item []<2->\textbf{Need to find:}\\
+ $p(NP)=\dfrac{n(NP)}{n(S)}=\dfrac{\mbox{ways to pick 3 w/no peppers}}{\mbox{ways to pick }3\mbox{ burritos}}$
+\item []<3->$n(S)=$\uncover<4->{ $_{12}C_{3}=220$}
+\item []<5->$n(NP)=$\uncover<6->{ $_{7}C_{3}=35$}
+\item []
+\item []<7->$p(NP)=\dfrac{_{7}C_{3}}{_{12}C_{3}}=\dfrac{35}{220}=\dfrac{7}{44}$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Problems}
+
+\prob{1}{1}{You order 12 burritos to go, 5 with peppers and 7 without
+peppers. If you pick 3 burritos at random find the probability of
+each of the follow:}{Exactly 2 have no peppers.}
+\begin{itemize}
+\item []<2->\textbf{Need to find:}\\
+ $p(NP)=\dfrac{n(2P)}{n(S)}=\dfrac{\mbox{ways to pick 2 w/no peppers}}{\mbox{ways to pick }3\mbox{ burritos}}$
+\item []<3->$n(S)=$\uncover<4->{ $_{12}C_{3}=220$}
+\item []<5->$n(2P)=$\scriptsize $(\mbox{ways to pick 2 w/no peppers})\times(\mbox{ways to pick 1 w/peppers})$\\
+\normalsize \hspace{0cm}\hphantom{$n(2P)$}\uncover<6->{ $=_{7}C_{2}\times_{5}C_{1}=21\times5=105$}
+\item []
+\item []<7->$p(2P)=\dfrac{_{7}C_{2}\times_{5}C_{1}}{_{12}C_{3}}=\dfrac{105}{220}=\dfrac{21}{44}$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Problems}
+
+\prob{1}{1}{You order 12 burritos to go, 5 with peppers and 7 without
+peppers. However the restaurant did not label the burritos. If you
+pick 3 burritos at random find the probability of each of the follow:}{At
+least 1 has no peppers.}
+\begin{itemize}
+\item []<2->Equivalently, 1 OR 2 OR 3 have peppers.
+
+\begin{itemize}
+\item At least, at most, more than, greater than, etc. $\rightarrow$ \textbf{or
+$\rightarrow$ add}
+\end{itemize}
+\item []<3->\textbf{Need to find:}\\
+ $p(NP)=\dfrac{n(NP\geq1)}{n(S)}=\dfrac{\mbox{ways to get at least 1 w/no peppers}}{\mbox{ways to pick }3\mbox{ burritos}}$ 
+\item []<4->$n(S)=$\uncover<5->{ $_{12}C_{3}=220$}
+\item []<6->$n(NP\geq1)=$\uncover<10->{$70+105+35$}\scriptsize \\
+\hspace{0cm}\hphantom{$n(P\geq 1)$}\\
+\begin{tabular}{ccccc}
+\textrm{$n(\mbox{1 w/no peppers})$} &  &  &  & \tabularnewline
+\textrm{$+n(\mbox{2 w/no peppers})$} &  &  &  & \tabularnewline
+\textrm{$+n(\mbox{3 w/no peppers})$} &  &  &  & \tabularnewline
+\end{tabular}\\
+\begin{tabular}{crcrl}
+ & \only<8->{$n(\mbox{1 w/no peppers})\times n(\mbox{pick 2 w/peppers})$} &  & \only<8->{$_{7}C_{1}\times_{5}C_{2}$} & \only<8->{$70$}\tabularnewline
+\only<7->{$=$} & \only<7->{$+n(\mbox{2 w/no peppers})\times n(\mbox{pick 1 w/peppers})$} & \only<7->{$=$} & \only<7->{$+_{7}C_{2}\times_{5}C_{1}$} & \only<7->{$105$}\tabularnewline
+ & \only<9->{$+n(\mbox{3 w/no peppers})\times n(\mbox{pick 0 w/peppers})$} &  & \only<9->{$+_{7}C_{3}\times_{5}C_{0}$} & \only<9->{$35$}\tabularnewline
+\end{tabular}\normalsize
+\item []
+\item []<11->$p(NP\geq1)=\dfrac{70+105+35}{220}=\dfrac{210}{220}=\dfrac{21}{22}$\uncover<12->{ ($1-p(\mbox{all peppers})=1-\dfrac{_{5}c_{3}}{220}$)}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Online Resources}
+
+\emph{WolframAlpha}
+\begin{itemize}
+\item \textcolor{blue}{\href{http://www.wolframalpha.com}{www.wolframalpha.com}}
+
+\begin{itemize}
+\item $_{n}C_{r}=c(n,r)$
+\item $_{n}P_{r}=p(n,r)$
+\end{itemize}
+\end{itemize}
+\emph{easycalculation.com}
+\begin{itemize}
+\item \textcolor{blue}{\href{http://easycalculation.com/statistics/permutation-combination.php}{www.easycalculation.com/statistics/permutation-combination.php}}
+\end{itemize}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,271 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+\theoremstyle{plain}
+\newtheorem*{thm*}{\protect\theoremname}
+\theoremstyle{plain}
+\newtheorem*{prop*}{\protect\propositionname}
+\theoremstyle{definition}
+\newtheorem*{example*}{\protect\examplename}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+\usepackage[super]{nth}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\examplename}{Example}
+\providecommand{\propositionname}{Proposition}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{336}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\examType}{Exam 2 Review}
+
+\renewcommand{\date}{\formatdate{23}{10}{2013}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} ~\date{}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\textbf{}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\setlist{topsep=.5pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\xmax}{0}
+\newcommand{\xmin}{-\xmax}
+\newcommand{\xstep}{0}
+\newcommand{\ymax}{0}
+\newcommand{\ymin}{-\ymax}
+\newcommand{\ystep}{0} 
+\newcommand{\dspace}{\vspace{1cm}}
+\newcommand{\xa}{0}
+\newcommand{\xb}{0}
+\newcommand{\ya}{1}
+\newcommand{\yb}{1}
+
+\subsubsection*{Chapter 2 Matrix Algebra}
+\begin{itemize}
+\item \textbf{2.1 Matrix operations: }be able to compute the basic operations
+and know when the operation is undefined. 
+\item \textbf{2.2 Linear transformations: }
+
+\begin{itemize}
+\item Find the standard matrix for a given a given linear transformation,
+e.g., HW 2.
+
+\begin{itemize}
+\item Find the columns of the standard matrix by using the column vectors
+from the standard basis., e.g., $T\left(\begin{bmatrix}\begin{array}{r}
+1\\
+0\\
+0
+\end{array}\end{bmatrix}\right)$, $T\left(\begin{bmatrix}\begin{array}{r}
+0\\
+1\\
+0
+\end{array}\end{bmatrix}\right)$, and $T\left(\begin{bmatrix}\begin{array}{r}
+0\\
+0\\
+1
+\end{array}\end{bmatrix}\right)$ gives the \nth{1}, \nth{2}, and \nth{3} columns respectively.
+\end{itemize}
+\item Determine if a given function is a \emph{linear transformation}, e.g.,
+HW 4ab.
+
+\begin{itemize}
+\item Recall that to prove that $T$ is a linear transformation it suffices
+to find a standard matrix, $A\in\mathcal{M}_{m\times n}$ for $\mu_{A}:\mathbb{R}^{n}\rightarrow\mathbb{R}^{m}$.
+To prove that it is not a standard matrix you need to show that it
+fails at least one of the properties.
+\end{itemize}
+\end{itemize}
+\item \textbf{2.3 Inverse matrices. }
+
+\begin{itemize}
+\item Use Gaussian elimination to determine if a matrix $A$ is invertible
+and find $A^{-1}$.
+\item Use the inverse $A^{-1}$ to solve $A\mathbf{x}=\mathbf{b}$ e.g.,
+HW 2ab.
+\end{itemize}
+\begin{thm*}
+An $n\times n$ matrix is \uline{nonsingular}\emph{ $\iff$ }it is
+invertible. 
+\end{thm*}
+\end{itemize}
+
+\subsubsection*{Chapter 3 Vector Spaces}
+\begin{itemize}
+\item \textbf{3.1 Subspaces of $\mathbb{R}^{n}$.}
+
+\begin{itemize}
+\item Determine if a given set is a \emph{subspace}, e.g. HW 1ab.
+\end{itemize}
+\begin{prop*}
+Let $A\in\mathcal{M}_{m\times n}$. The set of solutions to $A\mathbf{x}=\mathbf{0}$
+is a subspace of $\mathbb{R}^{n}$
+\end{prop*}
+\vspace{0cm}
+\begin{prop*}
+Let $\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k}\in\mathbb{R}^{n}$.
+Then $V=\mbox{Span\ensuremath{\left(\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k}\right)}}$
+is a subspace of $\mathbb{R}^{n}$.
+\end{prop*}
+\begin{itemize}
+\item Decide whether a given set of vectors \emph{spans} $\mathbb{R}^{n}$,
+e.g., HW 2ab.
+
+\begin{itemize}
+\item Note: you can use dimensions (section 3.4) to determine that some
+sets do not span $\mathbb{R}^{n}$.
+\end{itemize}
+\item [$\star$]Let $\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k}\in\mathbb{R}^{n}$
+and let $\mathbf{v}\in\mathbb{R}^{n}$. Prove that $\mathbf{v}\in\mbox{Span}\left(\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k}\right)$
+$\Rightarrow$ $\mbox{Span}\left(\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k}\right)=\mbox{Span}\left(\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k},\mathbf{v}\right)$.
+\end{itemize}
+\item \textbf{3.3 Linear Independence and Basis}
+
+\begin{prop*}
+\textup{\emph{Let $A\in\mathcal{M}_{n\times n}$. Then $A$ is nonsingular
+if and only if its column vectors form a basis for $\mathbb{R}^{n}$.}}
+\end{prop*}
+\begin{itemize}
+\item Determine if a given set of vectors is \emph{linearly independent},
+e.g., HW 2ab.
+
+\begin{itemize}
+\item Find the reduced echelon form of the matrix of column vectors; $A\mathbf{x}=\mathbf{0}$
+has only the trivial solution$\Rightarrow$the vectors are linearly
+independent.
+\end{itemize}
+\item Determine if a given set of vectors is a \emph{basis }for a given
+space, e.g., HW 3bc
+
+\begin{itemize}
+\item To show that $\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k}\in\mathbb{R}^{n}$
+is a basis, you must show that $\left\{ \mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k}\right\} $
+are linearly independent (see above) \uline{and} $\mbox{Span}\{\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k}\}=\mathbb{R}^{n}$.
+If the set fails \uline{either} of these, it is not a basis for $\mathbb{R}^{n}$. 
+\item Section 3.4 can be used to show that a set is not a basis.\newpage
+\end{itemize}
+\end{itemize}
+\item \textbf{3.4 Dimension and Its Consequences. }
+
+\begin{prop*}
+Let $V\subset\mathbb{R}^{n}$ be a subspace, let $\{\mathbf{v}_{1},\dots,\mathbf{v}_{k}\}$
+be a basis for $V$, and let $\{\mathbf{w}_{1},\dots,\mathbf{w}_{\ell}\}\in V$.
+If $\ell>k$ then $\{\mathbf{w}_{1},\dots,\mathbf{w}_{\ell}\}$ must
+be \uline{linearly dependent}.
+
+\begin{itemize}
+\item $\dim\mathbb{R}^{n}=n$\emph{; meaning that a basis for $\mathbb{R}^{n}$
+such as the standard basis will have $n$ vectors.}
+\item \emph{Any two bases for a space will have the same number of vectors. }
+\item \emph{Let }$\{\mathbf{v}_{1},\dots,\mathbf{v}_{k}\}\subset\mathbb{R}^{n}$\emph{.
+If $k\neq n$ then }$\{\mathbf{v}_{1},\dots,\mathbf{v}_{k}\}$ \emph{is
+}\emph{\uline{not}}\emph{ a basis for $\mathbb{R}^{n}$. If $k=n$
+then it is a basis if and only if }$\{\mathbf{v}_{1},\dots,\mathbf{v}_{k}\}$
+\emph{linearly independent. }
+\end{itemize}
+\begin{example*}
+(HW 1.b) Find a basis for each of the given subspaces and determine
+its dimension.
+\end{example*}
+\begin{enumerate}
+\item $V=\left\{ \mathbf{x}\in\mathbb{R}^{n}\,:\,x_{1}+x_{2}+x_{3}+x_{4}=0,\,x_{2}+x_{4}=0\right\} \subset\mathbb{R}^{4}$.
+\[
+\begin{bmatrix}\begin{array}{rrrr|r}
+1 & 1 & 1 & 1 & 0\\
+0 & 1 & 0 & 1 & 0
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rrrr|r}
+1 & 0 & 1 & 0 & 0\\
+0 & 1 & 0 & 1 & 0
+\end{array}\end{bmatrix}\Rightarrow x_{1}=-x_{3}\mbox{ and }x_{2}=-x_{4}
+\]
+$\Rightarrow$the general solution is $\mathbf{x}=x_{3}(-1,0,1,0)+x_{4}(0,-1,0,1)$.
+So $V$ is spanned by $(-1,0,1,0)$ and \textup{$(0,-1,0,1)$. It's
+easily checked that these vectors are linearly independent. So $V$
+is a basis with $\dim V=2$.}
+\item $V=\mbox{span}\left\{ (3,-2,4),(-3,2,-4),(-6,4,-8)\right\} $. 
+\[
+\begin{bmatrix}\begin{array}{rrr}
+3 & -3 & -6\\
+-2 & 2 & 4\\
+4 & -4 & -8
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rrr}
+1 & -1 & -2\\
+0 & 0 & 0\\
+0 & 0 & 0
+\end{array}\end{bmatrix}
+\]
+So $(3,-2,4)$ (as is the other vectors) is a basis and $\dim V=1$.
+\end{enumerate}
+\end{prop*}
+\end{itemize}
+
+\end{document}

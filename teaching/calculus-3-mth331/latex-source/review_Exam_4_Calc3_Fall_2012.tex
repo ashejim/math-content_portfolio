@@ -1,0 +1,146 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{331}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{}
+
+\newcommand{\examType}{Exam 4 Review}
+
+\renewcommand{\date}{}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{13.3 Limits and Continuity}
+\begin{itemize}
+\item Limits of two-variable continuous functions.
+
+\begin{itemize}
+\item \textbf{HW 11, 15; ex. ${\displaystyle \lim_{(x,y)\rightarrow(2,0)}\left(xy^{5}-x\right)}$}
+\end{itemize}
+\item Limits at the boundary points of two-variable functions. 
+
+\begin{itemize}
+\item \textbf{HW 19, 23; ex. ${\displaystyle \lim_{(x,y)\rightarrow(2,0)}\frac{yx-y}{y(x^{2}-1)}}$}
+\end{itemize}
+\item Nonexistence of limits using the Two-Path Test.
+
+\begin{itemize}
+\item \textbf{HW 25, 29; }
+
+\begin{itemize}
+\item []\textbf{ex. ${\displaystyle \lim_{(x,y)\rightarrow\left(0,0\right)}\frac{x+2y}{x-2y}}$},
+use lines $x=0$ and then $y=0$.
+\item []\textbf{ex. ${\displaystyle \lim_{(x,y)\rightarrow\left(0,0\right)}\frac{y^{3}+x^{3}}{xy^{2}}}$},
+use lines $x=y$ and then $x=-y$.\vfill
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\subsubsection*{13.4 Partial Derivatives}
+\begin{itemize}
+\item Given a functions $f(x,y)$, find $f_{x}$, $f_{y}$, $f_{xx}$, $f_{yy}$,
+$f_{xy}$, and $f_{yx}$. 
+
+\begin{itemize}
+\item \textbf{HW 7-15, 17, 23, 27, 29.}\vfill
+\end{itemize}
+\end{itemize}
+
+\subsubsection*{13.5 The Chain Rule}
+\begin{itemize}
+\item Use the Chain rule to find the derivatives of functions with one independent
+variable. 
+
+\begin{itemize}
+\item \textbf{HW 7-10. }(only two-variable functions)\vfill
+\end{itemize}
+\end{itemize}
+
+\subsubsection*{13.6 Directional Derivatives and the Gradient}
+\begin{itemize}
+\item Compute the gradient of two-variable functions.
+
+\begin{itemize}
+\item \textbf{HW 11, 13.}\vfill
+\end{itemize}
+\item Find a unit vector that gives the direction of the steepest ascent
+and descent of a function.
+\item Find a vector that gives a direction of no change of a function.
+
+\begin{itemize}
+\item \textbf{HW 21, 25.}\vfill
+\end{itemize}
+\end{itemize}
+
+\subsubsection*{13.8 Maximum and Minimum Problems}
+\begin{itemize}
+\item Find the critical points of a function, and use the Second Derivative
+Test to determine (when possible) whether each critical point corresponds
+to a local maximum, minimum, or saddle point.
+
+\begin{itemize}
+\item \textbf{HW 15, 21, 27.}\vfill
+\end{itemize}
+\end{itemize}
+
+\end{document}

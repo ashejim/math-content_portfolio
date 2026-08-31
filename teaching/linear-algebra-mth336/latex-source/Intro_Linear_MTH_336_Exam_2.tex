@@ -1,0 +1,220 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{336}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\examType}{Exam 2}
+
+\newcommand{\nameType}{Name:}
+
+\renewcommand{\date}{\formatdate{25}{10}{2013}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} ~\date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\fancyhead[R]{}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\setlist{topsep=.5pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\xmax}{0}
+\newcommand{\xmin}{-\xmax}
+\newcommand{\xstep}{0}
+\newcommand{\ymax}{0}
+\newcommand{\ymin}{-\ymax}
+\newcommand{\ystep}{0} 
+\newcommand{\dspace}{\vspace{1cm}}
+\newcommand{\xa}{0}
+\newcommand{\xb}{0}
+\newcommand{\ya}{1}
+\newcommand{\yb}{1}
+
+\newcommand{\xspace}{\vspace{.75cm}}
+\newcommand{\Xspace}{\vspace{2cm}}
+
+\newcommand{\vectors}[2]{\textbf{#1}_{1},\textbf{#1}_{2},\dots,\textbf{#1}_{#2}}
+\newcommand{\vectorsN}[1]{\textbf{#1}_{1},\textbf{#1}_{2},\dots,\textbf{#1}_{n}}
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+\begin{enumerate}[resume]
+\item Let $A=\begin{bmatrix}\begin{array}{rr}
+1 & 2\\
+3 & 4
+\end{array}\end{bmatrix}$, $B=\begin{bmatrix}\begin{array}{rr}
+-1 & 1\\
+0 & 1
+\end{array}\end{bmatrix}$, and $C=\begin{bmatrix}\begin{array}{rrr}
+1 & 2 & 2\\
+0 & 2 & 4
+\end{array}\end{bmatrix}$. Calculate each of the following expressions or explain why it is
+not defined.
+
+\begin{enumerate}[resume]
+\item $AB$\Xspace \vfill
+\item $CB$\xspace
+\end{enumerate}
+\item Suppose that $T\colon\R{3}\rightarrow\R{2}$ is defined by $T\left(\begin{bmatrix}\begin{array}{r}
+x_{1}\\
+x_{2}\\
+x_{3}
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{r}
+2x_{1}\\
+x_{2}+x_{3}
+\end{array}\end{bmatrix}$.
+
+\begin{enumerate}
+\item Find the standard matrix $A$ for $T$.\Xspace \vfill
+\end{enumerate}
+\begin{enumerate}[resume]
+\item Is $T$ is a linear transformation?\xspace
+\item Let $\mathbf{x}\in\R{n}$ and $A$ be an $m\times n$ matrix. The
+function $f(\mathbf{x})=A\mathbf{x}$ is a linear map from \underline{\hspace{.5cm}}
+to \underline{\hspace{.5cm}}.\xspace
+\end{enumerate}
+\item Find $A^{-1}$ or show that it does not exist.
+
+\begin{enumerate}
+\item $A=\begin{bmatrix}1 & 1 & 0\\
+0 & 1 & 1\\
+0 & 0 & 1
+\end{bmatrix}$\Xspace \vfill
+\end{enumerate}
+\begin{enumerate}[resume]
+\item $A=\begin{bmatrix}2 & 2 & 0\\
+0 & 2 & 2\\
+0 & 0 & 0
+\end{bmatrix}$\xspace
+\end{enumerate}
+\end{enumerate}
+\newpage
+\begin{enumerate}[resume]
+\item Let $A=\begin{bmatrix}\begin{array}{rr}
+\nicefrac{1}{2} & \nicefrac{1}{4}\\
+0 & \nicefrac{1}{2}
+\end{array}\end{bmatrix}$, $A^{-1}=\begin{bmatrix}\begin{array}{rr}
+2 & -1\\
+0 & 2
+\end{array}\end{bmatrix}$ and $\mathbf{b}=\begin{bmatrix}\begin{array}{r}
+1\\
+1
+\end{array}\end{bmatrix}$
+
+\begin{enumerate}
+\item Use $A^{-1}$ to solve $A\mathbf{x}=\mathbf{b}$ for \textbf{$\mathbf{x}$}.\Xspace \vfill
+\end{enumerate}
+\begin{enumerate}[resume]
+\item Use your answer from part \textbf{(a)} to express $\mathbf{b}$ as
+a linear combination of $A$.\Xspace \vfill
+\end{enumerate}
+\item Let $\mathbf{v}_{1}=(1,2)$, $\mathbf{v}_{2}=(0,1)$, and $\mathbf{v}_{3}=(1,0)$
+be three vectors in $\R{2}$.
+
+\begin{enumerate}
+\item Show that $\mathbf{v}_{1}=(1,2)$ and $\mathbf{v}_{2}=(0,1)$ gives
+a basis for $\R{2}$.\Xspace \vfill
+\end{enumerate}
+\begin{enumerate}[resume]
+\item Find another basis for $\R{2}$.\vfill
+\item Is $\mathbf{v}_{1}=(1,2)$, $\mathbf{v}_{2}=(0,1)$, and $\mathbf{v}_{3}=(1,0)$
+linearly independent? Explain.\vfill
+\item Does $\mathbf{v}_{1}=(1,2)$, $\mathbf{v}_{2}=(0,1)$, and $\mathbf{v}_{3}=(1,0)$
+span $\R{2}$?\vfill\newpage
+\end{enumerate}
+\item Let $\mathbf{v}_{1}=(2,4,8)$, $\mathbf{v}_{2}=(-2,-4-8)$, $\mathbf{v}_{3}=(1,2,4)$
+be vectors in $\R{3}$. 
+
+\begin{enumerate}
+\item Is $\{\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3}\}$ linearly independent?\xspace\Xspace \vfill
+\end{enumerate}
+\begin{enumerate}[resume]
+\item Does $\{\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3}\}$ span $\R{3}$?,
+i.e., does $\mbox{Span}(\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3})=\R{3}$?
+Explain.\vfill
+\item Find the dimension of $\mbox{Span}(\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3})$.\vfill
+\item Find a basis for $\mbox{Span}(\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3})$.
+\vfill
+\end{enumerate}
+\item Let $V=\{\vectors{v}{n+1}\}$ be a set of $n+1$ vectors in $\mathbb{R}^{n}$.
+
+\begin{enumerate}
+\item Is $V$ linearly independent or linearly dependent? Explain.\vfill
+\end{enumerate}
+\begin{enumerate}[resume]
+\item Is $V$ a basis for $\mathbb{R}^{n}$? Explain. \vfill
+\item Is $\mbox{Span}V$ a subspace of $\mathbb{R}^{n}$?\vfill
+\end{enumerate}
+\item [\textbf{Bonus.}]Let $\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k}\in\mathbb{R}^{n}$
+and let $\mathbf{v}\in\mathbb{R}^{n}$. Prove that $\mathbf{v}\in\mbox{Span}\left(\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k}\right)$
+$\iff$ $\mbox{Span}\left(\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k}\right)=\mbox{Span}\left(\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k},\mathbf{v}\right)$.
+\end{enumerate}
+
+\end{document}

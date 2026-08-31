@@ -1,0 +1,107 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{shapes,snakes}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\lhead{MTH 331(A) Dr.\,James Ashe}
+\chead{\textbf{Helpful Results}}
+\cfoot{\thepage{}~of~\pageref{LastPage}}
+%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+
+\subsection*{Chapter 9}
+
+\textbf{Squeeze Theorem for Sequences. }Let $\{a_{n}\}$, $\{b_{n}\}$,
+and $\{c_{n}\}$ with $a_{n}\leq b_{n}\leq c_{n}$ for all integers
+\emph{n }greater than some index $N$. If ${\displaystyle \lim_{n\rightarrow\infty}a_{n}}={\displaystyle \lim_{n\rightarrow\infty}b_{n}=L}$,
+then $\lim_{n\rightarrow\infty}c_{n}=L$.\vfill
+
+\textbf{Growth Rate of Sequences. }The following sequences are ordered
+according to increasing growth rates as $n\rightarrow\infty$: $\{\ln n\}\ll\{n^{p}\}\ll\{n^{p}\ln n\}\ll\{n^{p+s}\}\ll\{b^{n}\}\ll\{n!\}\ll\{n^{n}\}$.
+The ordering applies for positive real numbers $p,r$, and $s$ and
+$b>1$.\vfill
+
+\textbf{Geometric Series. }Let $r,a\in\mathbb{R}$. If $|r|<1$, then
+${\displaystyle \sum_{k=0}^{\infty}}ar^{k}=\frac{a}{1-r}$. If $|r|\geq1$,
+then the series diverges. \vfill
+
+\textbf{Divergence Test. }If $\sum a_{k}$ converges, then ${\displaystyle \lim_{n\rightarrow\infty}a_{k}=0}.$
+Equivalently, if ${\displaystyle \lim_{n\rightarrow\infty}a_{k}\neq0}$,
+then the series diverges. \vfill
+
+\textbf{Integral Test. }Suppose $f$ is a continuous, positive, decreasing
+function for $x\geq1$ and let $a_{k}=f(k)$ for $k=1,2,3,\dots$.
+Then 
+\[
+{\displaystyle \sum_{k=1}^{\infty}a_{k}}\mbox{ and \ensuremath{\int_{1}^{\infty}f(x)\,dx}}
+\]
+either both converge or both diverge. In the case of convergence,
+the value of the integral is \emph{not}, in general, equal to the
+value of the series. \vfill
+
+\subsection*{Chapter 10}
+
+\textbf{Taylor's Polynomials. }Let $f$ be a function with $f',f'',\dots f^{(n)}$
+defined at $a$. The \textbf{\emph{n}}\textbf{th-order Taylor Polynomial
+}for $f$ with its \textbf{center }at $a$ denoted $p_{n}$, has the
+property that it matches $f$ in value, slope, and all derivatives
+up to the \emph{n}th derivative at $a$; that is,
+\[
+p_{n}(a)=f(a)\mbox{ and }p'_{n}(a)=f'(a),\dots,p_{n}^{(n)}(a)=f^{(n)}(a)\mbox{.}
+\]
+
+The \emph{n}th-order Taylor polynomial centered at $a$ is 
+\[
+p_{n}(x)=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^{2}+\dots+\frac{f^{(n)}(a)}{n!}(x-a)^{n}\mbox{.}
+\]
+
+More compactly, 
+\[
+p_{n}(x)={\displaystyle \sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^{k}\mbox{ for }k=0,1,2,\dots,n\mbox{.}}
+\]
+\vfill
+
+\subsection*{Helpful formulas}
+
+\begin{multicols}{2}
+\begin{enumerate}
+\item $\frac{d}{dx}\left(x^{n}\right)=nx^{n-1}$
+\item $\frac{d}{dx}\left[f\left(g(x)\right)\right]=f'\left(g(x)\right)\cdot g'(x)$
+(Chain rule)
+\item $\frac{d}{dx}\left(f(x)g(x)\right)=f'(x)g(x)+f(x)g'(x)$
+\item $\frac{d}{dx}e^{x}=e^{x}$
+\item $\frac{d}{dx}\sin ax=a\cos ax$
+\item $\frac{d}{dx}\cos ax=-a\sin ax$
+\item $\int x^{n}\,dx=\frac{1}{n+1}x^{n+1}+C$; $n\neq1$ 
+\item $\int\cos ax\,dx=\frac{1}{a}\sin ax+C$
+\item $\int\sin ax\,dx=-\frac{1}{a}\cos ax+C$
+\item $\int\cos^{2}x\,dx=\frac{x}{2}+\frac{\sin2x}{4}+C$
+\item $\int\sin^{2}x\,dx=\frac{x}{2}-\frac{\sin2x}{4}+C$
+\end{enumerate}
+\end{multicols}
+\end{document}

@@ -1,0 +1,480 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+\usepackage[super]{nth}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{336}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\examType}{HW 2.2 Solutions}
+
+\renewcommand{\date}{\formatdate{4}{10}{2013}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} ~\date{}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\textbf{Name:\hspace{4cm}}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{Name:}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\setlist{topsep=.5pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\xmax}{0}
+\newcommand{\xmin}{-\xmax}
+\newcommand{\xstep}{0}
+\newcommand{\ymax}{0}
+\newcommand{\ymin}{-\ymax}
+\newcommand{\ystep}{0} 
+\newcommand{\dspace}{\vspace{1cm}}
+\newcommand{\xa}{0}
+\newcommand{\xb}{0}
+\newcommand{\ya}{1}
+\newcommand{\yb}{1}
+
+\small
+\begin{enumerate}[resume]
+\item Using the properties of linear transformations.
+
+\begin{enumerate}[resume]
+\item $T\left(2\begin{bmatrix}\begin{array}{r}
+2\\
+-1\\
+1
+\end{array}\end{bmatrix}\right)=2T\left(\begin{bmatrix}\begin{array}{r}
+2\\
+-1\\
+1
+\end{array}\end{bmatrix}\right)=2\begin{bmatrix}\begin{array}{r}
+3\\
+0
+\end{array}\end{bmatrix}=\begin{bmatrix}\begin{array}{r}
+6\\
+0
+\end{array}\end{bmatrix}$
+\item $T\left(\begin{bmatrix}\begin{array}{r}
+3\\
+6\\
+3
+\end{array}\end{bmatrix}\right)=3T\left(\begin{bmatrix}\begin{array}{r}
+1\\
+2\\
+1
+\end{array}\end{bmatrix}\right)=3\begin{bmatrix}\begin{array}{r}
+-1\\
+2
+\end{array}\end{bmatrix}=\begin{bmatrix}\begin{array}{r}
+-3\\
+6
+\end{array}\end{bmatrix}$
+\item $T\left(\begin{bmatrix}\begin{array}{r}
+-1\\
+3\\
+0
+\end{array}\end{bmatrix}\right)=T\left(\begin{bmatrix}\begin{array}{r}
+1\\
+2\\
+1
+\end{array}\end{bmatrix}\right)-T\left(\begin{bmatrix}\begin{array}{r}
+2\\
+-1\\
+1
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{r}
+-1\\
+2
+\end{array}\end{bmatrix}-\begin{bmatrix}\begin{array}{r}
+3\\
+0
+\end{array}\end{bmatrix}=\begin{bmatrix}\begin{array}{r}
+-4\\
+2
+\end{array}\end{bmatrix}$
+\end{enumerate}
+\item Note that $x_{1}+2x_{2}+x_{3}=(1,2,1)\cdot(x_{1},x_{2},x_{3})$ and
+$3x_{1}-x_{2}-x_{3}=(3,-1,-1)\cdot(x_{1},x_{2},x_{3})$. Also note
+that $A\in\mathcal{M}_{2\times3}$ so that $A\mathbf{x}\in\mathcal{M}_{2\times1}$.
+So 
+\[
+A=\begin{bmatrix}\begin{array}{rrr}
+1 & 2 & 1\\
+3 & -1 & -1
+\end{array}\end{bmatrix}
+\]
+ Alternatively, $T\left(\begin{bmatrix}\begin{array}{r}
+1\\
+0\\
+0
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{r}
+1\\
+3
+\end{array}\end{bmatrix}$, $T\left(\begin{bmatrix}\begin{array}{r}
+0\\
+1\\
+0
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{r}
+2\\
+-1
+\end{array}\end{bmatrix}$, and $T\left(\begin{bmatrix}\begin{array}{r}
+0\\
+0\\
+1
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{r}
+1\\
+-1
+\end{array}\end{bmatrix}$ gives the \nth{1}, \nth{2}, and \nth{3} column of $A$ respectively. 
+\item \vspace{0cm}
+
+\begin{enumerate}
+\item The \nth{1} column is $T\left(\begin{bmatrix}\begin{array}{r}
+1\\
+0
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{r}
+2\\
+-3
+\end{array}\end{bmatrix}$. \\
+For the \nth{2} column $T\left(\begin{bmatrix}\begin{array}{r}
+0\\
+1
+\end{array}\end{bmatrix}\right)=T\left(\begin{bmatrix}\begin{array}{r}
+2\\
+1
+\end{array}\end{bmatrix}\right)-T\left(\begin{bmatrix}\begin{array}{r}
+2\\
+0
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{r}
+-1\\
+1
+\end{array}\end{bmatrix}-\begin{bmatrix}\begin{array}{r}
+4\\
+-6
+\end{array}\end{bmatrix}=\begin{bmatrix}\begin{array}{r}
+-5\\
+7
+\end{array}\end{bmatrix}$. So 
+\[
+A=\begin{bmatrix}\begin{array}{rr}
+2 & -5\\
+-3 & 7
+\end{array}\end{bmatrix}
+\]
+\end{enumerate}
+\begin{enumerate}[resume]
+\item The \nth{2} column is $T\left(\begin{bmatrix}\begin{array}{r}
+0\\
+1
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{r}
+1\\
+-3
+\end{array}\end{bmatrix}$. \\
+The \nth{1} column is $T\left(\begin{bmatrix}\begin{array}{r}
+1\\
+0
+\end{array}\end{bmatrix}\right)=\frac{1}{2}\left[T\left(\begin{bmatrix}\begin{array}{r}
+2\\
+1
+\end{array}\end{bmatrix}\right)-T\left(\begin{bmatrix}\begin{array}{r}
+0\\
+1
+\end{array}\end{bmatrix}\right)\right]=\frac{1}{2}\left[\begin{bmatrix}\begin{array}{r}
+5\\
+3
+\end{array}\end{bmatrix}-\begin{bmatrix}\begin{array}{r}
+1\\
+-3
+\end{array}\end{bmatrix}\right]=\frac{1}{2}\begin{bmatrix}\begin{array}{r}
+4\\
+6
+\end{array}\end{bmatrix}=\begin{bmatrix}\begin{array}{r}
+2\\
+3
+\end{array}\end{bmatrix}$. So 
+\[
+A=\begin{bmatrix}\begin{array}{rr}
+2 & 1\\
+3 & -3
+\end{array}\end{bmatrix}
+\]
+\item $2T\left(\begin{bmatrix}\begin{array}{r}
+1\\
+0
+\end{array}\end{bmatrix}\right)=T\left(\begin{bmatrix}\begin{array}{r}
+2\\
+0
+\end{array}\end{bmatrix}\right)=T\left(\begin{bmatrix}\begin{array}{r}
+1\\
+1
+\end{array}\end{bmatrix}\right)+T\left(\begin{bmatrix}\begin{array}{r}
+1\\
+-1
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{r}
+3\\
+3
+\end{array}\end{bmatrix}+\begin{bmatrix}\begin{array}{r}
+-1\\
+1
+\end{array}\end{bmatrix}=\begin{bmatrix}\begin{array}{r}
+2\\
+4
+\end{array}\end{bmatrix}$; so the \nth{1} column is $\begin{bmatrix}\begin{array}{r}
+1\\
+2
+\end{array}\end{bmatrix}$ (divide by $2$). \\
+$2T\left(\begin{bmatrix}\begin{array}{r}
+0\\
+1
+\end{array}\end{bmatrix}\right)=T\left(\begin{bmatrix}\begin{array}{r}
+1\\
+1
+\end{array}\end{bmatrix}\right)-T\left(\begin{bmatrix}\begin{array}{r}
+1\\
+-1
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{r}
+3\\
+3
+\end{array}\end{bmatrix}-\begin{bmatrix}\begin{array}{r}
+-1\\
+1
+\end{array}\end{bmatrix}=\begin{bmatrix}\begin{array}{r}
+4\\
+2
+\end{array}\end{bmatrix}$; so the \nth{2} column is $\begin{bmatrix}\begin{array}{r}
+2\\
+1
+\end{array}\end{bmatrix}$. Thus
+\[
+A=\begin{bmatrix}\begin{array}{rr}
+1 & 2\\
+2 & 1
+\end{array}\end{bmatrix}
+\]
+\end{enumerate}
+\item Recall that to prove that $T$ is a linear transformation it suffices
+to find a standard matrix, $A\in\mathcal{M}_{m\times n}$ for $\mu_{A}:\mathbb{R}^{n}\rightarrow\mathbb{R}^{m}$.
+To prove that it is not a standard matrix you need to show that it
+fails at least one of the properties.
+
+\begin{enumerate}
+\item $T$ is not a linear transformation.
+
+\begin{proof}
+$-1\cdot T\left(\begin{bmatrix}\begin{array}{r}
+0\\
+1
+\end{array}\end{bmatrix}\right)=-\begin{bmatrix}\begin{array}{r}
+2\\
+1
+\end{array}\end{bmatrix}=\begin{bmatrix}\begin{array}{r}
+-2\\
+-1
+\end{array}\end{bmatrix}\neq T\left(\begin{bmatrix}\begin{array}{r}
+0\\
+-1
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{r}
+-2\\
+1
+\end{array}\end{bmatrix}$.
+\end{proof}
+\end{enumerate}
+\begin{enumerate}[resume]
+\item $T$ is a linear transformation. 
+
+\begin{proof}
+$T\left(\begin{bmatrix}\begin{array}{r}
+1\\
+0
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{r}
+1\\
+0
+\end{array}\end{bmatrix}$ and $T\left(\begin{bmatrix}\begin{array}{r}
+0\\
+1
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{r}
+2\\
+0
+\end{array}\end{bmatrix}$ gives the \nth{1} and \nth{2} column respectively of $A=\begin{bmatrix}\begin{array}{rr}
+1 & 2\\
+0 & 0
+\end{array}\end{bmatrix}$, and $\begin{bmatrix}\begin{array}{rr}
+1 & 2\\
+0 & 0
+\end{array}\end{bmatrix}\begin{bmatrix}\begin{array}{r}
+x_{1}\\
+x_{2}
+\end{array}\end{bmatrix}=\begin{bmatrix}\begin{array}{r}
+x_{1}+2x_{2}\\
+0
+\end{array}\end{bmatrix}$ so $\mu_{\mbox{A}}=T$ which shows that $T$ is linear. 
+\end{proof}
+\end{enumerate}
+\item [\textbf{6.}]
+
+\begin{enumerate}
+\item $T\left(\begin{bmatrix}\begin{array}{r}
+1\\
+0
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{r}
+0\\
+1
+\end{array}\end{bmatrix}$ and $T\left(\begin{bmatrix}\begin{array}{r}
+0\\
+1
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{r}
+-1\\
+0
+\end{array}\end{bmatrix}$$\Rightarrow A_{T}=\begin{bmatrix}\begin{array}{rr}
+0 & -1\\
+1 & 0
+\end{array}\end{bmatrix}$\\
+It is a reflection across $x_{1}+x_{2}=0\Rightarrow x_{1}=-x_{2}$.
+So then $S\left(\begin{bmatrix}\begin{array}{r}
+1\\
+0
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{r}
+0\\
+-1
+\end{array}\end{bmatrix}$ and $S\left(\begin{bmatrix}\begin{array}{r}
+0\\
+1
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{r}
+-1\\
+0
+\end{array}\end{bmatrix}$$\Rightarrow A_{s}=\begin{bmatrix}\begin{array}{rr}
+0 & -1\\
+-1 & 0
+\end{array}\end{bmatrix}$.
+\end{enumerate}
+\begin{enumerate}[resume]
+\item $T\circ S$ notates the composition function, i.e., the points are
+mapped first by $S$ and then by $T$. So $\left(T\circ S\right)\left(\begin{bmatrix}\begin{array}{r}
+1\\
+0
+\end{array}\end{bmatrix}\right)=T\left(\begin{bmatrix}\begin{array}{r}
+0\\
+-1
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{rr}
+0 & -1\\
+1 & 0
+\end{array}\end{bmatrix}\begin{bmatrix}\begin{array}{r}
+0\\
+-1
+\end{array}\end{bmatrix}=\begin{bmatrix}1\\
+0
+\end{bmatrix}$ and $\left(T\circ S\right)\left(\begin{bmatrix}\begin{array}{r}
+0\\
+1
+\end{array}\end{bmatrix}\right)=T\left(\begin{bmatrix}\begin{array}{r}
+-1\\
+0
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{rr}
+0 & -1\\
+1 & 0
+\end{array}\end{bmatrix}\begin{bmatrix}\begin{array}{r}
+-1\\
+0
+\end{array}\end{bmatrix}=\begin{bmatrix}0\\
+-1
+\end{bmatrix}$. So the standard matrix is $A_{T\circ S}=\begin{bmatrix}\begin{array}{rr}
+1 & 0\\
+0 & -1
+\end{array}\end{bmatrix}$. Note that $TS=A_{T\circ S}$.
+\item $\left(S\circ T\right)\left(\begin{bmatrix}\begin{array}{r}
+1\\
+0
+\end{array}\end{bmatrix}\right)=T\left(\begin{bmatrix}\begin{array}{r}
+0\\
+1
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{rr}
+0 & -1\\
+-1 & 0
+\end{array}\end{bmatrix}\begin{bmatrix}\begin{array}{r}
+0\\
+1
+\end{array}\end{bmatrix}=\begin{bmatrix}-1\\
+0
+\end{bmatrix}$ and $\left(S\circ T\right)\left(\begin{bmatrix}\begin{array}{r}
+0\\
+1
+\end{array}\end{bmatrix}\right)=T\left(\begin{bmatrix}\begin{array}{r}
+-1\\
+0
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{rr}
+0 & -1\\
+-1 & 0
+\end{array}\end{bmatrix}\begin{bmatrix}\begin{array}{r}
+-1\\
+0
+\end{array}\end{bmatrix}=\begin{bmatrix}0\\
+1
+\end{bmatrix}$. So the standard matrix is $A_{T\circ S}=\begin{bmatrix}\begin{array}{rr}
+-1 & 0\\
+0 & 1
+\end{array}\end{bmatrix}$. Note that $ST=A_{S\circ T}$.
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

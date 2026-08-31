@@ -1,0 +1,404 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{336}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\examType}{Exam 2}
+
+\newcommand{\nameType}{Solutions}
+
+\renewcommand{\date}{\formatdate{25}{10}{2013}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} ~\date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\fancyhead[R]{}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\setlist{topsep=.5pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\xmax}{0}
+\newcommand{\xmin}{-\xmax}
+\newcommand{\xstep}{0}
+\newcommand{\ymax}{0}
+\newcommand{\ymin}{-\ymax}
+\newcommand{\ystep}{0} 
+\newcommand{\dspace}{\vspace{1cm}}
+\newcommand{\xa}{0}
+\newcommand{\xb}{0}
+\newcommand{\ya}{1}
+\newcommand{\yb}{1}
+
+\newcommand{\xspace}{\vspace{0cm}}
+\newcommand{\Xspace}{\vspace{0cm}}
+
+\newcommand{\vectors}[2]{\textbf{#1}_{1},\textbf{#1}_{2},\dots,\textbf{#1}_{#2}}
+\newcommand{\vectorsN}[1]{\textbf{#1}_{1},\textbf{#1}_{2},\dots,\textbf{#1}_{n}}
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+\begin{enumerate}[resume]
+\item Let $A=\begin{bmatrix}\begin{array}{rr}
+1 & 2\\
+3 & 4
+\end{array}\end{bmatrix}$, $B=\begin{bmatrix}\begin{array}{rr}
+-1 & 1\\
+0 & 1
+\end{array}\end{bmatrix}$, and $C=\begin{bmatrix}\begin{array}{rrr}
+1 & 2 & 2\\
+0 & 2 & 4
+\end{array}\end{bmatrix}$. Calculate each of the following expressions or explain why it is
+not defined.
+
+\begin{enumerate}[resume]
+\item $AB$
+
+\begin{enumerate}[resume]
+\item []$AB=\begin{bmatrix}\begin{array}{rr}
+1(-1)+2(0) & 1(1)+2(1)\\
+3(-1)+4(0) & 3(1)+4(1)
+\end{array}\end{bmatrix}=\begin{bmatrix}\begin{array}{rr}
+-1 & 3\\
+-3 & 7
+\end{array}\end{bmatrix}$\Xspace \vfill
+\end{enumerate}
+\item $CB$
+
+\begin{enumerate}[resume]
+\item []$CB$ is undefined because the $C$ has 3 columns but $B$ has
+two rows.\xspace \vfill
+\end{enumerate}
+\end{enumerate}
+\item Suppose that $T\colon\R{3}\rightarrow\R{2}$ is defined by $T\left(\begin{bmatrix}\begin{array}{r}
+x_{1}\\
+x_{2}\\
+x_{3}
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{r}
+2x_{1}\\
+x_{2}+x_{3}
+\end{array}\end{bmatrix}$.
+
+\begin{enumerate}
+\item Find the standard matrix $A$ for $T$.
+
+\begin{enumerate}
+\item []$T\left(\begin{bmatrix}\begin{array}{r}
+1\\
+0\\
+0
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{r}
+2\\
+0
+\end{array}\end{bmatrix}$, $T\left(\begin{bmatrix}\begin{array}{r}
+0\\
+1\\
+0
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{r}
+0\\
+1
+\end{array}\end{bmatrix}$, and $T\left(\begin{bmatrix}\begin{array}{r}
+0\\
+0\\
+1
+\end{array}\end{bmatrix}\right)=\begin{bmatrix}\begin{array}{r}
+0\\
+1
+\end{array}\end{bmatrix}$. So $A=\begin{bmatrix}\begin{array}{rrr}
+2 & 0 & 0\\
+0 & 1 & 1
+\end{array}\end{bmatrix}$.\Xspace \vfill
+\end{enumerate}
+\end{enumerate}
+\begin{enumerate}[resume]
+\item Is $T$ is a linear transformation? 
+
+\begin{enumerate}[resume]
+\item []Yes. You can check the properties or see that $\begin{bmatrix}\begin{array}{rrr}
+2 & 0 & 0\\
+0 & 1 & 1
+\end{array}\end{bmatrix}\begin{bmatrix}\begin{array}{r}
+x_{1}\\
+x_{2}\\
+x_{3}
+\end{array}\end{bmatrix}=\begin{bmatrix}\begin{array}{r}
+2x_{1}\\
+x_{2}+x_{3}
+\end{array}\end{bmatrix}$.\xspace vfill
+\end{enumerate}
+\item Let $\mathbf{x}\in\R{n}$ and $A$ be an $m\times n$ matrix. The
+function $f(\mathbf{x})=A\mathbf{x}$ is a linear map from \underline{\hspace{.15cm}$\R{m}$\hspace{.15cm}}
+to \underline{\hspace{.15cm}$\R{n}$\hspace{.15cm}}.\xspace \vfill
+\end{enumerate}
+\item Find $A^{-1}$ or show that it does not exist.
+
+\begin{enumerate}
+\item $A=\begin{bmatrix}1 & 1 & 0\\
+0 & 1 & 1\\
+0 & 0 & 1
+\end{bmatrix}$
+
+\begin{enumerate}
+\item []$\begin{bmatrix}\begin{array}{rrr|rrr}
+1 & 1 & 0 & 1 & 0 & 0\\
+0 & 1 & 1 & 0 & 1 & 0\\
+0 & 0 & 1 & 0 & 0 & 1
+\end{array}\end{bmatrix}\rightsquigarrow\begin{array}{r}
+\\\mbox{R2-R3}\\
+\\\end{array}\begin{bmatrix}\begin{array}{rrr|rrr}
+1 & 1 & 0 & 1 & 0 & 0\\
+0 & 1 & 0 & 0 & 1 & -1\\
+0 & 0 & 1 & 0 & 0 & 1
+\end{array}\end{bmatrix}\rightsquigarrow\begin{array}{r}
+\mbox{R1-R2}\\
+\\\\\end{array}\begin{bmatrix}\begin{array}{rrr|rrr}
+1 & 0 & 0 & 1 & -1 & 0\\
+0 & 1 & 0 & 0 & 1 & -1\\
+0 & 0 & 1 & 0 & 0 & 1
+\end{array}\end{bmatrix}$ so $A^{-1}=\begin{bmatrix}\begin{array}{rrr}
+1 & -1 & 0\\
+0 & 1 & -1\\
+0 & 0 & 1
+\end{array}\end{bmatrix}$.\Xspace \vfill
+\end{enumerate}
+\end{enumerate}
+\begin{enumerate}[resume]
+\item $A=\begin{bmatrix}2 & 2 & 0\\
+0 & 2 & 2\\
+0 & 0 & 0
+\end{bmatrix}$
+
+\begin{enumerate}[resume]
+\item []$A^{-1}$ does not exist since $A$ is singular.\xspace \vfill
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\newpage
+\begin{enumerate}[resume]
+\item Let $A=\begin{bmatrix}\begin{array}{rr}
+\nicefrac{1}{2} & \nicefrac{1}{4}\\
+0 & \nicefrac{1}{2}
+\end{array}\end{bmatrix}$, $A^{-1}=\begin{bmatrix}\begin{array}{rr}
+2 & -1\\
+0 & 2
+\end{array}\end{bmatrix}$ and $\mathbf{b}=\begin{bmatrix}\begin{array}{r}
+1\\
+1
+\end{array}\end{bmatrix}$
+
+\begin{enumerate}
+\item Use $A^{-1}$ to solve $A\mathbf{x}=\mathbf{b}$ for \textbf{$\mathbf{x}$}.
+
+\begin{enumerate}
+\item []$A\mathbf{x}=\mathbf{b}\Rightarrow\mathbf{x}=A^{-1}\mathbf{b}$
+so $\mathbf{x}=\begin{bmatrix}\begin{array}{rr}
+2 & -1\\
+0 & 2
+\end{array}\end{bmatrix}\begin{bmatrix}\begin{array}{r}
+1\\
+1
+\end{array}\end{bmatrix}=\begin{bmatrix}\begin{array}{r}
+1\\
+2
+\end{array}\end{bmatrix}$\Xspace \vfill
+\end{enumerate}
+\end{enumerate}
+\begin{enumerate}[resume]
+\item Use your answer from part \textbf{(a)} to express $\mathbf{b}$ as
+a linear combination of $A$.
+
+\begin{enumerate}[resume]
+\item []$1(\nicefrac{1}{2},0)+2(\nicefrac{1}{4},\nicefrac{1}{2})=(1,1)$\Xspace \vfill
+\end{enumerate}
+\end{enumerate}
+\item Let $\mathbf{v}_{1}=(1,2)$, $\mathbf{v}_{2}=(0,1)$, and $\mathbf{v}_{3}=(1,0)$
+be three vectors in $\R{2}$.
+
+\begin{enumerate}
+\item Show that $\mathbf{v}_{1}=(1,2)$ and $\mathbf{v}_{2}=(0,1)$ gives
+a basis for $\R{2}$.
+
+\begin{enumerate}
+\item []$\begin{bmatrix}\begin{array}{rr}
+1 & 0\\
+2 & 1
+\end{array}\end{bmatrix}\rightsquigarrow\begin{array}{r}
+\\\mbox{R2-2R1}
+\end{array}\begin{bmatrix}\begin{array}{rr}
+1 & 0\\
+0 & 1
+\end{array}\end{bmatrix}$ which is nonsingular so it is a basis.\Xspace \vfill
+\end{enumerate}
+\end{enumerate}
+\begin{enumerate}[resume]
+\item Find another basis for $\R{2}$.
+
+\begin{enumerate}[resume]
+\item []There are many answers; the standard basis is one of them, $\{(1,0),(0,1)\}$.\vfill
+\end{enumerate}
+\item Is $\mathbf{v}_{1}=(1,2)$, $\mathbf{v}_{2}=(0,1)$, and $\mathbf{v}_{3}=(1,0)$
+linearly independent? Explain.
+
+\begin{enumerate}[resume]
+\item []No. The $\dim\R{2}=2$ and this set has three vectors.\vfill
+\end{enumerate}
+\item Does $\mathbf{v}_{1}=(1,2)$, $\mathbf{v}_{2}=(0,1)$, and $\mathbf{v}_{3}=(1,0)$
+span $\R{2}$?
+
+\begin{enumerate}[resume]
+\item []Yes. Since $\mbox{Span}\{(1,2),(0,1)\}=\R{2}$, $(1,0)\in\mbox{Span}\{(1,2),(0,1)\}\Rightarrow\mbox{Span}\{(1,2),(0,1),(1,0\}=\mbox{Span}\{(1,2),(0,1)\}=\R{2}$.
+\vfill\newpage
+\end{enumerate}
+\end{enumerate}
+\item Let $\mathbf{v}_{1}=(2,4,8)$, $\mathbf{v}_{2}=(-2,-4-8)$, $\mathbf{v}_{3}=(1,2,4)$
+be vectors in $\R{3}$. 
+
+\begin{enumerate}
+\item Is $\{\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3}\}$ linearly independent?
+
+\begin{enumerate}
+\item []No. $(2,4,8)=-1(-2,-4,-8)\Rightarrow(2,4,8)-(-2,-4,-8)+0(1,2,4)=\mathbf{0}$.
+You can also find the reduced echelon form the asscoiated column matrix
+and see that it is singular (rank of 1).\\
+$A=\begin{bmatrix}\begin{array}{rrr}
+2 & -2 & 1\\
+4 & -4 & 2\\
+8 & -8 & 4
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rrr}
+2 & -2 & 1\\
+0 & 0 & 0\\
+0 & 0 & 0
+\end{array}\end{bmatrix}$\xspace\Xspace \vfill
+\end{enumerate}
+\end{enumerate}
+\begin{enumerate}[resume]
+\item Does $\{\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3}\}$ span $\R{3}$?,
+i.e., does $\mbox{Span}(\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3})=\R{3}$?
+Explain.
+
+\begin{enumerate}[resume]
+\item []No. The $\mbox{dim}\R{3}=3$ but $\{\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3}\}$
+is linearly dependent (meaning that a basis will have less than 3
+vectors).\vfill
+\end{enumerate}
+\item Find the dimension of $\mbox{Span}(\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3})$.
+
+\begin{enumerate}[resume]
+\item []From part \textbf{(a) }we can see that $\mbox{rank}A=1$, so a
+basis will have 1 vector and the dimension must be 1.\vfill
+\end{enumerate}
+\item Find a basis for $\mbox{Span}(\mathbf{v}_{1},\mathbf{v}_{2},\mathbf{v}_{3})$.
+
+\begin{enumerate}[resume]
+\item []From part \textbf{(a) }we can see that $(2,4,8)$ is a basis.\vfill
+\end{enumerate}
+\end{enumerate}
+\item Let $V=\{\vectors{v}{n+1}\}$ be a set of $n+1$ vectors in $\mathbb{R}^{n}$.
+
+\begin{enumerate}
+\item Is $V$ linearly independent or linearly dependent? Explain.
+
+\begin{enumerate}
+\item []It is linearly dependent. A basis for $\R{n}$ will have $n$ vectors
+($\dim\R{n}=n$). So then a set of $n+1$ vectors must be linearly
+dependent.\vfill
+\end{enumerate}
+\end{enumerate}
+\begin{enumerate}[resume]
+\item Is $V$ a basis for $\mathbb{R}^{n}$? Explain. 
+
+\begin{enumerate}[resume]
+\item []No. It is linearly dependent.\vfill
+\end{enumerate}
+\item Is $\mbox{Span}V$ a subspace of $\mathbb{R}^{n}$?
+
+\begin{enumerate}[resume]
+\item []Yes a span is always a subspace.\vfill
+\end{enumerate}
+\end{enumerate}
+\item [\textbf{Bonus.}]Let $\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k}\in\mathbb{R}^{n}$
+and let $\mathbf{v}\in\mathbb{R}^{n}$. Prove that $\mathbf{v}\in\mbox{Span}\left(\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k}\right)$
+$\iff$ $\mbox{Span}\left(\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k}\right)=\mbox{Span}\left(\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k},\mathbf{v}\right)$.
+
+\begin{proof}
+$(\Rightarrow)$ Let $\mathbf{v}\in\mbox{Span}\left(\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k}\right)$.
+Then by definition there are real numbers $c_{1},c_{2},\dots,c_{k}$
+such that $\mathbf{v}=c_{1}\mathbf{v}_{1}+c_{2}\mathbf{v}_{2}+\dots+c_{k}\mathbf{v}_{k}$
+so then $\mbox{Span}\left(\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k},\mathbf{v}\right)\subset\mbox{Span}\left(\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k}\right)$.
+Also $\mbox{Span}\left(\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k}\right)\subset\mbox{Span}\left(\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k},\mathbf{v}\right)$
+so then $\mbox{Span}\left(\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k}\right)=\mbox{Span}\left(\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k},\mathbf{v}\right)$.
+
+$(\Leftarrow)$ Let $\mbox{Span}\left(\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k}\right)=\mbox{Span}\left(\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k},\mathbf{v}\right)$.
+$\mathbf{v}\in\mbox{Span}\left(\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k},\mathbf{v}\right)$
+so then by the hypothesis $\mathbf{v}\in\mbox{Span}\left(\mathbf{v}_{1},\mathbf{v}_{2},\dots,\mathbf{v}_{k}\right)$.
+\end{proof}
+\end{enumerate}
+
+\end{document}

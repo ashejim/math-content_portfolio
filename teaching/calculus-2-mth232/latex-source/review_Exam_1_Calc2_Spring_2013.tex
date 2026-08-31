@@ -1,0 +1,144 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{232}
+
+\newcommand{\classSec}{A and B}
+
+\newcommand{\nameType}{}
+
+\newcommand{\examType}{Exam 1 Review}
+
+\renewcommand{\date}{Exam 1 will be be given on February $18^{\text{th}}$, 2012} %%\currenttime, \today
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vfill{}
+
+\subsection*{4.8: Antiderivative}
+\begin{itemize}
+\item Indefinite integrals involving powers and basic trig formulas. \textbf{HW
+1-8}
+\item Initial value problems. \textbf{HW 9-15}
+\end{itemize}
+
+\subsection*{5.1: Approximating Areas Under the Curves}
+\begin{itemize}
+\item Calculating left and right Riemann sums. \textbf{HW 2, 5-7, 9}
+\item Reading and writing sigma notation. \textbf{HW 10-11}
+\end{itemize}
+
+\subsection*{5.2: Definite Integrals. }
+\begin{itemize}
+\item Evaluating definite integrals using geometry. \textbf{HW 7-9, 17}
+\item Properties of definite integrals
+
+\begin{itemize}
+\item Know the difference between finding the \emph{area }and \emph{net
+area }of a region\emph{. }\textbf{HW 1, 19}
+\item Evaluating definite integrals from graphs. \textbf{HW 10-12}
+\item Evaluating definite integrals from given values. \textbf{HW 13-15}
+\end{itemize}
+\end{itemize}
+
+\subsection*{5.3: Fundamental Theorem of Calculus}
+\begin{itemize}
+\item Applying the FTC, and understanding the inverse relationship between
+differentiation and integration. \textbf{HW 1-5, 17-18}
+\item Evaluating definite integrals for explicit values. \textbf{HW 7-12,
+14, 19}
+\item Find the area bounded by a curve. \textbf{HW 13, 20}
+
+\begin{itemize}
+\item Find the \emph{net area }of the region bounded by the curve and the
+\emph{x-}axis on an interval, i.e., the definite integral on that
+interval.
+\item Find the \emph{area }of the regions bounded by the curve and the \emph{x-}axis
+on an interval, i.e., calculate all area as positive.
+\end{itemize}
+\end{itemize}
+
+\subsection*{5.4: Working with Integrals}
+\begin{itemize}
+\item Using properties of even and odd functions. \textbf{HW 1-2, 4-8, 19}
+\item Finding the average value of a function. \textbf{HW 9-14, 18}
+\end{itemize}
+
+\subsection*{5.5: Substitution Rule}
+\begin{itemize}
+\item Using the substitution rule to find the indefinite integral. You \emph{will
+not necessarily be told which problems require this rule. }\textbf{HW
+1-10}
+\end{itemize}
+
+\subsection*{Some general notes.}
+\begin{itemize}
+\item You will be given the necessary formulas from section 4.8. 
+\item The quiz and homework are good reviews. You can review pass due HW
+assignments in MyMathLab (MML) by going to ``Gradebook'' and clicking
+on ``Review''. Here you can practice more problems by clicking on
+``Similar Exercise''.
+\item More practice problems can be found in MML in ``Study Plan'' or
+your textbook.
+\item There will be 15-20 problems including some ``easy'' problems involving
+properties of integrals which can worked quickly. 
+\end{itemize}
+
+\end{document}

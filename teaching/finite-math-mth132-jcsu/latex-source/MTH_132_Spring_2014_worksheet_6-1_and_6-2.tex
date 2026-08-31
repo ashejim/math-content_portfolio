@@ -1,0 +1,167 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{132}
+
+\newcommand{\classSec}{C and K}
+
+\newcommand{\nameType}{Name:}
+
+\newcommand{\examType}{Worksheet 7.1 and 7.2}
+
+\renewcommand{\date}{\formatdate{14}{4}{2014}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(MTH \classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\xmax}{10}
+\newcommand{\xmin}{-10}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{10}
+\newcommand{\ymin}{-10}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcommand{\xspace}{\vspace{.75cm}}
+
+\textbf{Decide whether each of the following is  statement. If it
+is a statement, decide whether or not it is compound.}
+\begin{enumerate}[resume]
+\item Nashville is the capital of Tennessee.\xspace
+\item Got milk?\xspace
+\item China does not have a population of more than 1 billion, and it is
+a country.\xspace
+\item If I get an ``A'' then I will celebrate.\xspace
+\end{enumerate}
+\textbf{Write a negation of each statement.}
+\begin{enumerate}[resume]
+\item This is not the time to complain.\xspace
+\item $y\leq5$\xspace
+\item $p$\xspace
+\item $p\wedge q$\xspace
+\end{enumerate}
+\textbf{Fill in the following truth tables}.\begin{multicols}{2}
+
+\begin{tabular}{cc|c}
+$p$ & $q$ & $p\wedge q$\tabularnewline
+\hline 
+\hline 
+T & T & \tabularnewline
+\hline 
+T & F & \tabularnewline
+\hline 
+F & T & \tabularnewline
+\hline 
+F & F & \tabularnewline
+\hline 
+\end{tabular}\columnbreak
+
+\begin{tabular}{cc|c}
+$p$ & $q$ & $p\vee q$\tabularnewline
+\hline 
+\hline 
+T & T & \tabularnewline
+\hline 
+T & F & \tabularnewline
+\hline 
+F & T & \tabularnewline
+\hline 
+F & F & \tabularnewline
+\hline 
+\end{tabular}\end{multicols}
+
+\textbf{Let $p$ represent a false statement and $q$ represent a
+true statement. Find the truth value of each compound statement.}
+\begin{enumerate}[resume]
+\item $\sim p$\vfill
+\item $p\vee\sim q$\vfill
+\item $\sim(p\vee\sim q)$\vfill\newpage
+\end{enumerate}
+\textbf{Let $p$ represent a true statement, and $q$ and $r$ represent
+false statements. Find the truth value of each compound statement.}
+\begin{enumerate}[resume]
+\item $q\vee\sim r$\vfill
+\item $(\sim p\wedge q)\vee\sim r$\vfill
+\end{enumerate}
+\textbf{Let $p$ be the statement ``$2>y$'', $q$ be statement
+``$8\leq6$,'' and $r$ be the statement ``$19\leq19$.'' Find
+the truth value of each compound statement.}
+\begin{enumerate}[resume]
+\item $\sim p\vee\sim r$\vfill
+\item $(p\wedge q)\vee\sim r$\vfill
+\item $(\sim r\wedge q)\vee\sim p$\vfill
+\end{enumerate}
+
+\end{document}

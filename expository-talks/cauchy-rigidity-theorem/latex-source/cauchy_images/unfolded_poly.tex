@@ -1,0 +1,59 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{beamer-JA}
+
+\begin{document}
+    \begin{tikzpicture}[line join=bevel,scale=1.0]
+                %x, z, y? 
+                \pgfmathsetmacro{\cubex}{2}
+                \pgfmathsetmacro{\cubey}{1}
+                \pgfmathsetmacro{\cubez}{1}%%back to positive for birds ee
+                
+                \tkzDefPoint(0,0){0}
+                % \coordinate (0) at (0,0); %proj or base
+                \tkzDefPoint(\cubex,0){1}
+                \tkzDefPoint(\cubex,\cubey){2}
+                \tkzDefPoint(0,\cubey){3}
+                %%%%%%%%%%%%%%%%%%%%%%
+                \tkzDefPoint(0,\cubey){4} %proj of side
+                \tkzDefPoint(-\cubey,\cubez){5}%pt 7
+                \tkzDefPoint(-\cubey,0){6}
+                \tkzDefPoint(\cubex/2,.7071+\cubey){8}
+                %base
+                \draw[fill=red,opacity=0.5] (0) -- (1) -- (2)-- (3) -- cycle;
+                %%front side
+                \begin{scope}[every coordinate/.style={shift={(0,-\cubey)}}] %bottom
+                    \draw[fill=yellow,opacity=0.5] ([c]0) -- ([c]1) -- ([c]2)-- ([c]3) -- cycle;
+                \end{scope}
+                %%back side
+                \begin{scope}[every coordinate/.style={shift={(0,\cubey)}}] %bottom
+                    \draw[fill=yellow,opacity=0.5] ([c]0) -- ([c]1) -- ([c]2)-- ([c]3) -- cycle;
+                \end{scope}
+                %left square side
+                \begin{scope}[every coordinate/.style={shift={(0,0)}}] %bottom
+                    \draw[fill=blue,opacity=0.5] ([c]0) -- ([c]4) -- ([c]5)-- ([c]6) -- cycle;
+                \end{scope}
+                %right square side
+                \begin{scope}[every coordinate/.style={shift={(\cubex+\cubez,0)}}] %bottom
+                    \draw[fill=blue,opacity=0.5] ([c]0) -- ([c]4) -- ([c]5)-- ([c]6) -- cycle;
+                \end{scope}
+                %%back triangle top
+                \begin{scope}[every coordinate/.style={shift={(0,\cubey)}}] %bottom
+                    \draw[fill=green,opacity=0.5] ([c]2) -- ([c]3) -- ([c]8)-- cycle;
+                \end{scope}
+                %%front triangle top
+                \begin{scope}[every coordinate/.style={yscale={-1},xscale={1}}] %bottom
+                    \draw[fill=green,opacity=0.5] ([c]2) -- ([c]3) -- ([c]8)-- cycle;
+                \end{scope}
+                %%left triangle top
+                \begin{scope}[every coordinate/.style={shift={(-\cubey,0)},rotate=90}] 
+                    \draw[fill=magenta,opacity=0.5] ([c]0)-- ([c]\cubex/4,1.118)-- ([c]\cubez,0) -- cycle;
+                \end{scope}
+                %%left triangle top
+                \begin{scope}[every coordinate/.style={shift={(\cubex+\cubey,\cubez)},rotate=-90}] 
+                    \draw[fill=magenta,opacity=0.5] ([c]0)-- ([c]\cubex/4,1.118)-- ([c]\cubez,0) -- cycle;
+                \end{scope}
+    \end{tikzpicture}
+\end{document}

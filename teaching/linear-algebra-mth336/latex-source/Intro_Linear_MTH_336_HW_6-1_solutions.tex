@@ -1,0 +1,316 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows}
+
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{336}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\examType}{HW 6.1}
+
+\renewcommand{\date}{\formatdate{20}{11}{2013}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} ~\date{}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\textbf{Solutions}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{Solutions}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\setlist{topsep=.5pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\xmax}{0}
+\newcommand{\xmin}{-\xmax}
+\newcommand{\xstep}{0}
+\newcommand{\ymax}{0}
+\newcommand{\ymin}{-\ymax}
+\newcommand{\ystep}{0} 
+\newcommand{\dspace}{\vspace{1cm}}
+\newcommand{\xa}{0}
+\newcommand{\xb}{0}
+\newcommand{\ya}{1}
+\newcommand{\yb}{1}
+\begin{enumerate}[resume]
+\item \vspace{0cm}Note: this are the same matrices from 5.1 exercise 1.
+
+\begin{enumerate}[resume]
+\item Oops! I did this one in class. $\det\left(A-tI_{2}\right)=\det\begin{bmatrix}\begin{array}{rr}
+1-t & 5\\
+2 & 4-t
+\end{array}\end{bmatrix}=(1-t)(4-t)-10=t^{2}-5t-6=(t-6)(t+1)=0$ when $t=6,-1$ so $A$ has eigenvalues $\lambda=-1,6$. 
+
+\begin{enumerate}[resume]
+\item []$E(-1):$ $N(A+I_{2})=N\left(\begin{bmatrix}\begin{array}{rr}
+1+1 & 5\\
+2 & 4+1
+\end{array}\end{bmatrix}\right)=N\left(\begin{bmatrix}\begin{array}{rr}
+2 & 5\\
+2 & 5
+\end{array}\end{bmatrix}\right)$ and $\begin{bmatrix}\begin{array}{rr}
+2 & 5\\
+2 & 5
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rr}
+2 & 5\\
+0 & 0
+\end{array}\end{bmatrix}$ so $2x_{1}=-5x_{2}\Rightarrow\mathbf{v}_{1}=\begin{bmatrix}\begin{array}{r}
+5\\
+-2
+\end{array}\end{bmatrix}$ gives a basis for $E(-1)$.
+\item []$E(6):$ $N(A-6I_{2})=N\left(\begin{bmatrix}\begin{array}{rr}
+1-6 & 5\\
+2 & 4-6
+\end{array}\end{bmatrix}\right)=N\left(\begin{bmatrix}\begin{array}{rr}
+-5 & 5\\
+2 & -2
+\end{array}\end{bmatrix}\right)$ and $\begin{bmatrix}\begin{array}{rr}
+-5 & 5\\
+2 & -2
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rr}
+1 & -1\\
+0 & 0
+\end{array}\end{bmatrix}$ so $x_{1}=x_{2}\Rightarrow\mathbf{v}_{2}=\begin{bmatrix}\begin{array}{r}
+1\\
+1
+\end{array}\end{bmatrix}$ gives a basis for $E(6)$.
+\end{enumerate}
+\item $\det\left(A-tI_{2}\right)=\det\begin{bmatrix}\begin{array}{rr}
+0-t & 1\\
+1 & 0-t
+\end{array}\end{bmatrix}=(-t)(-t)-1=t^{2}-1=(t-1)(t+1)=0$ when $t=1,-1$ so $A$ has eigenvalues $\lambda=-1,1$. 
+
+\begin{enumerate}[resume]
+\item []$E(-1):$ $N(A+I_{2})=N\left(\begin{bmatrix}\begin{array}{rr}
+1 & 1\\
+1 & 1
+\end{array}\end{bmatrix}\right)$ and $\begin{bmatrix}\begin{array}{rr}
+1 & 1\\
+1 & 1
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rr}
+1 & 1\\
+0 & 0
+\end{array}\end{bmatrix}$ so $x_{1}=-x_{2}=0\Rightarrow\mathbf{v}_{1}=\begin{bmatrix}\begin{array}{r}
+1\\
+-1
+\end{array}\end{bmatrix}$ gives a basis for $E(-1)$.
+\item []$E(1):$ $N(A-I_{2})=N\left(\begin{bmatrix}\begin{array}{rr}
+-1 & 1\\
+1 & -1
+\end{array}\end{bmatrix}\right)$ and $\begin{bmatrix}\begin{array}{rr}
+-1 & 1\\
+1 & -1
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rr}
+1 & -1\\
+0 & 0
+\end{array}\end{bmatrix}$ so $x_{1}=x_{2}\Rightarrow\mathbf{v}_{2}=\begin{bmatrix}\begin{array}{r}
+1\\
+1
+\end{array}\end{bmatrix}$ gives a basis for $E(1)$.
+\end{enumerate}
+\item $\det\left(A-tI_{2}\right)=\det\begin{bmatrix}\begin{array}{rr}
+10-t & -6\\
+18 & -11-t
+\end{array}\end{bmatrix}=(10-t)(-11-t)+108=t^{2}+t-2=(t-1)(t+2)=0$ when $t=1,-2$ so $A$ has eigenvalues $\lambda=-2,1$. 
+
+\begin{enumerate}[resume]
+\item []$E(-2):$ $N(A+2I_{2})=N\left(\begin{bmatrix}\begin{array}{rr}
+12 & -6\\
+18 & -9
+\end{array}\end{bmatrix}\right)$ and $\begin{bmatrix}\begin{array}{rr}
+12 & -6\\
+18 & -9
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rr}
+1 & -\nicefrac{1}{2}\\
+0 & 0
+\end{array}\end{bmatrix}$ so $x_{1}=\nicefrac{1}{2}x_{2}=0\Rightarrow\mathbf{v}_{1}=\begin{bmatrix}\begin{array}{r}
+1\\
+\nicefrac{1}{2}
+\end{array}\end{bmatrix}$ gives a basis for $E(-2)$.
+\item []$E(1):$ $N(A-I_{2})=N\left(\begin{bmatrix}\begin{array}{rr}
+-1 & 1\\
+1 & -1
+\end{array}\end{bmatrix}\right)$ and $\begin{bmatrix}\begin{array}{rr}
+-1 & 1\\
+1 & -1
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rr}
+1 & -1\\
+0 & 0
+\end{array}\end{bmatrix}$ so $x_{1}=x_{2}\Rightarrow\mathbf{v}_{2}=\begin{bmatrix}\begin{array}{r}
+1\\
+1
+\end{array}\end{bmatrix}$ gives a basis for $E(1)$.
+\end{enumerate}
+\item [\textbf{j.}]$\det\left(A-tI_{3}\right)=\det\begin{bmatrix}\begin{array}{rrr}
+2-t & 0 & 1\\
+0 & 1-t & 2\\
+0 & 0 & 1-t
+\end{array}\end{bmatrix}=(1-t)\det\left(\begin{bmatrix}\begin{array}{rr}
+2-t & 1\\
+0 & 1-t
+\end{array}\end{bmatrix}\right)=(1-t)(2-t)(1-t)=0$ when $t=1,2$ so $A$ has eigenvalues $\lambda=1,2$. 
+
+\begin{enumerate}[resume]
+\item []$E(1):$ $N(A-I_{3})=N\left(\begin{bmatrix}\begin{array}{rrr}
+1 & 0 & 1\\
+0 & 0 & 2\\
+0 & 0 & 0
+\end{array}\end{bmatrix}\right)$ and $\begin{bmatrix}\begin{array}{rrr}
+1 & 0 & 1\\
+0 & 0 & 2\\
+0 & 0 & 0
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rrr}
+1 & 0 & 0\\
+0 & 0 & 1\\
+0 & 0 & 0
+\end{array}\end{bmatrix}$ so $x_{1}=x_{3}=0\Rightarrow\mathbf{v}_{1}=\begin{bmatrix}\begin{array}{r}
+0\\
+1\\
+0
+\end{array}\end{bmatrix}$
+\item []$E(2):$ $N(A-2I_{3})=N\left(\begin{bmatrix}\begin{array}{rrr}
+0 & 0 & 1\\
+0 & -1 & 2\\
+0 & 0 & -1
+\end{array}\end{bmatrix}\right)$ and $\begin{bmatrix}\begin{array}{rrr}
+0 & 0 & 1\\
+0 & -1 & 2\\
+0 & 0 & -1
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rrr}
+0 & 1 & 0\\
+0 & 0 & 1\\
+0 & 0 & 0
+\end{array}\end{bmatrix}$ so $x_{2}=x_{3}=0\Rightarrow\mathbf{v}_{2}=\begin{bmatrix}\begin{array}{r}
+1\\
+0\\
+0
+\end{array}\end{bmatrix}$
+\end{enumerate}
+\item [\textbf{m.}]$\det\left(A-tI_{3}\right)=\det\begin{bmatrix}\begin{array}{rrr}
+1-t & -1 & 4\\
+3 & 2-t & -1\\
+2 & 1 & -1-t
+\end{array}\end{bmatrix}=(t-1)(t+2)(t-3)=0$ when $t=1,-2,3$ so $A$ has eigenvalues $\lambda=1,-2,3$ (done
+in class). 
+
+\begin{enumerate}[resume]
+\item []$E(-2):$ $N(A+2I_{3})=N\left(\begin{bmatrix}\begin{array}{rrr}
+3 & -1 & 4\\
+3 & 4 & -1\\
+2 & 1 & 1
+\end{array}\end{bmatrix}\right)$ and $\begin{bmatrix}\begin{array}{rrr}
+3 & -1 & 4\\
+3 & 4 & -1\\
+2 & 1 & 1
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rrr}
+1 & 0 & 1\\
+0 & 1 & -1\\
+0 & 0 & 0
+\end{array}\end{bmatrix}$ so $x_{1}=-x_{3}\mbox{ and }x_{2}=x_{3}\Rightarrow\mathbf{v}_{1}=\begin{bmatrix}\begin{array}{r}
+-1\\
+1\\
+1
+\end{array}\end{bmatrix}$
+\item []$E(1):$ $N(A-I_{3})=N\left(\begin{bmatrix}\begin{array}{rrr}
+0 & -1 & 4\\
+3 & 1 & -1\\
+2 & 1 & -2
+\end{array}\end{bmatrix}\right)$ and $\begin{bmatrix}\begin{array}{rrr}
+0 & -1 & 4\\
+3 & 1 & -1\\
+2 & 1 & -2
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rrr}
+1 & 0 & 1\\
+0 & 1 & -4\\
+0 & 0 & 0
+\end{array}\end{bmatrix}$ so $x_{1}=-x_{3}\mbox{ and }x_{2}=4x_{3}\Rightarrow\mathbf{v}_{2}=\begin{bmatrix}\begin{array}{r}
+-1\\
+4\\
+1
+\end{array}\end{bmatrix}$
+\item []$E(3):$ $N(A-3I_{3})=N\left(\begin{bmatrix}\begin{array}{rrr}
+-2 & -1 & 4\\
+3 & -1 & -1\\
+2 & 1 & -4
+\end{array}\end{bmatrix}\right)$ and $\begin{bmatrix}\begin{array}{rrr}
+-2 & -1 & 4\\
+3 & -1 & -1\\
+2 & 1 & -4
+\end{array}\end{bmatrix}\rightsquigarrow\begin{bmatrix}\begin{array}{rrr}
+1 & 0 & -1\\
+0 & 1 & -2\\
+0 & 0 & 0
+\end{array}\end{bmatrix}$ so $x_{2}=x_{3}\mbox{ and }x_{2}=2x_{3}\Rightarrow\mathbf{v}_{3}=\begin{bmatrix}\begin{array}{r}
+1\\
+2\\
+1
+\end{array}\end{bmatrix}$
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

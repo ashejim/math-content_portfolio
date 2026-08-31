@@ -1,0 +1,329 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{units}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\usetikzlibrary{shapes.geometric, intersections}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+%%Header Info
+\renewcommand{\author}{Dr.\,James Ashe}
+\newcommand{\classNum}{137}
+\newcommand{\classSec}{B}
+\newcommand{\nameType}{Name:}
+\newcommand{\examType}{Exam 3}
+\renewcommand{\date}{\formatdate{15}{4}{2013}}%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Various settings; see the preamble for other settings%%%%%
+%\setenumerate{itemsep=.125cm,leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\setlist{itemsep=.05cm}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+\newcommand{\dspace}{\vspace*{.75cm}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\xmax}{0}
+\newcommand{\xmin}{-\xmax}
+\newcommand{\xstep}{0}
+\newcommand{\ymax}{0}
+\newcommand{\ymin}{-\ymax}
+\newcommand{\ystep}{0} 
+
+\textbf{You must show your work to receive credit. }Unless stated
+otherwise, all problems are worth 5 points. 
+\begin{enumerate}[resume]
+\item {[}2pts each{]}\label{enu:quad-graph} Use the graph of the quadratic
+function, to answer the following:
+
+\begin{multicols}{2}
+\begin{enumerate}
+\item What is the vertex?\dspace
+\item What is the axis of symmetry?\dspace
+\item What is the range?\dspace
+\item What is the domain?\dspace
+\item Using the graph, what interval(s) is the function positive? (approximate)\dspace\columnbreak
+\item []\renewcommand{\xmax}{10}
+\renewcommand{\xmin}{-10}
+\renewcommand{\xstep}{0} %must be xmin+n
+\renewcommand{\ymax}{10}
+\renewcommand{\ymin}{-10}
+\renewcommand{\ystep}{0} %must be ymin+n
+%%%%%%%
+\begin{tikzpicture} 
+\begin{axis}[height=5.5cm, 
+	width=5.5cm, 
+	axis lines=middle,
+	minor x tick num={4},
+	minor y tick num={4},
+	grid=both,
+	%xtick={0,50,...,250},
+	%ytick={0,10,20,...,40},
+	%axis line style={-latex}, 
+	xmin=\xmin,xmax=\xmax, 
+	ymin=\ymin,ymax=\ymax,
+	%restrict y to domain=-1:10,
+	%no markers, 
+	xlabel={$x$},ylabel={$y$}, 
+	%every axis x label/.append style={anchor=north}, 
+	%every axis y label/.append style={anchor=east}
+	]
+	
+	%%\addplot[color=red,solid,mark=*] coordinates {(-3,-4)};
+	\addplot[domain=\xmin:\xmax,thick,samples=100,draw=red,<->]{-(x-2)^2+5} [yshift=8pt] node[pos=0.7,right] {$g(x)$};
+	
+\end{axis}
+\end{tikzpicture}
+\end{enumerate}
+\end{multicols}
+\item Using the function $f(x)=x^{2}-4x+4$, complete the following:
+
+\begin{multicols}{2}
+\begin{enumerate}
+\item {[}2pts{]} Determine $f$'s axis of symmetry.\dspace
+\item {[}2pts{]} If any exist, find the $x$-int(s).\dspace
+\item {[}2pts{]} Find the $y$-int.\dspace
+\item {[}4pts{]} Sketch the graph\columnbreak
+\item []\renewcommand{\xmax}{10}
+\renewcommand{\xmin}{-10}
+\renewcommand{\xstep}{0} %must be xmin+n
+\renewcommand{\ymax}{10}
+\renewcommand{\ymin}{-10}
+\renewcommand{\ystep}{0} %must be ymin+n
+%%%%%%%
+\begin{tikzpicture} 
+\begin{axis}[height=5.5cm, 
+	width=5.5cm, 
+	axis lines=middle,
+	minor x tick num={4},
+	minor y tick num={4},
+	grid=both,
+	%xtick={0,50,...,250},
+	%ytick={0,10,20,...,40},
+	%axis line style={-latex}, 
+	xmin=\xmin,xmax=\xmax, 
+	ymin=\ymin,ymax=\ymax,
+	%restrict y to domain=-1:10,
+	no markers, 
+	xlabel={$x$},ylabel={$y$}, 
+	%every axis x label/.append style={anchor=north}, 
+	%every axis y label/.append style={anchor=east}
+	]
+	
+	%%\addplot[color=red,solid,mark=*] coordinates {(-3,-4)};
+	%%\addplot[domain=\xmin:\xmax,thick,samples=100,draw=red,<->]{-(x-2)^2+5} node[right] {$$};
+	
+\end{axis}
+\end{tikzpicture}
+\end{enumerate}
+\end{multicols}
+\item Consider $P(x)=x^{2}-5x+2$ and $(x-2)$.
+
+\begin{enumerate}
+\item {[}4pts{]} Use division (synthetic or traditional) to find the quotient
+and remainder when $P(x)$ is divided by $x-2$. \vfill\dspace
+\item {[}4pts{]} Find $\frac{P(x)}{x-2}$\vfill
+\item {[}2pts{]} Is $x=2$ a root/zero of $P(x)$?\dspace\newpage
+\end{enumerate}
+\item Consider the polynomial $f(x)$ shown in the graph.
+
+\begin{multicols}{2}
+\begin{enumerate}
+\item What are the zeros of $f(x)$?\dspace\dspace
+\item Find the simplest polynomial with real coefficients that has the roots
+from above (you do not have to expand).\dspace\columnbreak
+\item []\renewcommand{\xmax}{7}
+\renewcommand{\xmin}{-5}
+\renewcommand{\xstep}{0} %must be xmin+n
+\renewcommand{\ymax}{15}
+\renewcommand{\ymin}{-25}
+\renewcommand{\ystep}{0} %must be ymin+n
+%%%%%%%
+\begin{tikzpicture} 
+\begin{axis}[height=5.5cm, 
+	width=5.5cm, 
+	axis lines=middle,
+	minor x tick num={4},
+	minor y tick num={4},
+	grid=both,
+	%xtick={0,50,...,250},
+	%ytick={0,10,20,...,40},
+	%axis line style={-latex}, 
+	xmin=\xmin,xmax=\xmax, 
+	ymin=\ymin,ymax=\ymax,
+	%restrict y to domain=-1:10,
+	no markers, 
+	xlabel={$x$},ylabel={$y$}, 
+	%every axis x label/.append style={anchor=north}, 
+	%every axis y label/.append style={anchor=east}
+	]
+	
+	%%\addplot[color=red,solid,mark=*] coordinates {(-3,-4)};
+	\addplot[domain=\xmin:\xmax,thick,samples=100,draw=red,<->]{-(x+2)*(x-2)*(x-5)} node[pos=.65,right] {$f(x)$};
+	
+\end{axis}
+\end{tikzpicture}
+\end{enumerate}
+\end{multicols}
+\item Use $f(x)=x^{3}-4x$ to complete the following.
+
+\begin{multicols}{2}
+\begin{enumerate}
+\item {[}3pts{]} Find the $x$-int(s).\dspace
+\item {[}3pts{]} Determine if the graph crosses or touches without crossing
+the $x$-axis at each $x$-int.\dspace
+\item {[}4pts{]} Sketch a graph of the function.\columnbreak
+\item []\renewcommand{\xmax}{8}
+\renewcommand{\xmin}{-5}
+\renewcommand{\xstep}{0} %must be xmin+n
+\renewcommand{\ymax}{10}
+\renewcommand{\ymin}{-10}
+\renewcommand{\ystep}{0} %must be ymin+n
+%%%%%%%
+\begin{tikzpicture} 
+\begin{axis}[height=5.5cm, 
+	width=5.5cm, 
+	axis lines=middle,
+	minor x tick num={4},
+	minor y tick num={4},
+	grid=both,
+	%xtick={0,50,...,250},
+	%ytick={0,10,20,...,40},
+	%axis line style={-latex}, 
+	xmin=\xmin,xmax=\xmax, 
+	ymin=\ymin,ymax=\ymax,
+	%restrict y to domain=-1:10,
+	no markers, 
+	xlabel={$x$},ylabel={$y$}, 
+	%every axis x label/.append style={anchor=north}, 
+	%every axis y label/.append style={anchor=east}
+	]
+	
+	%%\addplot[color=red,solid,mark=*] coordinates {(-3,-4)};
+	%%\addplot[domain=\xmin:\xmax,thick,samples=100,draw=red,<->]{-(x-2)^2+5} node[right] {$$};
+	
+\end{axis}
+\end{tikzpicture}
+\end{enumerate}
+\end{multicols}
+\item {[}5pts each{]} Find all real solutions.
+
+\begin{enumerate}
+\item $\sqrt{x+3}=x+1$\vfill\dspace
+\item $x^{-\nicefrac{2}{5}}=4$\vfill
+\end{enumerate}
+\item {[}5pts each{]} Find the vertex of the graph of the following functions:
+
+\begin{enumerate}
+\item $f(x)=x^{2}-4x+10$.\dspace\dspace\dspace
+\item $f(x)=-3\left(x+2\right)^{2}-5$.\dspace
+\end{enumerate}
+\end{enumerate}
+\newpage\renewcommand{\dspace}{\vspace*{1.25cm}}
+\begin{enumerate}[resume]
+\item Use $f(x)=\frac{2x+6}{x-2}$
+
+\begin{multicols}{2}
+\begin{enumerate}
+\item {[}4pts{]} Find the domain of $f(x)$.\dspace
+\item {[}4pts{]} Find all vertical asymptotes.\dspace
+\item {[}6pts{]} Find the horizontal asymptote.\dspace\dspace
+\item {[}6pts{]} Sketch a graph of the function\columnbreak
+\item []\renewcommand{\xmax}{10}
+\renewcommand{\xmin}{-10}
+\renewcommand{\xstep}{0} %must be xmin+n
+\renewcommand{\ymax}{10}
+\renewcommand{\ymin}{-10}
+\renewcommand{\ystep}{0} %must be ymin+n
+%%%%%%%
+\begin{tikzpicture} 
+\begin{axis}[height=5.5cm, 
+	width=5.5cm, 
+	axis lines=middle,
+	minor x tick num={4},
+	minor y tick num={4},
+	grid=both,
+	%xtick={0,50,...,250},
+	%ytick={0,10,20,...,40},
+	%axis line style={-latex}, 
+	xmin=\xmin,xmax=\xmax, 
+	ymin=\ymin,ymax=\ymax,
+	%restrict y to domain=-1:10,
+	no markers, 
+	xlabel={$x$},ylabel={$y$}, 
+	%every axis x label/.append style={anchor=north}, 
+	%every axis y label/.append style={anchor=east}
+	]
+	
+	%%\addplot[color=red,solid,mark=*] coordinates {(-3,-4)};
+	%%\addplot[domain=\xmin:\xmax,thick,samples=100,draw=red,<->]{-(x-2)^2+5} node[right] {$$};
+	
+\end{axis}
+\end{tikzpicture}
+\end{enumerate}
+\end{multicols}
+\item {[}2pts each{]} Find the following:
+
+\begin{enumerate}
+\item $x^{2}-20$ as $x\rightarrow-\infty$\dspace
+\item $-2x^{13}+x^{4}-50$ as $x\rightarrow\infty$\dspace
+\item ${\displaystyle \lim_{x\rightarrow\infty}\frac{1}{x^{3}}}$\dspace
+\item ${\displaystyle \lim_{x\rightarrow0^{+}}\frac{3}{x}}$\dspace
+\item ${\displaystyle \lim_{x\rightarrow2^{-}}\frac{3}{x-2}}$\dspace
+\item The domain of $\frac{x^{2}-3x-7}{x(x-2)(x+1)}$\dspace
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

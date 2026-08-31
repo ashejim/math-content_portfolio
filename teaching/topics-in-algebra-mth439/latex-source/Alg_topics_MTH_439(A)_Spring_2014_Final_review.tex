@@ -1,0 +1,234 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{datetime}
+
+
+%%%%%commands
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\funct}[3]{$#1\colon#2\rightarrow#3$}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{439}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{Name: \hspace{-4cm}}
+
+\newcommand{\examType}{Final Review and Homework}
+
+\newcommand{\Date}{\formatdate{17}{4}{2014}} %%\AdvanceDate[12] \today
+
+%\newdate{my_date}{\day}{\month}{\year}%   
+%\AdvanceDate[-5] 
+%\displaydate{my_date}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \Date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+%\setlist{nolistsep} %eliminates space between list items
+\lhead{MTH \classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\xspace}{\vspace{.85cm}}
+
+\small
+
+\subsubsection*{Rings and Subrings}
+\begin{enumerate}[resume]
+\item Rings: \emph{Give an example for each of the following.}
+
+\begin{enumerate}
+\item A ring with identity
+\item A ring without identity
+\item A commutative ring
+\item A non-commutative ring
+\item A subring of $\mb{Z}$, $\mb{Z}_{6}$, $\mb{Q}$, $\mb{R}$, and $\mb{C}$.
+\end{enumerate}
+\item Prove that $5\mathbb{Z}$ is a ring.
+\item Prove that the set of nonnegative integers is not a subring of $\mathbb{Z}$.
+\item Prove that $\mathbb{Z}[i]=\left\{ a+bi\colon a,b\in\mathbb{Z}\right\} $
+is a subring of $\mathbb{C}$.
+\item Let $R$ be a ring with subrings $A$ and $B$. Prove that $A\cap B$
+is also a subring. \emph{\vfill}
+\end{enumerate}
+
+\subsubsection*{Integral Domains and Fields}
+\begin{enumerate}[resume]
+\item Integral domains and Fields: \emph{Give an example for each of the
+following.}
+
+\begin{enumerate}
+\item An integral domain.
+\item A ring which is not an integral domain.
+\item A field.
+\item A ring which is not a field. 
+\item An integral domain which is not a field.
+\end{enumerate}
+\begin{itemize}
+\item $\mbox{Sets}\supseteq\mbox{Groups}\supseteq\mbox{Rings}\supseteq\mbox{Intergal Domains}\supseteq\mbox{Fields}$
+\end{itemize}
+\item Let $R$ be an integral domain and suppose that $ax-bx=0$. Prove
+that if $a\neq b$ then $x=0$.
+\item Let $R=\mathbb{Z}_{10}$ 
+
+\begin{enumerate}[resume]
+\item Prove that $R$ is not an integral domain. 
+\item Prove that $R$ is not a field.
+\end{enumerate}
+\item Let $R=\mathbb{Z}_{5}$
+
+\begin{enumerate}
+\item Prove that $R$ is a field.
+\item Prove that $R$ is an integral domain.\emph{\vfill}
+\end{enumerate}
+\end{enumerate}
+
+\subsubsection*{Ideals}
+\begin{enumerate}[resume]
+\item Ideals: \emph{Give an example for each of the following.}
+
+\begin{enumerate}
+\item A ring and an ideal in that ring.
+\item A ring and a subring which is not an ideal.
+\item A ring other than $\mathbb{Z}$, and a principal ideal in that ring.
+\item A ring, and a prime ideal in that ring.
+\item A ring, and a maximal ideal in that ring.
+\end{enumerate}
+\item Prove that for any ring $R$, $0_{R}$ is an ideal of $R$.
+\item Prove that $\left\langle x-1\right\rangle $ is an ideal in $\mathbb{R}[x]$.
+\item Find all the ideals and maximal ideals of $\mathbb{Z}_{12}$ (use
+a lattice). \emph{\vfill}
+\end{enumerate}
+
+\subsubsection*{Homomorphisms and Isomorphisms}
+\begin{enumerate}[resume]
+\item Homomorphism and Isomorphisms: \emph{Give an example for each of the
+following.}
+
+\begin{enumerate}
+\item A 1-1 function between rings.
+\item A function between rings which is not 1-1.
+\item An onto function between rings.
+\item A function between rings which is not 1-1.
+\item A homomorphism between rings.
+\item A function between rings which is not a homomorphism. 
+\item An isomorphism between rings (other than the identity function).
+\item A homomorphism between rings which is not an isomorphism.
+\end{enumerate}
+\begin{itemize}
+\item The first isomorphism theorem. 
+\end{itemize}
+\item Prove that the rings $\mb{R}$ and $\mb{Z}$ are not isomorphic.
+\item Prove that $\mb{Z}_{m}$ is not isomorphic to $\mb{Z}_{n}$ if and
+only if $n\neq m$.
+\item Let $f\colon R\rightarrow S$ be a ring homomorphism.
+
+\begin{enumerate}[resume]
+\item What is $f(0_{R})$?
+\item Suppose that $f(a)-f(b)=0$ find $f(a-b)$.
+\item Suppose that $A$ is a subring of $R$. Is $f(A)$ a subring?\vfill
+\end{enumerate}
+\end{enumerate}
+
+\subsubsection*{Factor Rings}
+\begin{enumerate}[resume]
+\item Ideals: \emph{Give an example for each of the following}
+
+\begin{enumerate}
+\item A factor ring.
+\item Two elements in the factor ring above.
+\item An abelian factor ring. 
+\item A factor ring with identity.
+\end{enumerate}
+\item Let $D=\left\{ x\colon x=2n+1\mbox{ for }n\in\mathbb{Z}\right\} $,
+the set of odd integers. 
+
+\begin{enumerate}
+\item Prove that $D$ is not an ideal in $\mathbb{Z}$.
+\item Prove that $\mathbb{Z}/D$ is not a ring. 
+\end{enumerate}
+\item Let $E=\{x\colon x=2n\mbox{ for }n\in\mathbb{Z}\}$.
+
+\begin{enumerate}
+\item Prove that $E$ is an ideal in $\mb{Z}$.
+\item Prove that $\mb{Z}/E$ is a ring.
+\end{enumerate}
+\item Let $R=\mathbb{Z}/\left\langle 20\right\rangle $. Give two examples
+of distinct elements in $R$, and show that they are distinct.
+\item Prove that $\mathbb{Z}_{10}/\left\langle 2\right\rangle $ is a field. 
+\item Prove that $\mathbb{\mathbb{Z}}[x]/\left\langle x\right\rangle $
+is an integral domain but not a field. 
+\item Let $f:\mathbb{Z}\rightarrow\mathbb{Z}_{8}$. Find the kernel of $f$.
+\item Define $f:\mathbb{Z}\rightarrow\mathbb{Z}_{8}$ as $f(x)=x\bmod8$.
+Show that $\mathbb{Z}/\mathbb{Z}_{8}$ is isomorphic to $\mathbb{Z}_{8}$.
+\item Recall that $\left\langle x\right\rangle $ is a principal ideal in
+$\mathbb{R}[x]$. The function $f\colon\mathbb{R}[x]\rightarrow\mathbb{R}$
+defined by 
+\[
+f(a_{n}x^{n}+a_{n-1}x^{n-1}+\cdots+a_{1}x+a_{0})=a_{0}
+\]
+is an onto homomorphism. Prove that $\mathbb{R}[x]/\left\langle x\right\rangle $
+is isomorphic to $\mathbb{R}$. \emph{\vfill}
+\end{enumerate}
+
+\end{document}

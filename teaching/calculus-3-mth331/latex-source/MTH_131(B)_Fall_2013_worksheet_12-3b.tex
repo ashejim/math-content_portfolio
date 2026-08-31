@@ -1,0 +1,120 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{ifthen}
+%sets math fonts to be more readable
+\everymath=\expandafter{\the\everymath\displaystyle}
+%\DeclareMathSizes{10}{10}{10}{10}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows}
+
+\usetikzlibrary{plotmarks}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+\usepackage{datenumber} % Counters for dates
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\renewcommand{\author}{Dr.\,James Ashe}
+
+\newcommand{\classNum}{331}
+
+\newcommand{\classSec}{A}
+
+\newcommand{\nameType}{Name:}
+
+\newcommand{\examType}{Worksheet 12.3}
+
+\renewcommand{\date}{\formatdate{21}{10}{2013}}
+
+%%First page's header%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firststyle} %%header settings for first pagr
+{
+	\fancyhead[L]{MTH \classNum{}(\classSec{}) \author{}\\
+	\textbf{\examType{}} \date{}}
+	\fancyhead[C]{\textbf{\nameType}}
+	\setlength{\headsep}{14pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Next page's header%%%%%%%%%%%%%%%%%%%%%%%
+\setlist{nolistsep}
+\lhead{\classNum{}(\classSec{})} 
+\chead{\textbf{\nameType}} 
+\cfoot{\thepage{}~of~\pageref{LastPage}} 
+\setlength{\headsep}{5pt} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Various settings; see the preamble for other settings%%%%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\xmax}{10}
+\newcommand{\xmin}{-10}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{10}
+\newcommand{\ymin}{-10}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcommand{\xspace}{\vspace{1.2cm}}
+\begin{enumerate}[resume]
+\item Determine whether the following are true or false. Explain your answer
+of give a counterexample.
+
+\begin{enumerate}[resume]
+\item $\mbox{proj}_{\mathbf{v}}\mathbf{u}=\mbox{proj}_{\mathbf{u}}\mathbf{v}$.\vfill
+\item If nonzero vectors $\mathbf{v}$ and $\mathbf{u}$ have the same magnitude
+they make equal angles with $\mathbf{u}+\mathbf{v}$.\vfill
+\item If $\mathbf{u}$ is orthogonal to $\mathbf{v}$ and $\mathbf{v}$
+is orthogonal to $\mathbf{w}$, then $\mathbf{u}$ is orthogonal to
+$\mathbf{w}$.\vfill
+\item The vectors orthogonal to $\left\langle 1,1,1\right\rangle $ lie
+on the same line.\vfill
+\item If $\mbox{proj}_{\mathbf{v}}\mathbf{u}=\mathbf{0}$, then vectors
+$\mathbf{u}$ and $\mathbf{v}$ (both nonzero) are orthogonal.\vfill
+\end{enumerate}
+\item Find all vectors orthogonal to $\mathbf{v}$.
+
+\begin{enumerate}[resume]
+\item $\mathbf{v}=\left\langle 3,4,0\right\rangle $\vfill
+\item $\mathbf{v}=\mathbf{i}+\mathbf{j}+\mathbf{k}$\vfill
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

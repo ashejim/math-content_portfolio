@@ -1,0 +1,422 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,t]{beamer}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amssymb}
+\usepackage{cancel}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% this default might be overridden by plain title style
+\newcommand\makebeamertitle{\frame{\maketitle}}%
+% (ERT) argument for the TOC
+\AtBeginDocument{%
+  \let\origtableofcontents=\tableofcontents
+  \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+  \def\gobbletableofcontents#1{\origtableofcontents}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usetheme{Warsaw}
+% or ...
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+\setbeamercovered{invisible} %makes overlays invisible
+
+%gets rid of navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%\usepackage{hyperref}
+%\usepackage[usenames,dvipsnames,table]{xcolor} %adds additional color options
+\definecolor{links}{HTML}{2A1B81}
+%\hypersetup{colorlinks,linkcolor=blue,urlcolor=links}
+
+\usepackage{multicol}
+
+\usepackage{hyperref}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{shapes}
+\usepackage{pgfplots} %\usepackage{pgfplots, pgfplotstable}
+\pgfplotsset{compat=newest}
+\usepackage{filecontents}  %allows in file data
+\usepgfplotslibrary{statistics} %allows histogram stuff
+
+\usepackage{forest} %%for tree diagram
+
+\usepackage{calc}
+\usepackage[nomessages]{fp}
+
+\usepackage[super]{nth} %easy 1st, 2nd, etc
+
+%\usepackage{advdate}    % Advancing/saving dates
+\usepackage{datetime}   % Dates formatting
+%\usepackage{datenumber} % Counters for dates
+
+\usepackage[super]{nth}
+
+\usepackage{etex}
+
+\usepackage{fancybox}
+
+%%table colors
+%\usepackage[table]{xcolor}
+\usepackage{colortbl}
+
+\usepackage[outline]{contour}  %allows text halos
+
+\usepackage{epsdice} %%dice font
+\usepackage[misc]{ifsym}
+\newfont\dice{dice3d} %%3d dice font
+
+\contourlength{1pt} %sets halo width
+%%example: \node at (0.75,0.5) {\contour{white}{\Large Text!}};
+%%example:  \node [fill=white,inner sep=1pt] at (2.25,0.5) {\Large 			Text!};
+%%example:  \node [fill=white,rounded corners=2pt,inner sep=1pt] at 			(3.75,0.5) {\Large Text!};
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\formatdateny{\csname noyear\languagename\expandafter\endcsname\formatdate}
+\def\noyearenglish#1, \the\@year{#1}
+\let\noyearamerican\noyearenglish
+\let\noyearbritish\noyearenglish
+
+%%allows uncover with forest diagrams
+\tikzset{
+    invisible/.style={opacity=0,text opacity=0},
+    visible on/.style={alt=#1{}{invisible}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+    },
+}
+\forestset{
+  visible on/.style={
+    for tree={
+      /tikz/visible on={#1},
+      edge={/tikz/visible on={#1}}}}}
+
+%%%redefines column alignment to match vertically
+%\define@key{beamerframe}{t}[true]{% top
+  %\beamer@frametopskip=.2cm plus .5\paperheight\relax%
+  %\beamer@framebottomskip=0pt plus 1fill\relax%
+ % \beamer@frametopskipautobreak=\beamer@frametopskip\relax%
+  %\beamer@framebottomskipautobreak=\beamer@framebottomskip\relax%
+  %\def\beamer@initfirstlineunskip{}%
+%}
+
+%%provides pdf with 4 slides per page; don't forget to add 'handout' to remove overlays
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{4 on 1}[a4paper, landscape, border shrink=7mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{3}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{4}{border code=\pgfusepath{stroke}}
+%%%Don't forget to add 'handout'
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+%%data for exams%%
+\begin{filecontents}{exam_data.csv} 
+dist 
+89
+85 
+33 
+51 
+74 
+40 
+92 
+64 
+68 
+92 
+84 
+96 
+98 
+60 
+85 
+71 
+96 
+24 
+87 
+81 
+64 
+71 
+58 
+40
+\end{filecontents}
+
+\newcommand{\xmax}{2000}
+\newcommand{\xmin}{0}
+\newcommand{\xstep}{0} %must be xmin+n
+\newcommand{\ymax}{500}
+\newcommand{\ymin}{0}
+\newcommand{\ystep}{0} %must be ymin+n
+
+\newcounter{countEx} \setcounter{countEx}{0}
+\newcounter{countProb} \setcounter{countProb}{0}
+\resetcounteronoverlays{countEx} \resetcounteronoverlays{countProb}
+
+\newcommand{\ex}[3]{
+	\addtocounter{countEx}{1}
+	\only<#1-#2>{\begin{exampleblock} {Example \chNum.\secNum.\arabic{countEx}.} #3	\end{exampleblock}}
+}
+
+\newcommand{\prob}[4]{
+	\addtocounter{countProb}{1}
+	\only<#1-#2>{\begin{exampleblock} {Problem  \chNum.\secNum.\arabic{countProb}.\,#3} #4	\end{exampleblock}}
+}
+
+\newcommand{\yline}[4]{
+	(#2 - #4)/(#1 - #3)*(x - #1) + #2
+}
+
+\beamerdefaultoverlayspecification{<+->}
+
+%%%%Chapter and Section numbers%%%%%
+\newcommand{\chNum}{4}
+\newcommand{\secNum}{2}
+\newcommand{\secTitle}{Measures of Central Tendency}
+\date{\formatdate{31}{10}{2014}}
+
+\title[Section \chNum.\secNum: \secTitle]{Section \chNum.\secNum: \secTitle}
+
+\subtitle{Finite Mathematics~~MTH 107~~Fall 2014}
+
+\author{Dr.\,James Ashe}
+
+\titlegraphic{\includegraphics[height=2.75cm]{/home/jim/JamesAshe/MHU/images/MarsHilUniversityLogo-Virtical.png}}
+
+\institute{Mars Hill University}
+
+\makebeamertitle 
+
+%%True false command
+\newcommand{\T}{\textcolor{green}{\contour{black}{T}}}
+\newcommand{\F}{\textcolor{red}{\contour{black}{F}}}
+\newcommand{\uT}[2]{\uncover<#1-#2>{\T}}
+\newcommand{\uF}[2]{\uncover<#1-#2>{\F}}
+
+%tkiz ball item 
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]
+	{\node[circle,ball color=green!50!black!100, shade,   color=white,inner sep=1.2pt] (char) {\tiny #1};
+	}
+}
+\begin{frame}{Happy Halloween}
+
+\begin{center}
+\textbf{Data:}
+\[
+70,70,80,90,100
+\]
+\par\end{center}
+\begin{columns}
+
+
+\column{4cm}
+
+\textbf{Mean}
+\begin{itemize}
+\item []<2->''average''
+\item []\uncover<3->{$\frac{70+70+80+90+100}{5}$}
+\end{itemize}
+
+\column{4cm}
+
+\textbf{Median}
+\begin{itemize}
+\item []<4->''middle''
+\item []\uncover<5->{$70,70,$\framebox{80}$,90,100$}
+\end{itemize}
+
+\column{4cm}
+
+\textbf{Mode}
+\begin{itemize}
+\item []<6->''most frequent''
+\item []\uncover<7->{\framebox{70,70}$,80,90,100$}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{The Mean}
+
+\begin{columns}
+
+
+\column{5.5cm}
+\begin{block}{Mean Given $n$ data points, $x_{1},x_{2},\dots,x_{n}$, the \emph{mean
+}is\emph{ $\bar{x}=\dfrac{\sum x}{n}$.}}
+\end{block}
+\begin{itemize}
+\item []<4->$n=6$
+\item []<5->$\sum x=3+15+22+9+17+13$
+\item []<5-> \hspace{0cm}\hphantom{$\sum x$}$=79$
+\item []
+\item []<6->$\bar{x}=\dfrac{\sum x}{n}=\dfrac{79}{6}\approx13.167$
+\end{itemize}
+
+\column{5.5cm}
+
+\ex{2}{}{Find the mean of the given data set.}\vspace{.25cm}
+
+\begin{center}
+\uncover<3->{%
+\begin{tabular}{|c|c|}
+\hline 
+\rowcolor{yellow!50}\textbf{Year} & \textbf{TDs}\tabularnewline
+\hline 
+$1985$ & 3\tabularnewline
+\hline 
+$1986$ & 15\tabularnewline
+\hline 
+$1987$ & 22\tabularnewline
+\hline 
+$1988$ & 9\tabularnewline
+\hline 
+$1989$ & 17\tabularnewline
+\hline 
+$1990$ & 13\tabularnewline
+\hline 
+\end{tabular}}
+\par\end{center}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}{Mean: Grouped Data}
+
+\begin{columns}
+
+
+\column{4.5cm}
+\begin{itemize}
+\item []<4->$n=277,000$
+\item []<5->$\sum x=?$
+\item []<6->Use the midpoint, $\frac{\mbox{bottom}+\mbox{top}}{2}$.
+
+\begin{itemize}
+\item <7->[ex.]$\frac{16+20}{2}=18$
+\end{itemize}
+\item []<9->also need to adjust for the frequency.
+
+\begin{itemize}
+\item [ex.]<10->$108,000\cdot18=1,944,000$
+\end{itemize}
+\item []<15->Mean: $\bar{x}=\frac{\sum(f\cdot x)}{n}$\uncover<16->{$=\frac{8,116,500}{277,00}$}
+\end{itemize}
+
+\column{6.75cm}
+
+\ex{2}{}{Find the mean of the given data set.}\vspace{.25cm}\scriptsize
+
+\begin{center}
+\uncover<3->{\hspace{-.525cm}%
+\begin{tabular}{|c|c|c|l|}
+\hline 
+\rowcolor{yellow!50}\tiny\uncover<7->{\textbf{Midpoint}} & \textbf{Wage} & \textbf{Freq.} & \uncover<11->{$f\cdot x$}\tabularnewline
+\hline 
+\uncover<7->{$18$} & $16\leq x<20$ & $108,000$ & \tiny\uncover<12->{$1,944,000$}\tabularnewline
+\hline 
+\uncover<8->{$22.5$} & $20\leq x<25$ & $53,000$ & \tiny\uncover<13->{$1,192,500$}\tabularnewline
+\hline 
+\uncover<8->{$30$} & $25\leq x<35$ & $41,000$ & \tiny\uncover<13->{$1,230,000$}\tabularnewline
+\hline 
+\uncover<8->{$40$} & $35\leq x<45$ & $23,000$ & \tiny\uncover<13->{$920,000$}\tabularnewline
+\hline 
+\uncover<8->{$50$} & $45\leq x<50$ & $29,000$ & \tiny\uncover<13->{$1,450,000$}\tabularnewline
+\hline 
+\uncover<8->{$60$} & $50\leq x<55$ & $23,000$ & \tiny\uncover<13->{$1,380,000$}\tabularnewline
+\hline 
+\multicolumn{1}{c}{} &  & $n=277,00$ & \tiny\uncover<14->{$\sum(f\cdot x)$}\tabularnewline
+\cline{3-3}
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{} &  & \uncover<14->{$=8,116,500$}\tabularnewline
+\cline{4-4}
+\end{tabular}}
+\par\end{center}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}{The Median}
+
+\begin{columns}
+
+
+\column{5cm}
+\begin{block}<5->{Location of Median}
+Given $n$ data points, the location of the median is $L=\dfrac{n+1}{2}$
+after the data has been arranged in ascending order.
+\end{block}
+
+\column{6cm}
+
+\ex{1}{}{Find the median of the following data:
+\begin{enumerate}
+\item [a.] $2,4,6,8,12,10,7$
+\item [b.] $2,4,6,8,12,10$
+\end{enumerate}
+}
+\begin{itemize}
+\item <2->[a.]2,4,6,\framebox{7},8,10,12
+\item <3->[b.]When $n$ is even, take the average of the middle:
+
+\begin{itemize}
+\item []<4->$2,4,$\framebox{6,8}$,12,10$
+\item []<6->Location: $L=\dfrac{6+1}{2}=$$3.5$ data pt between $6$ and
+$8$,
+\item []<7->$\frac{6+8}{2}=7$
+\end{itemize}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{The Mode}
+
+\begin{columns}
+
+
+\column{5.5cm}
+\begin{itemize}
+\item <2->[a.] 1 4 5 5 8 10 10 10 
+
+\begin{itemize}
+\item []<3->The mode is 10
+\end{itemize}
+\item <4->[b.] 1 1 4 4 9 9 10 10 
+
+\begin{itemize}
+\item []<4->Each data point has the same frequency
+\item []<5->-there is no mode.
+\end{itemize}
+\item <6->[c.] 1 3 3 6 8 9 9 
+
+\begin{itemize}
+\item []$2\times3's$ and $2\times9's$
+\item []The mode is 3 and 9
+\item []called \emph{bimodal.}
+\end{itemize}
+\end{itemize}
+
+\column{5.5cm}
+
+\ex{1}{}{Find the mode of the following data sets:
+\begin{itemize}
+\item [a.] 4 10 1 8 5 10 5 10
+\item [b.] 4 9 1 10 1 10 4 9
+\item [c.] 9 6 1 8 3 10 3 9
+\end{itemize}
+}
+\end{columns}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,155 @@
+%% LyX 2.4.4 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[11pt,english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{soul}
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\lhead{MTH 131(B/I) James Ashe\\ 
+\textbf{HW-1 solutions} September, 26 2012}
+\chead{\textbf{Page 86-87}}
+\cfoot{\thepage{}~of~\pageref{LastPage}}
+%%
+%%\setenumerate[0]{leftmargin=12pt,itemindent=0pt,labelwidth=0pt}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}.}}
+\renewcommand{\labelenumii}{\textbf{\alph{enumii}.}}
+\setlength\abovedisplayskip{0pt}
+
+\vspace*{-.75cm}
+
+\begin{multicols}{2}
+\begin{enumerate}
+\item [\textbf{2)}]Evaluate $x^{2}-5(x-y)$ for $x=6$ and $y=2$\vspace{0cm}
+\begin{eqnarray*}
+[x]^{2}-5([x]-[y]) & = & [6]^{2}-5([6]-[2])\\
+ & = & 36-5(6-2)\\
+ & = & 36-5(4)\\
+ & = & 36-20\\
+ & = & \mathbf{16}
+\end{eqnarray*}
+\item [\textbf{24)}]Evaluate $(-3)^{3}(-2)^{2}$\vspace{0cm}
+\begin{eqnarray*}
+(-3)^{3}(-2)^{2} & = & (-3)(-3)(-3)(-2)(-2)\\
+ & = & -27\cdot4\\
+ & = & \mathbf{-108}
+\end{eqnarray*}
+\item [\textbf{30)}]Evaluate $(2x^{3})^{-4}$\vspace{0cm}
+\begin{eqnarray*}
+(2x^{3})^{-4} & = & 2^{-4}x^{3\cdot(-4)}\\
+ & = & \frac{1}{2^{4}}x^{-12}\\
+ & = & \frac{1}{2^{4}x^{12}}\\
+ & = & \mathbf{\frac{1}{16x^{12}}}
+\end{eqnarray*}
+\item [\textbf{32)}]Evaluate$3.74\times10^{4}$\vspace{0cm}
+\begin{eqnarray*}
+ & = & 37.4\times10^{3}\\
+ & = & 374\times10^{2}\\
+ & = & 3,740\times10^{1}\\
+ & = & \mathbf{37,400}
+\end{eqnarray*}
+\item [\textbf{32)}]Simplify $\frac{\sqrt{96x^{3}}}{\sqrt{2x}}$\vspace{0cm}
+\begin{eqnarray*}
+ & = & \sqrt{\frac{96x^{3}}{2x}}\\
+ & = & \sqrt{48x^{2}}\\
+ & = & x\sqrt{2^{4}\cdot3}\\
+ & = & 2^{2}x\sqrt{3}\\
+ & = & 4x\sqrt{3}
+\end{eqnarray*}
+\end{enumerate}
+%%\vfill
+\columnbreak
+\begin{enumerate}
+\item [\textbf{90)}]Factor $x^{2}-11x+28$\\
+$(-7)(-4)=28$ and $-7x+-4x=-11x$\\
+so $x^{2}-11x+28=(x-7)(x-4)$
+\item [\textbf{98)}]Factor $x^{4}-16$\\
+The difference of squares: $a^{2}-b^{2}=(a+b)(a-b)$
+\begin{eqnarray*}
+x^{4}-16 & = & (x^{2}-4)(x^{2}+4)\\
+ & = & \mathbf{(x-2)(x+2)(x^{2}+4})
+\end{eqnarray*}
+\item [\textbf{110)}]Simplify $\frac{x^{2}+3x-18}{x^{2}-36}$ 
+\begin{eqnarray*}
+= & \frac{x^{2}+3x-18}{(x-6)(x+6)} & \mbox{Diff. of Squares}\\
+= & \frac{(x+6)(x-3)}{(x-6)(x+6)}\\
+= & \mathbf{\frac{x-3}{x-6}} & \mathbf{x\neq\pm6}
+\end{eqnarray*}
+\item [\textbf{120)}]Simplify $\frac{3+\frac{12}{x}}{1-\frac{16}{x^{2}}}$
+\begin{eqnarray*}
+ & = & \frac{\frac{3x}{x}+\frac{12}{x}}{\frac{x^{2}}{x^{2}}-\frac{16}{x^{2}}}\\
+ & = & \frac{\frac{3x+12}{x}}{\frac{x^{2}-16}{x^{2}}}\\
+ & = & \left(\frac{3x+12}{x}\right)\frac{x^{2}}{x^{2}-16}\\
+ & = & \frac{x(3x+12)}{x^{2}-16}\\
+ & = & \frac{3x(x+4)}{(x-4)(x+4)}\\
+ & = & \frac{\mathbf{3x}}{\mathbf{x-4}}\mbox{ }\mathbf{x\neq0,\pm4}
+\end{eqnarray*}
+\end{enumerate}
+\end{multicols}
+
+\newpage
+\chead{\textbf{Handout}}
+
+\vspace*{-.75cm}
+
+\textbf{Evaluate}
+
+\vspace{-.25cm}
+
+\begin{multicols}{2}
+\begin{enumerate}
+\item [\bf 1.]$3+6(x-3)^{3}$ for $x=4$
+\item [\bf 2.]$5(2x^{2}-6x)-(2+\frac{8}{x+5})$ for $x=-3$
+\end{enumerate}
+\end{multicols}
+\vspace{1.5in}
+\begin{multicols}{2}
+\begin{enumerate}
+\item [\bf 3.]$x^{2}-5x$ for $x=a+1$
+\item [\bf 4.]$\frac{2x+y}{xy-2x}$ for $x=-2$ and $y=4$
+\end{enumerate}
+\end{multicols}
+\vspace{1.5in}
+
+\textbf{Simplify each expression}
+
+\vspace{-.25cm}
+
+\begin{multicols}{2}
+\begin{enumerate}
+\item [\bf 5.]$5(3x+4)-4$
+\item [\bf 6.]$6-5[8-(2y-4)]$
+\end{enumerate}
+\end{multicols}
+\vspace{1.5in}
+\begin{multicols}{2}
+\begin{enumerate}
+\item [\bf 7.]$(2x^{2}y^{3}-xy+y^{2})-(-4x^{2}y^{3}-5xy-y^{2})$
+\item [\bf 8.]$\frac{x}{x+3}+\frac{5}{x-3}$
+\end{enumerate}
+\end{multicols}
+\end{document}
