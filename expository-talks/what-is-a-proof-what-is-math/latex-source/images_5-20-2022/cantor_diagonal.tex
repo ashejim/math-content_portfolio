@@ -1,0 +1,22 @@
+\documentclass{standalone}
+\usepackage[table]{xcolor}
+
+\begin{document}
+
+\setlength\tabcolsep{1pt} % default value: 6pt
+\begin{tabular}{cccccccc}
+1 & \textbf{$\rightarrow$} & 3.\cellcolor{green} & 1 & 4 & 1 & 5 & \dots\\
+2 & \textbf{$\rightarrow$} & 2. & 5 \cellcolor{green}& 0 & 0 & 0 & \dots\\
+3 & \textbf{$\rightarrow$} & 0. & 1 & 2\cellcolor{green} & 5 & 0 & \dots\\
+4 & \textbf{$\rightarrow$} & 3. & 9 & 9 & 9\cellcolor{green} & 9 & \dots\\
+5 & \textbf{$\rightarrow$} & 1. & 2 & 3 & 4 & 5\cellcolor{green} & \dots\\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \\
+\end{tabular}
+\\
+\vspace{10pt}
+\begin{tabular}{cccccccc}
+$d$ & = & 2. & 4 & 1 & 8 & 4 & \dots\\
+\end{tabular}
+
+% 6 & \textbf{$\rightarrow$} & 1. & 4 & 1 & 4 & 2 & \dots\\
+\end{document}
