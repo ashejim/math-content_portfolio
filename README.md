@@ -71,7 +71,7 @@ reproduced here):
 - **Competency-based performance assessments** at WGU, including assessments
   with objective quality gates for the **BS in AI Engineering** program.
 - **Original evaluation design for AI systems** — a
-  [math-reasoning benchmark](https://github.com/ashejim/eval-benchmark)
+    math-reasoning benchmark
   pairing objective answer keys with step-level rubrics for grading
   mathematical reasoning.
 
