@@ -20,6 +20,7 @@ ability to produce polished, reproducible content.
 | Section | What's inside |
 |---|---|
 | [`recent-work/`](recent-work/) | **Recent (2023) practice sets and reference sheets** authored at WGU — concise, activity-style materials with answer keys, all with `.tex` source and a shared house style file. |
+| [`test-prep/`](test-prep/) | **Original Praxis test-prep content** — a Praxis Core math prep workbook and full-length practice exams modeled on the ETS Praxis 5003, with parallel forms and answer keys. |
 | [`teaching/`](teaching/) | Full materials for 9 university courses — notes, slides, worksheets, exams, and worked solutions. |
 | [`research/`](research/) | Talks on my research in **generalized branching for circle packings** (thesis defense, AMS Sectional, invited colloquium). |
 | [`expository-talks/`](expository-talks/) | **Deep mathematics for general audiences** — Cauchy rigidity, the Art Gallery Theorem, circle packing, Cantor's infinities — with animated slide sequences. |
@@ -67,7 +68,8 @@ reproduced here):
   of official standardized mathematics exams, including the **ETS Praxis 5003**
   (elementary mathematics) and the **NES II** exam series, in LaTeX with
   complete answer keys — item writing, distractor design, and form parallelism
-  to specification.
+  to specification. My own practice-exam forms in this style are published in
+  [`test-prep/`](test-prep/).
 - **Competency-based performance assessments** at WGU, including assessments
   with objective quality gates for the **BS in AI Engineering** program.
 - **Original evaluation design for AI systems** — a
